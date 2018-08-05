@@ -1,5 +1,7 @@
 # Extending
 
+[[toc]]
+
 ## Events
 
 The export process has a few events you can leverage to interact with the underlying 
