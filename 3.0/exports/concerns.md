@@ -16,7 +16,7 @@
 |`Maatwebsite\Excel\Concerns\WithCustomQuerySize`| Allows Exportables that implement the FromQuery concern, to provide their own custom query size. |
 |`Maatwebsite\Excel\Concerns\WithCustomCsvSettings`| Allows to run custom Csv settings for this specific exportable. |
 |`Maatwebsite\Excel\Concerns\WithCharts`| Allows to run one or multiple PhpSpreadsheet Chart instances. |
-
+|`Maatwebsite\Excel\Concerns\WithDrawings`| Allows to run one or multiple PhpSpreadsheet (Base)Drawing instances. |
 
 ### Traits
 
