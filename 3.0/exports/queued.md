@@ -74,16 +74,25 @@ The `queue()` method returns an instance of Laravel's `PendingDispatch`. This me
 ```php
 namespace App\Jobs;
 
+use App\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Queue\SerializesModels;
 
-class InvoiceExportCompletedJob implements ShouldQueue
+class NotifyUserOfCompletedExport implements ShouldQueue
 {
-    use Queueable;
+    use Queueable, SerializesModels;
+    
+    public $user;
+    
+    public function __construct(User $user)
+    {
+        $this->user = $user;
+    }
 
     public function handle()
     {
-        // Do something.
+        $this->user->notify(new ExportReady());
     }
 }
 ```
