@@ -92,6 +92,29 @@ class InvoicesExport implements WithEvents
 }
 ```
 
+### Global event listeners
+
+Event listeners can also be configured globally, if you want to perform the same actions on all exports in your app.
+You can add them to e.g. your `AppServiceProvider` in the `register()` method.
+
+```php
+Writer::listen(BeforeExport::class, function () {
+    //
+});
+
+Writer::listen(BeforeWriting::class, function () {
+    //
+});
+
+Sheet::listen(BeforeSheet::class, function () {
+    //
+});
+
+Sheet::listen(AfterSheet::class, function () {
+    //
+});
+```
+
 #### Available events
 
 | Event name | Payload | Explanation |
