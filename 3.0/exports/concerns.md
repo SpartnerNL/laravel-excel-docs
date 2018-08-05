@@ -17,6 +17,7 @@
 |`Maatwebsite\Excel\Concerns\WithCustomCsvSettings`| Allows to run custom Csv settings for this specific exportable. |
 |`Maatwebsite\Excel\Concerns\WithCharts`| Allows to run one or multiple PhpSpreadsheet Chart instances. |
 |`Maatwebsite\Excel\Concerns\WithDrawings`| Allows to run one or multiple PhpSpreadsheet (Base)Drawing instances. |
+|`Maatwebsite\Excel\Concerns\WithCustomStartCell`| Allows to specify a custom start cell. Do note that this is only supported for FromCollection exports. |
 
 ### Traits
 
