@@ -1,7 +1,6 @@
 ---
 home: true
-heroText: "  "
-heroImage: /assets/img/hero.png
+heroImage: /assets/img/logo-small.png
 actionText: Read documentation →
 actionLink: /3.0/
 features:
