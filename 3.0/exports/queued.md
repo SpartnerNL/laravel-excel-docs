@@ -24,7 +24,9 @@ class InvoicesExport implements FromQuery
 It's as easy as calling `->queue()` now.
 
 ```php
-return (new InvoicesExport)->queue('invoices.xlsx');
+(new InvoicesExport)->queue('invoices.xlsx');
+
+return back()->withSuccess('Export started!');
 ```
 
 Behind the scenes the query will be chunked and multiple jobs will be chained. These jobs will be executed in the correct order,
@@ -56,7 +58,7 @@ In your controller you can now call the normal `->store()` method.
 Based on the presence of the `ShouldQueue` contract, the export will be queued.
 
 ```php
-return (new InvoicesExport)->store('invoices.xlsx');
+(new InvoicesExport)->store('invoices.xlsx');
 ```
 
 ### Appending jobs
@@ -64,7 +66,7 @@ return (new InvoicesExport)->store('invoices.xlsx');
 The `queue()` method returns an instance of Laravel's `PendingDispatch`. This means you can chain extra jobs that will be added to the end of the queue and only executed if all export jobs are correctly executed.
 
 ```php
-return (new InvoicesExport)->queue('invoices.xlsx')->chain([
+(new InvoicesExport)->queue('invoices.xlsx')->chain([
     new NotifyUserOfCompletedExport(request()->user()),
 ]);
 ```
@@ -91,5 +93,5 @@ class InvoiceExportCompletedJob implements ShouldQueue
 Because `PendingDispatch` is returned, we can also change the queue that should be used.
 
 ```php
-return (new InvoicesExport)->queue('invoices.xlsx')->allOnQueue('exports');
+(new InvoicesExport)->queue('invoices.xlsx')->allOnQueue('exports');
 ```
