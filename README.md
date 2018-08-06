@@ -22,7 +22,7 @@ composer require maatwebsite/excel
 :muscle: Create an export class
 
 ```php
-php artisan make:export --model=App\\User
+php artisan make:export UsersExport --model=App\\User
 ```
 
 :fire: Download your export
