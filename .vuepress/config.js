@@ -28,11 +28,11 @@ module.exports = {
         editLinkText: 'Help us improve this page!',
         displayAllHeaders: false,
         sidebarDepth: 0,
-        // algolia: {
-        //     apiKey: 'e95794f59bac5401e3930f71feb3a8e2',
-        //     indexName: 'laravel_excel',
-        //     algoliaOptions: { 'facetFilters': ["version:3.0"] },
-        // },
+        algolia: {
+            apiKey: 'e95794f59bac5401e3930f71feb3a8e2',
+            indexName: 'laravel_excel',
+            algoliaOptions: { 'facetFilters': ["version:3.0"] },
+        },
 
         serviceWorker: {
             updatePopup: true
