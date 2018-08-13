@@ -72,7 +72,7 @@ class YourController
     
     public function export()
     {
-        return $this->excel->export(new YourExport);
+        return $this->excel->download(new YourExport);
     }
 }
 ```
@@ -96,7 +96,7 @@ class YourController
     
     public function export()
     {
-        return $this->exporter->export(new YourExport);
+        return $this->exporter->download(new YourExport);
     }
 }
 ```
@@ -113,7 +113,7 @@ class YourController
 {
     public function export()
     {
-        return Excel::export(new YourExport);
+        return Excel::download(new YourExport);
     }
 }
 ```
