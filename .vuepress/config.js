@@ -48,6 +48,10 @@ module.exports = {
                 ]
             },
             {
+                text: 'Nova',
+                link: '/nova/1.0/',
+            },
+            {
                 text: 'Blog',
                 link: '/blog/',
             }
@@ -56,6 +60,7 @@ module.exports = {
         sidebar: {
             '/3.0/': require('./3.0'),
             '/2.1/': require('./2.1'),
+            '/nova/1.0/': require('./nova/1.0'),
         },
     },
 };
