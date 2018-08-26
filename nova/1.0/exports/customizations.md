@@ -83,6 +83,52 @@ For `DownloadExcel` the default disk is the `public` disk.
 Only change this is you know what you are doing, as it might break the download functionality from working!
 :::
 
+### With Headings
+
+By default the Export doesn't contain a heading row. If you want this, you can use the `withHeadings` method.
+
+```php
+/**
+ * Get the actions available for the resource.
+ *
+ * @param  \Illuminate\Http\Request $request
+ *
+ * @return array
+ */
+public function actions(Request $request)
+{
+    return [
+        (new DownloadExcel)->withHeadings(),
+    ];
+}
+```
+
+This will result into each column having their corresponding column name as first row.
+
+If you want more control, you can pass in the headings yourself.
+
+```php
+public function actions(Request $request)
+{
+    return [
+        (new DownloadExcel)->withHeadings(['#', __('Name'), __('E-mail')]),
+    ];
+}
+```
+
+### Exporting only certain columns.
+
+If you want to select only a few columns for your export, you can use `->only()`.
+
+```php
+public function actions(Request $request)
+{
+    return [
+        (new DownloadExcel)->only('name', 'email'),
+    ];
+}
+```
+
 ### Chunk count
 
 By default we chunk the resource query in chunks of **200**, if you want to change this for performance reasons, you can use the `withChunkCount()`
