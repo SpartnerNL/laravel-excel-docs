@@ -78,11 +78,6 @@ public function actions(Request $request)
 
 The file will now be downloaded in the `csv` format.
 
-:::warning
-For `DownloadExcel` the default disk is the `public` disk. 
-Only change this is you know what you are doing, as it might break the download functionality from working!
-:::
-
 ### With Headings
 
 By default the Export doesn't contain a heading row. If you want this, you can use the `withHeadings` method.
