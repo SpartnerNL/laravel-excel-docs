@@ -135,19 +135,95 @@ By default we chunk the resource query in chunks of **200**, if you want to chan
  method.
  
 ```php
-/**
-     * Get the actions available for the resource.
-     *
-     * @param  \Illuminate\Http\Request $request
-     *
-     * @return array
+public function actions(Request $request)
+{
+    return [
+        (new DownloadExcel)->withChunkCount(300),
+    ];
+}
+```
+
+### Custom success and error messages
+
+By default both `ExportToExcel` and `DownloadExcel` send notifications to the user when an export is failed or succeeded. 
+If you want to customize this, you can use the `onSuccess` or `onFailure` callbacks.
+
+```php
+public function actions(Request $request)
+{
+    return [
+        (new ExportToExcel)
+            ->onSuccess(function() {
+                return Action::message(__('Your export is ready for you! :)'));
+            })->onFailure(function() {
+                 return Action::danger(__('Oh dear! I could not create that export for you :(.'));
+            }),
+    ];
+}
+```
+
+::: warning
+Using `onSuccess` on `DownloadExcel` expects a `Action::download` to be returned!
+:::
+
+### Chaining jobs
+
+Just like in Laravel-Excel it's possible to chain extra jobs to the export queue when using the `QueuedExport`. You could e.g. notify the user about the export completion.
+
+
+```php
+use Illuminate\Foundation\Bus\PendingDispatch;
+
+public function actions(Request $request)
+{
+    return [
+        (new QueuedExport)
+            ->onSuccess(function (ActionRequest $request, PendingDispatch $queue) {
+                $queue
+                    ->allOnQueue('exports')
+                    ->chain([
+                        new NotifyUserOfCompletedExport($request->user()),
+                    ]);
+    
+                return Action::message(__('Your export is queued!'));
+            }),
+    ];
+}
+```
+
+```php
+<?php
+
+namespace App\Jobs;
+
+use App\User;
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Queue\SerializesModels;
+
+class NotifyUserOfCompletedExport implements ShouldQueue
+{
+    use SerializesModels, InteractsWithQueue, Queueable;
+
+    /**
+     * @var User
      */
-    public function actions(Request $request)
+    private $user;
+
+    /**
+     * @param User $user
+     */
+    public function __construct(User $user)
     {
-        return [
-            (new DownloadExcel)->withChunkCount(300),
-        ];
+        $this->user = $user;
     }
+
+    public function handle()
+    {
+        $this->user->notify(...);
+    }
+}
 ```
 
 ## Full control
