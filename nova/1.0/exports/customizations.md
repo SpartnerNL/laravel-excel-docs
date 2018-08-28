@@ -106,7 +106,7 @@ If you want more control, you can pass in the headings yourself.
 public function actions(Request $request)
 {
     return [
-        (new DownloadExcel)->withHeadings(['#', __('Name'), __('E-mail')]),
+        (new DownloadExcel)->withHeadings('#', __('Name'), __('E-mail')),
     ];
 }
 ```
@@ -120,6 +120,19 @@ public function actions(Request $request)
 {
     return [
         (new DownloadExcel)->only('name', 'email'),
+    ];
+}
+```
+
+### Exporting all index columns
+
+By default it exports all visible attributes of your model. If you only want to export the columns that are visible on the index, you can use `->onlyIndexFields()`.
+
+```php
+public function actions(Request $request)
+{
+    return [
+        (new DownloadExcel)->onlyIndexFields(),
     ];
 }
 ```
