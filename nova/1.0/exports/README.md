@@ -1,4 +1,4 @@
-## :rocket: 1 minute quick start
+## :rocket: 5 minutes quick start
 
 :bulb: Require this package in the `composer.json` of your Laravel project. This will download the package and Laravel-Excel.
 
@@ -6,7 +6,7 @@
 composer require maatwebsite/laravel-nova-excel
 ```
 
-:muscle: Go to your resource. As example we'll use the `app/Nova/User.php`. Add `DownloadExcel` action to your `actions()` list.
+:muscle: Go to your Nova resource. As example we'll use the `app/Nova/User.php`. Add `Maatwebsite\LaravelNovaExcel\Actions\DownloadExcel` action to your `actions()` list.
 
 ```php
 <?php

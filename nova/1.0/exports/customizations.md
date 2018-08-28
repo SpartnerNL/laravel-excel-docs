@@ -54,11 +54,13 @@ public function actions(Request $request)
 
 The file will now be downloaded in the `csv` format.
 
+You can find a full list of writer types at [Export formats](/3.0/exports/export-formats.html).
+
 ### Disk
 
 By default the Export will be stored in the `default` storage disk. 
 
-If you want to customize this, you can easily use the `withDisk()` method on the action.
+If you want to customize this, you can easily use the `withDisk()` method on the action. You can use any of the disks configured in `config/filesystems.php`
 
 ```php
 /**
@@ -75,8 +77,6 @@ public function actions(Request $request)
     ];
 }
 ```
-
-The file will now be downloaded in the `csv` format.
 
 ### With Headings
 
@@ -100,13 +100,15 @@ public function actions(Request $request)
 
 This will result into each column having their corresponding column name as first row.
 
+![withHeadings](https://user-images.githubusercontent.com/7728097/44708777-4560ce80-aaa8-11e8-9a42-08f956614826.png)
+
 If you want more control, you can pass in the headings yourself.
 
 ```php
 public function actions(Request $request)
 {
     return [
-        (new DownloadExcel)->withHeadings('#', __('Name'), __('E-mail')),
+        (new DownloadExcel)->withHeadings('#', 'Name', 'E-mail'),
     ];
 }
 ```
@@ -162,9 +164,9 @@ public function actions(Request $request)
     return [
         (new ExportToExcel)
             ->onSuccess(function() {
-                return Action::message(__('Your export is ready for you! :)'));
+                return Action::message('Your export is ready for you! :)');
             })->onFailure(function() {
-                 return Action::danger(__('Oh dear! I could not create that export for you :(.'));
+                 return Action::danger('Oh dear! I could not create that export for you :(.');
             }),
     ];
 }
@@ -193,7 +195,7 @@ public function actions(Request $request)
                         new NotifyUserOfCompletedExport($request->user()),
                     ]);
     
-                return Action::message(__('Your export is queued!'));
+                return Action::message('Your export is queued!');
             }),
     ];
 }

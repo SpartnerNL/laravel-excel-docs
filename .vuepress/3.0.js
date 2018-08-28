@@ -18,6 +18,7 @@ module.exports = [
             '',
             'collection',
             'store',
+            'export-formats',
             'exportables',
             'from-query',
             'from-view',
