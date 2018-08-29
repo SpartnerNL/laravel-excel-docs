@@ -45,6 +45,6 @@ class User extends Resource
 
 :fire: Go to your resource in your Nova admin panel, select all or some users and click "Download Excel"
 
-![Dowload Excel](https://user-images.githubusercontent.com/7728097/44621835-af615400-a8ad-11e8-9d9e-924c553a10ac.png)
+![Dowload Excel](https://user-images.githubusercontent.com/7728097/44807515-0dea4300-abca-11e8-9396-9bd969f6a6c9.png)
 
 :page_facing_up: Find your `users.xlsx` in your downloads folder!
