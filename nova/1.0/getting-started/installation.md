@@ -16,3 +16,17 @@ Require this package (`maatwebsite/laravel-nova-excel`) in the `composer.json` o
 ```
 composer require maatwebsite/laravel-nova-excel
 ```
+
+## Service Provider
+
+In case you don't have auto-discovery enabled, you'll have to add the following two service providers in `app/config.php`
+
+```
+'providers' => [
+    /*
+     * Package Service Providers...
+     */
+    Maatwebsite\Excel\ExcelServiceProvider::class,
+    Maatwebsite\LaravelNovaExcel\LaravelNovaExcelServiceProvider::class,
+]
+```
