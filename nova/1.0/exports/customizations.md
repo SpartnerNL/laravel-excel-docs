@@ -126,6 +126,19 @@ public function actions(Request $request)
 }
 ```
 
+### Exporting all except certain columns.
+
+If you want to leave out a few columns in your export, you can use `->except()`.
+
+```php
+public function actions(Request $request)
+{
+    return [
+        (new DownloadExcel)->except('email'),
+    ];
+}
+```
+
 ### Exporting all index columns
 
 By default it exports all visible attributes of your model. If you only want to export the columns that are visible on the index, you can use `->onlyIndexFields()`.
