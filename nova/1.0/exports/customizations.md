@@ -113,6 +113,19 @@ public function actions(Request $request)
 }
 ```
 
+### Exporting all fields
+
+By default it exports only the attributes indicated as index fields on the resource. If you want to export **all** attributes, you can use `allFields()`
+
+```php
+public function actions(Request $request)
+{
+    return [
+        (new DownloadExcel)->allFields(),
+    ];
+}
+```
+
 ### Exporting only certain columns.
 
 If you want to select only a few columns for your export, you can use `->only()`.
@@ -128,7 +141,7 @@ public function actions(Request $request)
 
 ### Exporting all except certain columns.
 
-If you want to leave out a few columns in your export, you can use `->except()`.
+If you want to leave out a few columns in your export, you can use `->except()`. It will now export all index fields except the ones you specified.
 
 ```php
 public function actions(Request $request)
@@ -139,15 +152,13 @@ public function actions(Request $request)
 }
 ```
 
-### Exporting all index columns
-
-By default it exports all visible attributes of your model. If you only want to export the columns that are visible on the index, you can use `->onlyIndexFields()`.
+If you want to export **all** fields except some, you can combine `allFields()` with `except()`.
 
 ```php
 public function actions(Request $request)
 {
     return [
-        (new DownloadExcel)->onlyIndexFields(),
+        (new DownloadExcel)->allFields()->except('email'),
     ];
 }
 ```
