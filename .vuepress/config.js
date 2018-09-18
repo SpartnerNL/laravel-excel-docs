@@ -44,7 +44,8 @@ module.exports = {
                 link: '/',
                 items: [
                     {text: '3.0', link: '/3.0/'},
-                    {text: '2.1', link: '/2.1/'}
+                    {text: '2.1', link: '/2.1/'},
+                    {text: '3.1 (Unreleased)', link: '/3.1/'},
                 ]
             },
             {
@@ -58,6 +59,7 @@ module.exports = {
         ],
 
         sidebar: {
+            '/3.1/': require('./3.1'),
             '/3.0/': require('./3.0'),
             '/2.1/': require('./2.1'),
             '/nova/1.0/': require('./nova/1.0'),
