@@ -37,6 +37,13 @@ module.exports = [
         children: prefix('imports', [
             '',
             'collection',
+            'model',
+            'importables',
+            'heading-row',
+            'batch-inserts',
+            'chunk-reading',
+            'queued',
+            'mapped-cells',
         ]),
     },
 ];
