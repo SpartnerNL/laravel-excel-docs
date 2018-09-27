@@ -33,7 +33,7 @@ A chunk size of `1000` will not be the most optimal situation for your export. P
 
 ### Using it together with Batch Inserts
 
-The most ideal situation (time and memory consumption) you will find when combining batch inserts and chunk reading.
+The most ideal situation (regarding time and memory consumption) you will find when combining batch inserts and chunk reading.
 
 ```php
 namespace App\Imports;

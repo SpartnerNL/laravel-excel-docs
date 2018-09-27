@@ -202,7 +202,7 @@ Using `onSuccess` on `DownloadExcel` expects a `Action::download` to be returned
 
 ### Chaining jobs
 
-Just like in Laravel-Excel it's possible to chain extra jobs to the export queue when using the `QueuedExport`. You could e.g. notify the user about the export completion.
+Just like in Laravel Excel it's possible to chain extra jobs to the export queue when using the `QueuedExport`. You could e.g. notify the user about the export completion.
 
 
 ```php
@@ -281,7 +281,7 @@ class ExportUsers extends DownloadExcel
 
 ### Concerns
 
-Just like in the base package **Laravel-Excel** you can apply concerns to your action.
+Just like in the base package **Laravel Excel** you can apply concerns to your action.
 
 E.g. we could add a `WithMapping` concern to the action. Now when exporting the resource it will first map each row, before exporting it.
 

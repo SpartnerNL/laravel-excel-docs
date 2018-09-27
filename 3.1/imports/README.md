@@ -1,6 +1,6 @@
 ## :rocket: 5 minutes quick start
 
-:muscle: Create an import class in `app/Imports`
+:muscle: Create an import class in `App\Imports`
 
 You may do this by using the `make:import` command.
 
@@ -8,7 +8,7 @@ You may do this by using the `make:import` command.
 php artisan make:import UsersImport --model=User
 ```
 
-If you prefer to create the import manually, you can create the following in `app/Imports`:
+If you prefer to create the import manually, you can create the following in `App\Imports`:
 
 ```php
 <?php
@@ -45,7 +45,7 @@ use App\Http\Controllers\Controller;
 
 class UsersController extends Controller 
 {
-    public function imports() 
+    public function import() 
     {
         Excel::import(new UsersImport, 'users.xlsx');
         

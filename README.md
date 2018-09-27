@@ -8,8 +8,8 @@ features:
   details: Supercharge your Laravel collections and export them directly to an Excel or CSV document. Exporting has never been so easy.
 - title: 🚀 Supercharged exports. 
   details: Export queries with automatic chunking for better performance. For even more superpowers, exports can also be queued.
-- title: 🔥 Export blade views.
-  details: Want to have a custom layout in your spreadsheet? Use a HTML table in a blade view and export that to Excel.
+- title: 🔥 Export Blade views.
+  details: Want to have a custom layout in your spreadsheet? Use a HTML table in a Blade view and export that to Excel.
 footer: MIT Licensed | Powered by Maatwebsite
 ---
 

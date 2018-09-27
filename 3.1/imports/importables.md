@@ -2,7 +2,7 @@
 
 In the previous example, we used the `Excel::import` facade to start an import. 
 
-Laravel-Excel also provides a `Maatwebsite\Excel\Concerns\Importable` trait, to make import classes importable.
+Laravel Excel also provides a `Maatwebsite\Excel\Concerns\Importable` trait, to make import classes importable.
 
 ```php
 namespace App\Imports;

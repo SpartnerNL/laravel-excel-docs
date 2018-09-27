@@ -10,7 +10,7 @@
 - Add text-indent support to HtmlReader
 - Add simple sheet password protection
 - Add support for exporting multiple pdf pages
-- Add inline cell formatting to blade
+- Add inline cell formatting to Blade
 
 ### 2.0.2
 - Fix issue with different start row in chunk filter

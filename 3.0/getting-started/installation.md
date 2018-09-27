@@ -2,7 +2,7 @@
 
 ## Requirements
 
-* PHP: `^7.1`
+* PHP: `^7.0`
 * Laravel: `^5.5`
 * PhpSpreadsheet: `^1.2`
 * PHP extension `php_zip` enabled
