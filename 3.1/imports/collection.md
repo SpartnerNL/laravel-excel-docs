@@ -34,6 +34,6 @@ In your controller we can now import this:
 ```php
 public function export() 
 {
-    return Excel::import(new UsersImport, 'users.xlsx');
+    Excel::import(new UsersImport, 'users.xlsx');
 }
 ```

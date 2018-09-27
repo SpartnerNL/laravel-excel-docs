@@ -30,7 +30,7 @@ class UsersImport implements ToModel, WithHeadingRow
 }
 ```
 
-### Heading row on different row
+## Heading row on different row
 
 In case your heading row is not on the first row, you can easily specify this in your import class:
 
@@ -60,13 +60,13 @@ class UsersImport implements ToModel, WithHeadingRow
 
 The 2nd row will now be used as heading row.
 
-### Heading key formatting
+## Heading key formatting
 
 By default the heading keys are formatted with the Laravel `str_slug()` helper. E.g. this means all spaces are converted to `_`.
 
 If you want to change this behaviour, you can do so by extending the `HeadingRowFormatter`
 
-#### No formatting
+### No formatting
 
 If you want no formatting at all, you can use the `none` formatter.
 
@@ -76,7 +76,7 @@ use Maatwebsite\Excel\Imports\HeadingRowFormatter;
 HeadingRowFormatter::default('none');
 ```
 
-#### Custom formatter
+### Custom formatter
 
 You can define a custom formatter with `::extend()`.
 
@@ -91,3 +91,15 @@ You can then set this new formatter as the default formatter.
 ```php
 HeadingRowFormatter::default('ascii');
 ```
+
+## Importing only the heading row
+
+Sometimes you might want to prefetch the heading row to do some validation. We have an easy shortcut for this: `HeadingRowImport`.
+
+```php
+use Maatwebsite\Excel\HeadingRowImport;
+
+$headings = (new HeadingRowImport)->toArray();
+```
+
+The headings array contains an array of headings per sheet. 

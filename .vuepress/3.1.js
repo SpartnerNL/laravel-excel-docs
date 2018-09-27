@@ -44,6 +44,9 @@ module.exports = [
             'chunk-reading',
             'queued',
             'mapped-cells',
+            'concerns',
+            'extending',
+            'testing',
         ]),
     },
 ];
