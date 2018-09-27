@@ -13,9 +13,9 @@ use Maatwebsite\Excel\Concerns\ToCollection;
 
 class UsersImport implements ToCollection
 {
-    public function collection(Collection $sheets)
+    public function collection(Collection $rows)
     {
-        foreach ($sheets->first() as $row) 
+        foreach ($rows as $row) 
         {
             User::create([
                 'name' => $row[0],
@@ -25,7 +25,9 @@ class UsersImport implements ToCollection
 }
 ```
 
-The collection method will receive a collection of sheets. Each sheet will contain a collection of rows. A row is an array filled with the cell values.
+The collection method will receive a collection of rows. A row is an array filled with the cell values. 
+
+In case of the file having multiple sheets, the `collection()` method will be called multiple times.
 
 In your controller we can now import this:
 

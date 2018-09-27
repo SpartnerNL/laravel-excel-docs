@@ -4,9 +4,9 @@ In case your file contains a heading row (a row in which each cells indicates th
 
 Given we have an excel file looking like this:
 
-| name | email |
-|---- |----|
-| Patrick Brouwers | patrick@maatwebsite.nl |
+| Name | Email | @ Field |
+|---- |----|---|
+| Patrick Brouwers | patrick@maatwebsite.nl | Some value |
 
 We can now reference the heading instead of a numeric array key.
 
@@ -24,6 +24,7 @@ class UsersImport implements ToModel, WithHeadingRow
         return new User([
             'name'  => $row['name'],
             'email' => $row['email'],
+            'at     => $row['at_field'],
         ]);
     }
 }
@@ -58,3 +59,35 @@ class UsersImport implements ToModel, WithHeadingRow
 ```
 
 The 2nd row will now be used as heading row.
+
+### Heading key formatting
+
+By default the heading keys are formatted with the Laravel `str_slug()` helper. E.g. this means all spaces are converted to `_`.
+
+If you want to change this behaviour, you can do so by extending the `HeadingRowFormatter`
+
+#### No formatting
+
+If you want no formatting at all, you can use the `none` formatter.
+
+```php
+use Maatwebsite\Excel\Imports\HeadingRowFormatter;
+
+HeadingRowFormatter::default('none');
+```
+
+#### Custom formatter
+
+You can define a custom formatter with `::extend()`.
+
+```php
+HeadingRowFormatter::extend('ascii', function($value) {
+    return str_ascii($value); 
+});
+```
+
+You can then set this new formatter as the default formatter.
+
+```php
+HeadingRowFormatter::default('ascii');
+```
