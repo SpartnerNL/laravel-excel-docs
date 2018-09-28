@@ -68,12 +68,20 @@ If you want to change this behaviour, you can do so by extending the `HeadingRow
 
 ### No formatting
 
-If you want no formatting at all, you can use the `none` formatter.
+If you want no formatting at all, you can use the `none` formatter. The array keys will contain the exact date that was in the heading row.
 
 ```php
 use Maatwebsite\Excel\Imports\HeadingRowFormatter;
 
 HeadingRowFormatter::default('none');
+
+public function model(array $row)
+{
+    return new User([
+        'name'  => $row['Name'],
+        'email' => $row['Email'],
+    ]);
+}
 ```
 
 ### Custom formatter
@@ -81,15 +89,15 @@ HeadingRowFormatter::default('none');
 You can define a custom formatter with `::extend()`.
 
 ```php
-HeadingRowFormatter::extend('ascii', function($value) {
-    return str_ascii($value); 
+HeadingRowFormatter::extend('custom', function($value) {
+    return 'do-something-custom' . $value; 
 });
 ```
 
 You can then set this new formatter as the default formatter.
 
 ```php
-HeadingRowFormatter::default('ascii');
+HeadingRowFormatter::default('custom');
 ```
 
 ## Importing only the heading row
@@ -99,7 +107,13 @@ Sometimes you might want to prefetch the heading row to do some validation. We h
 ```php
 use Maatwebsite\Excel\HeadingRowImport;
 
-$headings = (new HeadingRowImport)->toArray();
+class UsersImportController extends Controller 
+{
+    public function import()
+    {
+        $headings = (new HeadingRowImport)->toArray('users.xlsx');
+    }
+}
 ```
 
 The headings array contains an array of headings per sheet. 
