@@ -32,7 +32,7 @@ In case of the file having multiple sheets, the `collection()` method will be ca
 In your controller we can now import this:
 
 ```php
-public function export() 
+public function import() 
 {
     Excel::import(new UsersImport, 'users.xlsx');
 }

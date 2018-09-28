@@ -2,7 +2,7 @@
 
 In the previous example, we used the `Excel::download` facade to start an export. 
 
-Laravel-Excel also provides a `Maatwebsite\Excel\Concerns\Exportable` trait, to make export classes exportable.
+Laravel Excel also provides a `Maatwebsite\Excel\Concerns\Exportable` trait, to make export classes exportable.
 
 ```php
 namespace App\Exports;

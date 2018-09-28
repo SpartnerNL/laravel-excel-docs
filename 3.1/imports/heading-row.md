@@ -2,7 +2,7 @@
 
 In case your file contains a heading row (a row in which each cells indicates the purpose of that column) and you want to use those names as array keys of each row, you can implement the `WithHeadingRow` concern.
 
-Given we have an excel file looking like this:
+Given we have an Excel file looking like this:
 
 | Name | Email | @ Field |
 |---- |----|---|

@@ -24,7 +24,7 @@ or
 
 ### Table heading as attributes
 
-By default the first row of the excel file will be used as attributes.
+By default the first row of the Excel file will be used as attributes.
 
     // Get the firstname
     $row->firstname;

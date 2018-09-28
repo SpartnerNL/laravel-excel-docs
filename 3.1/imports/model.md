@@ -26,7 +26,7 @@ In case you want to skip a row, you can return null.
 ```php
 public function model(array $row)
 {
-    if (!isset($row[0]) {
+    if (!isset($row[0])) {
         return null;
     }
 

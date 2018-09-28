@@ -118,7 +118,7 @@ Sheet::listen(AfterSheet::class, function () {
 
 ## Macroable
 
-Both `Reader` and `Sheet` are "macroable" which means they can easily be extended to fit your needs. 
+Both `Reader` and `Sheet` are "macroable" (which means they can easily be extended to fit your needs). 
 Both Reader and Sheet have a `->getDelegate()` method which returns the underlying PhpSpreadsheet class. 
 This will allow you to add custom macros as shortcuts to PhpSpreadsheet methods that are not available in this package. 
 
@@ -142,4 +142,4 @@ Sheet::macro('setOrientation', function (Sheet $sheet, $orientation) {
 });
 ```
 
-For PhpSpreadsheet methods, please refer to their documentation: https://phpspreadsheet.readthedocs.io/
+For PhpSpreadsheet methods, please refer to [their documentation](https://phpspreadsheet.readthedocs.io/).

@@ -2,7 +2,9 @@
 
 | Interface | Explanation |
 |---- |----|
+|`Maatwebsite\Excel\Concerns\FromArray`| Use an array to populate the export. |
 |`Maatwebsite\Excel\Concerns\FromCollection`| Use a Laravel Collection to populate the export. |
+|`Maatwebsite\Excel\Concerns\FromIterator`| Use an iterator to populate the export. |
 |`Maatwebsite\Excel\Concerns\FromQuery`| Use an Eloquent query to populate the export. | 
 |`Maatwebsite\Excel\Concerns\FromView`| Use a (Blade) view to to populate the export. |
 |`Maatwebsite\Excel\Concerns\WithTitle`| Set the Workbook or Worksheet title. |
