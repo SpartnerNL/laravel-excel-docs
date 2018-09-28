@@ -14,14 +14,14 @@ will have to return an array of events. The key is the Fully Qualified Name (FQN
 This can either be a closure, array-callable or invokable class.
 
 ```php
-namespace App\Exports;
+namespace App\Imports;
 
 use Maatwebsite\Excel\Concerns\WithEvents;
 use Maatwebsite\Excel\Events\BeforeImport;
 use Maatwebsite\Excel\Events\AfterSheet;
 use Maatwebsite\Excel\Events\BeforeSheet;
 
-class InvoicesExport implements WithEvents
+class UsersImport implements WithEvents
 {
     /**
      * @return array
@@ -38,12 +38,12 @@ class InvoicesExport implements WithEvents
             BeforeSheet::class => new BeforeSheetHandler(),
             
             // Array callable, refering to a static method.
-            AfterImport::class => [self::class, 'afterImport'],
+            AfterSheet::class => [self::class, 'afterSheet'],
                         
         ];
     }
     
-    public static function afterImport(AfterImport $event) 
+    public static function afterSheet(AfterSheet $event) 
     {
         //
     }
