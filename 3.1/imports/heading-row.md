@@ -86,7 +86,7 @@ public function model(array $row)
 
 ### Custom formatter
 
-You can define a custom formatter with `::extend()`.
+You can define a custom formatter with `::extend()` in a service provider.
 
 ```php
 HeadingRowFormatter::extend('custom', function($value) {
@@ -94,7 +94,17 @@ HeadingRowFormatter::extend('custom', function($value) {
 });
 ```
 
-You can then set this new formatter as the default formatter.
+You can set the custom formatter in `config/excel.php`.
+
+```php
+'imports' => [
+    'heading_row' => [
+        'formatter' => 'custom',
+    ],
+],
+```
+
+Or you can then set this new formatter in a service provider.
 
 ```php
 HeadingRowFormatter::default('custom');
