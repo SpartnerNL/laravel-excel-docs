@@ -18,7 +18,7 @@ namespace App\Imports;
 use App\User;
 use Maatwebsite\Excel\Concerns\ToModel;
 
-class UsersExport implements ToModel
+class UsersImport implements ToModel
 {
     /**
      * @param array $row
