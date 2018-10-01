@@ -36,6 +36,7 @@ module.exports = [
         collapsable: false,
         children: prefix('imports', [
             '',
+            'basics',
             'collection',
             'model',
             'importables',

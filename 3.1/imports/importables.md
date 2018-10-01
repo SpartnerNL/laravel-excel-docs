@@ -27,11 +27,19 @@ class UsersImport implements ToModel
 We can now import without the need for the facade:
 
 ```php
-return (new UsersImport)->import('users.xlsx');
+(new UsersImport)->import('users.xlsx', 'local', \Maatwebsite\Excel\Excel::XLSX);
 ```
 
 Or queue the import:
 
 ```php
-return (new UsersImport)->queue('users.xlsx');
+(new UsersImport)->queue('users.xlsx');
+```
+
+The import can be loaded into an array or collection:
+
+```php
+$array = (new UsersImport)->toArray('users.xlsx');
+
+$collection = (new UsersImport)->toCollection('users.xlsx');
 ```
