@@ -45,6 +45,7 @@ module.exports = [
             'chunk-reading',
             'queued',
             'mapped-cells',
+            'custom-formatting-values',
             'concerns',
             'extending',
             'testing',
