@@ -31,8 +31,8 @@ class UsersImport implements ToModel
 
 ### Importing from default disk
 
-Passing the UsersImport object to the Excel::import() method, will tell the package how to import the file that is passed as second parameter. 
-The file is expected to be located in your default filesystem disk (see config/filesystems.php).
+Passing the UsersImport object to the _Excel::import()_ method, will tell the package how to import the file that is passed as second parameter. 
+The file is expected to be located in your default filesystem disk (see `config/filesystems.php`).
 
 ```php
 Excel::import(new UsersImport, 'users.xlsx');
@@ -40,7 +40,7 @@ Excel::import(new UsersImport, 'users.xlsx');
 
 ### Importing from anther disk
 
-You can specify another disk with the third parameter like your Amazon s3 disk. (see config/filesystems.php)
+You can specify another disk with the third parameter like your Amazon s3 disk. (see `config/filesystems.php`)
 
 ```php
 Excel::import(new UsersImport, 'users.xlsx', 's3');
