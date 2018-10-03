@@ -8,7 +8,7 @@ Please read and understand the contribution guide before creating an issue or pu
 
 - [Docs](https://laravel-excel.maatwebsite.nl)
 - [Issue tracker](https://github.com/Maatwebsite/Laravel-Excel/issues)
-- [Support](/3.0/getting-started/support.html)
+- [Support](/3.1/getting-started/support.html)
 
 ## Etiquette
 
@@ -30,7 +30,7 @@ whether or not your feature is likely to be used by other users of the project.
 
 - Check the codebase to ensure that your feature doesn't already exist.
 - Check the pull requests to ensure that another person hasn't already submitted the feature or fix.
-- Use the [pull request template](https://github.com/Maatwebsite/Laravel-Excel/blob/3.0/.github/PULL_REQUEST_TEMPLATE.md).
+- Use the [pull request template](https://github.com/Maatwebsite/Laravel-Excel/blob/3.1/.github/PULL_REQUEST_TEMPLATE.md).
 
 ## How to report a bug?
 
@@ -38,7 +38,7 @@ whether or not your feature is likely to be used by other users of the project.
 - Check to make sure your bug report isn't already present within the project.
 - Check the pull requests tab to ensure that the bug doesn't have a fix in progress.
 - Check the pull requests tab to ensure that the feature isn't already in progress.
-- Use the [issue template](https://github.com/Maatwebsite/Laravel-Excel/blob/3.0/.github/ISSUE_TEMPLATE.md).
+- Use the [issue template](https://github.com/Maatwebsite/Laravel-Excel/blob/3.1/.github/ISSUE_TEMPLATE.md).
 
 ## Requirements
 

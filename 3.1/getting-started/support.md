@@ -13,13 +13,12 @@ Versions will be supported for a limited amount of time.
 | Version | Laravel Version | Php Version | Support |
 |---- |----|----|----|
 | 2.1 | <=5.6 | <=7.0 | Unsupported since 15-5-2018 |
-| 3.0 | ^5.5 |  ^7.0 | Security fixes till 01-04-2019 |
+| 3.0 | ^5.5 |  ^7.0 | Security fixes till 31-12-2018 |
 | 3.1 | ^5.5 |  ^7.0 | New features |
 
 ::: warning PHP version support
 Support for PHP versions will only be maintained for a period of six months beyond the end-of-life of that PHP version.
 :::
-
 
 ## Requesting support
 Before you request support, please check the following:

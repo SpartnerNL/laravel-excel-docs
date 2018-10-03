@@ -4,11 +4,14 @@
 
 ## Upgrading to 3.1 from 3.0
 
-Version 3.1 is backwards compatible with 3.0.
+Version 3.1 is backwards compatible with 3.0. Only features were added in this release.
 
 __Additions__
 
 * Imports feature.
+* ChunkReading
+* BatchInserts
+* Queued imports
 * ToArray concern for Exports.
 * Custom value binders for Imports and Exports.
 
@@ -31,3 +34,5 @@ ALL Laravel Excel 2.* methods are deprecated and will not be able to use in 3.0 
 - Excel::load() is removed and replaced by Excel::import($yourImport)
 - Excel::create() is removed and replaced by Excel::download/Excel::store($yourExport)
 - 3.0 provides no convenience methods for styling, you are encouraged to use PhpSpreadsheets native methods.
+
+You can find an example upgrade for an export here: https://github.com/Maatwebsite/Laravel-Excel/issues/1799

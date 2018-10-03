@@ -36,7 +36,7 @@ public function storeExcel()
 }
 ```
 
-:bulb: More about storing exports can be found in the [storing exports on disk page](/3.0/exports/store.html).
+:bulb: More about storing exports can be found in the [storing exports on disk page](/3.1/exports/store.html).
 
 ### Dependency injection
 

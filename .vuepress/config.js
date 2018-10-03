@@ -1,6 +1,6 @@
 module.exports = {
     title: 'Laravel Excel',
-    description: 'Supercharged Excel exports in Laravel',
+    description: 'Supercharged Excel exports and imports in Laravel',
     ga: 'UA-775649-7',
     serviceWorker: true,
 
@@ -12,7 +12,7 @@ module.exports = {
         [
             'link',
             {
-                href: 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:100,300,400,500,600,700',
+                href: 'https://fonts.googleapis.com/css?family=Nunito:100,300,400,500,600,700',
                 rel: 'stylesheet',
                 type: 'text/css',
             },
@@ -31,7 +31,7 @@ module.exports = {
         algolia: {
             apiKey: 'e95794f59bac5401e3930f71feb3a8e2',
             indexName: 'laravel_excel',
-            algoliaOptions: { 'facetFilters': ["version:3.0"] },
+            algoliaOptions: { 'facetFilters': ["version:3.1"] },
         },
 
         serviceWorker: {
@@ -43,9 +43,9 @@ module.exports = {
                 text: 'Version',
                 link: '/',
                 items: [
+                    {text: '3.1', link: '/3.1/'},
                     {text: '3.0', link: '/3.0/'},
                     {text: '2.1', link: '/2.1/'},
-                    {text: '3.1 (Unreleased)', link: '/3.1/'},
                 ]
             },
             {

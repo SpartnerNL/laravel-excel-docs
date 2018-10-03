@@ -1,7 +1,7 @@
 module.exports = [
     {
         title: 'Getting Started',
-        collapsable: false,
+        collapsable: true,
         children: prefix('getting-started', [
             '',
             'license',
@@ -13,7 +13,7 @@ module.exports = [
     },
     {
         title: 'Exports',
-        collapsable: false,
+        collapsable: true,
         children: prefix('exports', [
             '',
             'collection',
@@ -33,7 +33,7 @@ module.exports = [
     },
     {
         title: 'Imports',
-        collapsable: false,
+        collapsable: true,
         children: prefix('imports', [
             '',
             'basics',

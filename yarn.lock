@@ -5628,7 +5628,7 @@ regexpu-core@^4.1.3, regexpu-core@^4.1.4:
     unicode-match-property-ecmascript "^1.0.4"
     unicode-match-property-value-ecmascript "^1.0.2"
 
-register-service-worker@^1.4.1:
+register-service-worker@^1.5.1:
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/register-service-worker/-/register-service-worker-1.5.2.tgz#a4631896c38d6ec5597358f44988cc46a911912d"
   integrity sha512-XNqSZHJsFGnvEGkg/2IrCp6G8Ya3qLj4mq0bSHil/dfdO82LOxGnMnJjAD9MYCvf/8cDCO8pL+1i65yzmP7rPQ==
@@ -6779,9 +6779,10 @@ vuepress-html-webpack-plugin@^3.2.0:
     toposort "^1.0.0"
     util.promisify "1.0.0"
 
-vuepress@vuejs/vuepress#5084fcab63c0381ef5170a55f76e38f306dc756b:
-  version "0.13.0"
-  resolved "https://codeload.github.com/vuejs/vuepress/tar.gz/5084fcab63c0381ef5170a55f76e38f306dc756b"
+vuepress@^0.14:
+  version "0.14.4"
+  resolved "https://registry.yarnpkg.com/vuepress/-/vuepress-0.14.4.tgz#fea77daa840b11429564bdddde3653bbbec4affb"
+  integrity sha512-AUZ+6wL1uXapX+I7h4EeXQ2Gcxaars7Ys5K8EUVuCgyDB0v36eoQWnoAVpNpMXL7kPCkVSq8DUtJQtOtHluSXQ==
   dependencies:
     "@babel/core" "7.0.0-beta.47"
     "@vue/babel-preset-app" "3.0.0-beta.11"
@@ -6821,7 +6822,7 @@ vuepress@vuejs/vuepress#5084fcab63c0381ef5170a55f76e38f306dc756b:
     portfinder "^1.0.13"
     postcss-loader "^2.1.5"
     prismjs "^1.13.0"
-    register-service-worker "^1.4.1"
+    register-service-worker "^1.5.1"
     semver "^5.5.0"
     stylus "^0.54.5"
     stylus-loader "^3.0.2"

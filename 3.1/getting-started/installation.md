@@ -4,7 +4,7 @@
 
 * PHP: `^7.0`
 * Laravel: `^5.5`
-* PhpSpreadsheet: `^1.2`
+* PhpSpreadsheet: `^1.4`
 * PHP extension `php_zip` enabled
 * PHP extension `php_xml` enabled
 * PHP extension `php_gd2` enabled
@@ -51,14 +51,15 @@ This will create a new config file named `config/excel.php`.
 
 ## Usage
 
-Laravel Excel can be used in a various of ways. I'm sure you will find your prefered of using it. This can be either via dependency injection or if you prefer you can even use a facade.
+Laravel Excel can be used in a various of ways. I'm sure you will find your preferred of using it. This can be either via dependency injection or if you prefer you can even use a facade.
 
 ### Via dependency injection
 
 You can inject the `Excel` manager class into your class, either via constructor injection or method injection in case of a controller.
 
 ```php
-use App\YourExport;
+use App\Exports\YourExport;
+use App\Imports\YourImport;
 use Maatwebsite\Excel\Excel;
 
 class YourController
@@ -72,7 +73,12 @@ class YourController
     
     public function export()
     {
-        return $this->excel->download(new YourExport);
+        return $this->excel->download(new YourExport, 'users.xlsx');
+    }
+    
+    public function import()
+    {
+        return $this->excel->import(new YourImport, 'users.xlsx');
     }
 }
 ```
@@ -82,7 +88,7 @@ class YourController
 You can also use the `Maatwebsite\Excel\Exporter` to decouple more from the concrete Excel manager implementation.
 
 ```php
-use App\YourExport;
+use App\Exports\YourExport;
 use Maatwebsite\Excel\Exporter;
 
 class YourController
@@ -101,19 +107,48 @@ class YourController
 }
 ```
 
+### Via Importer interface
+
+You can also use the `Maatwebsite\Excel\Importer` to decouple more from the concrete Excel manager implementation.
+
+```php
+use App\Imports\YourImport;
+use Maatwebsite\Excel\Importer;
+
+class YourController
+{
+    private $importer;
+
+    public function __construct(Importer $importer)
+    {
+        $this->importer = $importer;
+    }
+    
+    public function import()
+    {
+        return $this->importer->import(new YourImport, 'users.xlsx');
+    }
+}
+```
+
 ### Via the Facade
 
 If you prefer facades, you can you use the `Maatwebsite\Excel\Facades\Excel` facade or if you use the alias the `Excel` facade alias.
 
 ```php
-use App\YourExport;
+use App\Exports\YourExport;
 use Maatwebsite\Excel\Facades\Excel;
 
 class YourController
 {
     public function export()
     {
-        return Excel::download(new YourExport);
+        return Excel::download(new YourExport, 'users.xlsx');
+    }
+    
+    public function import()
+    {
+        return Excel::import(new YourImport, 'users.xlsx');
     }
 }
 ```
