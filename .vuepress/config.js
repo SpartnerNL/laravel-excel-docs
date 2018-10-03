@@ -54,7 +54,7 @@ module.exports = {
             },
             {
                 text: 'Blog',
-                link: '/blog/',
+                link: 'https://medium.com/maatwebsite',
             }
         ],
 
