@@ -54,7 +54,7 @@ module.exports = {
             },
             {
                 text: 'Blog',
-                link: 'https://medium.com/maatwebsite',
+                link: 'https://medium.com/maatwebsite/laravel-excel/home',
             }
         ],
 
