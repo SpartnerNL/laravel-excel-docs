@@ -40,6 +40,7 @@ module.exports = [
             'collection',
             'model',
             'importables',
+            'multiple-sheets',
             'heading-row',
             'batch-inserts',
             'chunk-reading',
