@@ -18,7 +18,7 @@ class UsersImport implements WithMultipleSheets {
             0 => new FirstSheetImport(),
             
             // Select by sheet name
-            'Sheet2' => new SecondSheetImport
+            'Other sheet' => new SecondSheetImport
         ];
     }
 }
