@@ -38,7 +38,7 @@ The file is expected to be located in your default filesystem disk (see `config/
 Excel::import(new UsersImport, 'users.xlsx');
 ```
 
-### Importing from anther disk
+### Importing from another disk
 
 You can specify another disk with the third parameter like your Amazon s3 disk. (see `config/filesystems.php`)
 
