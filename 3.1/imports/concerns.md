@@ -18,6 +18,7 @@
 |`Maatwebsite\Excel\Concerns\WithEvents`| Register events to hook into the PhpSpreadsheet process. | [Events](/3.1/imports/extending.html#events) |
 |`Maatwebsite\Excel\Concerns\WithCustomCsvSettings`| Allows to run custom Csv settings for this specific importable. | |
 |`Maatwebsite\Excel\Concerns\WithStartRow`| Define a custom start row. | |
+|`Maatwebsite\Excel\Concerns\WithProgressBar`| Shows a progress bar when uploading via the console. | |
 
 ### Traits
 
