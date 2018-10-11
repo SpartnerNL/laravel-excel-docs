@@ -24,7 +24,7 @@ class UsersImport implements ToModel, WithHeadingRow
         return new User([
             'name'  => $row['name'],
             'email' => $row['email'],
-            'at     => $row['at_field'],
+            'at'    => $row['at_field'],
         ]);
     }
 }
