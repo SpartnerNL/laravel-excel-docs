@@ -47,6 +47,7 @@ module.exports = [
             'queued',
             'mapped-cells',
             'custom-formatting-values',
+            'custom-csv-settings',
             'concerns',
             'extending',
             'testing',
