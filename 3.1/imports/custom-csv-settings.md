@@ -1,6 +1,6 @@
 # Custom CSV Settings
 
-By default Laravel Excel uses default standards for CSV reading. You can change this by adding the WithCustomCsvSettings interface.
+By default Laravel Excel uses the defaults from the config (config/excel.php). You can change this by adding the WithCustomCsvSettings interface.
 
 ```php
 namespace App\Imports;
@@ -8,7 +8,7 @@ namespace App\Imports;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithCustomCsvSettings;
 
-class UsersImport extends DefaultValueBinder implements ToModel, WithCustomCsvSettings
+class UsersImport implements ToModel, WithCustomCsvSettings
 {
     public function model(array $row)
     {
