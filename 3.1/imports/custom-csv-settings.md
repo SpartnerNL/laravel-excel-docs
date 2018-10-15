@@ -1,6 +1,6 @@
 # Custom CSV Settings
 
-By default Laravel Excel uses the defaults from the config (config/excel.php). You can change this by adding the WithCustomCsvSettings interface.
+By default Laravel Excel uses the defaults from the config (`config/excel.php`). You can change this by adding the WithCustomCsvSettings interface.
 
 ```php
 namespace App\Imports;
@@ -27,4 +27,13 @@ class UsersImport implements ToModel, WithCustomCsvSettings
 }
 ```
 
-Available settings are `delimiter`, `enclosure`, `line_ending`, `use_bom`, `include_separator_line`, `excel_compatibility`, `escape_character`, `contiguous` and `input_encoding`
+Available settings are:
+* `delimiter`
+* `enclosure`
+* `line_ending`
+* `use_bom`
+* `include_separator_line`
+* `excel_compatibility`
+* `escape_character`
+* `contiguous`
+* `input_encoding`

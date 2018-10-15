@@ -35,4 +35,11 @@ class UsersImport extends DefaultValueBinder implements WithCustomValueBinder, T
 }
 ```
 
-Available DataType's are `TYPE_STRING`, `TYPE_FORMULA`, `TYPE_NUMERIC`, `TYPE_BOOL`, `TYPE_NULL`, `TYPE_INLINE` and `TYPE_ERROR`
+Available DataTypes are:
+* `TYPE_STRING`
+* `TYPE_FORMULA`
+* `TYPE_NUMERIC`
+* `TYPE_BOOL`
+* `TYPE_NULL`
+* `TYPE_INLINE`
+* `TYPE_ERROR`
