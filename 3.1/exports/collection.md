@@ -7,6 +7,7 @@ Create a new class called `InvoicesExport` in `App/Exports`:
 ```php
 namespace App\Exports;
 
+use App\Invoice;
 use Maatwebsite\Excel\Concerns\FromCollection;
 
 class InvoicesExport implements FromCollection
