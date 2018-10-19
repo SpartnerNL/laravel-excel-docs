@@ -11,7 +11,7 @@ use Maatwebsite\Excel\Concerns\FromQuery;
 use Maatwebsite\Excel\Concerns\WithMapping;
 
 class InvoicesExport implements FromQuery, WithMapping
-    
+{    
     /**
     * @var Invoice $invoice
     */

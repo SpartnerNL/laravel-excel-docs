@@ -130,7 +130,7 @@ Sheet::listen(AfterSheet::class, function () {
 
 You can add custom concerns to your app. This can be useful if you want to share some concerns over a few projects or want to open source your custom concerns.
 
-Let's add a `WithCustomProperties` concern to your app. You could add these concerns to `app/Exports/Concerns`, but any location will do as long as it can be auto-loaded by composer.
+Let's add a `WithCustomProperties` concern to your app. You could add these concerns to `App/Exports/Concerns`, but any location will do as long as it can be autoloaded by Composer.
 
 ```php
 namespace App\Exports\Concerns;
@@ -145,7 +145,7 @@ interface WithCustomProperties
 }
 ```
 
-Next to this concern we will create a concern handler. `WithCustomerPropertiesHandler`. This class can also be added to `app/Exports/Concerns`, but is again completely free of choice. 
+Next to this concern we will create a concern handler `WithCustomerPropertiesHandler`. This class can also be added to `App/Exports/Concerns`, but is again completely free of choice. 
 A concern handler is basically just an invokable class. It receives your exportable object and either a `Writer` or `Sheet` object, depending on the choosen event.
 
 ```php
@@ -172,7 +172,7 @@ class WithCustomPropertiesHandler
 }
 ```
 
-We then will register this concern in a service provider. You could use `app/Providers/AppServiceProvider` for this.
+We then will register this concern in a service provider. You could use `App/Providers/AppServiceProvider` for this.
 
 ```php
 public function register()
@@ -283,4 +283,4 @@ class InvoicesExport implements WithEvents
 
 Feel free to use the above macro, or be creative and invent your own!
 
-For PhpSpreadsheet methods, please refer to their documentation: https://phpspreadsheet.readthedocs.io/
+For PhpSpreadsheet methods, please refer to [their documentation](https://phpspreadsheet.readthedocs.io/).

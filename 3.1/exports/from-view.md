@@ -5,6 +5,7 @@ Exports can be created from a Blade view, by using the `FromView` concern.
 ```php
 namespace App\Exports;
 
+use App\Invoice;
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;
 

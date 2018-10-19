@@ -1,7 +1,7 @@
 # Export formats
 
-By default the export format is determined by the extension of the file, however if you want 
-to explicitly configured this, you can pass through the export format as 2nd parameter. 
+By default, the export format is determined by the extension of the file. If you want 
+to explicitly configure the export format, you can pass it through as 2nd parameter. 
 
 ## XLSX
 
