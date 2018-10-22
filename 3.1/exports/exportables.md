@@ -7,6 +7,7 @@ Laravel Excel also provides a `Maatwebsite\Excel\Concerns\Exportable` trait, to 
 ```php
 namespace App\Exports;
 
+use App\Invoice;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\Exportable;
 
@@ -40,6 +41,7 @@ The previous example can be made even shorter when adding Laravel's `Responsable
 ```php
 namespace App\Exports;
 
+use App\Invoice;
 use Illuminate\Contracts\Support\Responsable;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\Exportable;

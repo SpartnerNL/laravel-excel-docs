@@ -76,7 +76,7 @@ class InvoicesPerMonthSheet implements FromQuery, WithTitle
 }
 ```
 
-This will now download an xlsx of all invoices in 2018, with 12 worksheets representing each month of the year.
+This will now download an xlsx of all invoices from the current year, with 12 worksheets representing each month of the year.
 
 ```php
 public function download() 

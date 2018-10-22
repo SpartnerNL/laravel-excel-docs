@@ -6,11 +6,12 @@ for bigger exports this will come at a hefty performance price.
 
 By using the `FromQuery` concern, we can prepare a query for an export. Behind the scenes this query is executed in chunks.
 
-In the `InvoicesExport` class, add the `FromQuery` concern, and return a query. Be sure to not `->get()` the results!
+In the `InvoicesExport` class, add the `FromQuery` concern and return a query. Be sure to **not** `->get()` the results!
 
 ```php
 namespace App\Exports;
 
+use App\Invoice;
 use Maatwebsite\Excel\Concerns\FromQuery;
 use Maatwebsite\Excel\Concerns\Exportable;
 
@@ -36,11 +37,12 @@ return (new InvoicesExport)->download('invoices.xlsx');
 It's easy to pass custom parameters to the query, 
 by simply passing them as dependencies to the export class.
 
-#### As constructor param
+#### As constructor parameter
 
 ```php
 namespace App\Exports;
 
+use App\Invoice;
 use Maatwebsite\Excel\Concerns\FromQuery;
 use Maatwebsite\Excel\Concerns\Exportable;
 
@@ -71,6 +73,7 @@ return (new InvoicesExport(2018))->download('invoices.xlsx');
 ```php
 namespace App\Exports;
 
+use App\Invoice;
 use Maatwebsite\Excel\Concerns\FromQuery;
 use Maatwebsite\Excel\Concerns\Exportable;
 

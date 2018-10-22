@@ -7,6 +7,7 @@ Given we have the following export class:
 ```php
 namespace App\Exports;
 
+use App\Invoice;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromQuery;
 
@@ -39,9 +40,10 @@ You can also mark an export implicitly as a queued export. You can do this by us
 ```php
 namespace App\Exports;
 
+use App\Invoice;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromQuery;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class InvoicesExport implements FromQuery, ShouldQueue
 {
