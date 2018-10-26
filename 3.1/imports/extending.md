@@ -18,8 +18,10 @@ namespace App\Imports;
 
 use Maatwebsite\Excel\Concerns\WithEvents;
 use Maatwebsite\Excel\Events\BeforeImport;
+use Maatwebsite\Excel\Events\AfterImport;
 use Maatwebsite\Excel\Events\AfterSheet;
 use Maatwebsite\Excel\Events\BeforeSheet;
+
 
 class UsersImport implements WithEvents
 {
@@ -33,7 +35,8 @@ class UsersImport implements WithEvents
             BeforeImport::class => function(BeforeImport $event) {
                 $creator = $event->reader->getProperties()->getCreator();
             },
-           
+			
+		   
             // Using a class with an __invoke method.
             BeforeSheet::class => new BeforeSheetHandler(),
             
@@ -47,6 +50,7 @@ class UsersImport implements WithEvents
     {
         //
     }
+	
 }
 ```
 
@@ -65,6 +69,7 @@ use Maatwebsite\Excel\Concerns\Importable;
 use Maatwebsite\Excel\Concerns\WithEvents;
 use Maatwebsite\Excel\Concerns\RegistersEventListeners;
 use Maatwebsite\Excel\Events\BeforeImport;
+use Maatwebsite\Excel\Events\AfterImport;
 use Maatwebsite\Excel\Events\BeforeSheet;
 use Maatwebsite\Excel\Events\AfterSheet;
 
@@ -73,6 +78,11 @@ class UsersImport implements WithEvents
     use Importable, RegistersEventListeners;
     
     public static function beforeImport(BeforeImport $event)
+    {
+        //
+    }
+	
+    public static function afterImport(AfterImport $event)
     {
         //
     }
@@ -86,6 +96,7 @@ class UsersImport implements WithEvents
     {
         //
     }
+	
 }
 ```
 
@@ -99,6 +110,10 @@ Reader::listen(BeforeImport::class, function () {
     //
 });
 
+Sheet::listen(AfterImport::class, function () {
+    //
+});
+
 Sheet::listen(BeforeSheet::class, function () {
     //
 });
@@ -106,6 +121,8 @@ Sheet::listen(BeforeSheet::class, function () {
 Sheet::listen(AfterSheet::class, function () {
     //
 });
+
+
 ```
 
 ### Available events
@@ -113,8 +130,10 @@ Sheet::listen(AfterSheet::class, function () {
 | Event name | Payload | Explanation |
 |---- |----| ----|
 |`Maatwebsite\Excel\Events\BeforeImport` | `$event->reader : Reader` | Event gets raised at the start of the process. | 
+| `Maatwebsite\Excel\Events\AfterImport` | `$event->reader : Reader` | Event gets raised at the end of the  process. |
 | `Maatwebsite\Excel\Events\BeforeSheet` | `$event->sheet : Sheet` | Event gets raised just after the sheet is created. |
 | `Maatwebsite\Excel\Events\AfterSheet` | `$event->sheet : Sheet` | Event gets raised at the end of the sheet process. |
+
 
 ## Macroable
 
