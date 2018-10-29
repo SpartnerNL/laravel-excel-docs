@@ -33,24 +33,6 @@ to explicitly configure the export format, you can pass it through as 2nd parame
 (new InvoicesExport)->download('invoices.xls', \Maatwebsite\Excel\Excel::XLS);
 ```
 
-## SLK
-
-```php
-(new InvoicesExport)->download('invoices.slk', \Maatwebsite\Excel\Excel::SLK);
-```
-
-## XML
-
-```php
-(new InvoicesExport)->download('invoices.xml', \Maatwebsite\Excel\Excel::XML);
-```
-
-## GNUMERIC
-
-```php
-(new InvoicesExport)->download('invoices.gnumeric', \Maatwebsite\Excel\Excel::GNUMERIC);
-```
-
 ## HTML
 
 ```php

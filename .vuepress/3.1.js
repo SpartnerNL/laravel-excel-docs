@@ -40,6 +40,7 @@ module.exports = [
             'collection',
             'model',
             'importables',
+            'import-formats',
             'multiple-sheets',
             'heading-row',
             'batch-inserts',
