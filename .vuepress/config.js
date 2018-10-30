@@ -50,7 +50,11 @@ module.exports = {
             },
             {
                 text: 'Nova',
-                link: '/nova/1.0/',
+                link: '/nova/',
+                items: [
+                    {text: '1.1', link: '/nova/1.1/'},
+                    {text: '1.0', link: '/nova/1.0/'},
+                ]
             },
             {
                 text: 'Blog',
