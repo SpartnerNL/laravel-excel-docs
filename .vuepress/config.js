@@ -67,6 +67,7 @@ module.exports = {
             '/3.0/': require('./3.0'),
             '/2.1/': require('./2.1'),
             '/nova/1.0/': require('./nova/1.0'),
+            '/nova/1.1/': require('./nova/1.1'),
         },
     },
 };
