@@ -60,6 +60,11 @@ module.exports = {
                 text: 'Blog',
                 link: 'https://medium.com/maatwebsite/laravel-excel/home',
             }
+            ,
+            {
+                text: 'Maatwebsite',
+                link: 'https://www.maatwebsite.nl',
+            }
         ],
 
         sidebar: {
