@@ -28,6 +28,6 @@ class UsersImport implements ToModel, WithBatchInserts
 ```
 
 ::: warning
-A batch size of `1000` will not be the most optimal situation for your export. Play around with this number to find the sweet spot.
+A batch size of `1000` will not be the most optimal situation for your import. Play around with this number to find the sweet spot.
 :::
 
