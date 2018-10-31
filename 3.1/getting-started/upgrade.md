@@ -35,4 +35,4 @@ ALL Laravel Excel 2.* methods are deprecated and will not be able to use in 3.0 
 - Excel::create() is removed and replaced by Excel::download/Excel::store($yourExport)
 - 3.0 provides no convenience methods for styling, you are encouraged to use PhpSpreadsheets native methods.
 
-You can find an example upgrade for an export here: https://github.com/Maatwebsite/Laravel-Excel/issues/1799
+You can find an example upgrade for an export here: [https://github.com/Maatwebsite/Laravel-Excel/issues/1799](https://github.com/Maatwebsite/Laravel-Excel/issues/1799)
