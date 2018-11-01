@@ -46,6 +46,7 @@ module.exports = [
             'batch-inserts',
             'chunk-reading',
             'queued',
+            'validation',
             'mapped-cells',
             'custom-formatting-values',
             'custom-csv-settings',
