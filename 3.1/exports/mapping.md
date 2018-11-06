@@ -36,7 +36,7 @@ use Maatwebsite\Excel\Concerns\FromQuery;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 
 class InvoicesExport implements FromQuery, WithHeadings
-    
+{   
     public function headings(): array
     {
         return [
