@@ -237,7 +237,7 @@ class UsersImport implements ToCollection
     public function collection(Collection $rows)
     {
          Validator::make($rows->toArray(), [
-             '*.0' => 'required,
+             '*.0' => 'required',
          ])->validate();
 
         foreach ($rows as $row) {
