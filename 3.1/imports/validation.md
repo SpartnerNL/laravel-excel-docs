@@ -218,6 +218,37 @@ class UsersImport implements ToModel, WithValidation, SkipsOnError
 }
 ```
 
+### Row Validation without ToModel
+
+If you are not using the `ToModel` concern, you can very easily do row validation by just using the Laravel validator.
+
+```php
+<?php
+
+namespace App\Imports;
+
+use App\User;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Validator;
+use Maatwebsite\Excel\Concerns\ToCollection;
+
+class UsersImport implements ToCollection
+{
+    public function collection(Collection $rows)
+    {
+         Validator::make($rows->toArray(), [
+             '*.0' => 'required,
+         ])->validate();
+
+        foreach ($rows as $row) {
+            User::create([
+                'name' => $row[0],
+            ]);
+        }
+    }
+}
+```
+
 :::warning Validation rules
 For a list of all validation rules, please refer to the [Laravel document](https://laravel.com/docs/validation#available-validation-rules).
 :::
