@@ -1,7 +1,7 @@
 module.exports = {
     title: 'Laravel Excel',
     description: 'Supercharged Excel exports and imports in Laravel',
-    ga: 'UA-775649-7',
+    ga: 'UA-775649-14',
     serviceWorker: true,
 
     markdown: {
