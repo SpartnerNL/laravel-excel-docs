@@ -10,7 +10,7 @@ The Netherlands
 You are free to use the software as you like. The code can be forked and modified, but the original copyright author should always be included!
 
 ::: warning Support
-We hold no liability and will provide support on a best effort basis. For more information about support please see [support](https://laravel-excel.maatwebsite.nl/docs/3.1/getting-started/support).
+We hold no liability and will provide support on a best effort basis. For more information about support please see [support](https://laravel-excel.maatwebsite.com/docs/3.1/getting-started/support).
 :::
 
 :rocket: If you use the software commercially and need support urgently, we can offer this on a commercial basis. Please contact <info@maatwebsite.nl> or phone +31 (0)10 744 9312. 
