@@ -40,3 +40,5 @@ It will convert an HTML table into an Excel spreadsheet. For example; `users.bla
     </tbody>
 </table>
 ```
+
+> Please note that FromView is currently not supported in combination with queues. We are considering to support this in a future version.
