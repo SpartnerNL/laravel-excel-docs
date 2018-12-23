@@ -139,7 +139,7 @@ The entire import is automatically wrapped in a **database transaction**, that m
 
 ### Gathering all failures at the end
 
-You can gather all validation failures at the end of the import. You can try-catch the `ValidationException`. On this exception you can get all failures.
+You can gather all validation failures at the end of the import, when used in conjunction with Batch Inserts. You can try-catch the `ValidationException`. On this exception you can get all failures.
 
 Each failure is an instance of `Maatwebsite\Excel\Validators\Failure`. The `Failure` holds information about which row, which column and what the validation errors are for that cell.
 
