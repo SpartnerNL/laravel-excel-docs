@@ -146,8 +146,8 @@ This will allow you to add custom macros as shortcuts to PhpSpreadsheet methods 
 ```php
 use \Maatwebsite\Excel\Reader;
 
-Reader::macro('setCreator', function (Reader reader, string $creator) {
-    reader->getDelegate()->getProperties()->setCreator($creator);
+Reader::macro('setCreator', function (Reader $reader, string $creator) {
+    $reader->getDelegate()->getProperties()->setCreator($creator);
 });
 ```
 
