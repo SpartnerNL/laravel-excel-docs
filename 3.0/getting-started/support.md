@@ -27,7 +27,7 @@ Before you request support, please check the following:
 * Check the pull requests tab to ensure that the bug doesn't have a fix in progress.
 * Use the [issue template](https://github.com/Maatwebsite/Laravel-Excel/blob/3.0/.github/ISSUE_TEMPLATE.md).
 
-Filling out the template is required. Issues that do not include enough information might not  be picked up.
+Filling out the template is required. Issues that do not include enough information might not  be picked up. Please write in English (or Dutch).
 
 Please prefix your issue with one of the following: [BUG] [PROPOSAL] [QUESTION].
 
