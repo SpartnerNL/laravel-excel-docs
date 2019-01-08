@@ -250,5 +250,5 @@ class UsersImport implements ToCollection
 ```
 
 :::warning Validation rules
-For a list of all validation rules, please refer to the [Laravel document](https://laravel.com/docs/validation#available-validation-rules).
+For a list of all validation rules, please refer to the [Laravel document](https://laravel.com/docs/master/validation#available-validation-rules).
 :::
