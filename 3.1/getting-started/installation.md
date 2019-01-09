@@ -44,7 +44,7 @@ Add the Facade in `config/app.php`
 To publish the config, run the vendor publish command:
 
 ```
-php artisan vendor:publish
+php artisan vendor:publish --provider="Maatwebsite\Excel\ExcelServiceProvider"
 ```
 
 This will create a new config file named `config/excel.php`.
