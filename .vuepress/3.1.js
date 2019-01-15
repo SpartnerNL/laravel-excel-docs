@@ -50,6 +50,7 @@ module.exports = [
             'mapped-cells',
             'custom-formatting-values',
             'custom-csv-settings',
+            'progress-bar',
             'concerns',
             'extending',
             'testing',
