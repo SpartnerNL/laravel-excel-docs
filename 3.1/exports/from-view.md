@@ -41,6 +41,15 @@ It will convert an HTML table into an Excel spreadsheet. For example; `users.bla
 </table>
 ```
 
+You can download the export in your controller:
+
+```
+public function export() 
+{
+    return Excel::download(new InvoicesExport, 'invoices.xlsx');
+}
+```
+
 ::: warning
 FromView is currently not supported in combination with queues. We are considering to support this in a future version.
 :::
