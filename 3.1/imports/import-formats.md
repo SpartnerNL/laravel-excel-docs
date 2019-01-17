@@ -6,7 +6,7 @@ to explicitly configure the import format, you can pass it through as 3rd parame
 ## XLSX
 
 ```php
-(new UsersImport)->import('users.xlsx', null, null, \Maatwebsite\Excel\Excel::XLSX);
+(new UsersImport)->import('users.xlsx', null, \Maatwebsite\Excel\Excel::XLSX);
 ```
 
 ## CSV
