@@ -12,6 +12,15 @@ module.exports = [
         ]),
     },
     {
+        title: 'Architecture Concepts',
+        collapsable: true,
+        children: prefix('architecture', [
+            '',
+            'objects',
+            'concerns',
+        ]),
+    },
+    {
         title: 'Exports',
         collapsable: true,
         children: prefix('exports', [
