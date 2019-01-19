@@ -68,7 +68,7 @@ If you want to change this behaviour, you can do so by extending the `HeadingRow
 
 ### No formatting
 
-If you want no formatting at all, you can use the `none` formatter. The array keys will contain the exact date that was in the heading row.
+If you want no formatting at all, you can use the `none` formatter. The array keys will contain the exact data that was in the heading row.
 
 ```php
 use Maatwebsite\Excel\Imports\HeadingRowFormatter;
