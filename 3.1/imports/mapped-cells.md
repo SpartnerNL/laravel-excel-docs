@@ -1,6 +1,6 @@
 # Mapped Cells
 
-In case you have a more custom spreadsheet and only want to access specific cells, you can implement the `WithMappedCells` concern.
+In case you have a more custom spreadsheet and only want to access specific **cells**, you can implement the `WithMappedCells` concern.
 
 You might have a speadsheet looking like this:
 
@@ -36,3 +36,7 @@ new UsersImport implements WithMappedCells, ToModel
     }
 }
 ```
+
+::: warning
+This concern is not meant to map `**columns**, only specific **cell** reference are allowed.
+:::
