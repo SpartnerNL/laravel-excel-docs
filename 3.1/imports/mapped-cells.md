@@ -38,5 +38,5 @@ new UsersImport implements WithMappedCells, ToModel
 ```
 
 ::: warning
-This concern is not meant to map `**columns**, only specific **cell** reference are allowed.
+This concern is not meant to map **columns**, only specific **cell** reference are allowed.
 :::
