@@ -15,6 +15,10 @@ __Additions__
 * ToArray concern for Exports.
 * Custom value binders for Imports and Exports.
 
+__Removals__
+
+* `Excel::filter('chunk')` method is removed, chunk filter is automatically added when using chunk reading.
+
 ## Upgrading to 3.* from 2.1
 
 Version 3.* is not backwards compatible with 2.*. It's not possible to provide a step-by-step migration guide as it's a complete paradigm shift.
