@@ -6,7 +6,7 @@ The entire Laravel Excel philosophy evolves around having `Export` and/or `Impor
 
 These objects encapsulate the entire export or import process. 
 The idea behind it is that you can neatly use these objects in controllers, services, jobs, event listeners or commands. 
-In all of theses cases the entire logic of how the export/import needs to happen, is kept within this object. 
+In all of theses cases, the entire logic of how the export/import needs to happen is kept within this object. 
 
 ## Data transfer object
 
@@ -15,7 +15,7 @@ This means they will transfer the information you want to export/import to the E
 This information is not only the actual data you want to export, but also additional information like 
 the styling of the file, the name of the worksheet, the number format of the cell etc.
 
-In most cases this means, that your code doesn't need to have direct exposure to the actual read/write process.
+In most cases, this means that your code doesn't need to have direct exposure to the actual read/write process.
 
 ## Plain Old PHP Object
 
@@ -47,7 +47,7 @@ Excel::download(new UsersExport(2019), 'users.xlsx');
 
 ### Setters
 
-An other option is to add setters for data that you want to pass.
+Another option is to add setters for data that you want to pass.
 
 ```php
 class UsersExport implements FromCollection {
@@ -124,7 +124,7 @@ Read more about Concerns in the [concerns documentation](/3.1/architecture/conce
 ## Hooks
 
 In more complex cases you might want to hook into certain moments of the read/write process. This can be done by using Events.
-For register these events in your import/export object, you need to implement the `Maatwebsite\Excel\Concerns\WithEvents` concern.
+To register these events in your import/export object, you need to implement the `Maatwebsite\Excel\Concerns\WithEvents` concern.
 
 ```php
 namespace App\Exports;
@@ -149,7 +149,7 @@ class UsersExport implements WithEvents
 }
 ```
 
-Alternatively you can also configure these listeners globally if you want it to happen to any export.
+Alternatively, you can also configure these listeners globally if you want it to happen to any export.
 
 ```php
 Writer::listen(BeforeExport::class, function () {

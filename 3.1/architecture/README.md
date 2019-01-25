@@ -142,7 +142,7 @@ You can now download the export without the need for the `facade` or `Excel` man
 return (new UsersExport)->download('users.xlsx');
 ```
 
-Read more about the exportable trait, in the [exportables](/3.1/exports/exportables.html) docs.
+Read more about the exportable trait in the [exportables](/3.1/exports/exportables.html) docs.
 
 ### Handling the Export object
 
@@ -286,7 +286,7 @@ You can now import without the need for the `facade` or `Excel` manager.
 (new UsersImport)->import('users.xlsx');
 ```
 
-Read more about the importable trait, in the [importables](/3.1/imports/importables.html) docs.
+Read more about the importable trait in the [importables](/3.1/imports/importables.html) docs.
 
 ### Handling the Import object
 
@@ -315,7 +315,7 @@ Next we will determine if we are dealing with multiple sheets. This is done base
 Then each Sheet gets processed. This process gets started of by raising the `BeforeSheet` event. 
 Then it will either import it to a Collection, an array or handle each row as an Eloquent model.
 
-- When using `ToModel` each returned model will be persisted via Eloquent. When using this in combination with `WithBatchInserts`, it will defer the persistence till the batch is complete and then insert them as one batch in the database.
-- When using `ToCollection` or `ToArray` the entire dataset will be passed to the Import method and the user can determine itself how to use it.
+- When using `ToModel`, each returned model will be persisted via Eloquent. When using this in combination with `WithBatchInserts`, it will defer the persistence till the batch is complete and then insert them as one batch in the database.
+- When using `ToCollection` or `ToArray`, the entire dataset will be passed to the Import method and the user can determine itself how to use it.
 
 The sheet handling is ended by raising the `AfterSheet` event.
