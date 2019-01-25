@@ -67,7 +67,7 @@ class ExportController
         $this->excel = $excel;
     }
     
-    public function exportViaDependencyInjection()
+    public function exportViaConstructorInjection()
     {
         return $this->excel->download(new UsersExport, 'users.xlsx');
     }
