@@ -1,3 +1,7 @@
+---
+pageClass: no-toc
+---
+
 ## :rocket: 5 minutes quick start
 
 :muscle: Create an import class in `App\Imports`

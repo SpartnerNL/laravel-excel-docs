@@ -1,3 +1,7 @@
+---
+pageClass: no-toc
+---
+
 # From View
 
 Exports can be created from a Blade view, by using the `FromView` concern.
@@ -22,7 +26,7 @@ class InvoicesExport implements FromView
 
 It will convert an HTML table into an Excel spreadsheet. For example; `users.blade.php`:
 
-```blade
+```html
 <table>
     <thead>
     <tr>
@@ -43,7 +47,7 @@ It will convert an HTML table into an Excel spreadsheet. For example; `users.bla
 
 You can download the export in your controller:
 
-```
+```php
 public function export() 
 {
     return Excel::download(new InvoicesExport, 'invoices.xlsx');

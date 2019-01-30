@@ -1,5 +1,7 @@
 # From Query
 
+[[toc]]
+
 In the previous example, we did the query inside the export class. 
 While this is a good solution for small exports, 
 for bigger exports this will come at a hefty performance price.

@@ -1,3 +1,7 @@
+---
+pageClass: no-toc
+---
+
 # Progress Bar
 
 You can implement the `WithProgressBar` concern to display a progress bar when importing an Excel file via the console.

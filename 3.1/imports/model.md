@@ -1,5 +1,7 @@
 # Importing to models
 
+[[toc]]
+
 In case you want to import a workbook to an Eloquent model, you can use the `ToModel` concern. The concern enforces a `model()` method which accepts a model to be returned.
 
 ```php
@@ -20,6 +22,12 @@ class UsersImport implements ToModel
 ```
 
 The returned model will be saved for you. Each row will result into (at least) one save and will also fire model events.
+
+:::warning
+When using `ToModel` you should never save the model yourself, as that will break the batch insert functionality.
+:::
+
+## Skipping rows
 
 In case you want to skip a row, you can return null. 
 

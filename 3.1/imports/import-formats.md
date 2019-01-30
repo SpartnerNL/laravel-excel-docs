@@ -1,5 +1,7 @@
 # Import formats
 
+[[toc]]
+
 By default, the import format is determined by the extension of the file. If you want 
 to explicitly configure the import format, you can pass it through as 3rd parameter. 
 

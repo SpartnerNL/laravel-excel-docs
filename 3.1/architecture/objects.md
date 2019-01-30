@@ -1,5 +1,7 @@
 # Import & Export Objects
 
+[[toc]]
+
 The entire Laravel Excel philosophy evolves around having `Export` and/or `Import` objects.
 
 ## Encapsulation

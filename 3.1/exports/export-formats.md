@@ -1,5 +1,7 @@
 # Export formats
 
+[[toc]]
+
 By default, the export format is determined by the extension of the file. If you want 
 to explicitly configure the export format, you can pass it through as 2nd parameter. 
 

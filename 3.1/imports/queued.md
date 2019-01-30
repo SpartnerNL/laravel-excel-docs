@@ -1,3 +1,7 @@
+---
+pageClass: no-toc
+---
+
 # Queued reading
 
 When using the `WithChunkReading` concern, you can also choose to execute each chunk into a queue job. You can do so by simply adding the `ShouldQueue` contract.

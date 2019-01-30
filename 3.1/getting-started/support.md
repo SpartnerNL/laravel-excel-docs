@@ -4,7 +4,9 @@
 
 Our software is free and open source, meaning that the use of our software is optional. We hold no liability and there is no obligation to support. We will provide support on a best effort basis. 
 
+:::tip Commercial Support
 If you use the software commercially and need elaborate support or need it urgently, we can offer this on a commercial basis. Please contact <info@maatwebsite.nl> or via phone +31 (0)10 744 9312.
+:::
 
 ## Supported Versions
 

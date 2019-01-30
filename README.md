@@ -2,7 +2,7 @@
 home: true
 heroImage: /assets/img/logo-small.png
 actionText: Read documentation →
-actionLink: /3.1/
+actionLink: /3.1/getting-started/
 features:
 - title: 💪 Export to Excel.
   details: Supercharge your Laravel collections or Blade views and export them directly to an Excel or CSV document. Exporting has never been so easy.

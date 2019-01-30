@@ -1,5 +1,7 @@
 # Row Validation
 
+[[toc]]
+
 Sometimes you might want to validate each row before it's inserted into the database. 
 By implementing the `WithValidation` concern, you can indicate the rules that each row need to adhere to.
 

@@ -1,5 +1,7 @@
 # Testing
 
+[[toc]]
+
 The Excel facade can be used to swap the exporter to a fake.
 
 ### Testing downloads

@@ -1,3 +1,7 @@
+---
+pageClass: no-toc
+---
+
 # Export concerns
 
 | Interface | Explanation | Documentation |

@@ -1,3 +1,7 @@
+---
+pageClass: no-toc
+---
+
 # Batch inserts
 
 Importing a large file to Eloquent models, might quickly become a bottleneck as every row results into an insert query. 
@@ -27,7 +31,11 @@ class UsersImport implements ToModel, WithBatchInserts
 }
 ```
 
-::: warning
+:::warning ToModel
+This concern **only** works with the `ToModel` concern.
+:::
+
+:::tip Batch Size
 A batch size of `1000` will not be the most optimal situation for your import. Play around with this number to find the sweet spot.
 :::
 

@@ -1,5 +1,7 @@
 # Exporting collections
 
+[[toc]]
+
 The easiest way to start an export is to create a custom export class. We'll use an invoices export as example.
 
 Create a new class called `InvoicesExport` in `App/Exports`:

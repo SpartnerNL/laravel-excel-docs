@@ -1,5 +1,7 @@
 # Testing
 
+[[toc]]
+
 The Excel facade can be used to swap the importer to a fake.
 
 ### Testing imports

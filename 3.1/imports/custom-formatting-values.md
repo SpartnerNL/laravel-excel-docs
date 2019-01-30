@@ -1,5 +1,9 @@
 # Custom Formatting Values
 
+[[toc]]
+
+## Value Binder
+
 By default Laravel Excel uses PhpSpreadsheet's default value binder to intelligently format a cells value when reading it. You may override this behavior by implementing the `WithCustomValueBinder` concern and the `bindValue` method. Your import class may also extend `DefaultValueBinder` to return the default behavior.
 
 ```php
@@ -35,7 +39,8 @@ class UsersImport extends DefaultValueBinder implements WithCustomValueBinder, T
 }
 ```
 
-Available DataTypes are:
+## Available DataTypes 
+
 * `TYPE_STRING`
 * `TYPE_FORMULA`
 * `TYPE_NUMERIC`

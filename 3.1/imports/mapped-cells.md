@@ -1,3 +1,7 @@
+---
+pageClass: no-toc
+---
+
 # Mapped Cells
 
 In case you have a more custom spreadsheet and only want to access specific **cells**, you can implement the `WithMappedCells` concern.

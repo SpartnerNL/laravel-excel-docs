@@ -1,5 +1,7 @@
 # Queued
 
+[[toc]]
+
 In case you are working with a lot of data, it might be wise to queue the entire process. 
 
 Given we have the following export class:

@@ -1,5 +1,7 @@
 # Concerns
 
+[[toc]]
+
 Most of the export/import configuration is done by using **Concerns**. 
 
 ## Contracts

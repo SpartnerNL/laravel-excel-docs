@@ -1,4 +1,10 @@
+---
+pageClass: no-toc
+---
+
 # Importing to collections
+
+[[toc]]
 
 The easiest way to start an import is to create a custom import class. We'll use a user import as example.
 
@@ -37,3 +43,7 @@ public function import()
     Excel::import(new UsersImport, 'users.xlsx');
 }
 ```
+
+:::warning
+Whatever you return in the `collection()` method will **not** be returned to the controller.
+:::

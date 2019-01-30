@@ -1,4 +1,10 @@
-## :rocket: 5 minutes quick start
+---
+pageClass: no-toc
+---
+
+# :rocket: 5 minutes quick start
+
+[[toc]]
 
 :muscle: Create an export class in `App/Exports`
 

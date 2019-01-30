@@ -1,5 +1,7 @@
 ## Importing basics
 
+[[toc]]
+
 If you have followed the 5 Minute Quickstart, you'll already have a `UsersImport` class.
 
 ```php

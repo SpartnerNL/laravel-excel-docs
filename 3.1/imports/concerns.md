@@ -1,3 +1,7 @@
+---
+pageClass: no-toc
+---
+
 # Import concerns
 
 | Interface | Explanation | Documentation |

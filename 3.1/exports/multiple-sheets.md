@@ -1,5 +1,7 @@
 # Multiple Sheets
 
+[[toc]]
+
 To allow the export to have multiple sheets, the `WithMultipleSheets` concern should be used. 
 The `sheets()` method expects an array of sheet export objects to be returned.
 
@@ -35,6 +37,8 @@ class InvoicesExport implements WithMultipleSheets
     }
 }
 ```
+
+### Sheet classes
 
 The `InvoicesPerMonthSheet` can implement concerns like `FromQuery`, `FromCollection`, ... 
 

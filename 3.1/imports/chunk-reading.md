@@ -1,5 +1,7 @@
 # Chunk reading
 
+[[toc]]
+
 Importing a large file can have a huge impact on the memory usage, as the library will try to load the entire sheet into memory.
 
 To mitigate this increase in memory usage, you can use the `WithChunkReading` concern. This will read the spreadsheet in chunks and keep the memory usage under control.

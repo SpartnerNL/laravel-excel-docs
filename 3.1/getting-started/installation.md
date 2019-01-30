@@ -1,5 +1,7 @@
 # Installation
 
+[[toc]]
+
 ## Requirements
 
 * PHP: `^7.0`
