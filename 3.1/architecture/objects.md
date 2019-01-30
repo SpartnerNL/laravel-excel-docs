@@ -4,6 +4,8 @@
 
 The entire Laravel Excel philosophy evolves around having `Export` and/or `Import` objects.
 
+## Directory structure
+
 The location of these Import and Exports classes could be as follows:
 
 :::vue
