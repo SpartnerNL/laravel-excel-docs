@@ -85,6 +85,53 @@ class UsersImport implements WithMultipleSheets
 Sheets that are not explicitly defined in the `sheet()` method, will be ignored and thus not be imported.
 :::
 
-:::tip
+## Skipping unknown sheets
+
 When you have defined a sheet **name** or **index** that does not exist a `Maatwebsite\Excel\Exceptions\SheetNotFoundException` will be thrown.
-:::
+
+If you want to ignore when a sheet does not exists, you can use the `Maatwebsite\Excel\Concerns\SkipsUnknownSheets` concern.
+
+```php
+namespace App\Imports;
+
+use Maatwebsite\Excel\Concerns\WithMultipleSheets;
+use Maatwebsite\Excel\Concerns\SkipsUnknownSheets;
+
+class UsersImport implements WithMultipleSheets, SkipsUnknownSheets
+{
+    public function sheets(): array
+    {
+        return [
+            'Worksheet 1' => new FirstSheetImport(),
+            'Worksheet 2' => new SecondSheetImport(),
+        ];
+    }
+    
+    public function onUnknownSheet($sheetName)
+    {
+        // E.g. you can log that a sheet was not found.
+        info("Sheet {$sheetName} was skipped");
+    }
+}
+```
+
+### Skipping only specific sheets
+
+If you want to have 1 optional sheet and still have the others fail, you can also let the Sheet import object implement `SkipsUnknownSheets`.
+
+```php
+namespace App\Imports;
+
+use Maatwebsite\Excel\Concerns\SkipsUnknownSheets;
+
+class FirstSheetImport implements SkipsUnknownSheets
+{
+    public function onUnknownSheet($sheetName)
+    {
+        // E.g. you can log that a sheet was not found.
+        info("Sheet {$sheetName} was skipped");
+    }
+}
+```
+
+Now only `FirstSheetImport` will be skipped if it's not found. Any other defined sheet will be skipped.
