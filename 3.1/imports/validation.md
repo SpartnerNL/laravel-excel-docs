@@ -135,7 +135,7 @@ public function customValidationAttributes()
 
 ### Database transactions
 
-The entire import is automatically wrapped in a **database transaction**, that means that *every* error will rollback the entire import. When using chunked reading, only the **current** chunk will be rollbacked.
+The entire import is automatically wrapped in a **database transaction**, that means that *every* error will rollback the entire import. When using batch inserts, only the **current** batch will be rollbacked.
 
 ### Gathering all failures at the end
 
@@ -188,6 +188,40 @@ class UsersImport implements ToModel, WithValidation, SkipsOnFailure
 }
 ```
 
+If you automatically want to skip all failed rows and collect the failures at the end of the import, you can use the `Maatwebsite\Excel\Concerns\SkipsFailures` trait.
+
+```php
+<?php
+
+namespace App\Imports;
+
+use App\User;
+use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Validators\Failure;
+use Maatwebsite\Excel\Concerns\Importable;
+use Maatwebsite\Excel\Concerns\SkipsOnFailure;
+use Maatwebsite\Excel\Concerns\WithValidation;
+use Maatwebsite\Excel\Concerns\SkipsFailures;
+
+class UsersImport implements ToModel, WithValidation, SkipsOnFailure
+{
+    use Importable, SkipsFailures;
+}
+```
+
+Every row that has failed the validation rules, will have been skipped. We can now collect all the failures at the end:
+
+```php
+$import = new UsersImport();
+$import->import('users.xlsx');
+
+foreach ($import->failures() as $failure) {
+     $failure->row(); // row that went wrong
+     $failure->attribute(); // either heading key (if using heading row concern) or column index
+     $failure->errors(); // Actual error messages from Laravel validator
+}
+```
+
 ### Skipping errors
 
 Sometimes you might want to skip **all** errors, e.g. duplicate database records. By using the `SkipsOnError` concern, you get control over what happens the moment a model import fails. 
@@ -216,6 +250,36 @@ class UsersImport implements ToModel, WithValidation, SkipsOnError
         // Handle the exception how you'd like.
     }
 }
+```
+
+If you automatically want to skip all exceptions and collect them at the end of the import, you can use the `Maatwebsite\Excel\Concerns\SkipsErrors` trait.
+
+```php
+<?php
+
+namespace App\Imports;
+
+use App\User;
+use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Validators\Failure;
+use Maatwebsite\Excel\Concerns\Importable;
+use Maatwebsite\Excel\Concerns\SkipsOnError;
+use Maatwebsite\Excel\Concerns\WithValidation;
+use Maatwebsite\Excel\Concerns\SkipsErrors;
+
+class UsersImport implements ToModel, WithValidation, SkipsOnError
+{
+    use Importable, SkipsErrors;
+}
+```
+
+Every row that has errored, will have been skipped. We can now collect all the errors at the end:
+
+```php
+$import = new UsersImport();
+$import->import('users.xlsx');
+
+dd($import->errors());
 ```
 
 ### Row Validation without ToModel
@@ -249,6 +313,6 @@ class UsersImport implements ToCollection
 }
 ```
 
-:::warning Validation rules
+:::tip Validation rules
 For a list of all validation rules, please refer to the [Laravel document](https://laravel.com/docs/master/validation#available-validation-rules).
 :::
