@@ -4,6 +4,23 @@
 
 The entire Laravel Excel philosophy evolves around having `Export` and/or `Import` objects.
 
+The location of these Import and Exports classes could be as follows:
+
+```
+.
+├── app
+│   ├── Imports
+│   │   ├── UsersImport.php
+│   │   ├── Sheets
+│   │   │   └── FirstSheet.php
+│   ├── Exports
+│   │   ├── UsersExport.php
+│   │   ├── Sheets
+│   │   │   └── FirstSheet.php
+│ 
+└── composer.json
+```
+
 ## Encapsulation
 
 These objects encapsulate the entire export or import process. 
