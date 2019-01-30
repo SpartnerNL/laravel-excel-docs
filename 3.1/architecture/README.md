@@ -299,7 +299,7 @@ In case no reader type can be detected, a `Maatwebsite\Excel\Exceptions\NoTypeDe
 #### Starting the Reading process
 
 The `Excel` manager will then delegate the handling to the `Maatwebsite\Excel\Reader`. The first action of the `Reader` is to register the event listeners that are registered. 
-It will copy the file from Laravel's `Filsystem` to the local filesystem, so PhpSpreadsheet can read it. 
+It will copy the file from Laravel's `Filesystem` to the local filesystem, so PhpSpreadsheet can read it. 
 Next it will create a PhpSpreadsheet `Reader` based on the reader type that was given and load the file into a `PhpOffice\PhpSpreadsheet\Spreadsheet` instance.
 
 Next it will create a new `PhpOffice\PhpSpreadsheet\Spreadsheet` instance that we will use to read our `Import` object from.
