@@ -84,3 +84,7 @@ class UsersImport implements WithMultipleSheets
 :::warning
 Sheets that are not explicitly defined in the `sheet()` method, will be ignored and thus not be imported.
 :::
+
+:::tip
+When you have defined a sheet **name** or **index** that does not exist a `Maatwebsite\Excel\Exceptions\SheetNotFoundException` will be thrown.
+:::
