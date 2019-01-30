@@ -135,3 +135,37 @@ class FirstSheetImport implements SkipsUnknownSheets
 ```
 
 Now only `FirstSheetImport` will be skipped if it's not found. Any other defined sheet will be skipped.
+
+## Conditional sheet loading
+
+If you want to indicate per import which sheets should be imported, you can use the `Maatwebsite\Excel\Concerns\WithConditionalSheets` trait.
+
+```php
+namespace App\Imports;
+
+use Maatwebsite\Excel\Concerns\WithMultipleSheets;
+use Maatwebsite\Excel\Concerns\WithConditionalSheets;
+
+class UsersImport implements WithMultipleSheets 
+{
+    use WithConditionalSheets;
+
+    public function conditionalSheets(): array
+    {
+        return [
+            'Worksheet 1' => new FirstSheetImport(),
+            'Worksheet 2' => new SecondSheetImport(),
+            'Worksheet 3' => new ThirdSheetImport(),
+        ];
+    }
+}
+```
+
+Now you can use the `onlySheets` method to indicate which sheets should be loaded for this import.
+
+```php
+$import = new UsersImport();
+$import->onlySheets('Worksheet 1', 'Worksheet 3');
+
+Excel::import($import, 'users.xlsx');
+```
