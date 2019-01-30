@@ -200,7 +200,7 @@ The storing of the file will be handled by Laravel's `Filesystem`. By default th
 
 ## Imports Lifecycle Overview
 
-This section will try to give you an overview of how the export works behind the scenes.
+This section will try to give you an overview of how the import works behind the scenes.
 
 ### Import Object
 
