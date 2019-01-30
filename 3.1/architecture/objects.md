@@ -6,20 +6,25 @@ The entire Laravel Excel philosophy evolves around having `Export` and/or `Impor
 
 The location of these Import and Exports classes could be as follows:
 
-```
+:::vue
 .
 ├── app
-│   ├── Imports
-│   │   ├── UsersImport.php
-│   │   ├── Sheets
-│   │   │   └── FirstSheet.php
-│   ├── Exports
+│   ├── `Exports` _(**Groups all exports in your app**)_
 │   │   ├── UsersExport.php
-│   │   ├── Sheets
-│   │   │   └── FirstSheet.php
+│   │   ├── ProductsExport.php
+│   │   └── `Sheets` _(**You can group sheets together**)_
+│   │      ├── InactiveUsersSheet.php
+│   │      └── ActiveUsersSheet.php
+|   |
+│   ├── `Imports` _(**Groups all imports in your app**)_
+│   │   ├── UsersImport.php
+│   │   ├── ProductsImport.php
+│   │   └── `Sheets` _(**You can group sheets together**)_
+│   │      ├── OutOfStockProductsSheet.php
+│   │      └── ProductsOnSaleSheet.php
 │ 
 └── composer.json
-```
+:::
 
 ## Encapsulation
 

@@ -1,8 +1,16 @@
 module.exports = {
     title: 'Laravel Excel',
     description: 'Supercharged Excel exports and imports in Laravel',
-    ga: 'UA-775649-14',
-    serviceWorker: true,
+
+    plugins: {
+        '@vuepress/google-analytics': {
+            ga: 'UA-775649-14'
+        },
+        '@vuepress/pwa': {
+            serviceWorker: true,
+            updatePopup: true
+        }
+    },
 
     markdown: {
         lineNumbers: true,
@@ -34,10 +42,6 @@ module.exports = {
             algoliaOptions: { 'facetFilters': ["version:3.1"] },
         },
 
-        serviceWorker: {
-            updatePopup: true
-        },
-
         nav: [
             {
                 text: 'Version',
@@ -63,7 +67,7 @@ module.exports = {
             ,
             {
                 text: 'Maatwebsite',
-                link: 'https://www.maatwebsite.nl',
+                link: 'https://www.maatwebsite.com',
             }
         ],
 

@@ -4,7 +4,7 @@ pageClass: no-toc
 
 ## :rocket: 5 minutes quick start
 
-:muscle: Create an import class in `App\Imports`
+:muscle: Create an import class in `app/Imports`
 
 You may do this by using the `make:import` command.
 
@@ -12,7 +12,18 @@ You may do this by using the `make:import` command.
 php artisan make:import UsersImport --model=User
 ```
 
-If you prefer to create the import manually, you can create the following in `App\Imports`:
+The file can be found in `app/Imports`:
+
+:::vue
+.
+├── app
+│   ├── `Imports` 
+│   │   ├── UsersImport.php
+│ 
+└── composer.json
+:::
+
+If you prefer to create the import manually, you can create the following in `app/Imports`:
 
 ```php
 <?php

@@ -6,7 +6,7 @@ pageClass: no-toc
 
 [[toc]]
 
-:muscle: Create an export class in `App/Exports`
+:muscle: Create an export class in `app/Exports`
 
 You may do this by using the `make:export` command.
 
@@ -14,7 +14,18 @@ You may do this by using the `make:export` command.
 php artisan make:export UsersExport --model=User
 ```
 
-If you prefer to create the export manually, you can create the following in `App/Exports`:
+The file can be found in `app/Exports`:
+
+:::vue
+.
+├── app
+│   ├── `Exports` 
+│   │   ├── UsersExport.php
+│ 
+└── composer.json
+:::
+
+If you prefer to create the export manually, you can create the following in `app/Exports`:
 
 ```php
 <?php
