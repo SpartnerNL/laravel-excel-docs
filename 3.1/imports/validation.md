@@ -42,7 +42,7 @@ class UsersImport implements ToModel, WithValidation
 }
 ```
 
-### Validating with a heading row
+## Validating with a heading row
 
 When using the `WithHeadingRow` concern, you can use the heading row name as rule attribute.
 
@@ -82,7 +82,7 @@ class UsersImport implements ToModel, WithValidation, WithHeadingRow
 }
 ```
 
-### Custom validation messages
+## Custom validation messages
 
 By adding `customValidationMessages()` method to your import, you can specify custom messages for each failure.
 
@@ -109,7 +109,7 @@ public function customValidationMessages()
 }
 ```
 
-### Custom validation attributes
+## Custom validation attributes
 
 By adding `customValidationAttributes()` method to your import, you can specify custom attribute names for each column.
 
@@ -284,7 +284,7 @@ $import->import('users.xlsx');
 dd($import->errors());
 ```
 
-### Row Validation without ToModel
+## Row Validation without ToModel
 
 If you are not using the `ToModel` concern, you can very easily do row validation by just using the Laravel validator.
 
