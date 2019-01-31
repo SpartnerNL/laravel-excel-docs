@@ -5,7 +5,7 @@
 ## Introduction
 
 When using a package in your application, it's good to understand how the package functions behind the scenes. 
-Understanding the behind-the-scenes will make your feel more comfortable and confident using the maximum potential of the tool.
+Understanding the behind-the-scenes will make you feel more comfortable and confident using the maximum potential of the tool.
 
 The goal of this page is to give you a high-level overview of how Laravel Excel works. 
 
