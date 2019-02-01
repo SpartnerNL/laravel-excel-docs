@@ -38,7 +38,7 @@ Each chunk of 1000 rows will now be executed into a queue job.
 
 ### Explicit queued imports
 
-You can explicitly queue the export by using `::queueImport`. 
+You can explicitly queue the import by using `::queueImport`. 
 
 ```
 Excel::queueImport(new UsersImport, 'users.xlsx');
@@ -64,7 +64,7 @@ Excel::import(new UsersImport, 'users.xlsx');
 
 ## Appending jobs
 
-When queuing an import an instance of Laravel's `PendingDispatch` is returned. This means you can chain extra jobs that will be added to the end of the queue and only executed if all export jobs are correctly executed.
+When queuing an import an instance of Laravel's `PendingDispatch` is returned. This means you can chain extra jobs that will be added to the end of the queue and only executed if all import jobs are correctly executed.
 
 ```php
 (new UsersImport)->queue('users.xlsx')->chain([
