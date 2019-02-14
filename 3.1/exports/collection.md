@@ -41,6 +41,8 @@ public function storeExcel()
 
 :bulb: More about storing exports can be found in the [storing exports on disk page](/3.1/exports/store.html).
 
+If you want to use relationships in Collection, combine with [Mapping Data](/3.1/exports/mapping.html)
+
 ### Dependency injection
 
 In case your export needs dependencies, you can inject the export class:
