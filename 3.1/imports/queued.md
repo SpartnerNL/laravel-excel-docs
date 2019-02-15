@@ -105,3 +105,8 @@ Because `PendingDispatch` is returned, we can also change the queue that should 
 ```php
 (new UsersImport)->queue('users.xlsx')->allOnQueue('imports');
 ```
+
+## Notes
+:::warning
+You currently cannot queue `xls` imports. PhpSpreadsheet's Xls reader contains some non-utf8 characters, which makes it impossible to queue.
+:::
