@@ -28,7 +28,7 @@ public function storeExcel()
 }
 ```
 
-## Filesystem options
+## Disk options
 
 If you want to pass some options to the disk, pass them to Excel::store() as the fifth parameter.
 
