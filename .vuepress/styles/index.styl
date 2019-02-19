@@ -1,5 +1,5 @@
 html, body
-  background-color #f7fafc !important
+  background-color #f6f7ff !important
   font-family "Nunito", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif !important
 
 p, ul, ol
@@ -28,8 +28,24 @@ table
   margin 0 auto;
 
 .navbar
+  background-color $accentColor !important
   border none
   box-shadow 0 3px 3px 0 rgba(0, 0, 0, 0.07), 0 4px 9px 0 rgba(0, 0, 0, 0.06)
+
+.navbar .links
+  background-color $accentColor !important
+
+.site-name, .nav-item, .repo-link, .sidebar-button
+  color white !important
+
+.nav-item a:hover
+  color #e0daff !important
+
+.nav-item .dropdown-item a
+  color #3e446b;
+
+.nav-item .dropdown-item a:hover
+  color #283659 !important
 
 .sidebar
   position relative !important
@@ -39,7 +55,7 @@ table
   display inline-block
   padding-top 6rem
 
-.sidebar .sidebar-links
+.sidebar > .sidebar-links
   position fixed
   padding 2.5rem 0
   overflow-y auto
@@ -49,7 +65,7 @@ table
   color: #2c3e50 !important
 
 .sidebar-heading.open, .sidebar-heading:hover
-  color: #4dc0b5 !important
+  color: $accentColor  !important
 
 h4
   font-size: 1.2rem;
@@ -114,10 +130,45 @@ h4
   color #2c3e50
   font-size 0.85rem
 
+.token.punctuation, .token.operator
+  color: #84DAF5 !important
+
+.namespace
+  opacity: .7 !important
+
+.token.property,
+.token.keyword,
+.token.tag
+  color: #C48EE8 !important
+  font-style: italic !important
+
+.token.class-name
+  color: #F9C862 !important
+
+.token.scope
+  color: #F9C862 !important
+
+.token.package
+  color: #C2D3DF !important
+
+.token.package >.punctuation
+  color: #8C93C1 !important
+
+.token.function
+  color: #80A8FF !important
+
+.token.single-quoted-string, .token.string
+  color: #C3E88D !important
+
+.token.variable, .token.constant, .token.number
+  color: #F78C6C !important
 
 @media (max-width: 992px)
   .page
     padding-right 1rem
+
+  .site-name, .nav-item, .repo-link
+    color $textColor !important
 
   .table-of-contents
     position relative
@@ -131,13 +182,13 @@ h4
 
   .table-of-contents a
     font-size inherit
-    color: #4dc0b5
+    color: $accentColor
 
   .sidebar
     background white !important
     position fixed !important
 
-  .sidebar .sidebar-links
+  .sidebar > .sidebar-links
     position relative !important
     padding 1rem 0 !important
 

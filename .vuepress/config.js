@@ -61,13 +61,16 @@ module.exports = {
                 ]
             },
             {
+                text: 'Commercial Support',
+                link: 'https://laravel-excel.com/commercial-support',
+            },
+            {
                 text: 'Blog',
                 link: 'https://medium.com/maatwebsite/laravel-excel/home',
-            }
-            ,
+            },
             {
-                text: 'Maatwebsite',
-                link: 'https://www.maatwebsite.com',
+                text: 'Video Course',
+                link: 'https://course.laravel-excel.com',
             }
         ],
 
