@@ -28,3 +28,14 @@ public function storeExcel()
 }
 ```
 
+## Disk options
+
+If you want to pass some options to the disk, pass them to Excel::store() as the fifth parameter.
+
+```php
+public function storeExcel() 
+{
+    // Store on s3 as a private file
+    Excel::store(new InvoicesExport(2018), 'invoices.xlsx', 's3', null, 'private');
+}
+```

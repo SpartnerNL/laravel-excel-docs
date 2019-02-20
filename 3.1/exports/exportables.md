@@ -36,6 +36,12 @@ Or store it on a disk:
 return (new InvoicesExport)->store('invoices.xlsx', 's3');
 ```
 
+You can also pass options to the disk if you like:
+
+```php
+return (new InvoicesExport)->store('invoices.xlsx', 's3', null, 'private');
+```
+
 ### Responsable
 
 The previous example can be made even shorter when adding Laravel's `Responsable` interface to the export class:
