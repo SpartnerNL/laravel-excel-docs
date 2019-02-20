@@ -27,7 +27,7 @@
     </a>
 
     <a
-        href="https://laravel-excel.com/commercial-support"
+        href="https://medium.com/maatwebsite/laravel-excel/home"
         class="repo-link"
     >
       Blog
@@ -46,7 +46,7 @@
     </a>
 
     <a
-        href="https://laravel-excel.com/commercial-support"
+        href="https://course.laravel-excel.com"
         class="repo-link btn-orange"
     >
       Video course <strike>$99</strike> $69

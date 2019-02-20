@@ -4,7 +4,7 @@
       <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')"/>
 
       <router-link
-          :to="$localePath"
+          to="https://laravel-excel.com"
           class="home-link"
       >
         <!--<img-->
