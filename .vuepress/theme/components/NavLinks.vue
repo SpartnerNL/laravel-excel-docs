@@ -27,10 +27,13 @@
     </a>
 
     <a
+        target="_blank"
+        rel="nofollow noopener noreferrer"
         href="https://medium.com/maatwebsite/laravel-excel/home"
         class="repo-link"
     >
       Blog
+      <OutboundLink/>
     </a>
 
     <!-- repo link -->
@@ -39,7 +42,7 @@
         :href="repoLink"
         class="repo-link"
         target="_blank"
-        rel="noopener noreferrer"
+        rel="nofollow noopener noreferrer"
     >
       {{ repoLabel }}
       <OutboundLink/>
