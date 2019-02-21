@@ -3,8 +3,8 @@
     <div class="navbar-container theme-container">
       <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')"/>
 
-      <router-link
-          to="https://laravel-excel.com"
+      <a
+          href="https://laravel-excel.com"
           class="home-link"
       >
         <!--<img-->
@@ -19,7 +19,7 @@
             v-if="$siteTitle"
             :class="{ 'can-hide': $site.themeConfig.logo }"
         >{{ $siteTitle }}</span>
-      </router-link>
+      </a>
 
       <div
           class="links"
