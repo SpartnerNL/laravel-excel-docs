@@ -56,6 +56,14 @@ If you let your user upload the document, you can also just pass the uploaded fi
 Excel::import(new UsersImport, request()->file('your_file'));
 ```
 
+### Importing full path 
+
+If you want to specifiy the path where you file is, without having to move it to a disk, you can directly pass that file path to the import method.
+
+```php
+Excel::import(new UsersImport, storage_path('users.xlsx'));
+```
+
 ### Importing to array or collection
 
 If you want to bypass the `ToArray` or `ToCollection` concerns and want to have an array of imported data in your controller (beware of performance!), you can use the `::toArray()` or `::toCollection()` method.
