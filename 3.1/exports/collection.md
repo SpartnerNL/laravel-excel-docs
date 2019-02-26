@@ -97,6 +97,14 @@ class InvoicesExport implements FromCollection, WithStrictNullComparison
 }
 ```
 
+### Storing raw contents
+
+If you want to receive the raw contents of the exported file, you can use the `raw()` method:
+
+```php
+$contents = Excel::raw(new InvoicesExport);
+```
+
 ### Collection macros
 
 The package provides some macro to Laravel's collection class to easily download or store a collection.
