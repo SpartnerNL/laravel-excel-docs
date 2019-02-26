@@ -139,6 +139,32 @@ public function customValidationAttributes()
 
 The entire import is automatically wrapped in a **database transaction**, that means that *every* error will rollback the entire import. When using batch inserts, only the **current** batch will be rollbacked.
 
+#### Disable transactions
+
+If you prefer to not have any database transactions around your import (or chunk import), you can change which transaction handler you want to use in the config:
+
+In `config/excel.php`:
+
+```php
+'transactions' => [
+    'handler' => 'db',
+],
+```
+
+Supported handlers are currently: `null` or `db`.
+
+#### Custom transaction handlers
+
+If you want a custom transaction handler (for e.g. a MongoDB database), you can add your own handler:
+
+```php
+$this->app->make(\Maatwebsite\Excel\Transactions\TransactionManager::class)->extend('your_handler', function() {
+    return new YourTransactionHandler();
+});
+```
+
+The Handler should implement `Maatwebsite\Excel\Transactions\TransactionHandler`.
+
 ### Gathering all failures at the end
 
 You can gather all validation failures at the end of the import, when used in conjunction with Batch Inserts. You can try-catch the `ValidationException`. On this exception you can get all failures.
