@@ -9,8 +9,8 @@ Our software is open source and licensed under the [MIT license](https://choosea
 According to the [postcardware](https://en.wikipedia.org/wiki/Postcardware) concept, if you use the software for your project(s) we would appreciate to receive a postcard of your hometown. Please send it to:
 
 **Maatwebsite**  
-Florijnruwe 111-2  
-6218 CA Maastricht  
+Markt 2  
+6231 LS Meerssen  
 The Netherlands  
 
 ## Support
