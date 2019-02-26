@@ -42,3 +42,15 @@ class UsersExport extends DefaultValueBinder implements WithCustomValueBinder
 * `PhpOffice\PhpSpreadsheet\Cell\DataType::TYPE_NULL`
 * `PhpOffice\PhpSpreadsheet\Cell\DataType::TYPE_INLINE`
 * `PhpOffice\PhpSpreadsheet\Cell\DataType::TYPE_ERROR`
+
+## Default Value Binder
+
+If you want to use one value binder for all your exports, you can configure the default value binder in the config.
+
+In `config/excel.php`:
+
+```php
+'value_binder' => [
+    'default' => Maatwebsite\Excel\DefaultValueBinder::class,
+],
+```
