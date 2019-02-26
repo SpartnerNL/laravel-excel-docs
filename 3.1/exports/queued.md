@@ -108,3 +108,16 @@ Because `PendingDispatch` is returned, we can also change the queue that should 
 ```php
 (new InvoicesExport)->queue('invoices.xlsx')->allOnQueue('exports');
 ```
+
+### Multi-server setup
+
+If you aredealing with a multi-server setup, you might want to make sure the temporary file that is used to store each chunk of data on, is the same for each job. You can achieve this by configuring a remote temporary file in the config.
+
+In `config/excel.php`
+
+````
+'temporary_files' => [
+    'remote_disk' => 's3',
+],
+```    
+   
