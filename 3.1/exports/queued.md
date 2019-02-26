@@ -115,9 +115,8 @@ If you aredealing with a multi-server setup, you might want to make sure the tem
 
 In `config/excel.php`
 
-````
+```php
 'temporary_files' => [
     'remote_disk' => 's3',
 ],
-```    
-   
+```
