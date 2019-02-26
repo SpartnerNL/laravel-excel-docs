@@ -41,7 +41,7 @@ class UsersImport implements ToModel, WithValidation
              // Can also use callback validation rules
              '0' => function($attribute, $value, $onFailure) {
                   if ($value !== 'Patrick Brouwers') {
-                       $onFailure('Named is not Patrick Brouwers');
+                       $onFailure('Name is not Patrick Brouwers');
                   }
               }
         ];
