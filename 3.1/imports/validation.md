@@ -37,6 +37,13 @@ class UsersImport implements ToModel, WithValidation
 
              // Above is alias for as it always validates in batches
              '*.1' => Rule::in(['patrick@maatwebsite.nl']),
+             
+             // Can also use callback validation rules
+             '0' => function($attribute, $value, $onFailure) {
+                  if ($value !== 'Patrick Brouwers') {
+                       $onFailure('Named is not Patrick Brouwers');
+                  }
+              }
         ];
     }
 }
@@ -181,6 +188,7 @@ try {
          $failure->row(); // row that went wrong
          $failure->attribute(); // either heading key (if using heading row concern) or column index
          $failure->errors(); // Actual error messages from Laravel validator
+         $failure->values(); // The values of the row that has failed.
      }
 }
 ```
@@ -247,6 +255,7 @@ foreach ($import->failures() as $failure) {
      $failure->row(); // row that went wrong
      $failure->attribute(); // either heading key (if using heading row concern) or column index
      $failure->errors(); // Actual error messages from Laravel validator
+     $failure->values(); // The values of the row that has failed.
 }
 ```
 
