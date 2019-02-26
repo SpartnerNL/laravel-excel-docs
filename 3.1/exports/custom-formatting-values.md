@@ -1,8 +1,6 @@
----
-pageClass: no-toc
----
-
 # Custom Formatting Values
+
+[[toc]]
 
 ## Value Binder
 
