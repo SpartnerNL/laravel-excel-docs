@@ -1,6 +1,6 @@
 {
     "dependencies": {
-        "vuepress": "^1.0.0-alpha.35"
+        "vuepress": "^1.0.0-alpha.39"
     },
     "scripts": {
         "docs:build": "vuepress build",
