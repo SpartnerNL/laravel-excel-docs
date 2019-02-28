@@ -9,7 +9,10 @@ module.exports = {
         '@vuepress/pwa': {
             serviceWorker: true,
             updatePopup: true
-        }
+        },
+        'sitemap': {
+            hostname: 'https://docs.laravel-excel.com'
+        },
     },
 
     markdown: {
