@@ -48,3 +48,24 @@ class InvoicesExport implements FromQuery, WithHeadings
     }
 }
 ```
+
+If you need to have multiple heading rows, you can return multiple rows from the `headings()` method:
+
+```
+```php
+
+use Maatwebsite\Excel\Concerns\FromQuery;
+use Maatwebsite\Excel\Concerns\WithHeadings;
+
+class InvoicesExport implements FromQuery, WithHeadings
+{   
+    public function headings(): array
+    {
+        return [
+           ['First row', 'First row']
+           ['Second row', 'Second row'],
+        ];
+    }
+}
+```
+``
