@@ -52,6 +52,7 @@ In some cases you might not have an import in which each row is an Eloquent mode
 namespace App\Imports;
 
 use App\User;
+use Maatwebsite\Excel\Row;
 use Maatwebsite\Excel\Concerns\OnEachRow;
 
 class UsersImport implements OnEachRow
