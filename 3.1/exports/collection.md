@@ -41,9 +41,93 @@ public function storeExcel()
 
 :bulb: More about storing exports can be found in the [storing exports on disk page](/3.1/exports/store.html).
 
+:::INFO
 If you want to use relationships in Collection, combine with [Mapping Data](/3.1/exports/mapping.html)
+:::
 
-### Dependency injection
+## Using custom structures
+
+If you are not using Eloquent or having another datasource (e.g. an API, MongoDB, Cache, ...) you can also return a custom collection:
+
+```php
+namespace App\Exports;
+
+use App\Invoice;
+use Maatwebsite\Excel\Concerns\FromCollection;
+
+class InvoicesExport implements FromCollection
+{
+    public function collection()
+    {
+        return new Collection([
+            [1, 2, 3],
+            [4, 5, 6]
+        ]);
+    }
+}
+```
+
+## Using arrays
+
+If you prefer to use plain arrays over Collections, you can use the `FromArray` concern:
+
+```php
+namespace App\Exports;
+
+use App\Invoice;
+use Maatwebsite\Excel\Concerns\FromArray;
+
+class InvoicesExport implements FromArray
+{
+    public function array(): array
+    {
+        return [
+            [1, 2, 3],
+            [4, 5, 6]
+        ];
+    }
+}
+```
+
+If you need to pass data from the controller to your export, you can use the constructor to do so:
+
+```php
+namespace App\Exports;
+
+use App\Invoice;
+use Maatwebsite\Excel\Concerns\FromArray;
+
+class InvoicesExport implements FromArray
+{
+    protected $invoices;
+
+    public function __construct(array $invoices)
+    {
+        $this->invoices = $invoices;
+    }
+
+    public function array(): array
+    {
+        return $this->invoices;
+    }
+}
+```
+
+In your controller you can now use the constructor of the export class:
+
+```php
+public function export() 
+{
+    $export = new InvoicesExport([
+        [1, 2, 3],
+        [4, 5, 6]
+    ]);
+
+    return Excel::download($export, 'invoices.xlsx');
+}
+```
+
+## Dependency injection
 
 In case your export needs dependencies, you can inject the export class:
 
@@ -73,7 +157,7 @@ public function export(Excel $excel, InvoicesExport $export)
 }
 ```
 
-### Strict null comparisons
+## Strict null comparisons
 
 If you want your `0` values to be actual `0` values in your excel sheet instead of `null` (empty cells), you can use `WithStrictNullComparison`.
 
@@ -97,7 +181,7 @@ class InvoicesExport implements FromCollection, WithStrictNullComparison
 }
 ```
 
-### Storing raw contents
+## Storing raw contents
 
 If you want to receive the raw contents of the exported file, you can use the `raw()` method:
 
@@ -105,11 +189,22 @@ If you want to receive the raw contents of the exported file, you can use the `r
 $contents = Excel::raw(new InvoicesExport);
 ```
 
-### Collection macros
+## Collection macros
 
 The package provides some macro to Laravel's collection class to easily download or store a collection.
 
-#### Downloading a collection as Excel
+### Downloading a collection as Excel
+
+```php
+User:all()->downloadExcel(
+    $filePath,
+    $writerType = null,
+    $headings = false
+)
+```
+
+It doesn't have to be an Eloquent collection to work:
+
 
 ```php
 (new Collection([[1, 2, 3], [1, 2, 3]]))->downloadExcel(
@@ -119,10 +214,10 @@ The package provides some macro to Laravel's collection class to easily download
 )
 ```
 
-#### Storing a collection on disk
+### Storing a collection on disk
 
 ```php
-(new Collection([[1, 2, 3], [1, 2, 3]]))->storeExcel(
+User:all()->storeExcel(
     $filePath,
     $disk = null,
     $writerType = null,
