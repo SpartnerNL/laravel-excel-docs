@@ -51,7 +51,7 @@ class InvoicesExport implements FromQuery, WithHeadings
 
 If you need to have multiple heading rows, you can return multiple rows from the `headings()` method:
 
-```
+
 ```php
 
 use Maatwebsite\Excel\Concerns\FromQuery;
@@ -68,4 +68,3 @@ class InvoicesExport implements FromQuery, WithHeadings
     }
 }
 ```
-``
