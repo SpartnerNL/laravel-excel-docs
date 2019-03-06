@@ -111,7 +111,7 @@ Because `PendingDispatch` is returned, we can also change the queue that should 
 
 ### Multi-server setup
 
-If you aredealing with a multi-server setup, you might want to make sure the temporary file that is used to store each chunk of data on, is the same for each job. You can achieve this by configuring a remote temporary file in the config.
+If you are dealing with a multi-server setup (using e.g. a loadbalancer), you might want to make sure the temporary file that is used to store each chunk of data on, is the same for each job. You can achieve this by configuring a remote temporary file in the config.
 
 In `config/excel.php`
 
