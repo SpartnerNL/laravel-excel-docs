@@ -62,7 +62,7 @@ class InvoicesExport implements FromQuery, WithHeadings
     public function headings(): array
     {
         return [
-           ['First row', 'First row']
+           ['First row', 'First row'],
            ['Second row', 'Second row'],
         ];
     }
