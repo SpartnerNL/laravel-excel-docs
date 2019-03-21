@@ -239,7 +239,7 @@ Next the Import object will be passed on to the Laravel Excel package. The main 
 #### Contract
 
 You can also use the `Maatwebsite\Excel\Importer` interface to decouple more from the concrete Excel manager implementation. The contract offers the same methods as the `Excel` class. 
-It will make it easier to e.g. stub out the Importer in your unit tests. The `Importer` contract can be either injected via the constructor of the method of a controller.
+It will make it easier to e.g. stub out the Importer in your unit tests. The `Importer` contract can be either injected via the constructor or the method of a controller.
 
 ```php
 use App\Imports\UsersImport;
@@ -312,7 +312,7 @@ Next we will determine if we are dealing with multiple sheets. This is done base
 
 #### Processing the sheets
 
-Then each Sheet gets processed. This process gets started of by raising the `BeforeSheet` event. 
+Then each Sheet gets processed. This process gets started off by raising the `BeforeSheet` event. 
 Then it will either import it to a Collection, an array or handle each row as an Eloquent model.
 
 - When using `ToModel`, each returned model will be persisted via Eloquent. When using this in combination with `WithBatchInserts`, it will defer the persistence till the batch is complete and then insert them as one batch in the database.
