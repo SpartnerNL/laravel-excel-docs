@@ -44,6 +44,24 @@ public function model(array $row)
 }
 ```
 
+## Possible column names
+
+In case you want to import rows by several possible names, you can use `??` operator. If the column with the first name (in example _client_name_) exists and is not NULL, return its value; otherwise look for second possible name (in example _client_) etc.
+
+```php
+public function model(array $row) {
+  return new Post([
+    'name' => $row['client_name'] ?? $row['client'] ?? $row['name'] ?? null
+  ]);
+}
+```
+
+:::warning
+The null coalescing operator ?? is only avaliable in PHP 7.0 and higher.
+:::
+
+
+
 ## Handling persistence on your own
 
 In some cases you might not have an import in which each row is an Eloquent model and you want more control over what happens. In those cases you can use the `OnEachRow` concern.
