@@ -46,21 +46,15 @@ public function model(array $row)
 
 ## Possible column names
 
-In case you want to import rows by several possible names, you can use `??` operator. If the column with the first name (in example _client_name_) exists and is not NULL, return its value; otherwise look for second possible name (in example _client_) etc.
+In case you want to import rows by several possible column names (using `WithHeadingRow`), you can use null coalescing operator (`??`). If the column with the first name (in example _client_name_) exists and is not NULL, return its value; otherwise look for second possible name (in example _client_) etc.
 
 ```php
 public function model(array $row) {
-  return new Post([
+  return new User([
     'name' => $row['client_name'] ?? $row['client'] ?? $row['name'] ?? null
   ]);
 }
 ```
-
-:::warning
-The null coalescing operator ?? is only avaliable in PHP 7.0 and higher.
-:::
-
-
 
 ## Handling persistence on your own
 
