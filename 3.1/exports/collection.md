@@ -186,7 +186,7 @@ class InvoicesExport implements FromCollection, WithStrictNullComparison
 If you want to receive the raw contents of the exported file, you can use the `raw()` method:
 
 ```php
-$contents = Excel::raw(new InvoicesExport);
+$contents = Excel::raw(new InvoicesExport, Excel::XLSX);
 ```
 
 ## Collection macros
