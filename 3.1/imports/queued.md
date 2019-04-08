@@ -106,6 +106,18 @@ Because `PendingDispatch` is returned, we can also change the queue that should 
 (new UsersImport)->queue('users.xlsx')->allOnQueue('imports');
 ```
 
+## Multi-server setup
+
+If you are dealing with a multi-server setup (using e.g. a loadbalancer), you might want to make sure the temporary file is the same for each job. You can achieve this by configuring a remote temporary file in the config.
+
+In `config/excel.php`
+
+```php
+'temporary_files' => [
+    'remote_disk' => 's3',
+],
+```
+
 ## Notes
 :::warning
 You currently cannot queue `xls` imports. PhpSpreadsheet's Xls reader contains some non-utf8 characters, which makes it impossible to queue.
