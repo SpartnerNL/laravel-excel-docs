@@ -19,14 +19,15 @@ use Maatwebsite\Excel\Concerns\ToCollection;
 
 class UsersImport implements ToCollection
 {
-    public function collection(Collection $rows)
+    public $data;
+
+    public function collection(Collection $collection)
     {
-        foreach ($rows as $row) 
-        {
-            User::create([
+        $this->data = $collection->transform(function ($row) {
+            return User::make([
                 'name' => $row[0],
             ]);
-        }
+        });
     }
 }
 ```
@@ -40,7 +41,9 @@ In your controller we can now import this:
 ```php
 public function import() 
 {
-    Excel::import(new UsersImport, 'users.xlsx');
+    $import = new UsersImport;
+    Excel::import($import, 'users.xlsx');
+    $resultsCollection = $import->data;
 }
 ```
 
