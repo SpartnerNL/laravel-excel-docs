@@ -82,7 +82,7 @@ class ExportController
 #### Contract
 
 You can also use the `Maatwebsite\Excel\Exporter` interface to decouple more from the concrete Excel manager implementation. The contract offers the same methods as the `Excel` class. 
-It will make it easier to e.g. stub out the Exporter in your unit tests. The `Exporter` contract can be either injected via the constructor of the method of a controller.
+It will make it easier to e.g. stub out the Exporter in your unit tests. The `Exporter` contract can be either injected via the constructor or a method in a controller.
 
 ```php
 use App\Exports\UsersExport;
