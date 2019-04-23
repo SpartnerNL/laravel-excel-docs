@@ -42,7 +42,7 @@ class FirstSheetImport implements ToCollection
 
 ## Selecting sheets by worksheet index
 
-If you want more control over which sheets are selected and how their are mapped to specific sheet import objects, you can use the sheet index as key. Sheet indices start at 0.
+If you want more control over which sheets are selected and how they are mapped to specific sheet import objects, you can use the sheet index as key. Sheet indices start at 0.
 
 ```php
 namespace App\Imports;
