@@ -62,6 +62,37 @@ When `ShouldQueue` is used, the import will automatically be queued.
 Excel::import(new UsersImport, 'users.xlsx');
 ```
 
+## Handling failures in queued imports
+
+When queuing imports you might want a way to handle failed imports. You can do this by using the `ImportFailed` event.
+
+```php
+namespace App\Imports;
+
+use App\User;
+use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\WithEvents;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Maatwebsite\Excel\Concerns\WithChunkReading;
+
+class UsersImport implements ToModel, WithChunkReading, ShouldQueue, WithEvents
+{
+    public function __construct(User $importedBy)
+    {
+        $this->importedBy = $importedBy;
+    }
+
+    public function registerEvents(): array
+    {
+        return [
+            ImportFailed::class => function(ImportFailed $event) {
+                $this->importedBy->notifiy(new ImportHasFailedNotification);
+            },
+        ];
+    }
+}
+```
+
 ## Appending jobs
 
 When queuing an import an instance of Laravel's `PendingDispatch` is returned. This means you can chain extra jobs that will be added to the end of the queue and only executed if all import jobs are correctly executed.
