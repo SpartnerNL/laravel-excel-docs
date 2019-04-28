@@ -280,6 +280,32 @@ class InvoicesExport implements WithEvents
     }
 }
 ```
+### RTL (Right to Left) Sheets
+
+To change the excel sheet direction you can use `setRightToLeft(true)` as in the below example
+
+```php
+namespace App\Exports;
+
+use Maatwebsite\Excel\Concerns\WithEvents;
+use Maatwebsite\Excel\Events\BeforeExport;
+use Maatwebsite\Excel\Events\AfterSheet;
+
+class InvoicesExport implements WithEvents
+{
+    /**
+     * @return array
+     */
+    public function registerEvents(): array
+    {
+        return [
+            AfterSheet::class    => function(AfterSheet $event) {
+                $event->sheet>getDelegate()->setRightToLeft(true);
+            },
+        ];
+    }
+}
+```
 
 Feel free to use the above macro, or be creative and invent your own!
 
