@@ -5,10 +5,6 @@
 By default, the export format is determined by the extension of the file. If you want 
 to explicitly configure the export format, you can pass it through as 2nd parameter. 
 
-You can customize the download headers with the optional 3rd parameter `$headers`. 
-This way, you can customize the mime type for example.
-
-
 ## XLSX
 
 ```php
@@ -20,15 +16,14 @@ This way, you can customize the mime type for example.
 ```php
 // mime type is guessed and results to text/plain
 (new InvoicesExport)->download('invoices.csv', \Maatwebsite\Excel\Excel::CSV);
+```
 
-// custom mime type text/csv
-(new InvoicesExport)->download(
-    'invoices.csv', 
-    \Maatwebsite\Excel\Excel::CSV, 
-    [
-        'Content-Type' => 'text/csv',
-    ]
-);
+By default the CSV is download with Content Type `text/plain`, if you want to customize the Content-Type header, you can do so by passing it as 3rd parameter.
+
+```
+(new InvoicesExport)->download('invoices.csv', \Maatwebsite\Excel\Excel::CSV, [
+      'Content-Type' => 'text/csv',
+]);
 ```
 
 ## TSV
