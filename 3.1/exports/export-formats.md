@@ -8,20 +8,19 @@ to explicitly configure the export format, you can pass it through as 2nd parame
 ## XLSX
 
 ```php
-(new InvoicesExport)->download('invoices.xlsx', \Maatwebsite\Excel\Excel::XLSX);
+return (new InvoicesExport)->download('invoices.xlsx', \Maatwebsite\Excel\Excel::XLSX);
 ```
 
 ## CSV
 
 ```php
-// mime type is guessed and results to text/plain
-(new InvoicesExport)->download('invoices.csv', \Maatwebsite\Excel\Excel::CSV);
+return (new InvoicesExport)->download('invoices.csv', \Maatwebsite\Excel\Excel::CSV);
 ```
 
 By default the CSV is download with Content Type `text/plain`, if you want to customize the Content-Type header, you can do so by passing it as 3rd parameter.
 
-```
-(new InvoicesExport)->download('invoices.csv', \Maatwebsite\Excel\Excel::CSV, [
+```php
+return (new InvoicesExport)->download('invoices.csv', \Maatwebsite\Excel\Excel::CSV, [
       'Content-Type' => 'text/csv',
 ]);
 ```
@@ -29,25 +28,25 @@ By default the CSV is download with Content Type `text/plain`, if you want to cu
 ## TSV
 
 ```php
-(new InvoicesExport)->download('invoices.tsv', \Maatwebsite\Excel\Excel::TSV);
+return (new InvoicesExport)->download('invoices.tsv', \Maatwebsite\Excel\Excel::TSV);
 ```
 
 ## ODS
 
 ```php
-(new InvoicesExport)->download('invoices.ods', \Maatwebsite\Excel\Excel::ODS);
+return (new InvoicesExport)->download('invoices.ods', \Maatwebsite\Excel\Excel::ODS);
 ```
 
 ## XLS
 
 ```php
-(new InvoicesExport)->download('invoices.xls', \Maatwebsite\Excel\Excel::XLS);
+return (new InvoicesExport)->download('invoices.xls', \Maatwebsite\Excel\Excel::XLS);
 ```
 
 ## HTML
 
 ```php
-(new InvoicesExport)->download('invoices.html', \Maatwebsite\Excel\Excel::HTML);
+return (new InvoicesExport)->download('invoices.html', \Maatwebsite\Excel\Excel::HTML);
 ```
 
 ::: warning Exporting to PDF
@@ -57,17 +56,17 @@ If you'd like to export to PDF, you must now install a PDF rendering library you
 ## MPDF
 
 ```php
-(new InvoicesExport)->download('invoices.pdf', \Maatwebsite\Excel\Excel::MPDF);
+return (new InvoicesExport)->download('invoices.pdf', \Maatwebsite\Excel\Excel::MPDF);
 ```
 
 ## DOMPDF
 
 ```php
-(new InvoicesExport)->download('invoices.pdf', \Maatwebsite\Excel\Excel::DOMPDF);
+return (new InvoicesExport)->download('invoices.pdf', \Maatwebsite\Excel\Excel::DOMPDF);
 ```
 
 ## TCPDF
 
 ```php
-(new InvoicesExport)->download('invoices.pdf', \Maatwebsite\Excel\Excel::TCPDF);
+return (new InvoicesExport)->download('invoices.pdf', \Maatwebsite\Excel\Excel::TCPDF);
 ```
