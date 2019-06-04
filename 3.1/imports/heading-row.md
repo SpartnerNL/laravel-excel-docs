@@ -111,6 +111,9 @@ Or you can then set this new formatter in a service provider.
 ```php
 HeadingRowFormatter::default('custom');
 ```
+:::warning
+`HeadingRowFormatter` should never be inside the import method. This causes unexpected behaviour when used with ChunkReading and queues.
+:::
 
 ## Importing only the heading row
 
