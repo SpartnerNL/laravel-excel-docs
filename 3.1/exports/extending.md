@@ -146,7 +146,7 @@ interface WithCustomProperties
 ```
 
 Next to this concern we will create a concern handler `WithCustomerPropertiesHandler`. This class can also be added to `App/Exports/Concerns`, but is again completely free of choice. 
-A concern handler is basically just an invokable class. It receives your exportable object and either a `Writer` or `Sheet` object, depending on the choosen event.
+A concern handler is basically just an invokable class. It receives your exportable object and either a `Writer` or `Sheet` object, depending on the chosen event.
 
 ```php
 namespace App\Exports\Concerns;
