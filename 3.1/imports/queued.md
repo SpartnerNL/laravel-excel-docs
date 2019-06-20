@@ -70,6 +70,7 @@ When queuing imports you might want a way to handle failed imports. You can do t
 namespace App\Imports;
 
 use App\User;
+use App\Notifications\ImportHasFailedNotification;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithEvents;
 use Illuminate\Contracts\Queue\ShouldQueue;
