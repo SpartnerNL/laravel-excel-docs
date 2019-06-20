@@ -86,7 +86,7 @@ class UsersImport implements ToModel, WithChunkReading, ShouldQueue, WithEvents
     {
         return [
             ImportFailed::class => function(ImportFailed $event) {
-                $this->importedBy->notifiy(new ImportHasFailedNotification);
+                $this->importedBy->notify(new ImportHasFailedNotification);
             },
         ];
     }
