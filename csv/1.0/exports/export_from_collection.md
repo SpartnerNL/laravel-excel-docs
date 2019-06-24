@@ -1,12 +1,8 @@
----
-pageClass: no-toc
----
-
-# :rocket: 5 minutes quick start
+# Implementing the FromCollection concern
 
 [[toc]]
 
-:muscle: Create an export class in `app/Exports`
+:muscle: Create an export class in `app/Exports` in the same way as shown in the 5 minute quick start.
 
 :::vue
 .
@@ -21,13 +17,13 @@ pageClass: no-toc
 namespace App\Exports;
 
 use App\User;
-use Maatwebsite\Csv\Concerns\FromArray;
+use Maatwebsite\Csv\Concerns\FromCollection;
 
 class UsersExport implements FromArray
 {
-    public function array()
+    public function collection()
     {
-        return User::all()->toArray();
+        return User::all();
     }
 }
 ```
