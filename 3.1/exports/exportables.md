@@ -27,13 +27,13 @@ class InvoicesExport implements FromCollection
 We can now download the export without the need for the facade:
 
 ```php
-return (new InvoicesExport)->download('invoices.xlsx');
+return (new InvoicesExport)->download('invoices.xlsx')->send();
 ```
 
 You can also pass the Writer Type and optional headers to the download method:
 
 ```php
-return (new InvoicesExport)->download('invoices.csv', Excel::CSV, ['Content-Type' => 'text/csv']);
+return (new InvoicesExport)->download('invoices.csv', Excel::CSV, ['Content-Type' => 'text/csv'])->send();
 ```
 
 Or store it on a disk:
