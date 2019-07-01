@@ -66,3 +66,24 @@ class UsersController extends Controller
 }
 ```
 Note that this is different from how Laravel does this natively! As normally calling the chain method on a job will replace the existing chain.
+
+If you use the `store` method instead of the `queue` method, but the export class implements `ShouldQueue`,
+then Csv::store will still return a PendingDispatch instance, so this will still work:
+```
+use App\Exports\UsersExport;
+use App\Http\Controllers\Controller;
+use Maatwebsite\LaravelCsv\Facades\Csv;
+
+class UsersController extends Controller 
+{
+    public function export() 
+    {
+        $queuedJob = Csv::store(new UsersExport, 'users.csv');
+        $queuedJob->chain([
+            new AfterQueueExportJob(),
+        ]);
+        
+        return Csv::queue(new UsersExport, 'users.csv');
+    }
+}
+```
