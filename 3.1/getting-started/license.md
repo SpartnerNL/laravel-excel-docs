@@ -16,7 +16,7 @@ The Netherlands
 ## Support
 
 ::: warning Support
-We hold no liability and will provide support on a best effort basis. For more information about support please see [support](https://laravel-excel.maatwebsite.nl/docs/3.1/getting-started/support).
+We hold no liability and will provide support on a best effort basis. For more information about support please see [support](https://docs.laravel-excel.com/3.1/getting-started/support.html).
 :::
 
 :::tip Commercial Support
