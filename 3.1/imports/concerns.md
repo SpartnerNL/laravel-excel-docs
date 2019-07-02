@@ -20,7 +20,7 @@ pageClass: no-toc
 |`Maatwebsite\Excel\Concerns\WithMultipleSheets`| Enable multi-sheet support. Each sheet can have its own concerns (except this one). | [Multiple Sheets](/3.1/imports/multiple-sheets.html) |
 |`Maatwebsite\Excel\Concerns\WithCalculatedFormulas`| Calculates the formulas when importing. By default this is disabled. | |
 |`Maatwebsite\Excel\Concerns\WithEvents`| Register events to hook into the PhpSpreadsheet process. | [Events](/3.1/imports/extending.html#events) |
-|`Maatwebsite\Excel\Concerns\WithCustomCsvSettings`| Allows to run custom Csv settings for this specific importable. | |
+|`Maatwebsite\Excel\Concerns\WithCustomCsvSettings`| Allows to run custom Csv settings for this specific importable. | [Custom CSV Settings](/3.1/imports/custom-csv-settings.html) |
 |`Maatwebsite\Excel\Concerns\WithStartRow`| Define a custom start row. | |
 |`Maatwebsite\Excel\Concerns\WithProgressBar`| Shows a progress bar when uploading via the console. | [Progress Bar](/3.1/imports/progress-bar.html) |
 |`Maatwebsite\Excel\Concerns\WithValidation`| Validates each row against a set of rules. | [Row Validation](/3.1/imports/validation.html) |
