@@ -36,6 +36,7 @@ module.exports = [
             'mapping',
             'column-formatting',
             'custom-formatting-values',
+            'drawings',
             'concerns',
             'extending',
             'testing',
