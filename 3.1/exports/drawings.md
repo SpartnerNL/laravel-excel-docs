@@ -28,7 +28,7 @@ namespace App\Exports;
 use Maatwebsite\Excel\Concerns\WithDrawings;
 use PhpOffice\PhpSpreadsheet\Worksheet\Drawing;
 
-class UsersExport implements WithDrawings
+class InvoicesExport implements WithDrawings
 {
     public function drawings()
     {
@@ -55,7 +55,7 @@ namespace App\Exports;
 use Maatwebsite\Excel\Concerns\WithDrawings;
 use PhpOffice\PhpSpreadsheet\Worksheet\Drawing;
 
-class UsersExport implements WithDrawings
+class InvoicesExport implements WithDrawings
 {
     public function drawings()
     {
