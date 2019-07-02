@@ -46,9 +46,9 @@ class UsersController extends Controller
 ```
 
 What's different about the FromQuery handler is that it automatically uses chunking (chunkById) to optimize performance. This happens in much the same way as it does in Laravel-Excel. 
-You can customize the chunksize via the config file `csv.php`:
+You can customize the chunksize via the [config file](./configuration.md):
 
-```
+```php
 <?php
 
 return [
