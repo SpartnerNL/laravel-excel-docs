@@ -22,7 +22,7 @@ pageClass: no-toc
 |`Maatwebsite\Excel\Concerns\WithCustomQuerySize`| Allows Exportables that implement the FromQuery concern, to provide their own custom query size. | |
 |`Maatwebsite\Excel\Concerns\WithCustomCsvSettings`| Allows to run custom Csv settings for this specific exportable. | [Custom CSV Settings](/3.1/imports/custom-csv-settings.html) |
 |`Maatwebsite\Excel\Concerns\WithCharts`| Allows to run one or multiple PhpSpreadsheet Chart instances. | |
-|`Maatwebsite\Excel\Concerns\WithDrawings`| Allows to run one or multiple PhpSpreadsheet (Base)Drawing instances. | |
+|`Maatwebsite\Excel\Concerns\WithDrawings`| Allows to run one or multiple PhpSpreadsheet (Base)Drawing instances. | [Drawings](/3.1/imports/drawings.html) |
 |`Maatwebsite\Excel\Concerns\WithCustomStartCell`| Allows to specify a custom start cell. Do note that this is only supported for FromCollection exports. | |
 |`Maatwebsite\Excel\Concerns\WithPreCalculateFormulas`| Forces PhpSpreadsheet to recalculate all formulae in a workbook when saving, so that the pre-calculated values are immediately available to MS Excel or other office spreadsheet viewer when opening the file. | |
 
