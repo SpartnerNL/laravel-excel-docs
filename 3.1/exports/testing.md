@@ -4,7 +4,7 @@
 
 The Excel facade can be used to swap the exporter to a fake.
 
-### Testing downloads
+## Testing downloads
 
 ```php
 /**
@@ -24,7 +24,7 @@ public function user_can_download_invoices_export()
 }
 ```
 
-### Testing storing exports
+## Testing storing exports
 
 ```php
 /**
@@ -50,7 +50,7 @@ public function user_can_store_invoices_export()
 }
 ```
 
-### Testing queuing exports
+## Testing queuing exports
 
 ```php
 /**

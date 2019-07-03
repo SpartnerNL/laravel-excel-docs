@@ -33,7 +33,7 @@ class UsersImport implements ToModel, WithChunkReading
 A chunk size of `1000` will not be the most optimal situation for your import. Play around with this number to find the sweet spot.
 :::
 
-### Using it together with Batch Inserts
+## Using it together with Batch Inserts
 
 The most ideal situation (regarding time and memory consumption) you will find when combining batch inserts and chunk reading.
 
