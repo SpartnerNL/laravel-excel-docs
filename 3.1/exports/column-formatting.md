@@ -37,12 +37,12 @@ class InvoicesExport implements WithColumnFormatting, WithMapping
 }
 ```
 
-### Dates
+## Dates
 
 When working with dates, it's recommended to use `\PhpOffice\PhpSpreadsheet\Shared\Date::dateTimeToExcel()` in your mapping
 to ensure correct parsing of dates.
 
-### Auto size
+## Auto size
 
 If you want Laravel Excel to perform an automatic width calculation, use the following code. 
 

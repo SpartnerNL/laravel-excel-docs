@@ -159,7 +159,7 @@ public function export(Excel $excel, InvoicesExport $export)
 
 ## Strict null comparisons
 
-If you want your `0` values to be actual `0` values in your excel sheet instead of `null` (empty cells), you can use `WithStrictNullComparison`.
+If you want your `0` values to be actual `0` values in your Excel sheet instead of `null` (empty cells), you can use `WithStrictNullComparison`.
 
 ```php
 namespace App\Exports;

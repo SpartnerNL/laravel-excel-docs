@@ -282,7 +282,7 @@ class InvoicesExport implements WithEvents
 ```
 ### RTL (Right to Left) Sheets
 
-To change the excel sheet direction you can use `setRightToLeft(true)` as in the below example
+To change the Excel sheet direction you can use `setRightToLeft(true)` as in the below example
 
 ```php
 namespace App\Exports;

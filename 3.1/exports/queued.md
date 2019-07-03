@@ -35,7 +35,7 @@ return back()->withSuccess('Export started!');
 Behind the scenes the query will be chunked and multiple jobs will be chained. These jobs will be executed in the correct order,
 and will only execute if none of the previous have failed. 
 
-### Implicit Export queueing
+## Implicit Export queueing
 
 You can also mark an export implicitly as a queued export. You can do this by using Laravel's `ShouldQueue` contract.
 
@@ -65,7 +65,7 @@ Based on the presence of the `ShouldQueue` contract, the export will be queued.
 (new InvoicesExport)->store('invoices.xlsx');
 ```
 
-### Appending jobs
+## Appending jobs
 
 The `queue()` method returns an instance of Laravel's `PendingDispatch`. This means you can chain extra jobs that will be added to the end of the queue and only executed if all export jobs are correctly executed.
 
@@ -101,7 +101,7 @@ class NotifyUserOfCompletedExport implements ShouldQueue
 }
 ```
 
-### Custom queues
+## Custom queues
 
 Because `PendingDispatch` is returned, we can also change the queue that should be used.
 
@@ -109,7 +109,7 @@ Because `PendingDispatch` is returned, we can also change the queue that should 
 (new InvoicesExport)->queue('invoices.xlsx')->allOnQueue('exports');
 ```
 
-### Multi-server setup
+## Multi-server setup
 
 If you are dealing with a multi-server setup (using e.g. a loadbalancer), you might want to make sure the temporary file that is used to store each chunk of data on, is the same for each job. You can achieve this by configuring a remote temporary file in the config.
 
@@ -120,3 +120,12 @@ In `config/excel.php`
     'remote_disk' => 's3',
 ],
 ```
+
+## Custom Query Size
+Queued exportables are processed in chunks; each chunk being a job pushed to the queue by the `QueuedWriter`.
+In case of exportables that implement the [FromQuery](/3.1/exports/from-query.html) concern, the number of jobs is calculated by dividing the `$query->count()` by the chunk size.
+
+### When to use
+Depending on the implementation of the `query()` method (e.g. when using a `groupBy` clause), the calculation mentioned before might not be correct.
+
+If this is the case, you should use the `WithCustomQuerySize` concern to provide a custom calculation of the query size.
