@@ -181,6 +181,13 @@ class InvoicesExport implements FromCollection, WithStrictNullComparison
 }
 ```
 
+## Custom start cell
+The default start cell is _A1_. Implementing the `WithCustomStartCell` concern in your export class allows you to specify a custom start cell.
+
+:::warning
+`WithCustomStartCell` is only supported for `FromCollection` exports.
+:::
+
 ## Storing raw contents
 
 If you want to receive the raw contents of the exported file, you can use the `raw()` method:
