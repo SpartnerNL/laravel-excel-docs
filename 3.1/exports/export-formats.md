@@ -50,7 +50,7 @@ return (new InvoicesExport)->download('invoices.html', \Maatwebsite\Excel\Excel:
 ```
 
 ::: warning Exporting to PDF
-If you'd like to export to PDF, you must now install a PDF rendering library yourself. Please refer to the [PhpSpreadsheet Documentation](https://phpspreadsheet.readthedocs.io/en/develop/topics/reading-and-writing-to-file/#pdf) for more information.
+If you'd like to export to PDF, you must now install a PDF rendering library yourself. Please refer to the [PhpSpreadsheet Documentation](https://phpspreadsheet.readthedocs.io/en/latest/topics/reading-and-writing-to-file/#pdf) for more information.
 :::
 
 ## MPDF
