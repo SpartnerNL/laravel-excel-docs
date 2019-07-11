@@ -13,6 +13,7 @@ The `rules()` method, expects an array with Laravel Validation rules to be retur
 namespace App\Imports;
 
 use App\User;
+use Illuminate\Validation\Rule;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\Importable;
 use Maatwebsite\Excel\Concerns\WithValidation;
@@ -59,6 +60,7 @@ When using the `WithHeadingRow` concern, you can use the heading row name as rul
 namespace App\Imports;
 
 use App\User;
+use Illuminate\Validation\Rule;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\Importable;
 use Maatwebsite\Excel\Concerns\WithValidation;
