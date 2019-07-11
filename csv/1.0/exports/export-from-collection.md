@@ -17,9 +17,9 @@
 namespace App\Exports;
 
 use App\User;
-use Maatwebsite\Csv\Concerns\FromCollection;
+use Maatwebsite\LaravelCsv\Concerns\FromCollection;
 
-class UsersExport implements FromArray
+class UsersExport implements FromCollection
 {
     public function collection()
     {

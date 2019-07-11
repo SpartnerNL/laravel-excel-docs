@@ -1,4 +1,4 @@
-## :rocket: 5 minutes quick start
+## :rocket: 5 minute quick start
 
 :bulb: Require this package in the `composer.json` of your Laravel project. This will download the package and Laravel Excel.
 

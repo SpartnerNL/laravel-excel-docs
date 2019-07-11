@@ -17,7 +17,7 @@
 namespace App\Exports;
 
 use App\User;
-use Maatwebsite\Csv\Concerns\FromQuery;
+use Maatwebsite\LaravelCsv\Concerns\FromQuery;
 
 class UsersExport implements FromQuery
 {
@@ -45,8 +45,8 @@ class UsersController extends Controller
 }
 ```
 
-What's different about the FromQuery handler is that it automatically uses chunking (chunkById) to optimize performance. This happens in much the same way as it does in Laravel-Excel. 
-You can customize the chunksize via the [config file](./configuration.md):
+What's different about the FromQuery handler is that it automatically uses __chunking__ (`chunkById`) to optimize performance. This happens in much the same way as it does in Laravel Excel. 
+You can customize the chunk size via the [config file](./1.0/exports/configuration.html#query-chunk-size):
 
 ```php
 <?php
@@ -54,5 +54,4 @@ You can customize the chunksize via the [config file](./configuration.md):
 return [
     'chunkSize' => 10000,
 ];
-
 ```

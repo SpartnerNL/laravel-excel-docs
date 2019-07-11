@@ -2,7 +2,7 @@
 pageClass: no-toc
 ---
 
-# :rocket: 5 minutes quick start
+# :rocket: 5 minute quick start
 
 [[toc]]
 
@@ -21,7 +21,7 @@ pageClass: no-toc
 namespace App\Exports;
 
 use App\User;
-use Maatwebsite\Csv\Concerns\FromArray;
+use Maatwebsite\LaravelCsv\Concerns\FromArray;
 
 class UsersExport implements FromArray
 {

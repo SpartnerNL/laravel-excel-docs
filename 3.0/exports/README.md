@@ -1,4 +1,4 @@
-## :rocket: 5 minutes quick start
+## :rocket: 5 minute quick start
 
 :muscle: Create an export class in `App\Exports`
 

@@ -17,7 +17,8 @@
 namespace App\Exports;
 
 use App\User;
-use Maatwebsite\Csv\Concerns\FromQuery;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Maatwebsite\LaravelCsv\Concerns\FromQuery;
 
 class UsersExport implements FromQuery, ShouldQueue
 {
@@ -39,12 +40,12 @@ class UsersController extends Controller
 {
     public function export() 
     {
-        return Csv::queue(new UsersExport, 'users.csv');
+        Csv::queue(new UsersExport, 'users.csv');
     }
 }
 ```
 
-The same configuration for chunking as with FromQuery applies here as well. The difference is that the queue method will always return a PendingDispatch instance. 
+The same configuration for chunking as with [FromQuery](/1.0/exports/export-from-query.html) applies here as well. The difference is that the `queue` method will always return a `PendingDispatch` instance. 
 This allows you to add additional jobs to the existing chain. 
 
 ```php
@@ -65,7 +66,7 @@ class UsersController extends Controller
 ```
 
 If you use the `store` method instead of the `queue` method, but the export class implements `ShouldQueue`,
-then Csv::store will still return a PendingDispatch instance, so this will still work:
+then `Csv::store` will still return a `PendingDispatch` instance, so this will still work:
 ```php
 use App\Exports\UsersExport;
 use App\Http\Controllers\Controller;
