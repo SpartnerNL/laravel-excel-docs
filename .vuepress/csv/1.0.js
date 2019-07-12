@@ -12,6 +12,13 @@ module.exports = [
         collapsable: false,
         children: prefix('exports', [
             '',
+            'collection',
+            'configuration',
+            'from-query',
+            'queued-query',
+            'mapping',
+            'storage-options',
+            'concerns',
         ]),
     },
 ];

@@ -16,7 +16,7 @@ class UsersController extends Controller
 {
     public function export() 
     {
-        return Csv::download(
+        return Csv::store(
             new UsersExport, 
             'users.csv',
             's3',
@@ -26,4 +26,7 @@ class UsersController extends Controller
 }
 ```
 
-The disk option accepts a string as diskname, the diskoptions accept a string for the visibility option, or an array for more advanced options.
+The disk option accepts:
+* disk name (_string_)
+* visibility option (_string_)
+* more advanced options (_array_)
