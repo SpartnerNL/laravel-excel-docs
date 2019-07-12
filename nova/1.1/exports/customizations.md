@@ -313,5 +313,5 @@ class ExportUsers extends DownloadExcel implements WithMapping
 }
 ```
 
-You can find a full list of concerns at [Overview of concerns](/3.0/exports/concerns.html)
+You can find a full list of concerns at [Overview of concerns](/3.1/exports/concerns.html)
 

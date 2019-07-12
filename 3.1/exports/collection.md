@@ -159,7 +159,7 @@ public function export(Excel $excel, InvoicesExport $export)
 
 ## Strict null comparisons
 
-If you want your `0` values to be actual `0` values in your excel sheet instead of `null` (empty cells), you can use `WithStrictNullComparison`.
+If you want your `0` values to be actual `0` values in your Excel sheet instead of `null` (empty cells), you can use `WithStrictNullComparison`.
 
 ```php
 namespace App\Exports;
@@ -180,6 +180,34 @@ class InvoicesExport implements FromCollection, WithStrictNullComparison
     }
 }
 ```
+
+## Custom start cell
+The default start cell is _A1_. Implementing the `WithCustomStartCell` concern in your export class allows you to specify a custom start cell.
+
+```php
+namespace App\Exports;
+
+use App\Invoice;
+use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\WithCustomStartCell;
+
+class InvoicesExport implements FromCollection, WithCustomStartCell
+{
+    public function collection()
+    {
+        return Invoice::all();
+    }
+
+    public function startCell()
+    {
+        return 'B2';
+    }
+}
+```
+
+:::warning
+`WithCustomStartCell` is only supported for `FromCollection` exports.
+:::
 
 ## Storing raw contents
 

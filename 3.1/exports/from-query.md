@@ -34,12 +34,12 @@ We can still download the export in the same way:
 return (new InvoicesExport)->download('invoices.xlsx');
 ```
 
-### Customizing the query
+## Customizing the query
 
 It's easy to pass custom parameters to the query, 
 by simply passing them as dependencies to the export class.
 
-#### As constructor parameter
+### As constructor parameter
 
 ```php
 namespace App\Exports;
@@ -70,7 +70,7 @@ The year can now be passed as dependency to the export class:
 return (new InvoicesExport(2018))->download('invoices.xlsx');
 ```
 
-#### As setter
+### As setter
 
 ```php
 namespace App\Exports;

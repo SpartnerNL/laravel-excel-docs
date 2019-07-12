@@ -4,7 +4,7 @@
 
 The Excel facade can be used to swap the importer to a fake.
 
-### Testing imports
+## Testing imports
 
 ```php
 /**
@@ -30,7 +30,7 @@ public function user_can_import_users()
 }
 ```
 
-### Testing queuing imports
+## Testing queuing imports
 
 ```php
 /**

@@ -2,7 +2,7 @@
 
 [[toc]]
 
-If you have followed the 5 Minute Quickstart, you'll already have a `UsersImport` class.
+If you have followed the 5 minute quick start, you'll already have a `UsersImport` class.
 
 ```php
 <?php
@@ -31,9 +31,9 @@ class UsersImport implements ToModel
 }
 ```
 
-### Importing from default disk
+## Importing from default disk
 
-Passing the UsersImport object to the _Excel::import()_ method, will tell the package how to import the file that is passed as second parameter. 
+Passing the UsersImport object to the `Excel::import()` method, will tell the package how to import the file that is passed as second parameter. 
 The file is expected to be located in your default filesystem disk (see `config/filesystems.php`).
 
 ```php
@@ -48,7 +48,7 @@ You can specify another disk with the third parameter like your Amazon s3 disk. 
 Excel::import(new UsersImport, 'users.xlsx', 's3');
 ```
 
-### Importing uploaded files
+## Importing uploaded files
 
 If you let your user upload the document, you can also just pass the uploaded file directly.
 
@@ -64,7 +64,7 @@ If you want to specifiy the path where you file is, without having to move it to
 Excel::import(new UsersImport, storage_path('users.xlsx'));
 ```
 
-### Importing to array or collection
+## Importing to array or collection
 
 If you want to bypass the `ToArray` or `ToCollection` concerns and want to have an array of imported data in your controller (beware of performance!), you can use the `::toArray()` or `::toCollection()` method.
 
@@ -74,7 +74,7 @@ $array = Excel::toArray(new UsersImport, 'users.xlsx');
 $collection = Excel::toCollection(new UsersImport, 'users.xlsx');
 ```
 
-### Specifying a reader type
+## Specifying a reader type
 
 If the reader type is not detectable by the file extension, you can specify a reader type by passing it as fourth parameter.
 
