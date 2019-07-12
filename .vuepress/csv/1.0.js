@@ -4,7 +4,7 @@ module.exports = [
         collapsable: false,
         children: prefix('getting-started', [
             '',
-            'installation'
+            'installation',
         ]),
     },
     {
@@ -13,11 +13,11 @@ module.exports = [
         children: prefix('exports', [
             '',
             'collection',
-            'configuration',
+            'store',
             'from-query',
-            'queued-query',
+            'queued',
             'mapping',
-            'storage-options',
+            'configuration',
             'concerns',
         ]),
     },

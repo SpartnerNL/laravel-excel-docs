@@ -1,10 +1,10 @@
-# Implementing the FromCollection concern
+# Storing exports on disk
 
 [[toc]]
 
 The store functionality uses the default Storage disk. It's possible to choose a different disk as well as custom disk options.
 
-:fire: In your controller you can customize the export like this:
+In your controller you can customize the export like this:
 
 ```php
 

@@ -13,7 +13,7 @@
 
 ## Installation
 
-Require this package in the `composer.json` of your Laravel project. This will download the package and PhpSpreadsheet.
+Require this package in the `composer.json` of your Laravel project. This will download the package and _PhpSpreadsheet_.
 
 ```
 composer require maatwebsite/excel

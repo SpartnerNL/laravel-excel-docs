@@ -1,8 +1,10 @@
-# Implementing the FromQuery concern with ShouldQueue
+# Queued
 
 [[toc]]
 
-:muscle: Create an export class in `app/Exports` in the same way as shown in the 5 minute quick start.
+In case you are working with a lot of data, it might be wise to queue the entire process.
+
+Create a new class called `UsersExport` in `App/Exports`:
 
 :::vue
 .
@@ -29,7 +31,7 @@ class UsersExport implements FromQuery, ShouldQueue
 }
 ```
 
-:fire: In your controller you can call this export now:
+In your controller we can now queue this export:
 
 ```php
 use App\Exports\UsersExport;
@@ -45,7 +47,8 @@ class UsersController extends Controller
 }
 ```
 
-The same configuration for chunking as with [FromQuery](/1.0/exports/export-from-query.html) applies here as well. The difference is that the `queue` method will always return a `PendingDispatch` instance. 
+### Appending jobs
+The same configuration for chunking as with [FromQuery](/csv/1.0/exports/export-from-query.html) applies here as well. The difference is that the `queue` method will always return a `PendingDispatch` instance. 
 This allows you to add additional jobs to the existing chain. 
 
 ```php

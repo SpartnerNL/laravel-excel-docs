@@ -1,8 +1,8 @@
-# Implementing the FromQuery concern
+# From Query
 
 [[toc]]
 
-:muscle: Create an export class in `app/Exports` in the same way as shown in the 5 minute quick start.
+Create a new class called `UsersExport` in `App/Exports`:
 
 :::vue
 .
@@ -28,7 +28,7 @@ class UsersExport implements FromQuery
 }
 ```
 
-:fire: In your controller you can call this export now:
+In your controller we can now download this export:
 
 ```php
 
@@ -45,8 +45,10 @@ class UsersController extends Controller
 }
 ```
 
-What's different about the FromQuery handler is that it automatically uses __chunking__ (`chunkById`) to optimize performance. This happens in much the same way as it does in Laravel Excel. 
-You can customize the chunk size via the [config file](./1.0/exports/configuration.html#query-chunk-size):
+## Chunking
+FromQuery automatically uses __chunking__ (`chunkById`) to optimize performance. This happens in much the same way as it does in Laravel Excel. 
+
+You can customize the chunk size via the [config file](/csv/1.0/exports/configuration.html#query-chunk-size):
 
 ```php
 <?php

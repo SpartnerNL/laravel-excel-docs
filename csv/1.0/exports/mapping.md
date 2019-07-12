@@ -1,12 +1,15 @@
 # Mapping data
 
-### Mapping rows
+[[toc]]
+
+## Mapping rows
 
 By adding `WithMapping` you map the data that needs to be added as row. This way you have control over the actual source for each column.
 In case of using the Eloquent query builder: 
 
 ```php
 
+use App\Invoice;
 use Maatwebsite\LaravelCsv\Concerns\FromQuery;
 use Maatwebsite\LaravelCsv\Concerns\WithMapping;
 
@@ -25,10 +28,10 @@ class InvoicesExport implements FromQuery, WithMapping
 }
 ```
 
-### Adding a heading row
+## Adding a heading row
 
 A heading row can easily be added by adding the `WithHeadings` concern. The heading row will be added
-as very first row of the sheet.
+as very first row of the file.
 
 ```php
 
@@ -47,7 +50,7 @@ class InvoicesExport implements FromQuery, WithHeadings
 }
 ```
 
-### Multiple rows
+## Multiple rows
 In both cases, for headings as wel als mapping, you can return multiple rows. Each will be added in the export. 
 
 Example: 
