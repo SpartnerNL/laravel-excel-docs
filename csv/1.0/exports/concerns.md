@@ -16,4 +16,4 @@ pageClass: no-toc
 
 | Trait | Explanation | Documentation |
 |---- |----|----|
-|`Maatwebsite\LaravelCsv\Concerns\Exportable` | Add download/store abilities right on the export class itself. | |
+|`Maatwebsite\LaravelCsv\Concerns\Exportable` | Add download/store abilities right on the export class itself. | [Exportables](/csv/1.0/exports/exportables.html) |

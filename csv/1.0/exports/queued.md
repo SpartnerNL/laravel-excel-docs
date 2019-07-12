@@ -4,7 +4,7 @@
 
 In case you are working with a lot of data, it might be wise to queue the entire process.
 
-Create a new class called `UsersExport` in `App/Exports`:
+Create a new class called `UsersExport` in `app/Exports`:
 
 :::vue
 .
@@ -47,7 +47,7 @@ class UsersController extends Controller
 }
 ```
 
-### Appending jobs
+## Appending jobs
 The same configuration for chunking as with [FromQuery](/csv/1.0/exports/export-from-query.html) applies here as well. The difference is that the `queue` method will always return a `PendingDispatch` instance. 
 This allows you to add additional jobs to the existing chain. 
 

@@ -1,6 +1,6 @@
 ## :rocket: 5 minute quick start
 
-:muscle: Create an export class in `App\Exports`
+:muscle: Create an export class in `app/Exports`
 
 You may do this by using the `make:export` command.
 
@@ -8,7 +8,7 @@ You may do this by using the `make:export` command.
 php artisan make:export UsersExport --model=User
 ```
 
-If you prefer to create the export manually, you can create the following in `App\Exports`:
+If you prefer to create the export manually, you can create the following in `app/Exports`:
 
 ```php
 <?php

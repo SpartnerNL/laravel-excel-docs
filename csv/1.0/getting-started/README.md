@@ -9,7 +9,7 @@ large exports.
 
 :fire: [League/Csv](https://csv.thephpleague.com/) is designed for developers who want to deal with CSV data using modern code and without the high levels of bootstrap and low levels of usefulness provided by existing core functions or third party-code.
 
-**Laravel CSV Features:**
+## Laravel CSV Features
 
 * Easily export collections to CSV.
 * Export queries with automatic chunking for better performance.

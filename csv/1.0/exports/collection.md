@@ -2,7 +2,7 @@
 
 [[toc]]
 
-Create a new class called `UsersExport` in `App/Exports`:
+Create a new class called `UsersExport` in `app/Exports`:
 
 :::vue
 .

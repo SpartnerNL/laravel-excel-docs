@@ -2,7 +2,7 @@
 
 [[toc]]
 
-#### CSV export format
+## CSV export format
 If you need a bit more control over the CSV format, you can customize the 
 _delimiter_, _enclosure_ and _line ending_ through the config file:
 ```php
@@ -21,7 +21,7 @@ The default values match the default values used by League/Csv.
 
 __NB:__ The _delimiter_ and _enclosure_ both must be exactly one character in length. 
 
-#### Query chunk size
+## Query chunk size
 You can also customize the chunk size, which impacts performance for FromQuery concerns, as follows: 
   
 ```php

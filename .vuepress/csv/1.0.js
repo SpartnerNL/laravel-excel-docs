@@ -4,7 +4,10 @@ module.exports = [
         collapsable: false,
         children: prefix('getting-started', [
             '',
+            'license',
             'installation',
+            'contributing',
+            'support',
         ]),
     },
     {
@@ -14,6 +17,7 @@ module.exports = [
             '',
             'collection',
             'store',
+            'exportables',
             'from-query',
             'queued',
             'mapping',

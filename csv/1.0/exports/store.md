@@ -26,6 +26,7 @@ class UsersController extends Controller
 }
 ```
 
+## Disk options
 The disk option accepts:
 * disk name (_string_)
 * visibility option (_string_)
