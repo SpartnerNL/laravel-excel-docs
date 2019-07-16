@@ -25,6 +25,10 @@ return (new InvoicesExport)->download('invoices.csv', \Maatwebsite\Excel\Excel::
 ]);
 ```
 
+:::tip Laravel CSV
+You may have a look at our [Laravel CSV](/csv/1.0/getting-started/) package as well.
+:::
+
 ## TSV
 
 ```php

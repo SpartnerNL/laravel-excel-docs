@@ -10,15 +10,15 @@
 
 ## Installation
 
-Require this package in the `composer.json` of your Laravel project. This will download the package and League/Csv.
+Require Laravel CSV in the `composer.json` of your Laravel project. This will download the package and _League/Csv_.
 
 ```
 composer require maatwebsite/laravel-csv
 ```
 
-The `Maatwebsite\LaravelCsv\LaravelCsvServiceProvider` is __auto-discovered__ and registered by default, but if you want to register it yourself:
+The `Maatwebsite\LaravelCsv\LaravelCsvServiceProvider` is __auto-discovered__ and registered by default.
 
-Add the ServiceProvider in `config/app.php`
+If you want to register it yourself, add the ServiceProvider in `config/app.php`:
 
 ```php
 'providers' => [
@@ -29,9 +29,9 @@ Add the ServiceProvider in `config/app.php`
 ]
 ```
 
-The `Csv` facade is also __auto-discovered__, but if you want to add it manually:
+The `Csv` facade is also __auto-discovered__.
 
-Add the Facade in `config/app.php`
+If you want to add it manually, add the Facade in `config/app.php`:
 
 ```php
 'aliases' => [
@@ -40,7 +40,7 @@ Add the Facade in `config/app.php`
 ]
 ```
 
-To publish the config, run the vendor publish command:
+To publish the config, run the vendor publish` command:
 
 ```
 php artisan vendor:publish --provider="Maatwebsite\LaravelCsv\LaravelCsvServiceProvider"

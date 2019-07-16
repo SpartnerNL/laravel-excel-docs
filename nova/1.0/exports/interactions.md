@@ -30,7 +30,7 @@ The user will now be prompted with the question how he wants to name the file.
 
 :::warning
 When not specifying any default writer type, the user can control the file type by typing an extensions in the filename. 
-E.g. `users.csv` will result into an Csv document. If the user doesn't specify any extension, it will default to `.xlsx`.
+E.g. `users.csv` will result into a CSV document. If the user doesn't specify any extension, it will default to `.xlsx`.
 
 If you don't want the user to have this kind of control,make sure to use `withWriterType()`.
 :::

@@ -4,7 +4,10 @@ module.exports = [
         collapsable: false,
         children: prefix('getting-started', [
             '',
-            'installation'
+            'license',
+            'installation',
+            'contributing',
+            'support',
         ]),
     },
     {

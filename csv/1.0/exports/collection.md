@@ -1,8 +1,8 @@
-# Implementing the FromCollection concern
+# Exporting collections
 
 [[toc]]
 
-:muscle: Create an export class in `app/Exports` in the same way as shown in the 5 minute quick start.
+Create a new class called `UsersExport` in `app/Exports`:
 
 :::vue
 .
@@ -17,9 +17,9 @@
 namespace App\Exports;
 
 use App\User;
-use Maatwebsite\Csv\Concerns\FromCollection;
+use Maatwebsite\LaravelCsv\Concerns\FromCollection;
 
-class UsersExport implements FromArray
+class UsersExport implements FromCollection
 {
     public function collection()
     {
@@ -28,7 +28,7 @@ class UsersExport implements FromArray
 }
 ```
 
-:fire: In your controller you can call this export now:
+In your controller we can now download this export:
 
 ```php
 
@@ -44,3 +44,14 @@ class UsersController extends Controller
     }
 }
 ```
+
+Or store it on a (e.g. s3) disk:
+
+```php
+public function storeCsv() 
+{
+    return Csv::store(new UsersExport, 'users.csv', 's3');
+}
+```
+
+:bulb: More about storing exports can be found in the [storing exports on disk page](/csv/1.0/exports/store.html).

@@ -1,10 +1,10 @@
-# Implementing the FromCollection concern
+# Storing exports on disk
 
 [[toc]]
 
 The store functionality uses the default Storage disk. It's possible to choose a different disk as well as custom disk options.
 
-:fire: In your controller you can customize the export like this:
+In your controller you can customize the export like this:
 
 ```php
 
@@ -16,7 +16,7 @@ class UsersController extends Controller
 {
     public function export() 
     {
-        return Csv::download(
+        return Csv::store(
             new UsersExport, 
             'users.csv',
             's3',
@@ -26,4 +26,8 @@ class UsersController extends Controller
 }
 ```
 
-The disk option accepts a string as diskname, the diskoptions accept a string for the visibility option, or an array for more advanced options.
+## Disk options
+The disk option accepts:
+* disk name (_string_)
+* visibility option (_string_)
+* more advanced options (_array_)
