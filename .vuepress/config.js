@@ -3,6 +3,8 @@ module.exports = {
     description: 'Supercharged Excel exports and imports in Laravel',
 
     plugins: [
+        '@vuepress/back-to-top',
+        '@vuepress/nprogress',
         ['@vuepress/pwa', {
             serviceWorker: true,
             updatePopup: true
