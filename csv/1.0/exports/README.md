@@ -16,18 +16,16 @@ pageClass: no-toc
 :::
 
 ```php
-<?php
-
 namespace App\Exports;
 
 use App\User;
-use Maatwebsite\LaravelCsv\Concerns\FromArray;
+use Maatwebsite\LaravelCsv\Concerns\FromCollection;
 
-class UsersExport implements FromArray
+class UsersExport implements FromCollection
 {
-    public function array()
+    public function collection()
     {
-        return User::all()->toArray();
+        return User::all();
     }
 }
 ```

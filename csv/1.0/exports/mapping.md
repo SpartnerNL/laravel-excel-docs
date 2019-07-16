@@ -28,30 +28,8 @@ class InvoicesExport implements FromQuery, WithMapping
 }
 ```
 
-## Adding a heading row
-
-A heading row can easily be added by adding the `WithHeadings` concern. The heading row will be added
-as very first row of the file.
-
-```php
-
-use Maatwebsite\Excel\Concerns\FromQuery;
-use Maatwebsite\Excel\Concerns\WithHeadings;
-
-class InvoicesExport implements FromQuery, WithHeadings
-    
-    public function headings(): array
-    {
-        return [
-            '#',
-            'Date',
-        ];
-    }
-}
-```
-
 ## Multiple rows
-In both cases, for headings as wel als mapping, you can return multiple rows. Each will be added in the export. 
+When mapping data, you can also return multiple rows.
 
 Example: 
 ```php
@@ -61,27 +39,22 @@ use Maatwebsite\Excel\Concerns\WithHeadings;
 
 class InvoicesExport implements FromQuery, WithHeadings, WithMapping
     
-    public function headings(): array
+    /**
+    * @var Invoice $invoice
+    */
+    public function map($invoice): array
     {
         return [
-           ['#', 'date'],
-           ['Amount', 'Status'],
+            [
+                $invoice->invoice_number,
+                $invoice->created_at,
+            ], 
+            [
+                $invoice->order->amount,
+                $invoice->order->status,
+            ]
         ];
     }
-    
-    /**
-        * @var Invoice $invoice
-        */
-        public function map($invoice): array
-        {
-            return [[
-                    $invoice->invoice_number,
-                    $invoice->created_at,
-                ], [
-                    $invoice->order->amount,
-                    $invoice->order->status,
-            ]];
-        }
 }
 ```
 

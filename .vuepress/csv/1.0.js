@@ -21,6 +21,7 @@ module.exports = [
             'from-query',
             'queued',
             'mapping',
+            'heading-row',
             'configuration',
             'concerns',
         ]),

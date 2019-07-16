@@ -33,3 +33,7 @@ return [
     ],
 ];
 ```
+
+::: warning
+You might need to find the sweet spot for your application, however we've experienced chunks bigger than 20000 to become slower.
+:::

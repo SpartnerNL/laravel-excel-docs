@@ -40,7 +40,7 @@ If you want to add it manually, add the Facade in `config/app.php`:
 ]
 ```
 
-To publish the config, run the vendor publish` command:
+To publish the config, run the `vendor:publish` command:
 
 ```
 php artisan vendor:publish --provider="Maatwebsite\LaravelCsv\LaravelCsvServiceProvider"
