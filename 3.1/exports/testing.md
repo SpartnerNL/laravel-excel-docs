@@ -75,3 +75,26 @@ public function user_can_queue_invoices_export()
     });
 }
 ```
+
+## Testing exports with dynamic file name/path
+
+If you have dynamic naming for files or paths, you can use a regular expression to represent those while testing:
+
+ ```php
+/**
+* @test
+*/
+public function user_can_store_invoices_export() 
+{
+    Excel::fake();
+    
+    $this->actingAs($this->givenUser())
+         ->get('/invoices/store/xlsx');
+    
+    // Tells the mock to use regular expressions
+    Excel::matchByRegex(); 
+    // For a given dynamic named file 'invoices_2019.xlsx'
+    Excel::assertStored('/invoices_\d{4}\.xlsx/', 'diskName');
+}
+```
+Please note that your expression must match only one file/path. If more than one match is found, the test will fail.
