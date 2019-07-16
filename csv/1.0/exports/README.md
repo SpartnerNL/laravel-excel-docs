@@ -8,7 +8,7 @@ pageClass: no-toc
 
 :muscle: Create an export class in `app/Exports`
 
-:::vue
+::: vue
 .
 ├── app
 │   ├── `Exports` 

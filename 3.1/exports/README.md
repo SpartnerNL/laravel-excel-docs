@@ -16,7 +16,7 @@ php artisan make:export UsersExport --model=User
 
 The file can be found in `app/Exports`:
 
-:::vue
+::: vue
 .
 ├── app
 │   ├── `Exports` 

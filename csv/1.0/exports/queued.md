@@ -6,7 +6,7 @@ In case you are working with a lot of data, it might be wise to queue the entire
 
 Create a new class called `UsersExport` in `app/Exports`:
 
-:::vue
+::: vue
 .
 ├── app
 │   ├── `Exports` 

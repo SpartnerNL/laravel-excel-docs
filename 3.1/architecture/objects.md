@@ -8,7 +8,7 @@ The entire Laravel Excel philosophy evolves around having `Export` and/or `Impor
 
 The location of these Import and Exports classes could be as follows:
 
-:::vue
+::: vue
 .
 ├── app
 │   ├── `Exports` _(**Groups all exports in your app**)_

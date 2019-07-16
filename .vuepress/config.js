@@ -2,18 +2,23 @@ module.exports = {
     title: 'Laravel Excel',
     description: 'Supercharged Excel exports and imports in Laravel',
 
-    plugins: {
-        '@vuepress/google-analytics': {
-            ga: 'UA-775649-14'
-        },
-        '@vuepress/pwa': {
+    plugins: [
+        ['@vuepress/pwa', {
             serviceWorker: true,
             updatePopup: true
-        },
-        'sitemap': {
-            hostname: 'https://docs.laravel-excel.com'
-        },
-    },
+        }],
+        ['@vuepress/google-analytics', {
+            ga: 'UA-775649-14'
+        }],
+        ['container', {
+            type: 'vue',
+            before: '<pre class="vue-container"><code>',
+            after: '</code></pre>',
+        }],
+        ['sitemap', {
+            hostname: 'https://docs.laravel-excel.com',
+        }],
+    ],
 
     markdown: {
         lineNumbers: true,
@@ -42,7 +47,7 @@ module.exports = {
         algolia: {
             apiKey: 'e95794f59bac5401e3930f71feb3a8e2',
             indexName: 'laravel_excel',
-            algoliaOptions: { 'facetFilters': ["version:3.1"] },
+            algoliaOptions: {'facetFilters': ["version:3.1"]},
         },
 
         nav: [

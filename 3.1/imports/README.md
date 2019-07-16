@@ -14,7 +14,7 @@ php artisan make:import UsersImport --model=User
 
 The file can be found in `app/Imports`:
 
-:::vue
+::: vue
 .
 ├── app
 │   ├── `Imports` 

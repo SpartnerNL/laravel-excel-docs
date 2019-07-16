@@ -4,7 +4,7 @@
 
 Create a new class called `UsersExport` in `app/Exports`:
 
-:::vue
+::: vue
 .
 ├── app
 │   ├── `Exports` 
