@@ -61,4 +61,10 @@ class UsersController extends Controller
 }
 ```
 
+Add finally add a route to be able to access the export:
+```php
+Route::get('users/export/', UsersController@export');
+```
+
+
 :page_facing_up: Find your `users.xlsx` in your downloads folder!
