@@ -63,7 +63,7 @@ class UsersController extends Controller
 
 Add finally add a route to be able to access the export:
 ```php
-Route::get('users/export/', UsersController@export');
+Route::get('users/export/', 'UsersController@export');
 ```
 
 
