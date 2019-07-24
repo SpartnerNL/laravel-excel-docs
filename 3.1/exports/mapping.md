@@ -21,7 +21,43 @@ class InvoicesExport implements FromQuery, WithMapping
     {
         return [
             $invoice->invoice_number,
+            $invoice->user->name,
             Date::dateTimeToExcel($invoice->created_at),
+        ];
+    }
+}
+```
+
+
+### Multiple rows
+
+You can also return multiple rows inside the map function:
+
+```php
+
+use Maatwebsite\Excel\Concerns\FromQuery;
+use Maatwebsite\Excel\Concerns\WithMapping;
+
+class InvoicesExport implements FromQuery, WithMapping
+{    
+    /**
+    * @var Invoice $invoice
+    */
+    public function map($invoice): array
+    {
+        // This example will return 3 rows.
+        // First row will have 2 column, the next 2 will have 1 column
+        return [
+            [
+                $invoice->invoice_number,
+                Date::dateTimeToExcel($invoice->created_at),
+            ],
+            [
+                $invoice->lines->first()->description,
+            ],
+            [
+                $invoice->lines->last()->description,
+            ]
         ];
     }
 }
@@ -43,6 +79,7 @@ class InvoicesExport implements FromQuery, WithHeadings
     {
         return [
             '#',
+            'User',
             'Date',
         ];
     }
