@@ -4,7 +4,7 @@
 |---- |----|
 |`Maatwebsite\Excel\Concerns\FromCollection`| Use a Laravel Collection to populate the export. |
 |`Maatwebsite\Excel\Concerns\FromQuery`| Use an Eloquent query to populate the export. | 
-|`Maatwebsite\Excel\Concerns\FromView`| Use a (Blade) view to to populate the export. |
+|`Maatwebsite\Excel\Concerns\FromView`| Use a (Blade) view to populate the export. |
 |`Maatwebsite\Excel\Concerns\WithTitle`| Set the Workbook or Worksheet title. |
 |`Maatwebsite\Excel\Concerns\WithHeadings`| Prepend a heading row. |
 |`Maatwebsite\Excel\Concerns\WithMapping`| Format the row before it's written to the file. |
