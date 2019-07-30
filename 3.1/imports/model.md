@@ -63,6 +63,7 @@ In some cases you might not have an import in which each row is an Eloquent mode
 ```php
 namespace App\Imports;
 
+use App\Group;
 use App\User;
 use Maatwebsite\Excel\Row;
 use Maatwebsite\Excel\Concerns\OnEachRow;
