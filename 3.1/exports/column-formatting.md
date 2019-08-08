@@ -24,9 +24,6 @@ class InvoicesExport implements WithColumnFormatting, WithMapping
         ];
     }
     
-    /**
-     * @return array
-     */
     public function columnFormats(): array
     {
         return [
