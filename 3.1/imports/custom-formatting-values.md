@@ -7,7 +7,7 @@
 By default Laravel Excel uses PhpSpreadsheet's default value binder to intelligently format a cell's value when reading it. You may override this behavior by implementing the `WithCustomValueBinder` concern and the `bindValue` method. Your import class may also extend `DefaultValueBinder` to return the default behavior.
 
 ```php
-namespace App\Exports;
+namespace App\Imports;
 
 use PhpOffice\PhpSpreadsheet\Cell\Cell;
 use Maatwebsite\Excel\Concerns\ToModel;
