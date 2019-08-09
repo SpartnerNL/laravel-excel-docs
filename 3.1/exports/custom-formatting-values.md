@@ -41,6 +41,21 @@ class UsersExport extends DefaultValueBinder implements WithCustomValueBinder
 * `PhpOffice\PhpSpreadsheet\Cell\DataType::TYPE_INLINE`
 * `PhpOffice\PhpSpreadsheet\Cell\DataType::TYPE_ERROR`
 
+## Disable intelligent formatting
+
+If you want to disable the intelligent formatting of values, you can extend your export class with  `\PhpOffice\PhpSpreadsheet\Cell\StringValueBinder`. In this case all values are passed on as strings.
+
+```php
+namespace App\Exports;
+
+use Maatwebsite\Excel\Concerns\WithCustomValueBinder;
+
+class UsersExport extends \PhpOffice\PhpSpreadsheet\Cell\StringValueBinder implements WithCustomValueBinder
+{
+
+}
+```
+
 ## Default Value Binder
 
 If you want to use one value binder for all your exports, you can configure the default value binder in the config.
