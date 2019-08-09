@@ -50,7 +50,7 @@ namespace App\Exports;
 
 use Maatwebsite\Excel\Concerns\WithCustomValueBinder;
 
-class UsersImport extends \PhpOffice\PhpSpreadsheet\Cell\StringValueBinder implements WithCustomValueBinder
+class UsersExport extends \PhpOffice\PhpSpreadsheet\Cell\StringValueBinder implements WithCustomValueBinder
 {
 
 }
