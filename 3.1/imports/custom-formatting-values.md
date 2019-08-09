@@ -41,6 +41,22 @@ class UsersImport extends DefaultValueBinder implements WithCustomValueBinder, T
 * `PhpOffice\PhpSpreadsheet\Cell\DataType::TYPE_INLINE`
 * `PhpOffice\PhpSpreadsheet\Cell\DataType::TYPE_ERROR`
 
+## Disable intelligent formatting
+
+If you want to disable the intelligent formatting of values, you can extend your import class with  `\PhpOffice\PhpSpreadsheet\Cell\StringValueBinder`. In this case all values are passed on as strings.
+
+```php
+namespace App\Imports;
+
+use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\WithCustomValueBinder;
+
+class UsersImport extends \PhpOffice\PhpSpreadsheet\Cell\StringValueBinder implements WithCustomValueBinder, ToModel
+{
+
+}
+```
+
 ## Default Value Binder
 
 If you want to use one value binder for all your imports, you can configure the default value binder in the config.
