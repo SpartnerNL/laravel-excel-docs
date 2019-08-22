@@ -2,7 +2,7 @@
 pageClass: no-toc
 ---
 
-# :rocket: 5 minutes quick start
+# :rocket: 5 minute quick start
 
 [[toc]]
 
@@ -16,7 +16,7 @@ php artisan make:export UsersExport --model=User
 
 The file can be found in `app/Exports`:
 
-:::vue
+::: vue
 .
 ├── app
 │   ├── `Exports` 

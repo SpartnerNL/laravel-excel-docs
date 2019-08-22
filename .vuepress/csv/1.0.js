@@ -15,11 +15,15 @@ module.exports = [
         collapsable: false,
         children: prefix('exports', [
             '',
-            'download',
+            'collection',
             'store',
+            'exportables',
+            'from-query',
             'queued',
-            'customizations',
-            'interactions'
+            'mapping',
+            'heading-row',
+            'configuration',
+            'concerns',
         ]),
     },
 ];

@@ -8,7 +8,7 @@ pageClass: no-toc
 
 The easiest way to start an import is to create a custom import class. We'll use a user import as example.
 
-Create a new class called `UsersImport` in `App/Imports`:
+Create a new class called `UsersImport` in `app/Imports`:
 
 ```php
 namespace App\Imports;

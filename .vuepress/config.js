@@ -2,18 +2,25 @@ module.exports = {
     title: 'Laravel Excel',
     description: 'Supercharged Excel exports and imports in Laravel',
 
-    plugins: {
-        '@vuepress/google-analytics': {
-            ga: 'UA-775649-14'
-        },
-        '@vuepress/pwa': {
+    plugins: [
+        '@vuepress/back-to-top',
+        '@vuepress/nprogress',
+        ['@vuepress/pwa', {
             serviceWorker: true,
             updatePopup: true
-        },
-        'sitemap': {
-            hostname: 'https://docs.laravel-excel.com'
-        },
-    },
+        }],
+        ['@vuepress/google-analytics', {
+            ga: 'UA-775649-14'
+        }],
+        ['container', {
+            type: 'vue',
+            before: '<pre class="vue-container"><code>',
+            after: '</code></pre>',
+        }],
+        ['sitemap', {
+            hostname: 'https://docs.laravel-excel.com',
+        }],
+    ],
 
     markdown: {
         lineNumbers: true,
@@ -42,7 +49,7 @@ module.exports = {
         algolia: {
             apiKey: 'e95794f59bac5401e3930f71feb3a8e2',
             indexName: 'laravel_excel',
-            algoliaOptions: { 'facetFilters': ["version:3.1"] },
+            algoliaOptions: {'facetFilters': ["version:3.1"]},
         },
 
         nav: [
@@ -50,9 +57,10 @@ module.exports = {
                 text: 'Version',
                 link: '/',
                 items: [
-                    {text: '3.1', link: '/3.1/'},
-                    {text: '3.0', link: '/3.0/'},
-                    {text: '2.1', link: '/2.1/', divider: true},
+                    {text: 'LE 3.1', link: '/3.1/'},
+                    {text: 'LE 3.0', link: '/3.0/'},
+                    {text: 'LE 2.1', link: '/2.1/', divider: true},
+                    {text: 'CSV 1.0', link: '/csv/1.0/', divider: true},
                     {text: 'Nova 1.1', link: '/nova/1.1/'},
                     {text: 'Nova 1.0', link: '/nova/1.0/'},
                 ]
@@ -65,6 +73,7 @@ module.exports = {
             '/2.1/': require('./2.1'),
             '/nova/1.0/': require('./nova/1.0'),
             '/nova/1.1/': require('./nova/1.1'),
+            '/csv/1.0/': require('./csv/1.0'),
         },
     },
 };

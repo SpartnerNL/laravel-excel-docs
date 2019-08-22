@@ -48,7 +48,7 @@ You can also pass options to the disk if you like:
 return (new InvoicesExport)->store('invoices.xlsx', 's3', null, 'private');
 ```
 
-### Responsable
+## Responsable
 
 The previous (download) example can be made even shorter when adding Laravel's `Responsable` interface to the export class:
 

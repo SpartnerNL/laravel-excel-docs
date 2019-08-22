@@ -13,15 +13,15 @@
 
 ## Installation
 
-Require this package in the `composer.json` of your Laravel project. This will download the package and PhpSpreadsheet.
+Require this package in the `composer.json` of your Laravel project. This will download the package and _PhpSpreadsheet_.
 
 ```
 composer require maatwebsite/excel
 ```
 
-The `Maatwebsite\Excel\ExcelServiceProvider` is __auto-discovered__ and registered by default, but if you want to register it yourself:
+The `Maatwebsite\Excel\ExcelServiceProvider` is __auto-discovered__ and registered by default.
 
-Add the ServiceProvider in `config/app.php`
+If you want to register it yourself, add the ServiceProvider in `config/app.php`:
 
 ```php
 'providers' => [
@@ -32,9 +32,9 @@ Add the ServiceProvider in `config/app.php`
 ]
 ```
 
-The `Excel` facade is also __auto-discovered__, but if you want to add it manually:
+The `Excel` facade is also __auto-discovered__.
 
-Add the Facade in `config/app.php`
+If you want to add it manually, add the Facade in `config/app.php`:
 
 ```php
 'aliases' => [

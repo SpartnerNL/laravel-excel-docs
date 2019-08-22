@@ -38,7 +38,7 @@ class InvoicesExport implements WithMultipleSheets
 }
 ```
 
-### Sheet classes
+## Sheet classes
 
 The `InvoicesPerMonthSheet` can implement concerns like `FromQuery`, `FromCollection`, ... 
 

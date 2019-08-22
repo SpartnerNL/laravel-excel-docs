@@ -2,7 +2,7 @@
 pageClass: no-toc
 ---
 
-## :rocket: 5 minutes quick start
+## :rocket: 5 minute quick start
 
 :muscle: Create an import class in `app/Imports`
 
@@ -14,7 +14,7 @@ php artisan make:import UsersImport --model=User
 
 The file can be found in `app/Imports`:
 
-:::vue
+::: vue
 .
 ├── app
 │   ├── `Imports` 

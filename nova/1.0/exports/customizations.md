@@ -52,7 +52,7 @@ public function actions(Request $request)
 }
 ```
 
-The file will now be downloaded in the `csv` format.
+The file will now be downloaded in the `CSV` format.
 
 You can find a full list of writer types at [Export formats](/3.0/exports/export-formats.html).
 
