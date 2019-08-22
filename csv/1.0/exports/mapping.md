@@ -59,7 +59,7 @@ class InvoicesExport implements FromQuery, WithHeadings, WithMapping
 ```
 
 This would result in the following export:
-```csv
+```
 "#","date"
 "amount","status"
 "201901564","2019-07-04"

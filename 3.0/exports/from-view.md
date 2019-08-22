@@ -21,7 +21,7 @@ class InvoicesExport implements FromView
 
 It will convert an HTML table into an Excel spreadsheet. For example; `users.blade.php`:
 
-```blade
+```
 <table>
     <thead>
     <tr>

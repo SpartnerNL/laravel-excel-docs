@@ -46,7 +46,7 @@ class InvoicesExport implements FromQuery, WithHeadings
 ```
 
 This would result in the following export:
-```csv
+```
 "#","date"
 "amount","status"
 ```

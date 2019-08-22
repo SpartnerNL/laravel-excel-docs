@@ -60,7 +60,7 @@ module.exports = {
                     {text: 'LE 3.1', link: '/3.1/'},
                     {text: 'LE 3.0', link: '/3.0/'},
                     {text: 'LE 2.1', link: '/2.1/', divider: true},
-                    {text: 'CSV 1.0', link: '/csv/1.0/', divider: true},
+                    //{text: 'CSV 1.0', link: '/csv/1.0/', divider: true},
                     {text: 'Nova 1.1', link: '/nova/1.1/'},
                     {text: 'Nova 1.0', link: '/nova/1.0/'},
                 ]
@@ -73,7 +73,7 @@ module.exports = {
             '/2.1/': require('./2.1'),
             '/nova/1.0/': require('./nova/1.0'),
             '/nova/1.1/': require('./nova/1.1'),
-            '/csv/1.0/': require('./csv/1.0'),
+            //'/csv/1.0/': require('./csv/1.0'),
         },
     },
 };
