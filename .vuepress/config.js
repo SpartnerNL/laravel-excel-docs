@@ -35,6 +35,20 @@ module.exports = {
                 type: 'text/css',
             },
         ],
+        [
+            "link",
+            {
+                rel: 'manifest',
+                href: '/manifest.json'
+            }
+        ],
+        [
+            "link",
+            {
+                rel: 'icon',
+                href: '/icon.png'
+            }
+        ]
     ],
 
     themeConfig: {
