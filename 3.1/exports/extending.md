@@ -300,7 +300,7 @@ class InvoicesExport implements WithEvents
     {
         return [
             AfterSheet::class    => function(AfterSheet $event) {
-                $event->sheet>getDelegate()->setRightToLeft(true);
+                $event->sheet->getDelegate()->setRightToLeft(true);
             },
         ];
     }
