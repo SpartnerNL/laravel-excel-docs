@@ -16,7 +16,7 @@ Versions will be supported for a limited amount of time.
 |---- |----|----|----|
 | 2.1 | <=5.6 | <=7.0 | Unsupported since 15-5-2018 |
 | 3.0 | ^5.5 |  ^7.0 | Unsupported since 31-12-2018 |
-| 3.1 | ^5.5 |  ^7.0 | New features |
+| 3.1 | ^5.5|^6.0 |  ^7.0 | New features |
 
 ::: warning PHP version support
 Support for PHP versions will only be maintained for a period of six months beyond the end-of-life of that PHP version.
