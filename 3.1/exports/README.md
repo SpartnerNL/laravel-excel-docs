@@ -47,10 +47,12 @@ class UsersExport implements FromCollection
 :fire: In your controller you can call this export now:
 
 ```php
+<?php
+
+namespace App\Http\Controllers;
 
 use App\Exports\UsersExport;
 use Maatwebsite\Excel\Facades\Excel;
-use App\Http\Controllers\Controller;
 
 class UsersController extends Controller 
 {
