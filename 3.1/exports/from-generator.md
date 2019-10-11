@@ -6,6 +6,8 @@ pageClass: no-toc
 
 Exports can be created from a PHP [generator](https://www.php.net/manual/en/class.generator.php) class, by using the `FromGenerator` concern.
 
+A generator allows you to write code that uses foreach to iterate over a set of data without needing to build an array in memory.
+
 ```php
 namespace App\Exports;
 
