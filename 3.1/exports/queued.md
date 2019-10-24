@@ -121,6 +121,33 @@ In `config/excel.php`
 ],
 ```
 
+## Job Middleware
+
+If you are using Laravel 6, [job middleware](https://laravel.com/docs/6.x/queues#job-middleware) can be attached to the export class using the `middleware` method:
+
+```
+namespace App\Exports;
+
+use App\Jobs\Middleware\RateLimited;
+use Maatwebsite\Excel\Concerns\Exportable;
+use Maatwebsite\Excel\Concerns\FromQuery;
+
+class ExportClass implements FromQuery
+{
+    use Exportable;
+    
+    public function middleware()
+    {
+        return [new RateLimited];
+    }
+
+    public function query()
+    {
+        // ...
+    }
+}
+```
+
 ## Custom Query Size
 Queued exportables are processed in chunks; each chunk being a job pushed to the queue by the `QueuedWriter`.
 In case of exportables that implement the [FromQuery](/3.1/exports/from-query.html) concern, the number of jobs is calculated by dividing the `$query->count()` by the chunk size.
