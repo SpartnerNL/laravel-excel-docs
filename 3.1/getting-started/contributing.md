@@ -42,9 +42,9 @@ whether or not your feature is likely to be used by other users of the project.
 
 ## PR Requirements
 - The PR **must** apply to [PSR-2 Coding Standard](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md). StyleCI help you detect code style issues.
-- The PR **must** be as clean as possible. Try to remove all inline TODOs and unneeded comments. They are for noise and distraction for the reviewer. Use Github's inline comment system to start a discussion about a change.
+- The PR **must** be as clean as possible. Try to remove all inline TODOs and unneeded comments. They are noise and distraction for the reviewer. Use Github's (inline) comment system to start a discussion about a change.
 - The existing tests **must** not fail after your changes. This would indicate that existing functionality is broken and should be addressed before a review is started. You can run the test by running `vendor/bin/phpunit`
 - The changes **must** be backed-up with tests. 
-- The PR **must** only have one feature. Split up multiple features in multiple features, so they can be individually reviewed and merged.
+- The PR **must** only have one feature. Split up multiple features in multiple PRs, so they can be individually reviewed and merged.
 - The PR **must** must be accompanied by a PR to the docs in case of new features. Documentation is located in the [https://github.com/Maatwebsite/laravel-excel-docs](https://github.com/Maatwebsite/laravel-excel-docs) repository.
 - The PR should contain meaningful commit messages.
