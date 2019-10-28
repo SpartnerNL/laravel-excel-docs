@@ -30,7 +30,7 @@ public function export()
 }
 ```
 
-Or store it on a (e.g. s3) disk:
+Or store it on a disk, (e.g. s3):
 
 ```php
 public function storeExcel() 
