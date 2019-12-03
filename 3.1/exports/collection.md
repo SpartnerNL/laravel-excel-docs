@@ -198,7 +198,7 @@ class InvoicesExport implements FromCollection, WithCustomStartCell
         return Invoice::all();
     }
 
-    public function startCell()
+    public function startCell(): string
     {
         return 'B2';
     }
