@@ -43,7 +43,7 @@ class InvoicesExport implements WithMultipleSheets
 The `InvoicesPerMonthSheet` can implement concerns like `FromQuery`, `FromCollection`, ... 
 
 ```php
-namespace App\Exports;
+namespace App\Exports\Sheets;
 
 use Maatwebsite\Excel\Concerns\FromQuery;
 use Maatwebsite\Excel\Concerns\WithTitle;
