@@ -58,7 +58,7 @@ Excel::import(new UsersImport, request()->file('your_file'));
 
 ### Importing full path 
 
-If you want to specifiy the path where you file is, without having to move it to a disk, you can directly pass that file path to the import method.
+If you want to specifiy the path where your file is, without having to move it to a disk, you can directly pass that file path to the import method.
 
 ```php
 Excel::import(new UsersImport, storage_path('users.xlsx'));
