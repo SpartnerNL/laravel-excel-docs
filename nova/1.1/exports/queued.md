@@ -1,5 +1,9 @@
 # Queued
 
+::: warning
+This feature is marked as deprecated due to issues with serializing Nova actions. A new queuing feature will most likely be included in a future release.
+:::
+
 When dealing with a large resource selection (e.g. +20k models), you can choose to queue your export. 
 
 In your resource class, add the `Maatwebsite\LaravelNovaExcel\Actions\QueuedExport` to `actions()`.
