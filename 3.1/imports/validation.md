@@ -91,6 +91,17 @@ class UsersImport implements ToModel, WithValidation, WithHeadingRow
 }
 ```
 
+If your validation rules reference other field names, as in the `different`, `lt`, `lte`, `gt`, `gte`, and `same` rules, the field name must be prefixed with `*.` as in the example below, because validation is done in batches.
+
+```php
+public function rules(): array
+{
+    return [
+        'maximum' => 'gte:*.minimum',
+    ];
+}
+```
+
 ## Custom validation messages
 
 By adding `customValidationMessages()` method to your import, you can specify custom messages for each failure.
