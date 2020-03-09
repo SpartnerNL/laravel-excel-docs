@@ -72,3 +72,5 @@ class UsersController extends Controller
 ```
 
 :page_facing_up: Find the imported users in your database!
+
+:page_facing_up: By default the application will look for files in `/public`
