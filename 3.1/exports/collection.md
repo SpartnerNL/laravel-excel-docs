@@ -214,7 +214,7 @@ class InvoicesExport implements FromCollection, WithCustomStartCell
 If you want to receive the raw contents of the exported file, you can use the `raw()` method:
 
 ```php
-$contents = Excel::raw(new InvoicesExport, Excel::XLSX);
+$contents = Excel::raw(new InvoicesExport, \Maatwebsite\Excel\Excel::XLSX);
 ```
 
 ## Collection macros
