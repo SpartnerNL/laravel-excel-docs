@@ -366,3 +366,6 @@ class UsersImport implements ToCollection
 :::tip Validation rules
 For a list of all validation rules, please refer to the [Laravel document](https://laravel.com/docs/master/validation#available-validation-rules).
 :::
+
+:::tip Validation rules that check other rows (such as `distinct`) will only work when using `ToCollection` concern.
+:::
