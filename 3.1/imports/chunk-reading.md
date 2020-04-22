@@ -68,7 +68,7 @@ class UsersImport implements ToModel, WithBatchInserts, WithChunkReading
 
 ## Keep Track of the Row number
 
-If you need the information about the offset of the chunk you can use the `WithChunkOffset` Interface paired with the `ChunkOffset` Trait.
+If you need the information about the offset of the chunk you can use the `RememberChunkOffset` Trait.
 
 ```php
 namespace App\Imports;
@@ -78,9 +78,9 @@ use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithChunkOffset;
 use Maatwebsite\Excel\Concerns\WithChunkReading;
 
-class UsersImport implements ToModel, WithChunkOffset, WithChunkReading
+class UsersImport implements ToModel, WithChunkReading
 {
-    use ChunkOffset;
+    use RememberChunkOffset;
 
     public function model(array $row)
     {
