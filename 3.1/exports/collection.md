@@ -245,7 +245,7 @@ It doesn't have to be an Eloquent collection to work:
 ### Storing a collection on disk
 
 ```php
-User:all()->storeExcel(
+User::all()->storeExcel(
     $filePath,
     $disk = null,
     $writerType = null,
