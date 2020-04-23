@@ -224,7 +224,7 @@ The package provides some macro to Laravel's collection class to easily download
 ### Downloading a collection as Excel
 
 ```php
-User:all()->downloadExcel(
+User::all()->downloadExcel(
     $filePath,
     $writerType = null,
     $headings = false
