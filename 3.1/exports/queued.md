@@ -125,7 +125,7 @@ In `config/excel.php`
 
 If you are using Laravel 6, [job middleware](https://laravel.com/docs/6.x/queues#job-middleware) can be attached to the export class using the `middleware` method:
 
-```
+```php
 namespace App\Exports;
 
 use App\Jobs\Middleware\RateLimited;
