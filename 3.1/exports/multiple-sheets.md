@@ -85,6 +85,6 @@ This will now download an xlsx of all invoices from the current year, with 12 wo
 ```php
 public function download() 
 {
-    return (new InvoicesExport(2018))->download('invoices.xlsx');
+    return Excel::download(new InvoicesExport(2018), 'invoices.xlsx');
 }
 ```
