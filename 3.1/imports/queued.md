@@ -158,6 +158,39 @@ When dealing with a multi server setup as above, it's possible for the clean up 
 ],
 ```
 
+
+## Job Middleware
+
+If you are using Laravel, [job middleware](https://laravel.com/docs/7.x/queues#job-middleware) can be attached to the export class using the `middleware` method.
+
+```php
+namespace App\Exports;
+
+use App\Jobs\Middleware\RateLimited;
+use Maatwebsite\Excel\Concerns\Exportable;
+use Maatwebsite\Excel\Concerns\FromQuery;
+
+class ExportClass implements FromQuery
+{
+    use Exportable;
+    
+    public function middleware()
+    {
+        return [new RateLimited];
+    }
+    
+    ppublic function retryUntil()
+    {
+        return now()->addSeconds(5);
+    }
+
+    public function query()
+    {
+        // ...
+    }
+}
+```
+
 ## Notes
 :::warning
 You currently cannot queue `xls` imports. PhpSpreadsheet's Xls reader contains some non-utf8 characters, which makes it impossible to queue.
