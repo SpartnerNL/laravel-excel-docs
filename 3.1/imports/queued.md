@@ -161,7 +161,7 @@ When dealing with a multi server setup as above, it's possible for the clean up 
 
 ## Job Middleware
 
-If you are using Laravel, [job middleware](https://laravel.com/docs/7.x/queues#job-middleware) can be attached to the export class using the `middleware` method.
+If you are using Laravel, [job middleware](https://laravel.com/docs/7.x/queues#job-middleware) can be attached to the import class using the `middleware` method.
 
 ```php
 namespace App\Imports;
