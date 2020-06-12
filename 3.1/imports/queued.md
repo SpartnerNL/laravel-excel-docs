@@ -22,7 +22,7 @@ class UsersImport implements ToModel, WithChunkReading, ShouldQueue
             'name' => $row[0],
         ]);
     }
-    
+
     public function chunkSize(): int
     {
         return 1000;
@@ -38,7 +38,7 @@ Each chunk of 1000 rows will now be executed into a queue job.
 
 ### Explicit queued imports
 
-You can explicitly queue the import by using `::queueImport`. 
+You can explicitly queue the import by using `::queueImport`.
 
 ```
 Excel::queueImport(new UsersImport, 'users.xlsx');
@@ -115,9 +115,9 @@ use Illuminate\Queue\SerializesModels;
 class NotifyUserOfCompletedImport implements ShouldQueue
 {
     use Queueable, SerializesModels;
-    
+
     public $user;
-    
+
     public function __construct(User $user)
     {
         $this->user = $user;
@@ -156,6 +156,39 @@ When dealing with a multi server setup as above, it's possible for the clean up 
 'temporary_files' => [
     'force_resync_remote' => true,
 ],
+```
+
+
+## Job Middleware
+
+If you are using Laravel, [job middleware](https://laravel.com/docs/7.x/queues#job-middleware) can be attached to the import class using the `middleware` method.
+
+```php
+namespace App\Imports;
+
+use App\Jobs\Middleware\RateLimited;
+use Maatwebsite\Excel\Concerns\Importable;
+use Maatwebsite\Excel\Concerns\FromQuery;
+
+class ImportClass implements FromQuery
+{
+    use Importable;
+
+    public function middleware()
+    {
+        return [new RateLimited];
+    }
+
+    ppublic function retryUntil()
+    {
+        return now()->addSeconds(5);
+    }
+
+    public function query()
+    {
+        // ...
+    }
+}
 ```
 
 ## Notes
