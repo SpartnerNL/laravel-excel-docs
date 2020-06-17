@@ -368,5 +368,5 @@ For a list of all validation rules, please refer to the [Laravel document](https
 :::
 
 :::tip Validating Across Multiple Rows 
-Validation rules that check multiple rows (such as `distinct`) will only work when using `ToCollection` concern.
+Validation rules that check multiple rows (such as `distinct`) will work only when using `WithBatchInserts` or `ToCollection` concerns.
 :::
