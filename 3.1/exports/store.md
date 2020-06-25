@@ -49,3 +49,6 @@ public function storeExcel()
     Excel::store(new InvoicesExport(2018), 'invoices.xlsx', 's3', null, 'private');
 }
 ```
+
+## PS:
+- storing a file is affected by queues, so make sure to have a look @ [Queued Docs](https://docs.laravel-excel.com/3.1/exports/queued.html)
