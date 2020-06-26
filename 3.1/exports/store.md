@@ -50,5 +50,5 @@ public function storeExcel()
 }
 ```
 
-## PS:
-- storing a file is affected by queues, so make sure to have a look @ [Queued Docs](https://docs.laravel-excel.com/3.1/exports/queued.html)
+## Note about queuing
+If you are storing the export using `Excel::queue()` or using the `ShouldQueue` interface, make sure to have a look at the [queuing docs](https://docs.laravel-excel.com/3.1/exports/queued.html)
