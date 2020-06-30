@@ -73,6 +73,11 @@ public function user_can_queue_invoices_export()
     Excel::assertQueued('filename.xlsx', function(InvoicesExport $export) {
         return true;
     });
+    
+    // Assert that the export was queued with a specific chain of other jobs.
+    Excel::assertQueuedWithChain([
+        new NotifyUsers(),
+    ])
 }
 ```
 
