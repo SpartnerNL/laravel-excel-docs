@@ -98,6 +98,10 @@ class UsersImport implements ToModel, WithChunkReading
 }
 ```
 
+::: warning
+Remembering row numbers is only intender for ToModel imports.
+:::
+
 If you only need the information about the offset of the chunk you can use the `RemembersChunkOffset` Trait.
 
 ```php
