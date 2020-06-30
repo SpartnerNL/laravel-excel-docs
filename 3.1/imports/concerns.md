@@ -26,6 +26,8 @@ pageClass: no-toc
 |`Maatwebsite\Excel\Concerns\WithValidation`| Validates each row against a set of rules. | [Row Validation](/3.1/imports/validation.html) |
 |`Maatwebsite\Excel\Concerns\SkipsOnFailure`| Skips on validation errors. | [Row Validation](/3.1/imports/validation.html#skipping-failures) |
 |`Maatwebsite\Excel\Concerns\SkipsOnError`| Skips on database exceptions. | [Row Validation](/3.1/imports/validation.html#skipping-errors) |
+|`Maatwebsite\Excel\Concerns\WithColumnLimit` | Allows setting an end column ||
+|`Maatwebsite\Excel\Concerns\WithReadFilter` | Allows defining a custom read filter ||
 
 
 ### Traits
