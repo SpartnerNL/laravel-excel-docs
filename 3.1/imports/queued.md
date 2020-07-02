@@ -179,7 +179,7 @@ class ImportClass implements FromQuery
         return [new RateLimited];
     }
 
-    ppublic function retryUntil()
+    public function retryUntil()
     {
         return now()->addSeconds(5);
     }
