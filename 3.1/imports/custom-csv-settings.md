@@ -29,6 +29,16 @@ class UsersImport implements ToModel, WithCustomCsvSettings
 }
 ```
 
+
+Delimiter requires a single character. For Tab use "\t"
+
+public function getCsvSettings(): array
+    {
+        return [
+            'delimiter' => "\t"
+        ];
+    }
+
 ## Available settings
 
 * `delimiter`
