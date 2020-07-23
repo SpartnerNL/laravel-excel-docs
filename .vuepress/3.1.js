@@ -35,7 +35,6 @@ module.exports = [
             'multiple-sheets',
             'mapping',
             'column-formatting',
-            'custom-formatting-values',
             'settings',
             'drawings',
             'concerns',
