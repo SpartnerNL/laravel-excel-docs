@@ -144,3 +144,50 @@ class InvoicesExport implements WithColumnWidths
 ```
 
 Can be used together with `ShouldAutoSize`. Only the columns with explicit widths won't be autosized. 
+
+## Styling
+
+The `WithStyles` concerns allows styling columns, cells and rows. This might be useful when you want to make the heading row bold.
+
+```php
+namespace App\Exports;
+
+use Maatwebsite\Excel\Concerns\WithStyles;
+use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
+
+class InvoicesExport implements WithStyles
+{
+    public function styles(Worksheet $sheet)
+    {
+        return [
+            // Style the first row as bold text.
+            1    => ['font' => ['bold' => true]],
+
+            // Styling a specific cell by coordinate.
+            'B2' => ['font' => ['italic' => true]],
+
+            // Styling an entire column.
+            'C'  => ['font' => ['size' => 16]],
+        ];
+    }
+}
+```
+
+For the contents of the styles array, please refer to the [PhpSpreadsheet docs](https://phpspreadsheet.readthedocs.io/en/latest/topics/recipes/#valid-array-keys-for-style-applyfromarray)
+
+If you prefer the fluent syntax for styling cells, you can do it as follows:
+
+```php
+namespace App\Exports;
+
+use Maatwebsite\Excel\Concerns\WithStyles;
+use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
+
+class InvoicesExport implements WithStyles
+{
+    public function styles(Worksheet $sheet)
+    {
+        $sheet->getStyle('B2')->getFont()->setBold(true);
+    }
+}
+```
