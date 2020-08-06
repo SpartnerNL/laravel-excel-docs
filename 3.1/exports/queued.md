@@ -37,19 +37,20 @@ and will only execute if none of the previous have failed.
 
 ## Implicit Export queueing
 
-You can also mark an export implicitly as a queued export. You can do this by using Laravel's `ShouldQueue` contract.
+You can also mark an export implicitly as a queued export. You can do this by using Laravel's `ShouldQueue` contract and `Queuable` trait.
 
 ```php
 namespace App\Exports;
 
 use App\Invoice;
+use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Maatwebsite\Excel\Concerns\Exportable;
 use Maatwebsite\Excel\Concerns\FromQuery;
 
 class InvoicesExport implements FromQuery, ShouldQueue
 {
-    use Exportable;
+    use Exportable, Queueable;
 
     public function query()
     {
