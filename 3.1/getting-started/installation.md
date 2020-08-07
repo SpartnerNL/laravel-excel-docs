@@ -50,7 +50,7 @@ If you want to add it manually, add the Facade in `config/app.php`:
 To publish the config, run the vendor publish command:
 
 ```
-php artisan vendor:publish --provider="Maatwebsite\Excel\ExcelServiceProvider"
+php artisan vendor:publish --provider="Maatwebsite\Excel\ExcelServiceProvider" --tag=config
 ```
 
 This will create a new config file named `config/excel.php`.
