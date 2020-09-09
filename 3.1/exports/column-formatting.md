@@ -129,7 +129,7 @@ In some cases you might want more control over the actual column width instead o
 ```php
 namespace App\Exports;
 
-use Maatwebsite\Excel\Concerns\WithColumnWidth;
+use Maatwebsite\Excel\Concerns\WithColumnWidths;
 
 class InvoicesExport implements WithColumnWidths
 {
