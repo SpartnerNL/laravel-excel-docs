@@ -363,6 +363,31 @@ class UsersImport implements ToCollection
 }
 ```
 
+## Configuring the validator
+If you want to add conditional validation or complex validation that cannot be expressed through rules you can configure the validator similar to how you would do this with a [Form request](https://laravel.com/docs/master/validation#form-request-validation)
+
+:::tip Manual validation
+You can use `$validator->getData()` to get access to the data under validation
+:::
+
+```php
+class UsersImport implements WithValidation
+{
+    public function withValidator($validator)
+    {
+        $validator->after(function ($validator) {
+            if ($this->somethingElseIsInvalid()) {
+                $validator->errors()->add('field', 'Something is wrong with this field!');
+            }
+        });
+
+        // or...
+
+        $validator->sometimes('*.email', 'required', $this->someConditionalRequirement());
+    }
+}
+```
+
 :::tip Validation rules
 For a list of all validation rules, please refer to the [Laravel document](https://laravel.com/docs/master/validation#available-validation-rules).
 :::
