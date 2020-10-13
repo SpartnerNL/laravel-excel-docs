@@ -363,6 +363,21 @@ class UsersImport implements ToCollection
 }
 ```
 
+## Prepare data for validation
+Sometimes data may not pass validation directly, but still be valid. When this happens you may want to tweak the data slightly before sending it to the validator, to do this you may add a `prepareForValidation` method on your import, this method receives row data as well as the row number and should return the manipulated row data.
+
+```php
+class UsersImport implements WithValidation
+{
+    public function prepareForValidation($data, $index)
+    {
+        $row['email'] = $row['email'] ?? $this->myOtherWayOfFindingTheEmail($data);
+        
+        return $row;
+    }
+}
+```
+
 ## Configuring the validator
 If you want to add conditional validation or complex validation that cannot be expressed through rules you can configure the validator similar to how you would do this with a [Form request](https://laravel.com/docs/master/validation#form-request-validation)
 
