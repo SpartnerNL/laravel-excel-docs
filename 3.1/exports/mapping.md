@@ -108,7 +108,7 @@ class InvoicesExport implements FromQuery, WithHeadings
 
 ## Prepare rows
 
-If you need to prepare rows before appending these rows to sheet, you can add method `prepareRows` for your export class
+If you need to prepare rows before appending these rows to sheet, you can add method `prepareRows` to your export class. This method will be called before flattening the query output and calling `map()`.
 
 ```php
 
