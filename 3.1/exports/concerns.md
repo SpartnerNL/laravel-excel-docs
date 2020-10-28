@@ -6,7 +6,7 @@ pageClass: no-toc
 
 | Interface | Explanation | Documentation |
 |---- |----|----|
-|`Maatwebsite\Excel\Concerns\FromArray`| Use an array to populate the export. | |
+|`Maatwebsite\Excel\Concerns\FromArray`| Use an array to populate the export. | [Exporting collections](/3.1/exports/collection.html#using-arrays) |
 |`Maatwebsite\Excel\Concerns\FromCollection`| Use a Laravel Collection to populate the export. | [Exporting collections](/3.1/exports/collection.html) |
 |`Maatwebsite\Excel\Concerns\FromIterator`| Use an iterator to populate the export. | |
 |`Maatwebsite\Excel\Concerns\FromQuery`| Use an Eloquent query to populate the export. | [From Query](/3.1/exports/from-query.html) | 
