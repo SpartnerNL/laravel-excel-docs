@@ -110,7 +110,8 @@ For Laravel 8+:
 ```php
 (new InvoicesExport)->queue('invoices.xlsx')->onQueue('exports');
 ```
-For early versions of Laravel:
+For older versions of Laravel:
+
 ```php
 (new InvoicesExport)->queue('invoices.xlsx')->allOnQueue('exports');
 ```
