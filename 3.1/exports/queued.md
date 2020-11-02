@@ -105,6 +105,12 @@ class NotifyUserOfCompletedExport implements ShouldQueue
 
 Because `PendingDispatch` is returned, we can also change the queue that should be used.
 
+For Laravel 8+:
+
+```php
+(new InvoicesExport)->queue('invoices.xlsx')->onQueue('exports');
+```
+For early versions of Laravel:
 ```php
 (new InvoicesExport)->queue('invoices.xlsx')->allOnQueue('exports');
 ```
