@@ -101,6 +101,26 @@ class NotifyUserOfCompletedExport implements ShouldQueue
 }
 ```
 
+## Handling failures in queued exports
+
+When queuing exports you might want a way to handle failed exports. You can do this by adding `failed` method to your export class.
+
+```php
+
+use Throwable;
+use Maatwebsite\Excel\Concerns\FromQuery;
+use Maatwebsite\Excel\Concerns\WithHeadings;
+
+class UsersExport implements FromQuery, WithHeadings
+{   
+    public function failed(Throwable $exception): void
+    {
+        // handle failed export
+    }
+}
+```
+
+
 ## Custom queues
 
 Because `PendingDispatch` is returned, we can also change the queue that should be used.
