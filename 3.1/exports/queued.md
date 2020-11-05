@@ -168,6 +168,32 @@ class ExportClass implements FromQuery
 }
 ```
 
+## Localizing Queued Export
+
+If you want to localize your queued export you should implement `HasLocalePreference` contract on your export:
+
+```php
+namespace App\Exports;
+
+use Illuminate\Contracts\Translation\HasLocalePreference;
+use Maatwebsite\Excel\Concerns\Exportable;
+
+class ExportClass implements HasLocalePreference
+{
+    use Exportable;
+    
+    public function __construct(string $locale)
+    {
+        $this->locale = $locale;
+    }
+    
+    public function preferredLocale()
+    {
+        return $this->locale;
+    }
+}
+```
+
 ## Custom Query Size
 Queued exportables are processed in chunks; each chunk being a job pushed to the queue by the `QueuedWriter`.
 In case of exportables that implement the [FromQuery](/3.1/exports/from-query.html) concern, the number of jobs is calculated by dividing the `$query->count()` by the chunk size.
