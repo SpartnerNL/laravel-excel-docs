@@ -27,6 +27,29 @@ The returned model will be saved for you. Each row will result into (at least) o
 When using `ToModel` you should never save the model yourself, as that will break the batch insert functionality. If you need this, consider using `OnEachRow`.
 :::
 
+## Upserting models
+
+In case you want to upsert models, instead of inserting, you can implement the `WithUpserts` concern. 
+
+```php
+class UsersImport implements ToModel, WithUpserts
+{
+    /**
+     * @return string|array
+     */
+    public function uniqueBy()
+    {
+        return 'email';
+    }
+}
+```
+
+In the example above, if a user already exists with the same email, the row will be updated instead. Behind the scenes, this feature uses the Laravel `upsert` method and the `uniqueBy` method is used for the second argument of the `upsert` method, which lists the column(s) that uniquely identify records within the associated table.
+
+:::warning
+All databases except SQL Server require the `uniqueBy` columns to have a "primary" or "unique" index.
+:::
+
 ## Skipping rows
 
 In case you want to skip a row, you can return null. 
