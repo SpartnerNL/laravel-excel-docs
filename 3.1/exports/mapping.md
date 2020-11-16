@@ -120,7 +120,7 @@ class UsersExport implements FromQuery, WithHeadings
     public function prepareRows($rows): array
     {
         return array_map(function ($user) {
-            $user->name .= ' (prepared)`;
+            $user->name .= ' (prepared)';
 
             return $user;
         }, $rows);
