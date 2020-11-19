@@ -371,9 +371,9 @@ class UsersImport implements WithValidation
 {
     public function prepareForValidation($data, $index)
     {
-        $row['email'] = $row['email'] ?? $this->myOtherWayOfFindingTheEmail($data);
+        $data['email'] = $data['email'] ?? $this->myOtherWayOfFindingTheEmail($data);
         
-        return $row;
+        return $data;
     }
 }
 ```
