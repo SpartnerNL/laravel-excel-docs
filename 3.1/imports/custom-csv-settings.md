@@ -30,14 +30,16 @@ class UsersImport implements ToModel, WithCustomCsvSettings
 ```
 
 
-Delimiter requires a single character. For Tab use "\t"
+Delimiter requires a single character. For Tab use `"\t"`
 
+```php
 public function getCsvSettings(): array
-    {
-        return [
-            'delimiter' => "\t"
-        ];
-    }
+{
+    return [
+        'delimiter' => "\t"
+    ];
+}
+```
 
 ## Available settings
 
