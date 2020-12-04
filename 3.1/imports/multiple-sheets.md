@@ -215,7 +215,7 @@ namespace App\Imports;
 
 use Maatwebsite\Excel\Concerns\WithCalculatedFormulas;
 
-class SecondSheetImport implements WithCalculatedFormulas
+class SecondSheetImport implements ToArray, WithCalculatedFormulas
 {
     public function array(array: $row)
     {
