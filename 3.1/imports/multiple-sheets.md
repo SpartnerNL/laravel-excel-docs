@@ -171,3 +171,55 @@ $import->onlySheets('Worksheet 1', 'Worksheet 3');
 
 Excel::import($import, 'users.xlsx');
 ```
+
+## Making calculations work when referencing between sheets
+
+When importing you have to implement the `Maatwebsite\Excel\Concerns\WithCalculatedFormulas` concern for Laravel Excel to calculate values from formulas. However, if one sheet creates a calculation by referencing another sheet, e.g. `=Sheet1!A1`, then you also have to implement the concern `Maatwebsite\Excel\Concerns\HasReferencesToOtherSheets`. An example is given below
+
+```php
+namespace App\Imports;
+
+use Maatwebsite\Excel\Concerns\WithMultipleSheets;
+
+class UsersImport implements WithMultipleSheets 
+{
+    public function sheets(): array
+    {
+        return [
+            new FirstSheetImport(),
+            new SecondSheetImport()
+        ];
+    }
+}
+```
+
+Then if `SecondSheetImport` contains formulas that reference `FirstSheetImport` then `FirstSheetImport` has to be defined using the `HasReferencesToOtherSheets` concern
+
+```php
+namespace App\Imports;
+
+use Maatwebsite\Excel\Concerns\ToArray;
+use Maatwebsite\Excel\Concerns\HasReferencesToOtherSheets;
+
+class FirstSheetImport implements ToArray, HasReferencesToOtherSheets
+{
+    public function array(array: $row)
+    {
+        
+    }
+}
+```
+
+```php
+namespace App\Imports;
+
+use Maatwebsite\Excel\Concerns\WithCalculatedFormulas;
+
+class SecondSheetImport implements WithCalculatedFormulas
+{
+    public function array(array: $row)
+    {
+        
+    }
+}
+```
