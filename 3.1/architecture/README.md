@@ -254,7 +254,7 @@ class ImportsController
         $this->importer = $importer;
     }
     
-    public function export()
+    public function import()
     {
         return $this->importer->import(new UsersImport, 'users.xlsx');
     }
