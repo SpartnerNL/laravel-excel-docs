@@ -110,5 +110,5 @@ class UsersImport implements OnEachRow
 ```
 
 :::warning
-When using `OnEachRow` you cannot use batch inserts, as the the model is already persisted in the `onRow` method.
+When using `OnEachRow` you cannot use batch inserts, as the model is already persisted in the `onRow` method.
 :::
