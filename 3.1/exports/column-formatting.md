@@ -147,7 +147,7 @@ Can be used together with `ShouldAutoSize`. Only the columns with explicit width
 
 ## Styling
 
-The `WithStyles` concerns allows styling columns, cells and rows. This might be useful when you want to make the heading row bold.
+The `WithStyles` (available after `v3.1.21`) concerns allows styling columns, cells and rows. This might be useful when you want to make the heading row bold.
 
 ```php
 namespace App\Exports;
