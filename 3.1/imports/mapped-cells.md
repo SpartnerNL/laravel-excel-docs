@@ -21,7 +21,7 @@ use App\User;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithMappedCells;
 
-new UsersImport implements WithMappedCells, ToModel 
+class UsersImport implements WithMappedCells, ToModel 
 {
     public function mapping(): array
     {
