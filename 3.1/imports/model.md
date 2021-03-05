@@ -50,6 +50,23 @@ In the example above, if a user already exists with the same email, the row will
 All databases except SQL Server require the `uniqueBy` columns to have a "primary" or "unique" index.
 :::
 
+By default, `upsert`, in case of updating, will update all columns that match model's attributes. However, if you need to update only specific column(s) during `upsert`, you can also implement the `WithUpsertColumns` concern.
+
+```php
+class UsersImport implements ToModel, WithUpserts, WithUpsertColumns
+{
+    /**
+     * @return array
+     */
+    public function upsertColumns()
+    {
+        return ['name', 'role'];
+    }
+}
+```
+
+In this example, if a user already exists, only "name" and "role" columns will be updated.
+
 ## Skipping rows
 
 In case you want to skip a row, you can return null. 
