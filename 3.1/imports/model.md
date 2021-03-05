@@ -50,6 +50,8 @@ In the example above, if a user already exists with the same email, the row will
 All databases except SQL Server require the `uniqueBy` columns to have a "primary" or "unique" index.
 :::
 
+### Upserting with specific columns
+
 By default, `upsert`, in case of updating, will update all columns that match model's attributes. However, if you need to update only specific column(s) during `upsert`, you can also implement the `WithUpsertColumns` concern.
 
 ```php
