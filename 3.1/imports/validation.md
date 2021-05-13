@@ -272,6 +272,38 @@ foreach ($import->failures() as $failure) {
 }
 ```
 
+## Skipping empty rows
+
+Sometimes you might want to skip empty rows, for example when using the `required` validation rule. By using the `SkipsEmptyRows` concern, empty rows will get skipped during both validation **and the import**.
+
+```php
+<?php
+
+namespace App\Imports;
+
+use App\User;
+use Maatwebsite\Excel\Concerns\Importable;
+use Maatwebsite\Excel\Concerns\SkipsEmptyRows;
+use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\WithHeadingRow;
+use Maatwebsite\Excel\Concerns\WithValidation;
+
+class UsersImport implements ToModel, SkipsEmptyRows, WithHeadingRow, WithValidation
+{
+    use Importable;
+    
+    public function rules(): array
+    {
+        return [
+            'name' => [
+                'required',
+                'string',
+            ],
+        ];
+    }
+}
+```
+
 ### Skipping errors
 
 Sometimes you might want to skip **all** errors, e.g. duplicate database records. By using the `SkipsOnError` concern, you get control over what happens the moment a model import fails. 
