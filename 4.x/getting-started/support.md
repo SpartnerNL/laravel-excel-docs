@@ -2,7 +2,7 @@
 
 [[toc]]
 
-Our software is free and open source, meaning that the use of our software is optional. We hold no liability and there is no obligation to support. We will provide support on a best effort basis. 
+Our software is free and open source, meaning that the use of our software is optional. We hold no liability and there is no obligation to support. We will provide support on best effort basis. 
 
 :::tip Commercial Support
 If you use the software commercially and need elaborate support or need it urgently, we can offer this on a commercial basis. Please contact <info@maatwebsite.nl> or via phone +31 (0)10 744 9312.
@@ -14,12 +14,13 @@ Versions will be supported for a limited amount of time.
 
 | Version | Laravel Version | Php Version | Support |
 |---- |----|----|----|
-| 2.1 | <=5.6 | <=7.0 | Unsupported since 15-5-2018 |
+| 4.x | ^8.0 |  ^7.4\|^8.0 | New features |
+| 3.1 | ^5.8\|^6.0\|^7.0\|^8.0 |  ^7.2\|^8.0 | Support till ... |
 | 3.0 | ^5.5 |  ^7.0 | Unsupported since 31-12-2018 |
-| 3.1 | ^5.8\|^6.0\|^7.0\|^8.0 |  ^7.2\|^8.0 | New features |
+| 2.1 | <=5.6 | <=7.0 | Unsupported since 15-5-2018 |
 
 ::: warning PHP version support
-Support for PHP versions will only be maintained for a period of six months beyond the end-of-life of that PHP version.
+Support for PHP versions will only be maintained until the end-of-life of that PHP version.
 :::
 
 ## Requesting support

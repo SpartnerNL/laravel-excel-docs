@@ -127,14 +127,24 @@ Date::make('Date of Birth', 'dob');
 
 ## Column Types
 
-### Custom type and format
+### Custom type
+
+By using the `type()` setter, you can set any PhpSpreadsheet DataType to the specific column cells.
 
 ```php
-Column::make('Name')->type(PhpOffice\PhpSpreadsheet\Cell\DataType::TYPE_STRING);
+use PhpOffice\PhpSpreadsheet\Cell\DataType;
+
+Column::make('Name')->type(DataType::TYPE_STRING);
 ```
 
+### Custom number format
+
+By using the `format()` setter, you can set any PhpSpreadsheet NumberFormat to the specific column cells.
+
 ```php
-Column::make('Name')->format(PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_TEXT);
+use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
+
+Column::make('Name')->format(NumberFormat::FORMAT_TEXT);
 ```
 
 ### Text
@@ -149,10 +159,40 @@ Text::make('Name');
 Number::make('ID');
 ```
 
+Optionally you can enable decimals on the number.
+
+```php
+Number::make('ID')->withDecimals();
+```
+
+Or provide the entire number format yourself.
+
+```php
+Number::make('ID')->format('#,##0.00');
+```
+
 ### Decimal
 
 ```php
 Decimal::make('Average Working Hours');
+```
+
+You can provide a custom decimal number format with the `format()` method.
+
+```php
+Decimal::make('Average Working Hours')->format('#,##0.00');
+```
+
+### Percentage
+
+```php
+Percentage::make('Available');
+```
+
+You can provide a custom percentage number format with the `format()` method.
+
+```php
+Percentage::make('Available')->format('0.00%');
 ```
 
 ### Date
@@ -161,10 +201,22 @@ Decimal::make('Average Working Hours');
 Date::make('Date of Birth');
 ```
 
+You can provide a custom date format with the `format()` method.
+
+```php
+Date::make('Date of Birth')->format('yyyy-mm-dd');
+```
+
 ### Datetime
 
 ```php
 DateTime::make('Registration Date');
+```
+
+You can provide a custom datetime format with the `format()` method.
+
+```php
+DateTime::make('Registration Date')->format('d/m/yy h:mm');
 ```
 
 ### Price
@@ -173,10 +225,20 @@ DateTime::make('Registration Date');
 Price::make('Order Total');
 ```
 
-### Boolean
+You can configure the Price format by selecting the wanted currency:
 
 ```php
-Boolean::make('Is Verified');
+Price::make('Order Total')->inEuros();
+```
+
+```php
+Price::make('Order Total')->inDollars();
+```
+
+If you need a different format or currency, you can use the `currency()` setter.
+
+```php
+Price::make('Order Total')->currency('#,##0_-"€"');
 ```
 
 ### Boolean
@@ -186,6 +248,8 @@ Boolean::make('Is Verified');
 ```
 
 ### RichText
+
+If you want to insert some HTML in a cell and keep most of the styling, like bold/italic/etc. words, you can mark the column as rich text.
 
 ```php
 RichText::make('Html', function() {
@@ -198,8 +262,12 @@ RichText::make('Html', function() {
 ```php
 Image::make('Avatar', function(User $user) {
     return Storage::path($user->avatar);
-})->width(100.0)->height(100.0);
+})->width(100)->height(100);
 ```
+
+:::warning
+Make sure to provide an absolute path
+:::
 
 ### Formula
 
@@ -249,9 +317,11 @@ Text::make('Name')
 
 ### Cell styling
 
+In some cases you might want to optionally style specific cells. Within the `withCellStyling` callback, you can do any conditional check to decide which styles should be applied.
+
 ```php
-Text::make('Name')->withCellStyling(function(CellStyle $style, $name) {
-    $style->bold($name === 'Patrick');
+Text::make('Name')->withCellStyling(function(CellStyle $style, User $user) {
+    $style->bold($user->name === 'Patrick');
 });
 ```
 
@@ -259,5 +329,14 @@ Text::make('Name')->withCellStyling(function(CellStyle $style, $name) {
 ## Filters
 
 ```php
-Text::make('Name')->autoFilter();
+Text::make('Country')->autoFilter();
 ```
+
+```php
+use \PhpOffice\PhpSpreadsheet\Worksheet\AutoFilter\Column\Rule;
+
+Text::make('Country')->autoFilter([
+    Rule::AUTOFILTER_COLUMN_RULE_EQUAL => ['The Netherlands', 'Belgium']
+]);
+```
+

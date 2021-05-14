@@ -26,4 +26,45 @@ To have more control on how the export should be presented `FromView` can be use
 
 ## View
 
+Exports can be created from a Blade view, by using the FromView concern.
+
+```php
+namespace App\Exports;
+
+use App\User;
+use Illuminate\Contracts\View\View;
+use Maatwebsite\Excel\Concerns\FromView;
+
+class UsersExport implements FromView
+{
+    public function view(): View
+    {
+        return view('exports.users', [
+            'users' => User::all()
+        ]);
+    }
+}
+```
+
+It will convert an HTML table into an Excel spreadsheet. For example; `exports/users.blade.php`:
+
+```html
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach($users as $user)
+        <tr>
+            <td>{{ $user->name }}</td>
+            <td>{{ $user->email }}</td>
+        </tr>
+    @endforeach
+    </tbody>
+</table>
+```
+
 ## Generators
