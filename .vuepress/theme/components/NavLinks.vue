@@ -48,12 +48,12 @@
       <OutboundLink/>
     </a>
 
-    <a
-        href="https://course.laravel-excel.com"
-        class="repo-link btn-orange"
-    >
-      Video course <strike>$99</strike> $69
-    </a>
+<!--    <a-->
+<!--        href="https://course.laravel-excel.com"-->
+<!--        class="repo-link btn-orange"-->
+<!--    >-->
+<!--      Video course <strike>$99</strike> $69-->
+<!--    </a>-->
   </nav>
 </template>
 

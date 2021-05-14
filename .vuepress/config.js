@@ -71,6 +71,7 @@ module.exports = {
                 text: 'Version',
                 link: '/',
                 items: [
+                    {text: 'LE 4.x', link: '/4.x/'},
                     {text: 'LE 3.1', link: '/3.1/'},
                     {text: 'LE 3.0', link: '/3.0/'},
                     {text: 'LE 2.1', link: '/2.1/', divider: true},
@@ -82,6 +83,7 @@ module.exports = {
         ],
 
         sidebar: {
+            '/4.x/': require('./4.x'),
             '/3.1/': require('./3.1'),
             '/3.0/': require('./3.0'),
             '/2.1/': require('./2.1'),
