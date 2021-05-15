@@ -13,12 +13,11 @@ like `Text::make('Name')`
 <span class="inline-step">2</span> **Defining columns**
 
 Columns can be configured using the `WithColumns` concern within the export class. An array of `Column` instances are
-expected.s
+expected.
 
-<span class="inline-step">3</span> **Presenting**
+<span class="inline-step">3</span> **Data types**
 
-Columns can select which data and how it should be presented. Each column has a chain of methods
-like `Text::make('Name')->bold()->autoSize()`.
+Per column a data type can be configured. This is very useful when dealing with data likes numbers, dates and prices.
 
 [[toc]]
 
@@ -55,7 +54,7 @@ Indicate columns are text, number, prices, dates, etc.
 
 <span class="inline-step">2</span> **Customizing column presentation**
 
-Changing styling, width, etc.
+Changing styling, width, etc. (See next chapter)
 
 ## Defining columns
 
@@ -123,6 +122,36 @@ formatting for Excel.
 
 ```php
 Date::make('Date of Birth', 'dob');
+```
+
+### Using different data sources
+
+The above examples all expect the input source to be an Eloquent model. However, the data source is not only limited to Eloquent. You can use any other data source (except a View) in combination with columns.
+
+The attribute expects the array key of the row. When using a callback as attribute, you'll get an array of the entire row.
+
+```php
+class UsersExport implements FromArray, WithColumns
+{
+    public function array(): array
+    {
+        return [
+            ['firstname' => 'Patrick', 'lastname' => 'Brouwers'],
+            ['firstname' => 'Taylor', 'lastname' => 'Otwell'],
+        ];
+    }
+    
+    public function columns(): array
+    {
+        return [
+            Text::make('First Name', 'firstname'),
+            Text::make('Last Name', 'lastname'),
+            Text::make('Name', function(array $row) {
+                return $row['firstname'] . ' ' . $row['lastname'];
+            }),
+        ];
+    }
+}
 ```
 
 ## Column Types
@@ -280,63 +309,3 @@ Formula::make('Total', fn() => '=1+1');
 ```php
 EmptyCell::make();
 ```
-
-## Sizing
-
-### Explicit width
-
-```php
-Text::make('Name')->width(100);
-```
-
-### Autosizing
-
-```php
-Text::make('Name')->autoSize();
-```
-
-## Styling
-
-### Column styling
-
-```php
-Text::make('Name')->style([
-    'font' => [
-        'bold' => true,
-    ],
-]);
-```
-
-```php
-Text::make('Name')
-    ->font('Calibri', 16.0)
-    ->textSize(16.0)
-    ->bold()
-    ->italic();
-```
-
-### Cell styling
-
-In some cases you might want to optionally style specific cells. Within the `withCellStyling` callback, you can do any conditional check to decide which styles should be applied.
-
-```php
-Text::make('Name')->withCellStyling(function(CellStyle $style, User $user) {
-    $style->bold($user->name === 'Patrick');
-});
-```
-
-
-## Filters
-
-```php
-Text::make('Country')->autoFilter();
-```
-
-```php
-use \PhpOffice\PhpSpreadsheet\Worksheet\AutoFilter\Column\Rule;
-
-Text::make('Country')->autoFilter([
-    Rule::AUTOFILTER_COLUMN_RULE_EQUAL => ['The Netherlands', 'Belgium']
-]);
-```
-

@@ -1,15 +1,61 @@
 # Presentation
 
-:::warning
-While all of these concerns have valid use-cases, make sure to first check the Columns chapter, as 
-all of these functionalities can be scoped to a specific column.
-:::
+The third major part of exports is the presentational side of things: transforming the data, sizing the columns, styling the cells,... 
 
 [[toc]]
 
+## TLDR;
+
+<span class="inline-step">1</span> **Mapping data**
+
+You can either map on a per-column basis like shown in the previous chapter by using a callback as attribute of on a per row basis with the `WithMapping` concern.
+
+<span class="inline-step">2</span> **Styling cells**
+
+Just like with mapping, you can style the column (or cell) as shown in the previous chapter. To do more generic styling, a `WithStyling` concern is available.
+
+<span class="inline-step">3</span> **Sizing columns**
+
+Column widths can be configured, or the width can be autosized based on the content.
+
+<span class="inline-step">4</span> **Adding filters**
+
+Filters can be added on a column.
+
+
 ## Mapping data
 
-By adding WithMapping you map the data that needs to be added as row. 
+### Column mapping
+
+If you are already using columns, you can add the mapping on the column level: the second argument 
+of the column accepts a callback in which you can map the data from the model or array. 
+You also have access to (eagerloaded) relationship data.
+
+```php
+class UsersExport implements WithColumns
+{
+    public function collection()
+    {
+        return Users::with('country')->get();
+    }
+
+    public function columns(): array
+    {
+        return [
+            Text::make('Name', function(User $user) {
+                return strtoupper($user->name);
+            }),
+            Text::make('Country', function(User $user) {
+                return strtoupper($user->country->name);
+            }),
+        ];
+    }
+}
+```
+
+### Row mapping
+
+By adding `WithMapping` you map the data that needs to be added as row. 
 This way you have control over the actual source for each column.
 In case of using the Eloquent query builder:
 
@@ -59,6 +105,36 @@ public function map($invoice): array
 
 ## Styling
 
+### Column styling
+
+```php
+Text::make('Name')->style([
+    'font' => [
+        'bold' => true,
+    ],
+]);
+```
+
+```php
+Text::make('Name')
+    ->font('Calibri', 16.0)
+    ->textSize(16.0)
+    ->bold()
+    ->italic();
+```
+
+### Cell styling
+
+In some cases you might want to optionally style specific cells. Within the `withCellStyling` callback, you can do any conditional check to decide which styles should be applied.
+
+```php
+Text::make('Name')->withCellStyling(function(CellStyle $style, User $user) {
+    $style->bold($user->name === 'Patrick');
+});
+```
+
+### Generic styling
+
 The `WithStyles` concerns allows styling columns, cells and rows. This might be useful when you want to make the heading row bold.
 
 ```php
@@ -104,7 +180,16 @@ class InvoicesExport implements WithStyles
 }
 ```
 
-## Auto Sizing
+## Sizing columns
+
+### Auto sizing
+
+Autosizing can be enabled per columns:
+
+```php
+Text::make('Name')->autoSize();
+```
+
 
 If you want Laravel Excel to perform an automatic width calculation on **all** columns, use the following code.
 
@@ -118,3 +203,50 @@ class InvoicesExport implements ShouldAutoSize
     ...
 }
 ```
+
+### Columns widths
+
+In some cases you might want more control over the actual column width instead of relying on autosizing. This can be done per column, directly on the column definition.
+
+```php
+Text::make('Name')->width(100);
+```
+
+You can also do so with the `WithColumnWidths` concerns. It accepts an array of columns (alphabetic representation: A, B, C) and a numeric width.
+
+```php
+namespace App\Exports;
+
+use Maatwebsite\Excel\Concerns\WithColumnWidths;
+
+class UsersExport implements WithColumnWidths
+{
+    public function columnWidths(): array
+    {
+        return [
+            'A' => 55,
+            'B' => 45,            
+        ];
+    }
+}
+```
+
+The `WithColumnWidths` concern can be used together with `ShouldAutoSize`. Only the columns with explicit widths won't be autosized.
+
+## Filters
+
+```php
+Text::make('Country')->autoFilter();
+```
+
+```php
+use PhpOffice\PhpSpreadsheet\Worksheet\AutoFilter\Column\Rule;
+
+Text::make('Country')->autoFilter([
+    Rule::AUTOFILTER_COLUMN_RULE_EQUAL => [
+        'The Netherlands', 
+        'Belgium'
+    ],
+]);
+```
+
