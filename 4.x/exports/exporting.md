@@ -103,6 +103,54 @@ Instead of using the facade, you can now chain methods like `download` and `stor
 return (new UsersExport)->download('users.xlsx');
 ```
 
+### Responsables
+
+The previous (download) example can be made even shorter when adding Laravel's `Responsable` interface to the export class:
+
+```php
+namespace App\Exports;
+
+use App\User;
+use Maatwebsite\Excel\Excel;
+use Illuminate\Contracts\Support\Responsable;
+use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\Exportable;
+
+class UsersExport implements FromCollection, Responsable
+{
+    use Exportable;
+    
+    /**
+    * It's required to define the fileName within
+    * the export class when making use of Responsable.
+    */
+    private $fileName = 'users.xlsx';
+    
+    /**
+    * Optional Writer Type
+    */
+    private $writerType = Excel::XLSX;
+    
+    /**
+    * Optional headers
+    */
+    private $headers = [
+        'Content-Type' => 'text/csv',
+    ];
+
+    public function collection()
+    {
+        return User::all();
+    }
+}
+```
+
+Within your controller you can now, just return the Export class and it will internally trigger the download response.
+
+```php
+return new UsersExport();
+```
+
 ### Dependency injection
 
 ```php

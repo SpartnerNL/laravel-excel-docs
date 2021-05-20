@@ -5,7 +5,7 @@
 ## Requirements
 
 * PHP: `^7.4\|^8.0`
-* Laravel: `^8.0
+* Laravel: `^8.0`
 * PhpSpreadsheet: `^1.16`
 * PHP extension `php_zip` enabled
 * PHP extension `php_xml` enabled

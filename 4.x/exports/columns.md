@@ -108,6 +108,12 @@ If no `attribute` is passed, the title will be converted to a snake case attribu
 Text::make('Name'); // uses "name" attribute
 ```
 
+When working with relationships (e.g. HasOne and BelongsTo), you can use a dot notation as attribute:
+
+```php
+Text::make('Office', 'office.name'); // uses "name" attribute of the "office" BelongsTo relationship.
+```
+
 A callback can also be passed as second argument. The closure will get the row or Model. Whatever is returned within the
 closure, will be inserted in the cell.
 

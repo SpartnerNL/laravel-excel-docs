@@ -11,6 +11,10 @@ __Additions__
 * Column exports
 * Column imports
 
+__Deprecations__
+
+* Queued exports are deprecated and will be removed in 5.x. Please check the performance documentation for the new and improved way.
+
 ## Upgrading to 3.1 from 3.0
 
 Version 3.1 is backwards compatible with 3.0. Only features were added in this release.

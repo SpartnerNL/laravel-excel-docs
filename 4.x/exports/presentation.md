@@ -63,17 +63,17 @@ In case of using the Eloquent query builder:
 use Maatwebsite\Excel\Concerns\FromQuery;
 use Maatwebsite\Excel\Concerns\WithMapping;
 
-class InvoicesExport implements FromQuery, WithMapping
+class UsersExport implements FromQuery, WithMapping
 {    
     /**
-    * @var Invoice $invoice
+    * @var User $user
     */
-    public function map($invoice): array
+    public function map($user): array
     {
         return [
-            $invoice->invoice_number,
-            $invoice->user->name,
-            Date::dateTimeToExcel($invoice->created_at),
+            $user->id,
+            $user->lastOrder->description,
+            Date::dateTimeToExcel($user->created_at),
         ];
     }
 }
@@ -84,28 +84,70 @@ class InvoicesExport implements FromQuery, WithMapping
 You can also return multiple rows inside the map function.
 
 ```php
-public function map($invoice): array
+public function map($user): array
 {
     // This example will return 3 rows.
     // First row will have 2 column, the next 2 will have 1 column
     return [
         [
-            $invoice->invoice_number,
-            Date::dateTimeToExcel($invoice->created_at),
+            $user->id,
+            Date::dateTimeToExcel($user->created_at),
         ],
         [
-            $invoice->lines->first()->description,
+            $user->orders->first()->description,
         ],
         [
-            $invoice->lines->last()->description,
+            $user->orders->last()->description,
         ]
     ];
+}
+```
+
+## Heading row
+
+If you are using columns, the heading row will already be applied by using the name of the column.
+
+```php
+use Maatwebsite\Excel\Concerns\WithColumns;
+
+class UsersExport implements WithColumns
+{   
+    public function columns(): array
+    {
+        return [
+            Number::make('#', 'id'),
+            Text::make('Name'),
+            Text::make('Email'),
+            Text::make('Registration Date'),
+        ];
+    }
+}
+```
+
+You can also add a heading row by adding the `WithHeadings` concern. The heading row will be added as very first row of the sheet.
+
+```php
+use Maatwebsite\Excel\Concerns\WithHeadings;
+
+class UsersExport implements WithHeadings
+{   
+    public function headings(): array
+    {
+        return [
+            '#',
+            'Name',
+            'Email',
+            'Date',
+        ];
+    }
 }
 ```
 
 ## Styling
 
 ### Column styling
+
+Styles can be applied on a per-column basis. Styles can be passed as a PhpSpreadsheet style array via the `style()` method.
 
 ```php
 Text::make('Name')->style([
@@ -114,6 +156,8 @@ Text::make('Name')->style([
     ],
 ]);
 ```
+
+Styles can also be applied by using the Fluent syntax.
 
 ```php
 Text::make('Name')
@@ -143,7 +187,7 @@ namespace App\Exports;
 use Maatwebsite\Excel\Concerns\WithStyles;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
-class InvoicesExport implements WithStyles
+class UsersExport implements WithStyles
 {
     public function styles(Worksheet $sheet)
     {
@@ -171,7 +215,7 @@ namespace App\Exports;
 use Maatwebsite\Excel\Concerns\WithStyles;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
-class InvoicesExport implements WithStyles
+class UsersExport implements WithStyles
 {
     public function styles(Worksheet $sheet)
     {
@@ -198,7 +242,7 @@ namespace App\Exports;
 
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 
-class InvoicesExport implements ShouldAutoSize
+class UsersExport implements ShouldAutoSize
 {
     ...
 }
