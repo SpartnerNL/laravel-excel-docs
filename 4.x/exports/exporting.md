@@ -18,6 +18,70 @@ Pick and choose any of those techniques to your own preference or coding standar
 
 While the main focus on the package is xlsx, other types like xls and pdf are supported as well.
 
+## Export objects
+
+To get started with exports, you'll need to have an export object.
+
+Export classes can be created via the following artisan command:
+
+```shell
+php artisan make:export UsersExport --model=User
+```
+
+```php
+namespace App\Exports;
+
+use App\User;
+use Maatwebsite\Excel\Concerns\FromCollection;
+
+class UsersExport implements FromCollection
+{
+    public function collection()
+    {
+        return User::all();
+    }
+}
+```
+
+## Multiple sheets
+
+To allow the export to have multiple sheets, the `WithMultipleSheets` concern should be used. The `sheets()` method expects an array of sheet export objects to be returned.
+
+```php
+namespace App\Exports;
+
+use Maatwebsite\Excel\Concerns\WithMultipleSheets;
+
+class UsersExport implements WithMultipleSheets
+{
+    public function sheets(): array
+    {
+       return [
+            new Sheets\UsersSheet(),
+            new Sheets\AdminsSheet(),
+       ];
+    }
+}
+```
+
+```php
+namespace App\Exports\Sheets;
+
+use Maatwebsite\Excel\Concerns\WithTitle;
+
+class AdminsSheet implements FromCollection, WithTitle
+{
+    public function collection()
+    {
+        return User::where('is_admin', true)->get();
+    }
+
+    public function title(): string
+    {
+        return 'Admins';
+    }
+}
+```
 
 ## Ways of exporting
 

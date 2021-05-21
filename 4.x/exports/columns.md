@@ -282,6 +282,38 @@ Price::make('Order Total')->currency('#,##0_-"€"');
 Boolean::make('Is Verified');
 ```
 
+### Hyperlink
+
+If you want to make the cell value into a hyperlink, you can use the `Hyperlink` column type. 
+The value of the cell will be used as hyperlink url and tooltip.
+
+```php
+Hyperlink::make('Url');
+```
+
+If you want to resolve a custom url, you can add a callback to the `url()` method. Whatever is returned
+from that callback will be used as hyperlink.
+
+```php
+Hyperlink::make('Company', 'company.name')->url(function(User $user) {
+    return $user->company->url;
+});
+```
+
+A tooltip can be set using the `tooltip` setter.
+
+```php
+Hyperlink::make('Url')->tooltip('Open link');
+```
+
+If you want to have a dynamic tooltip, you can using a callback.
+
+```php
+Hyperlink::make('Url')->tooltip(function(User $user) {
+    return 'Open link of '. $user->name;
+});
+```
+
 ### RichText
 
 If you want to insert some HTML in a cell and keep most of the styling, like bold/italic/etc. words, you can mark the column as rich text.
@@ -314,4 +346,14 @@ Formula::make('Total', fn() => '=1+1');
 
 ```php
 EmptyCell::make();
+```
+
+## Customizing cells
+
+If you want to customize the cell, accessing the `PhpSpreadsheet` Cell directly, you can use the `writing()` callback:
+
+```php
+Text::make('Name')->writing(function(Cell $cell) {
+    $cell->getHyperlink()->setUrl('https://maatwebsite.com');
+});
 ```

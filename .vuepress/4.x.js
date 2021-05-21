@@ -29,7 +29,11 @@ module.exports = [
             'data',
             'columns',
             'presentation',
+            'performance',
+            'settings',
             'advanced',
+            'concern-overview',
+            'testing'
         ]),
     },
     {
