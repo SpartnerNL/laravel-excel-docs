@@ -15,7 +15,7 @@ If you prefer to create the export manually, you can create the following in `ap
 
 namespace App\Exports;
 
-use App\User;
+use App\Models\User;
 use Maatwebsite\Excel\Concerns\FromCollection;
 
 class UsersExport implements FromCollection
