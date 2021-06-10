@@ -30,7 +30,7 @@ If you prefer to create the import manually, you can create the following in `ap
 
 namespace App\Imports;
 
-use App\User;
+use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Concerns\ToModel;
 
