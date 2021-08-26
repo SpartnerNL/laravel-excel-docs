@@ -1,5 +1,7 @@
 # Cell manipulation
 
+To Change the cell value you can use:
+
     $sheet->cell('A1', function($cell) {
 
         // manipulate the cell
@@ -12,6 +14,11 @@
         // manipulate the range of cells
 
     });
+    
+or use `->setCellValue($code,$value)`
+
+    $sheet->setCellValue('C5', "Hello World!");
+
 
 ### Set background
 
