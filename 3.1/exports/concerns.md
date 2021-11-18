@@ -23,7 +23,6 @@ pageClass: no-toc
 |`Maatwebsite\Excel\Concerns\WithCustomValueBinder`| Allows to specify a custom value binder. | |
 |`Maatwebsite\Excel\Concerns\WithDrawings`| Allows to run one or multiple PhpSpreadsheet (Base)Drawing instances. | [Drawings](/3.1/exports/drawings.html) |
 |`Maatwebsite\Excel\Concerns\WithEvents`| Register events to hook into the PhpSpreadsheet process. | [Events](/3.1/exports/extending.html#events) |
-|`Maatwebsite\Excel\Concerns\WithFormatData`| Enable data formatting. | |
 |`Maatwebsite\Excel\Concerns\WithHeadings`| Prepend a heading row. | [Adding a heading row](/3.1/exports/mapping.html#adding-a-heading-row) |
 |`Maatwebsite\Excel\Concerns\WithMapping`| Format the row before it's written to the file. | [Mapping data](/3.1/exports/mapping.html) |
 |`Maatwebsite\Excel\Concerns\WithMultipleSheets`| Enable multi-sheet support. Each sheet can have its own concerns (except this one). | [Multiple Sheets](/3.1/exports/multiple-sheets.html) |
