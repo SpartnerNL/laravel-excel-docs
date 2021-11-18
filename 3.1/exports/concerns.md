@@ -14,7 +14,7 @@ pageClass: no-toc
 |`Maatwebsite\Excel\Concerns\FromView`| Use a (Blade) view to to populate the export. | [From View](/3.1/exports/from-view.html) |
 |`Maatwebsite\Excel\Concerns\HasReferencesToOtherSheets`| Allows precalculated values where one sheet has references to another sheet. | [References to other sheets](/3.1/exports/multiple-sheets.html#making-calculations-work-when-referencing-between-sheets) |
 |`Maatwebsite\Excel\Concerns\ShouldAutoSize`| Auto-size the columns in the worksheet. | [Auto size](/3.1/exports/column-formatting.html#auto-size) |
-|`Maatwebsite\Excel\Concerns\WithCharts`| Allows to run one or multiple PhpSpreadsheet Chart instances. | |
+|`Maatwebsite\Excel\Concerns\WithCharts`| Allows to run one or multiple PhpSpreadsheet Chart instances. | [Charts](/3.1/exports/charts.html) |
 |`Maatwebsite\Excel\Concerns\WithColumnFormatting`| Format certain columns. | [Formatting columns](/3.1/exports/column-formatting.html) |
 |`Maatwebsite\Excel\Concerns\WithColumnWidths`| Set Column widths. | [Column widths](/3.1/exports/column-formatting.html#styling) |
 |`Maatwebsite\Excel\Concerns\WithCustomChunkSize`| Allows Exportables to define their chunk size. | |
