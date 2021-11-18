@@ -28,7 +28,7 @@ pageClass: no-toc
 |`Maatwebsite\Excel\Concerns\WithMapping`| Format the row before it's written to the file. | [Mapping data](/3.1/exports/mapping.html) |
 |`Maatwebsite\Excel\Concerns\WithMultipleSheets`| Enable multi-sheet support. Each sheet can have its own concerns (except this one). | [Multiple Sheets](/3.1/exports/multiple-sheets.html) |
 |`Maatwebsite\Excel\Concerns\WithPreCalculateFormulas`| Forces PhpSpreadsheet to recalculate all formulae in a workbook when saving, so that the pre-calculated values are immediately available to MS Excel or other office spreadsheet viewer when opening the file. | |
-|`Maatwebsite\Excel\Concerns\WithProperties`| Allows setting properties on the document. (title, description, creator, lastModifiedBy, subject, keywords, category, manager, company) | |
+|`Maatwebsite\Excel\Concerns\WithProperties`| Allows setting properties on the document.| [Properties](/3.1/exports/settings.html#properties) |
 |`Maatwebsite\Excel\Concerns\WithStrictNullComparison`| Uses strict comparisons when testing cells for null value. | [Strict null comparisons](/3.1/exports/collection.html#strict-null-comparisons) |
 |`Maatwebsite\Excel\Concerns\WithStyles`| Allows setting styles on worksheets. | [Styles](/3.1/exports/column-formatting.html#styling) |
 |`Maatwebsite\Excel\Concerns\WithTitle`| Set the Workbook or Worksheet title. | [Multiple Sheets](/3.1/exports/multiple-sheets.html) |
