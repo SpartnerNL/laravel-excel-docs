@@ -7,7 +7,7 @@ Please read and understand the contribution guide before creating an issue or pu
 ## Important Links
 
 - [Docs](https://docs.laravel-excel.com/)
-- [Issue tracker](https://github.com/Maatwebsite/Laravel-Excel/issues)
+- [Issue tracker](https://github.com/SpartnerNL/Laravel-Excel/issues)
 - [Support](/3.1/getting-started/support.html)
 
 ## Etiquette
@@ -30,7 +30,7 @@ whether or not your feature is likely to be used by other users of the project.
 
 - Check the codebase to ensure that your feature doesn't already exist.
 - Check the pull requests to ensure that another person hasn't already submitted the feature or fix.
-- Use the [pull request template](https://github.com/Maatwebsite/Laravel-Excel/blob/3.1/.github/PULL_REQUEST_TEMPLATE.md).
+- Use the [pull request template](https://github.com/SpartnerNL/Laravel-Excel/blob/3.1/.github/PULL_REQUEST_TEMPLATE.md).
 
 ## How to report a bug?
 
@@ -38,7 +38,7 @@ whether or not your feature is likely to be used by other users of the project.
 - Check to make sure your bug report isn't already present within the project.
 - Check the pull requests tab to ensure that the bug doesn't have a fix in progress.
 - Check the pull requests tab to ensure that the feature isn't already in progress.
-- Use the [issue template](https://github.com/Maatwebsite/Laravel-Excel/blob/3.1/.github/ISSUE_TEMPLATE.md).
+- Use the [issue template](https://github.com/SpartnerNL/Laravel-Excel/blob/3.1/.github/ISSUE_TEMPLATE.md).
 
 ## PR Requirements
 - The PR **must** apply to [PSR-2 Coding Standard](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md). StyleCI help you detect code style issues.
@@ -46,5 +46,5 @@ whether or not your feature is likely to be used by other users of the project.
 - The existing tests **must** not fail after your changes. This would indicate that existing functionality is broken and should be addressed before a review is started. You can run the test by running `vendor/bin/phpunit`
 - The changes **must** be backed-up with tests. 
 - The PR **must** only have one feature. Split up multiple features in multiple PRs, so they can be individually reviewed and merged.
-- The PR **must** be accompanied by a PR to the docs in case of new features. Documentation is located in the [https://github.com/Maatwebsite/laravel-excel-docs](https://github.com/Maatwebsite/laravel-excel-docs) repository.
+- The PR **must** be accompanied by a PR to the docs in case of new features. Documentation is located in the [https://github.com/SpartnerNL/laravel-excel-docs](https://github.com/SpartnerNL/laravel-excel-docs) repository.
 - The PR should contain meaningful commit messages.

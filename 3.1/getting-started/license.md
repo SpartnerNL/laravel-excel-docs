@@ -9,7 +9,7 @@ Our software is open source and licensed under the [MIT license](https://choosea
 According to the [postcardware](https://en.wikipedia.org/wiki/Postcardware) concept, if you use the software for your project(s) we would appreciate to receive a postcard of your hometown. Please send it to:
 
 **Spartner**  
-Markt 2  
+Markt 2   
 6231 LS Meerssen  
 The Netherlands  
 
@@ -17,9 +17,9 @@ The Netherlands
 
 We are a strategic development partner, creating web-based custom built software from Laravel. In need of a digital solution for your challenge? Give us a call. 
 
-https://spartner.software 
-info@spartner.nl 
-+31 (0) 10 - 7449312 
+[https://spartner.software](https://spartner.software)  
+[info@spartner.nl](mailto:info@spartner.nl)  
++31 (0) 10 - 7449312  
 
 ## Support
 
