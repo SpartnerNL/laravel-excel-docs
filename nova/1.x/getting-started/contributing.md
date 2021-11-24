@@ -7,7 +7,7 @@ Please read and understand the contribution guide before creating an issue or pu
 ## Important Links
 
 - [Docs](https://docs.laravel-excel.com/)
-- [Issue tracker](https://github.com/Maatwebsite/Laravel-Nova-Excel/issues)
+- [Issue tracker](https://github.com/SpartnerNL/Laravel-Nova-Excel/issues)
 - [Support](/nova/1.1/getting-started/support.html)
 
 ## Etiquette
@@ -30,7 +30,7 @@ whether or not your feature is likely to be used by other users of the project.
 
 - Check the codebase to ensure that your feature doesn't already exist.
 - Check the pull requests to ensure that another person hasn't already submitted the feature or fix.
-- Use the [pull request template](https://github.com/Maatwebsite/Laravel-Excel/blob/3.1/.github/PULL_REQUEST_TEMPLATE.md).
+- Use the [pull request template](https://github.com/SpartnerNL/Laravel-Excel/blob/3.1/.github/PULL_REQUEST_TEMPLATE.md).
 
 ## How to report a bug?
 
@@ -38,12 +38,12 @@ whether or not your feature is likely to be used by other users of the project.
 - Check to make sure your bug report isn't already present within the project.
 - Check the pull requests tab to ensure that the bug doesn't have a fix in progress.
 - Check the pull requests tab to ensure that the feature isn't already in progress.
-- Use the [bug template](https://github.com/Maatwebsite/Laravel-Excel/blob/3.1/.github/ISSUE_TEMPLATE/1_Bug_report.md).
+- Use the [bug template](https://github.com/SpartnerNL/Laravel-Excel/blob/3.1/.github/ISSUE_TEMPLATE/1_Bug_report.md).
 
 ## Requirements
 
 - **[PSR-2 Coding Standard](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md)**. - Style will get automatically fixed by StyleCI.
 - **Add tests backing up your change!** - You can run the test by running `vendor/bin/phpunit`
-- **Document any change in behaviour** - Documentation is located in the [https://github.com/Maatwebsite/laravel-excel-docs](https://github.com/Maatwebsite/laravel-excel-docs)
+- **Document any change in behaviour** - Documentation is located in the [https://github.com/SpartnerNL/laravel-excel-docs](https://github.com/SpartnerNL/laravel-excel-docs)
 - **One feature per Pull Request**
 - **Add meaningful commit messages**

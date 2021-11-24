@@ -1,6 +1,6 @@
 .custom-block
   .custom-block-title
-    font-weight 600
+    font-weight 700
     margin-bottom -0.4rem
   &.tip, &.warning, &.danger
     padding .1rem 1.5rem
@@ -9,7 +9,7 @@
     margin 1rem 0
   &.tip
     background-color #f3f5f7
-    border-color #42b983
+    border-color #1c78e6
   &.warning
     background-color rgba(255,229,100,.3)
     border-color darken(#ffe564, 35%)
@@ -30,14 +30,14 @@
 pre.vue-container
   border-left-width: .5rem;
   border-left-style: solid;
-  border-color: #42b983;
+  border-color: #6b72df;
   border-radius: 0px;
   & > code
     font-size: 14px !important;
     & > p
       margin: -5px 0 -20px 0;
     code
-      background-color: #42b983 !important;
+      background-color: #7881f9 !important;
       padding: 3px 5px;
       border-radius: 3px;
       color #000
@@ -45,3 +45,47 @@ pre.vue-container
       color #808080
       font-weight light
 
+.language-text.line-numbers-mode, .language-.line-numbers-mode, .language-shell.line-numbers-mode
+  .line-numbers-wrapper
+    display none
+  &::after
+    display none
+  pre
+    padding-left 2rem !important
+
+.language-shell.line-numbers-mode
+  pre::before
+    color #808080
+    margin-right 10px
+    content "$"
+
+.inline-step
+  background #606acf
+  color: white;
+  border-radius 100%
+  width 1.6rem
+  height 1.6rem
+  font-weight 700
+  font-size 14px
+  display inline-flex
+  align-items center
+  justify-content center
+  margin-right 5px
+
+.with-steps .content__default
+  position relative
+
+  .step
+    background #606acf
+    color: white;
+    border-radius 100%
+    font-size 15px
+    width 1.5rem
+    height 1.5rem
+    display inline-flex
+    align-items center
+    justify-content center
+    position absolute
+    right 0
+    margin-right 32px
+    margin-top 6px

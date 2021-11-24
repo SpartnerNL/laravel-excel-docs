@@ -5,7 +5,7 @@
 Our software is free and open source, meaning that the use of our software is optional. We hold no liability and there is no obligation to support. We will provide support on a best effort basis. 
 
 :::tip Commercial Support
-If you use the software commercially and need elaborate support or need it urgently, we can offer this on a commercial basis. Please contact <info@maatwebsite.nl> or via phone +31 (0)10 744 9312.
+If you use the software commercially and need elaborate support or need it urgently, we can offer this on a commercial basis. Please contact <info@spartner.nl> or via phone +31 (0)10 744 9312.
 :::
 
 ## Supported Versions
@@ -27,7 +27,7 @@ Before you request support, please check the following:
 * Attempt to replicate the problem, to ensure that it wasn't a coincidental incident.
 * Check to make sure your support request isn't already present within the project.
 * Check the pull requests tab to ensure that the bug doesn't have a fix in progress.
-* Use one of the [issue templates](https://github.com/Maatwebsite/Laravel-Excel/tree/3.1/.github/ISSUE_TEMPLATE).
+* Use one of the [issue templates](https://github.com/SpartnerSoftware/Laravel-Excel/tree/3.1/.github/ISSUE_TEMPLATE).
 
 Filling out the template is required. Issues that do not include enough information might not  be picked up. Please write in English (or Dutch).
 
