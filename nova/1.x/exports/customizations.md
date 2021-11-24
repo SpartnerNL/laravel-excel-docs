@@ -52,7 +52,7 @@ public function actions(Request $request)
 }
 ```
 
-The file will now be downloaded in the `CSV` format.
+The file will now be downloaded in the `csv` format.
 
 You can find a full list of writer types at [Export formats](/3.0/exports/export-formats.html).
 
@@ -139,7 +139,7 @@ public function actions(Request $request)
 }
 ```
 
-### Exporting all except certain columns.
+### Exporting all except certain columns
 
 If you want to leave out a few columns in your export, you can use `->except()`. It will now export all index fields except the ones you specified.
 
@@ -159,6 +159,45 @@ public function actions(Request $request)
 {
     return [
         (new DownloadExcel)->allFields()->except('email'),
+    ];
+}
+```
+
+### Controlling field's visibility
+
+To ensure maximum control over which fields are shown on (just) the import we've added the following helper macros to Laravel Nova's base Field;
+
+- `hideOnExport` - The field can be available on index requests but will not be shown on export requests
+- `onlyOnExport` - The field is only available on export requests
+- `showOnExport` - The field is available on export requests and maybe create/update requests, depending on the defined logic.
+
+Here's an example in which these are useful. Let's say you want to display a field as HTML like email addresses and phone numbers to have a clickable link.
+
+```php
+public function fields(Request $request): array {
+    return [
+        Text::make(__('Email'), 'email')
+            ->rules('required', 'email')
+            ->displayUsing(fn(string $email): string => "<a target='_blank' href='mailto:{$email}'>{$email}</a>")
+            ->asHtml()
+    ];
+}
+```
+
+But this results in an error saying that the displayUsing callback is receiving a null value where it expects a string when you run the export. You could change the type hinting to `?string` or remove the type hinting, but that seems like a bad solution.
+Instead you should use the following solution:
+
+```php
+public function fields(Request $request): array {
+    return [
+        Text::make(__('Email'), 'email')
+            ->rules('required', 'email')
+            ->displayUsing(fn(string $email): string => "<a target='_blank' href='mailto:{$email}'>{$email}</a>")
+            ->asHtml()
+            ->hideOnExport(),
+            
+        Text::make(__('Email'), 'email')
+            ->onlyOnExport(),
     ];
 }
 ```
@@ -313,5 +352,5 @@ class ExportUsers extends DownloadExcel implements WithMapping
 }
 ```
 
-You can find a full list of concerns at [Overview of concerns](/3.0/exports/concerns.html)
+You can find a full list of concerns at [Overview of concerns](/3.1/exports/concerns.html)
 

@@ -91,8 +91,11 @@ public function model(array $row)
 You can define a custom formatter with `::extend()` in a service provider.
 
 ```php
-HeadingRowFormatter::extend('custom', function($value) {
+HeadingRowFormatter::extend('custom', function($value, $key) {
     return 'do-something-custom' . $value; 
+    
+    // And you can use heading column index.
+    // return 'column-' . $key; 
 });
 ```
 
