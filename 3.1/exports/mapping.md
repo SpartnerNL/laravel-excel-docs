@@ -117,12 +117,13 @@ use Maatwebsite\Excel\Concerns\WithHeadings;
 
 class UsersExport implements FromQuery, WithHeadings
 {   
-public function prepareRows($rows)
-{
-    return $rows->transform(function ($user) {
-        $user->name .= ' (prepared)';
-        
-        return $user;
-    });
+    public function prepareRows($rows)
+    {
+        return $rows->transform(function ($user) {
+            $user->name .= ' (prepared)';
+
+            return $user;
+        });
+    }
 }
 ```
