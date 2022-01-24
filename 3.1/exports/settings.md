@@ -64,7 +64,9 @@ class InvoicesExport implements WithCustomCsvSettings
     public function getCsvSettings(): array
     {
         return [
-            'delimiter' => ';'
+            'delimiter' => ';',
+            'use_bom' => false,
+            'output_encoding' => 'ISO-8859-1',
         ];
     }
 }
@@ -78,6 +80,7 @@ class InvoicesExport implements WithCustomCsvSettings
 * `use_bom`
 * `include_separator_line`
 * `excel_compatibility`
+* `output_encoding`
 
 ## Cell caching
 
