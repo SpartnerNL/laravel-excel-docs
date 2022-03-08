@@ -132,3 +132,23 @@ class UsersImportController extends Controller
 ```
 
 The headings array contains an array of headings per sheet. 
+
+## Grouping values of multiple columns sharing same header
+
+Given we have an Excel file looking like this:
+
+| Name | Email | Options | Options |
+|---- |----|---|---|
+| Patrick Brouwers | patrick@maatwebsite.nl | Some value | Some other value |
+
+We can group the values of the Options columns in an array using import concern `WithGroupedHeaders`. Data returned from row will be in format:
+```php
+[
+    'name'    => 'Patrick Brouwers',
+    'email'   => 'patrick@maatwebsite.nl',
+    'options' => [
+        'Some value',
+        'Some other value'
+    ]
+]
+```
