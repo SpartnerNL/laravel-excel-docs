@@ -13,6 +13,7 @@ pageClass: no-toc
 |`Maatwebsite\Excel\Concerns\WithBatchInserts`| Insert models in batches. | [Batch inserts](/3.1/imports/batch-inserts.html) |
 |`Maatwebsite\Excel\Concerns\WithChunkReading`| Read the sheet in chunks. | [Chunk reading](/3.1/imports/chunk-reading.html) |
 |`Maatwebsite\Excel\Concerns\WithHeadingRow`| Define a row as heading row. | [Heading row](/3.1/imports/heading-row.html) |
+|`Maatwebsite\Excel\Concerns\WithGroupedHeaders`| Allows columns sharing the same header key to group values in array | [Heading row](/3.1/imports/heading-row.html) |
 |`Maatwebsite\Excel\Concerns\WithLimit`| Define a limit of the amount of rows that need to be imported. |
 |`Maatwebsite\Excel\Concerns\WithCustomValueBinder`| Define a custom value binder. | [Custom Formatting Values](/3.1/imports/custom-formatting-values.html) |
 |`Maatwebsite\Excel\Concerns\WithMappedCells`| Define a custom cell mapping. | [Mapped Cells](/3.1/imports/mapped-cells.html) |
