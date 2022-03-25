@@ -30,7 +30,7 @@ class UsersImport implements ToModel, WithCustomCsvSettings
 ```
 
 
-A CSV file stores data in rows and the values in each row is separated with a separator, also known as a delimiter. Although the file is defined as Comma Separated Values, the delimiter could be anything. Delimiter requires a single character. For Tab use `"\t"`. The most common delimiters are: a comma (,), a semicolon (;), a tab (\t), a space ( ) and a pipe (|).
+A CSV file stores data in rows and the values in each row is separated with a separator, also known as a delimiter. Although the file is defined as Comma Separated Values, the delimiter could be anything. Delimiter requires a single character. For Tab use `"\t"`. The most common delimiters are: a comma `,`, a semicolon `;`, a tab `\t`, a space ` `, or a pipe `|`.
 
 ```php
 public function getCsvSettings(): array
