@@ -191,3 +191,66 @@ class InvoicesExport implements WithStyles
     }
 }
 ```
+
+## Default styles
+
+The `WithDefaultStyles` (available after `v3.1.40`) concerns allows styling the entire workbook.
+
+```php
+namespace App\Exports;
+
+use PhpOffice\PhpSpreadsheet\Style\Fill;
+use PhpOffice\PhpSpreadsheet\Style\Style;
+use PhpOffice\PhpSpreadsheet\Style\Color;
+use Maatwebsite\Excel\Concerns\WithDefaultStyles;
+use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
+
+class InvoicesExport implements WithDefaultStyles
+{
+    public function defaultStyles(Style $defaultStyle)
+    {
+        // Configure the default styles
+        return $defaultStyle->getFill()->setFillType(Fill::FILL_SOLID);
+    
+        // Or return the styles array
+        return [
+            'fill' => [
+                'fillType'   => Fill::FILL_SOLID,
+                'startColor' => ['argb' => Color::RED],
+            ],
+        ];
+    }
+}
+```
+
+## Workbook background color
+
+The `WithBackgroundColor` (available after `v3.1.40`) concerns adds support to configure the background color of the entire workbook
+
+```php
+namespace App\Exports;
+
+use PhpOffice\PhpSpreadsheet\Style\Fill;
+use PhpOffice\PhpSpreadsheet\Style\Style;
+use PhpOffice\PhpSpreadsheet\Style\Color;
+use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
+use Maatwebsite\Excel\Concerns\WithBackgroundColor;
+
+class InvoicesExport implements WithBackgroundColor
+{
+    public function backgroundColor()
+    {
+        // Return RGB color code.
+        return '000000';
+    
+        // Return a Color instance. The fill type will automatically be set to "solid"
+        return new Color(Color::COLOR_BLUE);
+    
+        // Or return the styles array
+        return [
+             'fillType'   => Fill::FILL_GRADIENT_LINEAR,
+             'startColor' => ['argb' => Color::COLOR_RED],
+        ];
+    }
+}
+```
