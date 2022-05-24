@@ -24,10 +24,10 @@ Require this package in the `composer.json` of your Laravel project. This will d
 composer require maatwebsite/excel
 ```
 
-If composer require fails on Laravel 9 because of the `simple-cache` dependency, you will have to specify the `psr/simple-cache` version as `^1.0` in your composer.json to satisfy the PhpSpreadsheet dependency. You can install both at the same time as:
+If composer require fails on Laravel 9 because of the `simple-cache` dependency, you will have to specify the `psr/simple-cache` version as `^2.0` in your composer.json to satisfy the PhpSpreadsheet dependency. You can install both at the same time as:
 
 ```
-composer require psr/simple-cache:^1.0 maatwebsite/excel
+composer require psr/simple-cache:^2.0 maatwebsite/excel
 ```
 
 The `Maatwebsite\Excel\ExcelServiceProvider` is __auto-discovered__ and registered by default.
