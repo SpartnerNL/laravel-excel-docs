@@ -72,7 +72,7 @@ class InvoicesExport implements WithCustomCsvSettings
 }
 ```
 
-### Available csv settings settings
+### Available csv settings
 
 * `delimiter`
 * `enclosure`
