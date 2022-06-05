@@ -303,6 +303,28 @@ class UsersImport implements ToModel, SkipsEmptyRows, WithHeadingRow, WithValida
     }
 }
 ```
+## Extend empty rows logic
+
+Along with SkipsEmptyRows you can have your own logic to skip rows by having isEmptyWhen in the importer
+
+```php
+<?php
+
+namespace App\Imports;
+
+use Maatwebsite\Excel\Concerns\Importable;
+use Maatwebsite\Excel\Concerns\ToArray;
+
+class UsersImport implements ToArray,
+{
+    use Importable;
+    
+    public function isEmptyWhen(array $row): bool
+    {
+        return $row['name'] === 'John Doe';
+    }
+}
+```
 
 ### Skipping errors
 
