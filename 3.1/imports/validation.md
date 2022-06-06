@@ -305,7 +305,7 @@ class UsersImport implements ToModel, SkipsEmptyRows, WithHeadingRow, WithValida
 ```
 ## Extend empty rows logic
 
-Along with SkipsEmptyRows you can have your own logic to skip rows by having isEmptyWhen in the importer
+Along with `SkipsEmptyRows` you can have your own logic to skip rows by having `isEmptyWhen` in the importer
 
 ```php
 <?php
