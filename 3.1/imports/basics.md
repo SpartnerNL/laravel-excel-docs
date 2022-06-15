@@ -33,7 +33,7 @@ class UsersImport implements ToModel
 
 ## Importing from default disk
 
-Passing the UsersImport object to the `Excel::import()` method, will tell the package how to import the file that is passed as second parameter. 
+Passing the UsersImport object to the `Excel::import()` method will tell the package how to import the file that is passed as second parameter. 
 The file is expected to be located in your default filesystem disk (see `config/filesystems.php`).
 
 ```php
