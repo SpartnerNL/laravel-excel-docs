@@ -37,7 +37,7 @@ use Maatwebsite\Excel\Concerns\ToModel;
 class UsersImport implements ToModel
 {
     /**
-     * @param array $row
+     * @param array $columns
      *
      * @return User|null
      */
