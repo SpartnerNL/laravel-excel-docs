@@ -40,8 +40,9 @@ class InvoicesExport implements WithMultipleSheets
 
 ## Sheet classes
 
-The `InvoicesPerMonthSheet` can implement concerns like `FromQuery`, `FromCollection`, ... 
+The `InvoicesPerMonthSheet` can implement concerns like `FromQuery`, `FromCollection`, `FromView`, ... 
 
+_Note: The WithTitle concern is needed in order to name each sheet using the `title()` method_
 ```php
 namespace App\Exports\Sheets;
 
@@ -80,10 +81,10 @@ class InvoicesPerMonthSheet implements FromQuery, WithTitle
 }
 ```
 
-This will now download an xlsx of all invoices from the current year, with 12 worksheets representing each month of the year.
+The code below can be implemented in any class in order to download an xlsx of all invoices from the current year, with 12 worksheets representing each month of the year.
 
 ```php
-public function download() 
+public function downloadInvoices() 
 {
     return (new InvoicesExport(2018))->download('invoices.xlsx');
 }
