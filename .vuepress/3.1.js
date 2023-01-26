@@ -31,6 +31,7 @@ module.exports = [
             'exportables',
             'from-query',
             'from-view',
+            'from-generator',
             'queued',
             'multiple-sheets',
             'mapping',
