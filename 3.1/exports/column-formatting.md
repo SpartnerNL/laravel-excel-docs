@@ -109,7 +109,7 @@ In `config/excel.php`:
 
 ## Auto size
 
-If you want Laravel Excel to perform an automatic width calculation, you need implement the `ShouldAutoSize` interface, like the following code. 
+If you want Laravel Excel to perform an automatic width calculation, you need to implement the `ShouldAutoSize` interface, like the following code. 
 
 ```php
 namespace App\Exports;
