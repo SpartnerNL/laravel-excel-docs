@@ -20,7 +20,7 @@
 Require this package in the `composer.json` of your Laravel project. This will download the package and _PhpSpreadsheet_.
 
 ```
-composer require maatwebsite/excel
+composer require maatwebsite/excel:3.1.48 -W
 ```
 
 The `Maatwebsite\Excel\ExcelServiceProvider` is __auto-discovered__ and registered by default.
