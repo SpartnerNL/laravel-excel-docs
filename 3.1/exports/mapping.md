@@ -15,7 +15,7 @@ use Maatwebsite\Excel\Concerns\WithMapping;
 class InvoicesExport implements FromQuery, WithMapping
 {    
     /**
-    * @var Invoice $invoice
+    * @param Invoice $invoice
     */
     public function map($invoice): array
     {
@@ -41,7 +41,7 @@ use Maatwebsite\Excel\Concerns\WithMapping;
 class InvoicesExport implements FromQuery, WithMapping
 {    
     /**
-    * @var Invoice $invoice
+    * @param Invoice $invoice
     */
     public function map($invoice): array
     {
