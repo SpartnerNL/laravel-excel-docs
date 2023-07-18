@@ -15,7 +15,7 @@ use PhpOffice\PhpSpreadsheet\Cell\DataType;
 use Maatwebsite\Excel\Concerns\WithCustomValueBinder;
 use PhpOffice\PhpSpreadsheet\Cell\DefaultValueBinder;
 
-class UsersImport extends DefaultValueBinder implements WithCustomValueBinder, ToModel
+class UsersExport extends DefaultValueBinder implements WithCustomValueBinder, ToModel
 {
     public function bindValue(Cell $cell, $value)
     {
