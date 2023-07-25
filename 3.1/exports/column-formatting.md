@@ -253,4 +253,48 @@ class InvoicesExport implements WithBackgroundColor
         ];
     }
 }
+
+##  Full Styling Map
+
+The full styling map can be taken from the PhpSpreadsheet Styles class as follows:
+
+```php
+    /**
+     * Apply styles from array.
+     *
+     * <code>
+     * $spreadsheet->getActiveSheet()->getStyle('B2')->applyFromArray(
+     *     [
+     *         'font' => [
+     *             'name' => 'Arial',
+     *             'bold' => true,
+     *             'italic' => false,
+     *             'underline' => Font::UNDERLINE_DOUBLE,
+     *             'strikethrough' => false,
+     *             'color' => [
+     *                 'rgb' => '808080'
+     *             ]
+     *         ],
+     *         'borders' => [
+     *             'bottom' => [
+     *                 'borderStyle' => Border::BORDER_DASHDOT,
+     *                 'color' => [
+     *                     'rgb' => '808080'
+     *                 ]
+     *             ],
+     *             'top' => [
+     *                 'borderStyle' => Border::BORDER_DASHDOT,
+     *                 'color' => [
+     *                     'rgb' => '808080'
+     *                 ]
+     *             ]
+     *         ],
+     *         'alignment' => [
+     *             'horizontal' => Alignment::HORIZONTAL_CENTER,
+     *             'vertical' => Alignment::VERTICAL_CENTER,
+     *             'wrapText' => true,
+     *         ],
+     *         'quotePrefix'    => true
+     *     ]
+     * );
 ```
