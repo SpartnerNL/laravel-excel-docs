@@ -93,7 +93,7 @@ class InvoicesExport implements WithDrawings
 {
     public function drawings()
     {
-        if ($imageResource = @imagecreatefromstring(file_get_contents('http://example.jpg')) === false) {
+        if (!$imageResource = @imagecreatefromstring(file_get_contents('http://example.jpg'))) {
             throw new \Exception('The image URL cannot be converted into an image resource.');
         }
 
