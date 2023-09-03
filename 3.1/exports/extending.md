@@ -63,9 +63,11 @@ namespace App\Exports;
 
 use Maatwebsite\Excel\Concerns\WithEvents;
 use Maatwebsite\Excel\Concerns\RegistersEventListeners;
+use Maatwebsite\Excel\Events\BeforeChunk;
 use Maatwebsite\Excel\Events\BeforeExport;
 use Maatwebsite\Excel\Events\BeforeWriting;
 use Maatwebsite\Excel\Events\BeforeSheet;
+use Maatwebsite\Excel\Events\AfterChunk;
 use Maatwebsite\Excel\Events\AfterSheet;
 
 class InvoicesExport implements WithEvents
@@ -88,6 +90,16 @@ class InvoicesExport implements WithEvents
     }
 
     public static function afterSheet(AfterSheet $event)
+    {
+        //
+    }
+    
+    public static function beforeChunk(BeforeChunk $event)
+    {
+        //
+    }
+
+    public static function afterChunk(AfterChunk $event)
     {
         //
     }
@@ -115,16 +127,26 @@ Sheet::listen(BeforeSheet::class, function () {
 Sheet::listen(AfterSheet::class, function () {
     //
 });
+
+AppendQueryToSheet::listen(AfterChunk::class, function(){
+    //
+});
+
+AppendQueryToSheet::listen(BeforeChunk::class, function(){
+    //
+});
 ```
 
 ### Available events
 
-| Event name | Payload | Explanation |
-|---- |----| ----|
-|`Maatwebsite\Excel\Events\BeforeExport` | `$event->writer : Writer` | Event gets raised at the start of the process. | 
-| `Maatwebsite\Excel\Events\BeforeWriting` | `$event->writer : Writer` | Event gets raised before the download/store starts. |
-| `Maatwebsite\Excel\Events\BeforeSheet` | `$event->sheet : Sheet` | Event gets raised just after the sheet is created. |
-| `Maatwebsite\Excel\Events\AfterSheet` | `$event->sheet : Sheet` | Event gets raised at the end of the sheet process. |
+| Event name                              | Payload                   | Explanation                                                 |
+|-----------------------------------------|---------------------------|-------------------------------------------------------------|
+| `Maatwebsite\Excel\Events\BeforeExport` | `$event->writer : Writer` | Event gets raised at the start of the process.              | 
+| `Maatwebsite\Excel\Events\BeforeWriting` | `$event->writer : Writer` | Event gets raised before the download/store starts.         |
+| `Maatwebsite\Excel\Events\BeforeSheet`  | `$event->sheet : Sheet`   | Event gets raised just after the sheet is created.          |
+| `Maatwebsite\Excel\Events\AfterSheet`   | `$event->sheet : Sheet`   | Event gets raised at the end of the sheet process.          |
+| `Maatwebsite\Excel\Events\BeforeChunk`  |                           | Event gets raised at the start of a chunk in queued export. |
+| `Maatwebsite\Excel\Events\AfterChunk`   |                           | Event gets raised at the end of a chunk in queued export.   |
 
 ## Custom Concerns
 
