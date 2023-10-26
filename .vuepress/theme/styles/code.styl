@@ -1,11 +1,11 @@
 .content__default
   code
-    color lighten($textColor, 20%)
+    color lighten($textColor, 10%)
     padding 0.25rem 0.5rem
     margin 0
     font-size 0.85em
     background-color rgba(27,31,35,0.05)
-    border-radius 3px
+    border-radius 4px
     .token
       &.deleted
         color #EC5975
@@ -13,14 +13,15 @@
         color $accentColor
   p
     > code
-      color #7d47af
+      color $accentColor
       padding 0.18rem 0.5rem
       margin 0
       font-size 0.8em
-      background-color rgb(227 220 241)
+      background-color #faf3e7
       border-radius 16px
       font-weight bold
       white-space nowrap
+      border 1px solid #f8d79e
 
 .content__default
   pre, pre[class*="language-"]

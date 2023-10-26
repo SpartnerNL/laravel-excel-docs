@@ -30,19 +30,20 @@
 pre.vue-container
   border-left-width: .5rem;
   border-left-style: solid;
-  border-color: #6b72df;
+  border-color: $accentColor;
   border-radius: 0px;
   & > code
     font-size: 14px !important;
     & > p
       margin: -5px 0 -20px 0;
     code
-      background-color: #7881f9 !important;
+      background-color: $accentColor !important;
+      border none
       padding: 3px 5px;
       border-radius: 3px;
       color #000
     em
-      color #808080
+      color #adadad
       font-weight light
 
 .language-text.line-numbers-mode, .language-.line-numbers-mode, .language-shell.line-numbers-mode
@@ -60,7 +61,7 @@ pre.vue-container
     content "$"
 
 .inline-step
-  background #606acf
+  background $accentColor
   color: white;
   border-radius 100%
   width 1.6rem
@@ -76,7 +77,7 @@ pre.vue-container
   position relative
 
   .step
-    background #606acf
+    background $accentColor
     color: white;
     border-radius 100%
     font-size 15px
