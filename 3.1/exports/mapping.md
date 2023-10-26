@@ -11,11 +11,12 @@ In case of using the Eloquent query builder:
 
 use Maatwebsite\Excel\Concerns\FromQuery;
 use Maatwebsite\Excel\Concerns\WithMapping;
+use PhpOffice\PhpSpreadsheet\Shared\Date;
 
 class InvoicesExport implements FromQuery, WithMapping
 {    
     /**
-    * @var Invoice $invoice
+    * @param Invoice $invoice
     */
     public function map($invoice): array
     {
@@ -37,11 +38,12 @@ You can also return multiple rows inside the map function:
 
 use Maatwebsite\Excel\Concerns\FromQuery;
 use Maatwebsite\Excel\Concerns\WithMapping;
+use PhpOffice\PhpSpreadsheet\Shared\Date;
 
 class InvoicesExport implements FromQuery, WithMapping
 {    
     /**
-    * @var Invoice $invoice
+    * @param Invoice $invoice
     */
     public function map($invoice): array
     {
