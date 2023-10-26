@@ -29,7 +29,7 @@
     <a
         target="_blank"
         rel="nofollow noopener noreferrer"
-        href="https://medium.com/maatwebsite/laravel-excel/home"
+        href="https://medium.com/spartner/laravel-excel/home"
         class="repo-link"
     >
       Blog

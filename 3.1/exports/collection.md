@@ -30,6 +30,16 @@ public function export()
 }
 ```
 
+Optionally you can pass in whether or not to output headers and custom response headers:
+
+```php
+public function export() 
+{
+    return Excel::download(new InvoicesExport, 'invoices.xlsx', true, ['X-Vapor-Base64-Encode' => 'True']);
+}
+```
+
+
 Or store it on a disk, (e.g. s3):
 
 ```php

@@ -6,7 +6,7 @@
 
 * PHP: `^7.2\|^8.0`
 * Laravel: `^5.8`
-* PhpSpreadsheet: `^1.15`
+* PhpSpreadsheet: `^1.21`
 * PHP extension `php_zip` enabled
 * PHP extension `php_xml` enabled
 * PHP extension `php_gd2` enabled
@@ -20,7 +20,7 @@
 Require this package in the `composer.json` of your Laravel project. This will download the package and _PhpSpreadsheet_.
 
 ```
-composer require maatwebsite/excel
+composer require maatwebsite/excel:^3.1
 ```
 
 The `Maatwebsite\Excel\ExcelServiceProvider` is __auto-discovered__ and registered by default.

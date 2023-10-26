@@ -13,6 +13,7 @@ pageClass: no-toc
 |`Maatwebsite\Excel\Concerns\WithBatchInserts`| Insert models in batches. | [Batch inserts](/3.1/imports/batch-inserts.html) |
 |`Maatwebsite\Excel\Concerns\WithChunkReading`| Read the sheet in chunks. | [Chunk reading](/3.1/imports/chunk-reading.html) |
 |`Maatwebsite\Excel\Concerns\WithHeadingRow`| Define a row as heading row. | [Heading row](/3.1/imports/heading-row.html) |
+|`Maatwebsite\Excel\Concerns\WithGroupedHeadingRow`| Allows columns sharing the same header key to group values in array | [Heading row](/3.1/imports/heading-row.html#grouping-values-of-multiple-columns-sharing-same-header) |
 |`Maatwebsite\Excel\Concerns\WithLimit`| Define a limit of the amount of rows that need to be imported. |
 |`Maatwebsite\Excel\Concerns\WithCustomValueBinder`| Define a custom value binder. | [Custom Formatting Values](/3.1/imports/custom-formatting-values.html) |
 |`Maatwebsite\Excel\Concerns\WithMappedCells`| Define a custom cell mapping. | [Mapped Cells](/3.1/imports/mapped-cells.html) |
@@ -23,6 +24,8 @@ pageClass: no-toc
 |`Maatwebsite\Excel\Concerns\WithCustomCsvSettings`| Allows to run custom Csv settings for this specific importable. | [Custom CSV Settings](/3.1/imports/custom-csv-settings.html) |
 |`Maatwebsite\Excel\Concerns\WithStartRow`| Define a custom start row. | |
 |`Maatwebsite\Excel\Concerns\WithProgressBar`| Shows a progress bar when uploading via the console. | [Progress Bar](/3.1/imports/progress-bar.html) |
+|`Maatwebsite\Excel\Concerns\WithUpserts`| Allows to upsert models. | [Upserting models](/3.1/imports/model.html#upserting-models) |
+|`Maatwebsite\Excel\Concerns\WithUpsertColumns`| Allows upsert columns definition. | [Upserting with specific columns](/3.1/imports/model.html#upserting-with-specific-columns) |
 |`Maatwebsite\Excel\Concerns\WithValidation`| Validates each row against a set of rules. | [Row Validation](/3.1/imports/validation.html) |
 |`Maatwebsite\Excel\Concerns\SkipsEmptyRows`| Skips empty rows. | [Row Validation](/3.1/imports/validation.html#skipping-empty-rows) |
 |`Maatwebsite\Excel\Concerns\SkipsOnFailure`| Skips on validation errors. | [Row Validation](/3.1/imports/validation.html#skipping-failures) |

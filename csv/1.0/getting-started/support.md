@@ -25,7 +25,7 @@ Before you request support, please check the following:
 * Attempt to replicate the problem, to ensure that it wasn't a coincidental incident.
 * Check to make sure your support request isn't already present within the project.
 * Check the pull requests tab to ensure that the bug doesn't have a fix in progress.
-* Use one of the [issue templates](https://github.com/Maatwebsite/Laravel-Excel/tree/3.1/.github/ISSUE_TEMPLATE).
+* Use one of the [issue templates](https://github.com/SpartnerNL/Laravel-Excel/tree/3.1/.github/ISSUE_TEMPLATE).
 
 Filling out the template is required. Issues that do not include enough information might not  be picked up. Please write in English (or Dutch).
 

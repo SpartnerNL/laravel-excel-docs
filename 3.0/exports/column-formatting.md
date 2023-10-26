@@ -29,7 +29,7 @@ class InvoicesExport implements WithColumnFormatting, WithMapping
     {
         return [
             'B' => NumberFormat::FORMAT_DATE_DDMMYYYY,
-            'C' => NumberFormat::FORMAT_CURRENCY_EUR_SIMPLE,
+            'C' => NumberFormat::FORMAT_CURRENCY_EUR_INTEGER,
         ];
     }
 }

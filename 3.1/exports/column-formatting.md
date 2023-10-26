@@ -30,7 +30,7 @@ class InvoicesExport implements WithColumnFormatting, WithMapping
     {
         return [
             'B' => NumberFormat::FORMAT_DATE_DDMMYYYY,
-            'C' => NumberFormat::FORMAT_CURRENCY_EUR_SIMPLE,
+            'C' => NumberFormat::FORMAT_CURRENCY_EUR_INTEGER,
         ];
     }
 }
@@ -109,7 +109,7 @@ In `config/excel.php`:
 
 ## Auto size
 
-If you want Laravel Excel to perform an automatic width calculation, use the following code. 
+If you want Laravel Excel to perform an automatic width calculation, you need to implement the `ShouldAutoSize` interface, like the following code. 
 
 ```php
 namespace App\Exports;
@@ -190,4 +190,111 @@ class InvoicesExport implements WithStyles
         $sheet->getStyle('B2')->getFont()->setBold(true);
     }
 }
+```
+
+## Default styles
+
+The `WithDefaultStyles` (available after `v3.1.40`) concerns allows styling the entire workbook.
+
+```php
+namespace App\Exports;
+
+use PhpOffice\PhpSpreadsheet\Style\Fill;
+use PhpOffice\PhpSpreadsheet\Style\Style;
+use PhpOffice\PhpSpreadsheet\Style\Color;
+use Maatwebsite\Excel\Concerns\WithDefaultStyles;
+use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
+
+class InvoicesExport implements WithDefaultStyles
+{
+    public function defaultStyles(Style $defaultStyle)
+    {
+        // Configure the default styles
+        return $defaultStyle->getFill()->setFillType(Fill::FILL_SOLID);
+    
+        // Or return the styles array
+        return [
+            'fill' => [
+                'fillType'   => Fill::FILL_SOLID,
+                'startColor' => ['argb' => Color::RED],
+            ],
+        ];
+    }
+}
+```
+
+## Workbook background color
+
+The `WithBackgroundColor` (available after `v3.1.40`) concerns adds support to configure the background color of the entire workbook
+
+```php
+namespace App\Exports;
+
+use PhpOffice\PhpSpreadsheet\Style\Fill;
+use PhpOffice\PhpSpreadsheet\Style\Style;
+use PhpOffice\PhpSpreadsheet\Style\Color;
+use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
+use Maatwebsite\Excel\Concerns\WithBackgroundColor;
+
+class InvoicesExport implements WithBackgroundColor
+{
+    public function backgroundColor()
+    {
+        // Return RGB color code.
+        return '000000';
+    
+        // Return a Color instance. The fill type will automatically be set to "solid"
+        return new Color(Color::COLOR_BLUE);
+    
+        // Or return the styles array
+        return [
+             'fillType'   => Fill::FILL_GRADIENT_LINEAR,
+             'startColor' => ['argb' => Color::COLOR_RED],
+        ];
+    }
+}
+
+##  Full Styling Map
+
+The full styling map can be taken from the PhpSpreadsheet Styles class as follows:
+
+```php
+    /**
+     * Apply styles from array.
+     *
+     * <code>
+     * $spreadsheet->getActiveSheet()->getStyle('B2')->applyFromArray(
+     *     [
+     *         'font' => [
+     *             'name' => 'Arial',
+     *             'bold' => true,
+     *             'italic' => false,
+     *             'underline' => Font::UNDERLINE_DOUBLE,
+     *             'strikethrough' => false,
+     *             'color' => [
+     *                 'rgb' => '808080'
+     *             ]
+     *         ],
+     *         'borders' => [
+     *             'bottom' => [
+     *                 'borderStyle' => Border::BORDER_DASHDOT,
+     *                 'color' => [
+     *                     'rgb' => '808080'
+     *                 ]
+     *             ],
+     *             'top' => [
+     *                 'borderStyle' => Border::BORDER_DASHDOT,
+     *                 'color' => [
+     *                     'rgb' => '808080'
+     *                 ]
+     *             ]
+     *         ],
+     *         'alignment' => [
+     *             'horizontal' => Alignment::HORIZONTAL_CENTER,
+     *             'vertical' => Alignment::VERTICAL_CENTER,
+     *             'wrapText' => true,
+     *         ],
+     *         'quotePrefix'    => true
+     *     ]
+     * );
 ```
