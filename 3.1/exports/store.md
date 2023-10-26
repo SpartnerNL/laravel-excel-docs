@@ -51,15 +51,16 @@ public function storeExcel()
 ```
 
 ::: warning File names cannot include certain characters: 
-< (less than)
-> (greater than)
-: (colon)
-" (double quote)
-/ (forward slash)
-\ (backslash)
-| (vertical bar or pipe)
-? (question mark)
-* (asterisk) :::
+- `<` (less than)
+- `>` (greater than)
+- `:` (colon)
+- `"` (double quote)
+- `/` (forward slash)
+- `\` (backslash)
+- `|` (vertical bar or pipe)
+- `?` (question mark)
+- `*` (asterisk)
+:::
 
 ## Note about queuing
 If you are storing the export using `Excel::queue()` or using the `ShouldQueue` interface, make sure to have a look at the [queuing docs](https://docs.laravel-excel.com/3.1/exports/queued.html)
