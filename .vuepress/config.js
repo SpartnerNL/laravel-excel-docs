@@ -53,8 +53,8 @@ module.exports = {
 
     themeConfig: {
         logo: '/assets/img/logo-small.png',
-        repo: 'maatwebsite/Laravel-Excel',
-        docsRepo: 'maatwebsite/laravel-excel-docs',
+        repo: 'SpartnerNL/Laravel-Excel',
+        docsRepo: 'SpartnerNL/laravel-excel-docs',
         docsBranch: 'master',
         editLinks: true,
         editLinkText: 'Help us improve this page!',
