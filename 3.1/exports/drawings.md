@@ -15,7 +15,7 @@ $drawing->setPath(public_path('/img/logo.jpg'));
 $drawing->setHeight(90);
 ```
 
-You can view all available properties for Drawing on the [PhpSpreadsheet docs](https://github.com/PHPOffice/PhpSpreadsheet/blob/master/src/PhpSpreadsheet/Worksheet/BaseDrawing.php).
+You can view all available properties for Drawing on the [PhpSpreadsheet docs](https://phpspreadsheet.readthedocs.io/en/latest/topics/recipes/#add-a-drawing-to-a-worksheet).
 
 ## Adding a single drawing
 When you've instantiated the drawing, you can add the `WithDrawings` concern to your export class. Return the Drawing instance in the `drawings` method.
