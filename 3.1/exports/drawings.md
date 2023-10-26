@@ -77,3 +77,34 @@ class InvoicesExport implements WithDrawings
     }
 }
 ```
+
+## Adding a drawing of remote image
+You can instantiate a new drawing from `\PhpOffice\PhpSpreadsheet\Worksheet\MemoryDrawing`, and create a string containing the binary image data, or from an external url by `imagecreatefromstring(file_get_contents($url))`, then assign it to `setImageResource`. Return the Drawing instance in the `drawings` method.
+
+```php
+<?php
+
+namespace App\Exports;
+
+use Maatwebsite\Excel\Concerns\WithDrawings;
+use PhpOffice\PhpSpreadsheet\Worksheet\MemoryDrawing;
+
+class InvoicesExport implements WithDrawings
+{
+    public function drawings()
+    {
+        if (!$imageResource = @imagecreatefromstring(file_get_contents('http://example.jpg'))) {
+            throw new \Exception('The image URL cannot be converted into an image resource.');
+        }
+
+        $drawing = new MemoryDrawing();
+        $drawing->setName('Logo');
+        $drawing->setDescription('This is my logo');
+        $drawing->setImageResource($imageResource);
+        $drawing->setHeight(90);
+        $drawing->setCoordinates('B3');
+
+        return $drawing;
+    }
+}
+```
