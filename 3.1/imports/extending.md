@@ -134,6 +134,8 @@ Sheet::listen(AfterSheet::class, function () {
 | `Maatwebsite\Excel\Events\AfterImport` | `$event->reader : Reader` | Event gets raised at the end of the  process. |
 | `Maatwebsite\Excel\Events\BeforeSheet` | `$event->sheet : Sheet` | Event gets raised just after the sheet is created. |
 | `Maatwebsite\Excel\Events\AfterSheet` | `$event->sheet : Sheet` | Event gets raised at the end of the sheet process. |
+| `Maatwebsite\Excel\Events\AfterChunk` | `$event->sheet : Sheet` | Event gets raised after each chunk from the import file has been processed. Only available with [chunk reading](https://docs.laravel-excel.com/3.1/imports/chunk-reading.html) |
+| `Maatwebsite\Excel\Events\AfterBatch` | `$event->manager : ModelManager` | Event gets raised after each batch of model has been flushed to the database. Only available with [batch inserts](https://docs.laravel-excel.com/3.1/imports/batch-inserts.html) |
 
 
 ## Macroable
