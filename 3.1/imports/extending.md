@@ -92,7 +92,8 @@ class UsersImport implements WithEvents
         //
     }
 
-    public static function afterSheet(AfterSheet $event)
+    // From 3.1.50 onwards the methods do not need to be static, allowing use of $this
+    public function afterSheet(AfterSheet $event)
     {
         //
     }
