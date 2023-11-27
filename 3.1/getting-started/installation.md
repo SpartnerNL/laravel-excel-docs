@@ -23,6 +23,23 @@ Require this package in the `composer.json` of your Laravel project. This will d
 composer require maatwebsite/excel:^3.1
 ```
 
+If installing your receive the following error 
+
+```
+  Your requirements could not be resolved to an installable set of packages.
+
+  Problem 1
+    - Root composer.json requires maatwebsite/excel 3.1 -> satisfiable by maatwebsite/excel[3.1.0].
+    - maatwebsite/excel 3.1.0 requires php ^7.0 -> your php version (8.2.8) does not satisfy that requirement.
+```
+
+You can try simply to install without the caret
+
+```
+composer require maatwebsite/excel
+```
+
+
 The `Maatwebsite\Excel\ExcelServiceProvider` is __auto-discovered__ and registered by default.
 
 If you want to register it yourself, add the ServiceProvider in `config/app.php`:
