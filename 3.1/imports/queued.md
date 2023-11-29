@@ -2,6 +2,12 @@
 
 [[toc]]
 
+## Notes
+:::warning
+You currently cannot queue `xls` imports. PhpSpreadsheet's Xls reader contains some non-utf8 characters, which makes it impossible to queue.
+:::
+
+
 ## Queuing chunks
 
 When using the `WithChunkReading` concern, you can also choose to execute each chunk into a queue job. You can do so by simply adding the `ShouldQueue` contract.
@@ -192,7 +198,3 @@ class ImportClass implements FromQuery
 }
 ```
 
-## Notes
-:::warning
-You currently cannot queue `xls` imports. PhpSpreadsheet's Xls reader contains some non-utf8 characters, which makes it impossible to queue.
-:::
