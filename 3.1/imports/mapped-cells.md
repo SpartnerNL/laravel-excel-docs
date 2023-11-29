@@ -44,3 +44,43 @@ class UsersImport implements WithMappedCells, ToModel
 ::: warning
 This concern is not meant to map **columns**, only specific **cell** reference are allowed.
 :::
+
+## Multi-demensional Mapping
+
+In case you have repeating data in your table, e. g. a spreadsheet looking like this:
+
+| Team 1 | | Team 2| |
+|-|-|-|-|
+| Max | 2 | Peter | 3 |
+| Annie | 0 | Alex | 1 |
+
+you are also able to define cell coordinates in a nested array:
+
+```php
+public function mapping(): array
+{
+    return [
+        'team1' => [
+            [
+                'name' => 'A2',
+                'score' => 'B2',
+            ],
+            [
+                'name' => 'A3',
+                'score' => 'B3',
+            ],
+        ],
+        'team2' => [
+            [
+                'name' => 'C2',
+                'score' => 'D2',
+            ],
+            [
+                'name' => 'C3',
+                'score' => 'D3',
+            ],
+        ],
+    ];
+}```
+
+Note that an array of the same form will be returned.
