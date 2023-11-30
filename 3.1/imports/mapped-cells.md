@@ -45,7 +45,7 @@ class UsersImport implements WithMappedCells, ToModel
 This concern is not meant to map **columns**, only specific **cell** reference are allowed.
 :::
 
-## Multi-demensional Mapping
+## Multi-dimensional Mapping
 
 In case you have repeating data in your table, e. g. a spreadsheet looking like this:
 
