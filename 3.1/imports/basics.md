@@ -9,7 +9,7 @@ If you have followed the 5 minute quick start, you'll already have a `UsersImpor
 
 namespace App\Imports;
 
-use App\User;
+use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Concerns\ToModel;
 
