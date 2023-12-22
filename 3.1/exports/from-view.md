@@ -45,6 +45,34 @@ It will convert an HTML table into an Excel spreadsheet. For example; `invoices.
 </table>
 ```
 
+Attribute in tag html support:
+
+|Attributes|Description
+|-----------|-------------
+|bgcolor| set background color to cell `<td>`
+|colspan| merge column cell
+|rowspan| merge row cell
+|width| set width to cell
+|height| set height to cell
+|data-format| set format `PhpOffice\PhpSpreadsheet\Style::NumberFormat`
+|data-type| set type `PhpOffice\PhpSpreadsheet\Cell`
+|align| set text align to cell
+|valign| set vertical align to cell
+|style| set style to cell
+
+Style inline support
+- background
+- background-color
+- color
+- border|border-top|border-bottom|border-left|border-right
+- font-size|font-weight|font-sytle|font-family
+- text-decoration: underline|line-through
+- text-align
+- vertical-align
+- with|height
+- word-wrap
+- text-indent
+
 You can download the export in your controller:
 
 ```php
