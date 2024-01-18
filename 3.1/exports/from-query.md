@@ -102,3 +102,23 @@ We can adjust the year by using the `forYear` method:
 ```php
 return (new InvoicesExport)->forYear(2018)->download('invoices.xlsx');
 ```
+
+### Macro's and Mixins
+
+The Eloquent Builder/Model has a macro to directly download an Eloquent query to Excel.
+
+```php
+User::query()->where('name', 'Patrick')->downloadExcel('query-download.xlsx');
+```
+
+If you want to include header row, you can pass `true` as third parameter:
+
+```php
+User::query()->downloadExcel('query-download.xlsx', Excel::XLSX, true);
+```
+
+Similarly, you can store the results of a query:
+
+```php
+User::query()->storeExcel('query-store.xlsx', 'your-disk');
+```

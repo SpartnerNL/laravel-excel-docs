@@ -226,7 +226,8 @@ public function export(Excel $excel)
 }
 ```
 
-### Collection macro's
+### Macro's and Mixins
+#### Collection
 
 On Eloquent model collections and custom collections, custom macro's called `downloadExcel` and `storeExcel` can be called. Different
 from the previous documented methods is that these exports do not require an export object. 
@@ -247,6 +248,25 @@ return (new Collection([
 
 ```php
 return $collection->storeExcel('my-collection.xlsx');
+```
+#### Queries
+
+The Eloquent Builder has a macro to directly download an Eloquent query to Excel.
+
+```php
+User::query()->where('name', 'Patrick')->downloadExcel('query-download.xlsx');
+```
+
+If you want to include header row, you can pass `true` as third parameter:
+
+```php
+User::query()->where('name', 'Patrick')->downloadExcel('query-download.xlsx', Excel::XLSX, true);
+```
+
+Similarly, you can store the results of a query:
+
+```php
+User::query()->where('name', 'Patrick')->storeExcel('query-store.xlsx', 'your-disk');
 ```
 
 ## Writer types

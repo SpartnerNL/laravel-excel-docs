@@ -69,6 +69,7 @@ class UsersImport implements ToModel, WithUpserts, WithUpsertColumns
 
 In this example, if a user already exists, only "name" and "role" columns will be updated.
 
+
 ## Skipping rows
 
 In case you want to skip a row, you can return null. 
@@ -91,12 +92,38 @@ public function model(array $row)
 In case you want to import rows by several possible column names (using `WithHeadingRow`), you can use null coalescing operator (`??`). If the column with the first name (in example _client_name_) exists and is not NULL, return its value; otherwise look for second possible name (in example _client_) etc.
 
 ```php
-public function model(array $row) {
-  return new User([
-    'name' => $row['client_name'] ?? $row['client'] ?? $row['name'] ?? null
-  ]);
+public function model(array $row)
+{
+    return new User([
+        'name' => $row['client_name'] ?? $row['client'] ?? $row['name'] ?? null
+    ]);
 }
 ```
+
+## Cascading relation persistence
+
+By default, ToModel doesn't save relations, you can enable this behaviour for `BelongsTo` and `BelongsToMany` relations by adding the `PersistRelations` concern.
+
+```php
+class UsersImport implements ToModel, PersistRelations
+{
+    public function model(array $row)
+    {
+        $user = new User([
+            'name' => $row[0],
+        ]);
+        
+        // There should be a `public function team(): BelongsTo` relation in the User model.
+        $user->setRelation('team', new Team(['name' => $row[1]]));
+        
+        return $user;
+    }
+}
+```
+
+:::warning
+`PersistRelations` doesn't work together with BatchInserts.
+:::
 
 ## Handling persistence on your own
 
@@ -131,3 +158,23 @@ class UsersImport implements OnEachRow
 :::warning
 When using `OnEachRow` you cannot use batch inserts, as the model is already persisted in the `onRow` method.
 :::
+
+### Macro's and Mixins
+
+The Eloquent Builder/Model has a macro to directly import an excel to Eloquent rows. When using this, make sure your file has a heading row with the database table column names.
+
+```php
+User::query()->import('import-users-with-headings.xlsx');
+```
+
+If you want to define the mapping yourself, you can use the `importAs` method.
+
+```php
+User::query()->importAs('import-users.xlsx', function (array $row) {
+    return [
+        'name'     => $row[0],
+        'email'    => $row[1],
+        'password' => 'secret',
+    ];
+});
+```
