@@ -21,10 +21,10 @@ Per column a data type can be configured. This is very useful when dealing with 
 
 [[toc]]
 
-## What are columns?
+## What is a column?
 
 A column in a spreadsheet is a vertical series of cells in a spreadsheet. In the example underneath `A` and `B` are
-columns.
+columns.  `1` and `2` are rows and `A1`, `A2`, ... are cells.
 
 | |A|B| 
 |---|---|---|
@@ -102,17 +102,23 @@ Column::make('{Title}', '{attribute}');
 A column consist of a required `title` which will be used as column header. The second parameter refers to the name of
 the `attribute` of the model.
 
+#### Auto resolving attributes
+
 If no `attribute` is passed, the title will be converted to a snake case attribute.
 
 ```php
 Text::make('Name'); // uses "name" attribute
 ```
 
+#### Relation attributes
+
 When working with relationships (e.g. HasOne and BelongsTo), you can use a dot notation as attribute:
 
 ```php
 Text::make('Office', 'office.name'); // uses "name" attribute of the "office" BelongsTo relationship.
 ```
+
+#### Computed values
 
 A callback can also be passed as second argument. The closure will get the row or Model. Whatever is returned within the
 closure, will be inserted in the cell.
@@ -123,11 +129,25 @@ Text::make('Uppercased Name', function(User $user) {
 });
 ```
 
+#### Data types
+
 By using a specific data type, that data type will automatically configure the right internal data type and number
 formatting for Excel.
 
 ```php
 Date::make('Date of Birth', 'dob');
+```
+
+#### Nullable values
+
+When using specific data types, the column will always force the datatype when exporting. This means that a `null` value will be written as a `0` when using a `Number` column.
+If you want to make sure the cell stays empty, you can mark the column as `->nullable()`.
+
+```php
+[
+    Number::make('Amount'),
+    Number::make('Amount Nullable')->nullable(),
+]
 ```
 
 ### Using different data sources
@@ -164,7 +184,8 @@ class UsersExport implements FromArray, WithColumns
 
 ### Custom type
 
-By using the `type()` setter, you can set any PhpSpreadsheet DataType to the specific column cells.
+Types refer to the internal type that Excel uses to determine which kind of value is inside a cell like strings, numbers, ...
+By using the `type()` setter, you can set any PhpSpreadsheet `DataType` to the specific column cells. It's advised to use the dedicated Column classes like `Text` and `Number`, however, it can be useful when you want to programmatically set the data type.
 
 ```php
 use PhpOffice\PhpSpreadsheet\Cell\DataType;
@@ -174,15 +195,21 @@ Column::make('Name')->type(DataType::TYPE_STRING);
 
 ### Custom number format
 
-By using the `format()` setter, you can set any PhpSpreadsheet NumberFormat to the specific column cells.
+Formats is what Excel uses to dynamically change how cells are displayed, like a float value that is shown as a percentage.
+By using the `format()` setter, you can configure any PhpSpreadsheet `NumberFormat` to the specific column cells or provide a completely custom format.
+The dedicated column classes already provide default formatting based on the column type, but it can be useful if you want to programmatically change any format code.
 
 ```php
-use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
+// By using class constants of PhpSpreadsheet
+Column::make('Name')->format(PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_TEXT);
 
-Column::make('Name')->format(NumberFormat::FORMAT_TEXT);
+// By using Excel format notation directly
+Column::make('Number')->format('#,##0.00');
 ```
 
 ### Text
+
+If you want values to be explicitly formatted and inserted as strings, you can use the `Text` column. This can be really useful when dealing with values like phone numbers that have a leading 0. Because of PhpSpreadsheet's default value binder, those values will be detected as a number and therefor inserted as a numeric value in the spreadsheet. Marking these columns as text will overrule the default value binder.
 
 ```php
 Text::make('Name');
@@ -190,17 +217,19 @@ Text::make('Name');
 
 ### Number
 
+To explicitly mark a column as numeric the `Number` column can be used. This column type will format the numeric value as an integer (without the decimals), however the underlying value will remain the full number.
+
 ```php
 Number::make('ID');
 ```
 
-Optionally you can enable decimals on the number.
+If you want the number to display including 2 decimals, you can indicate so via the `withDecimals` method.
 
 ```php
 Number::make('ID')->withDecimals();
 ```
 
-Or provide the entire number format yourself.
+If you want to customize how the number should be formatted in the Excel file, you can use the `format` method.
 
 ```php
 Number::make('ID')->format('#,##0.00');
@@ -208,11 +237,13 @@ Number::make('ID')->format('#,##0.00');
 
 ### Decimal
 
+As an alternative to using `withDecimals` on the `Number` column, you also directly use the `Decimal` column type. This column type will format to exactly 2 decimals. 
+
 ```php
 Decimal::make('Average Working Hours');
 ```
 
-You can provide a custom decimal number format with the `format()` method.
+If you want another format, you can do so via the `->format()` method.
 
 ```php
 Decimal::make('Average Working Hours')->format('#,##0.00');
@@ -326,15 +357,37 @@ RichText::make('Html', function() {
 
 ### Image
 
+When using an `Image` column, it will use the value as `path` when resolving it on the default disk.
+
+```php
+Image::make('Avatar');
+```
+
+You can provide any other disk by using the `->disk()` method.
+
+```php
+Image::make('Avatar')->disk('uploads');
+```
+
+If you need more control over how the absolute image path should be resolved, you can do so via a callback.
+
 ```php
 Image::make('Avatar', function(User $user) {
     return Storage::path($user->avatar);
-})->width(100)->height(100);
+});
 ```
 
 :::warning
-Make sure to provide an absolute path
+Make sure to always provide an absolute path.
 :::
+
+#### Dimensions
+
+Image width and height can be set using the `->width()` and `->height()` methods. Setting them will also influence the column width and row height.
+
+```php
+Image::make('Avatar')->width(100)->height(100);
+```
 
 ### Formula
 
@@ -354,6 +407,6 @@ If you want to customize the cell, accessing the `PhpSpreadsheet` Cell directly,
 
 ```php
 Text::make('Name')->writing(function(Cell $cell) {
-    $cell->getHyperlink()->setUrl('https://maatwebsite.com');
+    $cell->getHyperlink()->setUrl('https://spartner.software');
 });
 ```

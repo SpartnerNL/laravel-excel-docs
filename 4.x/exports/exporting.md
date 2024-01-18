@@ -45,7 +45,7 @@ class UsersExport implements FromCollection
 
 ## Multiple sheets
 
-To allow the export to have multiple sheets, the `WithMultipleSheets` concern should be used. The `sheets()` method expects an array of sheet export objects to be returned.
+By default, an Export writes to a single sheet. To allow the export to have multiple sheets, the `WithMultipleSheets` concern should be used. The `sheets()` method expects an array of sheet export objects to be returned.
 
 ```php
 namespace App\Exports;
@@ -297,6 +297,10 @@ The following extensions are supported:
 |html|`Maatwebsite\Excel\Excel::HTML`|
 |pdf|`Maatwebsite\Excel\Excel::PDF`|
 
-:::warning Exporting to PDF
+:::tip Exporting to PDF
 If you'd like to export to PDF, you must now install a PDF rendering library yourself. Please refer to the [PhpSpreadsheet Documentation](https://phpspreadsheet.readthedocs.io/en/latest/topics/reading-and-writing-to-file/#pdf) for more information.
+:::
+
+:::warning Warning: Large CSV's
+If you want to export large datasets to CSV, it's advisable to use more memory efficient solutions like `fputcsv` directly.
 :::
