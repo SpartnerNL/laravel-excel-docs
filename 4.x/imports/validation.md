@@ -104,8 +104,9 @@ public function rules(): array
 
 ## Custom validation messages
 
-By adding `customValidationMessages()` method to your import, you can specify custom messages for each failure.
+By adding `customValidationMessages()` method to your import, you can specify custom messages for each failure. 
 
+If you include the `:attribute` and `:input` placeholders, they will be substituted with their actual values at runtime.
 
 ```php
 /**
@@ -124,7 +125,7 @@ public function rules(): array
 public function customValidationMessages()
 {
     return [
-        '1.in' => 'Custom message for :attribute.',
+        '1.in' => 'Custom message for :attribute with input :input.',
     ];
 }
 ```
