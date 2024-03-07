@@ -20,7 +20,7 @@
 Require this package in the `composer.json` of your Laravel project. This will download the package and _PhpSpreadsheet_.
 
 ```
-composer require maatwebsite/excel:^3.1
+composer require "maatwebsite/excel:^3.1"
 ```
 
 If installing your receive the following error 
