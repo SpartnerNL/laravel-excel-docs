@@ -1,8 +1,6 @@
----
-pageClass: no-toc
----
-
 # Batch inserts
+
+[[toc]]
 
 Importing a large file to Eloquent models, might quickly become a bottleneck as every row results into an insert query. 
 
