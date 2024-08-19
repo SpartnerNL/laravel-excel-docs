@@ -69,6 +69,18 @@ class UsersImport implements ToModel, WithUpserts, WithUpsertColumns
 
 In this example, if a user already exists, only "name" and "role" columns will be updated.
 
+## Skipping duplicate rows
+
+In case you want to skip duplicate models, you can implement the `WithSkipDuplicates` concern. 
+
+```php
+class UsersImport implements ToModel, WithSkipDuplicates
+{
+    // No additional methods are required for this concern
+}
+```
+
+In the example above, if a user already exists with the same primary or unique key, the row will be ignored. Behind the scenes, this feature uses the Laravel `insertOrIgnore` method to insert records while ignoring duplicates, preventing any errors that would normally occur due to duplicate entries.
 
 ## Skipping rows
 
