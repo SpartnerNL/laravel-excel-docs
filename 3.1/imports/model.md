@@ -82,7 +82,7 @@ class UsersImport implements ToModel, WithSkipDuplicates
 
 In the example above, if a user already exists with the same primary or unique key, the row will be ignored. Behind the scenes, this feature uses the Laravel `insertOrIgnore` method to insert records while ignoring duplicates, preventing any errors that would normally occur due to duplicate entries.
 
-## Skipping rows
+## Skipping specific rows
 
 In case you want to skip a row, you can return null. 
 
