@@ -61,6 +61,7 @@ module.exports = [
             'validation',
             'mapped-cells',
             'custom-csv-settings',
+            'start-row',
             'progress-bar',
             'concerns',
             'extending',
