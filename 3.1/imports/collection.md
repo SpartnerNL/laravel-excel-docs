@@ -19,9 +19,9 @@ use Maatwebsite\Excel\Concerns\ToCollection;
 
 class UsersImport implements ToCollection
 {
-    public function collection(Collection $rows)
+    public function collection(Collection $collection)
     {
-        foreach ($rows as $row) 
+        foreach ($collection as $row) 
         {
             User::create([
                 'name' => $row[0],
