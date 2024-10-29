@@ -3087,8 +3087,8 @@ electron-to-chromium@^1.4.535:
   resolved "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.4.567.tgz"
 
 elliptic@^6.5.3, elliptic@^6.5.4:
-  version "6.5.4"
-  resolved "https://registry.npmjs.org/elliptic/-/elliptic-6.5.4.tgz"
+  version "6.6.0"
+  resolved "https://registry.yarnpkg.com/elliptic/-/elliptic-6.6.0.tgz#5919ec723286c1edf28685aa89261d4761afa210"
   dependencies:
     bn.js "^4.11.9"
     brorand "^1.1.0"
