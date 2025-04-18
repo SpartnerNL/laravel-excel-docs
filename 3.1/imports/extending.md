@@ -132,6 +132,7 @@ Sheet::listen(AfterSheet::class, function () {
 |---- |----| ----|
 |`Maatwebsite\Excel\Events\BeforeImport` | `$event->reader : Reader` | Event gets raised at the start of the process. | 
 | `Maatwebsite\Excel\Events\AfterImport` | `$event->reader : Reader` | Event gets raised at the end of the  process. |
+| `Maatwebsite\Excel\Events\ImportFailed` | `$event->getException() : Throwable` | Event gets raised on failure of the import process. |
 | `Maatwebsite\Excel\Events\BeforeSheet` | `$event->sheet : Sheet` | Event gets raised just after the sheet is created. |
 | `Maatwebsite\Excel\Events\AfterSheet` | `$event->sheet : Sheet` | Event gets raised at the end of the sheet process. |
 | `Maatwebsite\Excel\Events\AfterChunk` | `$event->sheet : Sheet` | Event gets raised after each chunk from the import file has been processed. Only available with [chunk reading](https://docs.laravel-excel.com/3.1/imports/chunk-reading.html) |
