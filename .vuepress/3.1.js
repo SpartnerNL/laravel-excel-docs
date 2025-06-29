@@ -35,6 +35,7 @@ module.exports = [
             'queued',
             'multiple-sheets',
             'mapping',
+            'headings',
             'column-formatting',
             'settings',
             'drawings',
