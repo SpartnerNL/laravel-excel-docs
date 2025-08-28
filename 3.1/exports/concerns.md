@@ -11,7 +11,7 @@ pageClass: no-toc
 |`Maatwebsite\Excel\Concerns\FromGenerator`| Use a generator to populate the export. | [From Generator](/3.1/exports/from-generator.html) |
 |`Maatwebsite\Excel\Concerns\FromIterator`| Use an iterator to populate the export. | |
 |`Maatwebsite\Excel\Concerns\FromQuery`| Use an Eloquent query to populate the export. | [From Query](/3.1/exports/from-query.html) | 
-|`Maatwebsite\Excel\Concerns\FromView`| Use a (Blade) view to to populate the export. | [From View](/3.1/exports/from-view.html) |
+|`Maatwebsite\Excel\Concerns\FromView`| Use a (Blade) view to populate the export. | [From View](/3.1/exports/from-view.html) |
 |`Maatwebsite\Excel\Concerns\HasReferencesToOtherSheets`| Allows precalculated values where one sheet has references to another sheet. | [References to other sheets](/3.1/exports/multiple-sheets.html#making-calculations-work-when-referencing-between-sheets) |
 |`Maatwebsite\Excel\Concerns\ShouldAutoSize`| Auto-size the columns in the worksheet. | [Auto size](/3.1/exports/column-formatting.html#auto-size) |
 |`Maatwebsite\Excel\Concerns\WithCharts`| Allows to run one or multiple PhpSpreadsheet Chart instances. | [Charts](/3.1/exports/charts.html) |
