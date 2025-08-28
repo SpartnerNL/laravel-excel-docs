@@ -18,6 +18,9 @@ $plot   = new PlotArea(null, [$series]);
 
 $legend = new Legend();
 $chart  = new Chart('chart name', new Title('chart title'), $legend, $plot);
+
+$chart->setTopLeftPosition('D1');
+$chart->setBottomRightPosition('K12');
 ```
 
 You can view all available properties for Charts on the [PhpSpreadsheet docs](https://phpoffice.github.io/PhpSpreadsheet/namespaces/phpoffice-phpspreadsheet-chart.html).
@@ -48,6 +51,9 @@ class InvoicesExport implements WithCharts
         $legend = new Legend();
         $chart  = new Chart('chart name', new Title('chart title'), $legend, $plot);
 
+        $chart->setTopLeftPosition('D1');
+        $chart->setBottomRightPosition('K12');
+
         return $chart;
     }
 }
@@ -77,8 +83,14 @@ class InvoicesExport implements WithCharts
         $plot   = new PlotArea(null, [$series]);
 
         $legend = new Legend();
+
         $chart  = new Chart('chart name', new Title('chart title'), $legend, $plot);
+        $chart->setTopLeftPosition('D1');
+        $chart->setBottomRightPosition('K12');
+
         $chart2 = new Chart('chart 2 name', new Title('chart 2 title'), $legend, $plot);
+        $chart2->setTopLeftPosition('D13');
+        $chart2->setBottomRightPosition('K24');
 
         return [$chart, $chart2];
     }
