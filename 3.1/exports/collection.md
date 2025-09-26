@@ -148,6 +148,8 @@ use Maatwebsite\Excel\Concerns\FromCollection;
 
 class InvoicesExport implements FromCollection
 {
+    protected $invoices;
+
     public function __construct(InvoicesRepository $invoices)
     {
         $this->invoices = $invoices;
