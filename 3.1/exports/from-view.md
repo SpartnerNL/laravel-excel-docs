@@ -69,7 +69,7 @@ Style inline support
 - text-decoration: underline|line-through
 - text-align
 - vertical-align
-- with|height
+- width|height
 - word-wrap
 - text-indent
 
