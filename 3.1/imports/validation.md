@@ -157,7 +157,7 @@ public function customValidationAttributes()
 
 ### Database transactions
 
-The entire import is automatically wrapped in a **database transaction**, that means that *every* error will rollback the entire import. When using batch inserts, only the **current** batch will be rollbacked.
+The entire import is automatically wrapped in a **database transaction**, that means that *every* error will rollback the entire import (even when using batch inserts).
 
 #### Disable transactions
 
