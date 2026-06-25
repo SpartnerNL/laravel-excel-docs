@@ -36,3 +36,6 @@ public function export()
     return (new DataExport)->download('data.xlsx');
 }
 ```
+
+:::tip Using Queue with FromGenerate is not supported. In case a queue is desired, we recommend wrapping the export file in a job, then using `->store` :::
+
