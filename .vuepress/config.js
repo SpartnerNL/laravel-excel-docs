@@ -63,7 +63,7 @@ module.exports = {
         algolia: {
             apiKey: 'e95794f59bac5401e3930f71feb3a8e2',
             indexName: 'laravel_excel',
-            algoliaOptions: {'facetFilters': ["version:3.1"]},
+            algoliaOptions: {'facetFilters': ["version:4.0"]},
         },
 
         nav: [
@@ -71,7 +71,7 @@ module.exports = {
                 text: 'Version',
                 link: '/',
                 items: [
-                    // {text: 'LE 4.x', link: '/4.x/'},
+                    {text: 'LE 4.0', link: '/4.0/'},
                     {text: 'LE 3.1', link: '/3.1/'},
                     {text: 'LE 3.0', link: '/3.0/'},
                     {text: 'LE 2.1', link: '/2.1/', divider: true},
@@ -82,7 +82,7 @@ module.exports = {
         ],
 
         sidebar: {
-            // '/4.x/': require('./4.x'),
+            '/4.0/': require('./4.0'),
             '/3.1/': require('./3.1'),
             '/3.0/': require('./3.0'),
             '/2.1/': require('./2.1'),
