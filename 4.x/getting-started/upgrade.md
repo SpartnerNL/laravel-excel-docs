@@ -93,7 +93,7 @@ __Additions__
 
 __Deprecations__
 
-* Queued exports are deprecated and will be removed in 5.x. Please check the [performance documentation](/4.0/exports/performance.html) for the new and improved way.
+* Queued exports are deprecated and will be removed in 5.x. Please check the [performance documentation](/4.x/exports/performance.html) for the new and improved way.
 
 ## Upgrading to 3.1 from 3.0
 

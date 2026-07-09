@@ -8,7 +8,7 @@ Please read and understand the contribution guide before creating an issue or pu
 
 - [Docs](https://docs.laravel-excel.com/)
 - [Issue tracker](https://github.com/SpartnerNL/Laravel-Excel/issues)
-- [Support](/4.0/getting-started/support.html)
+- [Support](/4.x/getting-started/support.html)
 
 ## Etiquette
 

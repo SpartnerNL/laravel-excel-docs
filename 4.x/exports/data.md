@@ -226,7 +226,9 @@ class DataExport implements FromGenerator
 }
 ```
 
-:::tip Using Queue with FromGenerator is not supported. In case a queue is desired, we recommend wrapping the export file in a job, then using `->store` :::
+:::tip 
+Using Queue with FromGenerator is not supported. In case a queue is desired, we recommend wrapping the export file in a job, then using `->store`
+:::
 
 ## Scout
 

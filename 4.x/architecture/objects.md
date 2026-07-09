@@ -145,7 +145,7 @@ Most of the export/import configuration is done by using **Concerns**. Concerns 
 Implementing them will make the object adhere to a certain contract. This contract can request specific methods that e.g. data can be passed through.
 In other cases it might not ask for any methods to be implemented, but merely functions as a pointer interface.
 
-Read more about Concerns in the [concerns documentation](/4.0/architecture/concerns.html).
+Read more about Concerns in the [concerns documentation](/4.x/architecture/concerns.html).
 
 ## Hooks
 

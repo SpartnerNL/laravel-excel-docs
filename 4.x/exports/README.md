@@ -20,7 +20,7 @@ We'll follow 3 steps:
 Laravel Excel Exports are all about **export objects** and **concerns**. These Exports are a set of instructions about how to get data and how to present it inside the Spreadsheet.
 
 :::tip
-:bulb: If you want to read more about the architecture behind export objects and concerns, you find it in the [architecture docs](/4.0/architecture/objects).
+:bulb: If you want to read more about the architecture behind export objects and concerns, you find it in the [architecture docs](/4.x/architecture/objects).
 :::
 
 These Exports are located in the `app/Exports` folder and can either be created by the corresponding Artisan command or manually.
