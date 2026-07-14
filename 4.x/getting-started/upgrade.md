@@ -73,7 +73,7 @@ use Maatwebsite\Excel\Concerns\FromScout;
 
 class ProductsExport implements FromScout
 {
-    public function query(): \Laravel\Scout\Builder
+    public function scout(): \Laravel\Scout\Builder
     {
         return Product::search('*');
     }
