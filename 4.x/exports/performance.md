@@ -59,22 +59,58 @@ public function collection(): LazyCollection
 
 ## Queuing
 
-When the data set is too big for the user to wait sync, u can queue it.
+When the data set is too big for the user to wait sync, you can queue it.
 
 ```php
 class ExportUsers implements ShouldQueue
 {
-    use Queuable;
+    use Queueable;
 
     public $queue = 'long-running';
     public $timeout = 900;
 
-    public function handle()
+    public function handle(): void
     {
         Excel::store(new UsersExport, 'users.xlsx');
     }
 }
 ```
+
+## Job batching
+
+Queued exports (and chunked queued imports) can be dispatched as a [Laravel job batch](https://laravel.com/docs/queues#job-batching) instead of a chain by implementing the `ShouldBatch` marker interface.
+
+```php
+use Maatwebsite\Excel\Concerns\Exportable;
+use Maatwebsite\Excel\Concerns\FromQuery;
+use Maatwebsite\Excel\Concerns\ShouldBatch;
+use Illuminate\Contracts\Queue\ShouldQueue;
+
+class UsersExport implements FromQuery, ShouldQueue, ShouldBatch
+{
+    use Exportable;
+
+    public function query(): Builder
+    {
+        return User::query();
+    }
+}
+```
+
+When `ShouldBatch` is implemented, `queue()` and `store()` return a `PendingBatch` instead of a `PendingDispatch`, so you can attach batch callbacks:
+
+```php
+$batch = (new UsersExport)->queue('users.xlsx')
+    ->name('Users export')
+    ->then(fn () => // batch succeeded)
+    ->catch(fn () => // at least one job failed);
+
+$batch->dispatch();
+```
+
+:::tip
+`ShouldBatch` requires `WithMultipleSheets` or `WithChunkReading` to have more than one job in the batch. A single-sheet export without chunk reading will still return a `PendingBatch`, but it will contain only one job.
+:::
 
 ## Cell caching
 

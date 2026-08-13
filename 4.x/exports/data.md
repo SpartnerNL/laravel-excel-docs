@@ -244,7 +244,7 @@ class ProductsExport implements FromScout
 {
     use Exportable;
 
-    public function query(): \Laravel\Scout\Builder
+    public function scout(): \Laravel\Scout\Builder
     {
         return Product::search('*');
     }
@@ -254,6 +254,67 @@ class ProductsExport implements FromScout
 :::tip
 `FromScout` requires `laravel/scout` to be installed.
 :::
+
+## Custom source handlers
+
+If none of the built-in data source concerns fit your use case, you can register a custom source handler. This lets you teach Laravel Excel how to handle any custom export source without forking the library.
+
+### Implementing a handler
+
+Create a class that implements `SheetSourceHandler` (for synchronous exports), `QueuedSheetSourceHandler` (for queued exports), or both:
+
+```php
+use Maatwebsite\Excel\Concerns\Export;
+use Maatwebsite\Excel\Contracts\SheetSourceHandler;
+use Maatwebsite\Excel\Sheet;
+
+class ApiSourceHandler implements SheetSourceHandler
+{
+    public function canHandle(Export $sheetExport): bool
+    {
+        return $sheetExport instanceof FromApi;
+    }
+
+    public function handle(Sheet $sheet, Export $sheetExport): void
+    {
+        foreach ($sheetExport->fetch() as $row) {
+            $sheet->append([$row]);
+        }
+    }
+}
+```
+
+### Registering a handler
+
+Handlers can be registered in a service provider using the `Excel::registerSourceHandler()` method. User-registered handlers always take priority over built-in ones.
+
+```php
+use Maatwebsite\Excel\Facades\Excel;
+
+class AppServiceProvider extends ServiceProvider
+{
+    public function boot(): void
+    {
+        Excel::registerSourceHandler(new ApiSourceHandler);
+
+        // Or register by class name (resolved lazily from the container):
+        Excel::registerSourceHandler(ApiSourceHandler::class);
+
+        // Multiple handlers at once:
+        Excel::registerSourceHandler(ApiSourceHandler::class, AnotherHandler::class);
+    }
+}
+```
+
+You can also list handler class names in `config/excel.php` under `exports.source_handlers`:
+
+```php
+'exports' => [
+    'source_handlers' => [
+        App\Exports\Handlers\ApiSourceHandler::class,
+    ],
+],
+```
 
 ## Generic data manipulations
 

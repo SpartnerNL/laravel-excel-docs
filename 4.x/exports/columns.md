@@ -410,3 +410,85 @@ Text::make('Name')->writing(function(Cell $cell) {
     $cell->getHyperlink()->setUrl('https://spartner.software');
 });
 ```
+
+## Importing with columns
+
+`WithColumns` also works on the import side. Each column's type handles casting the raw cell value to the correct PHP type when a row is read.
+
+### Basic import
+
+Add `WithColumns` to your import class. The `columns()` return value describes which columns to read and how to cast them:
+
+```php
+use Maatwebsite\Excel\Concerns\Importable;
+use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\WithColumns;
+use Maatwebsite\Excel\Columns\Date;
+use Maatwebsite\Excel\Columns\Number;
+use Maatwebsite\Excel\Columns\Text;
+
+class UsersImport implements ToModel, WithColumns
+{
+    use Importable;
+
+    public function model(array $row): User
+    {
+        return new User([
+            'name'  => $row['name'],
+            'email' => $row['email'],
+            'dob'   => $row['date_of_birth'], // cast to Carbon
+        ]);
+    }
+
+    public function columns(): array
+    {
+        return [
+            Text::make('name'),
+            Text::make('email'),
+            Date::make('Date of Birth', 'date_of_birth'),
+            Number::make('id'),
+        ];
+    }
+}
+```
+
+The row array keys are derived from the column's attribute (second argument) or, when omitted, from the title converted to snake_case.
+
+### Transforming values on read
+
+Pass a callback as the second argument to transform the raw value after casting:
+
+```php
+Text::make('name', fn (string $name): string => strtolower($name)),
+```
+
+### Heading-aware imports
+
+When combined with `WithHeadingRow`, the column `title` is matched against the heading row. Columns that do not match a heading are skipped:
+
+```php
+class UsersImport implements ToModel, WithColumns, WithHeadingRow
+{
+    use Importable;
+
+    public function model(array $row): User
+    {
+        return new User([
+            'name'  => $row['name'],
+            'email' => $row['email'],
+        ]);
+    }
+
+    public function columns(): array
+    {
+        return [
+            Text::make('Name', 'name'),
+            Text::make('Email', 'email'),
+        ];
+    }
+}
+```
+
+### Conflict guards
+
+`WithColumns` cannot be combined with `WithMappedCells`, `WithColumnLimit`, or `WithGroupedHeadingRow` on the import side, as these concerns describe the same thing. A `ConcernConflictException` is thrown if they are combined.

@@ -13,7 +13,7 @@
 |`Maatwebsite\Excel\Concerns\ShouldAutoSize`| Auto-size the columns in the worksheet. | [Presentation](/4.x/exports/presentation.html) |
 |`Maatwebsite\Excel\Concerns\WithCharts`| Allows running one or multiple PhpSpreadsheet Chart instances. | |
 |`Maatwebsite\Excel\Concerns\WithColumnFormatting`| Format certain columns. | |
-|`Maatwebsite\Excel\Concerns\WithColumns`| Define columns for the export. | |
+|`Maatwebsite\Excel\Concerns\WithColumns`| Define typed columns for exports and imports. | [Columns](/4.x/exports/columns.html) |
 |`Maatwebsite\Excel\Concerns\WithColumnWidths`| Set column widths. | [Presentation](/4.x/exports/presentation.html) |
 |`Maatwebsite\Excel\Concerns\WithCustomChunkSize`| Allows Exportables to define their chunk size. | |
 |`Maatwebsite\Excel\Concerns\WithCustomCsvSettings`| Allows running custom CSV settings for this specific exportable. | [Settings](/4.x/exports/settings.html) |
@@ -29,7 +29,9 @@
 |`Maatwebsite\Excel\Concerns\WithProperties`| Allows setting document properties. | [Settings](/4.x/exports/settings.html) |
 |`Maatwebsite\Excel\Concerns\WithStrictNullComparison`| Uses strict comparisons when testing cells for null values. | [Data sources](/4.x/exports/data.html) |
 |`Maatwebsite\Excel\Concerns\WithStyles`| Allows setting styles on worksheets. | [Presentation](/4.x/exports/presentation.html) |
+|`Maatwebsite\Excel\Concerns\WithExportTemplate`| Base an export on an existing spreadsheet file, preserving its styles, formulas and extra sheets. | [Export Templates](/4.x/exports/template.html) |
 |`Maatwebsite\Excel\Concerns\WithTitle`| Set the Workbook or Worksheet title. | |
+|`Maatwebsite\Excel\Concerns\ShouldBatch`| Dispatch queued exports or chunked imports as a job batch instead of a chain. | [Performance](/4.x/exports/performance.html) |
 
 ### Traits
 

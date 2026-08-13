@@ -95,6 +95,74 @@ class UsersImport implements ToModel, WithChunkReading, ShouldQueue, WithEvents
 }
 ```
 
+## Job batching
+
+Chunked queued imports can be dispatched as a [Laravel job batch](https://laravel.com/docs/queues#job-batching) instead of a chain by implementing the `ShouldBatch` marker interface alongside `ShouldQueue` and `WithChunkReading`.
+
+```php
+use Maatwebsite\Excel\Concerns\Importable;
+use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\WithChunkReading;
+use Maatwebsite\Excel\Concerns\ShouldBatch;
+use Illuminate\Contracts\Queue\ShouldQueue;
+
+class UsersImport implements ToModel, WithChunkReading, ShouldQueue, ShouldBatch
+{
+    use Importable;
+
+    public function model(array $row): User|null
+    {
+        return new User(['name' => $row[0]]);
+    }
+
+    public function chunkSize(): int
+    {
+        return 1000;
+    }
+}
+```
+
+When `ShouldBatch` is implemented, `queue()` and `import()` return an `Illuminate\Bus\PendingBatch`:
+
+```php
+$batch = (new UsersImport)->queue('users.xlsx')
+    ->name('Users import')
+    ->then(fn () => // all chunks succeeded)
+    ->catch(fn () => // at least one chunk failed);
+
+$batch->dispatch();
+```
+
+## Queue attributes
+
+In addition to the `$queue` and `$connection` properties, imports support Laravel's native `#[Queue]` and `#[Connection]` PHP attributes (requires Laravel 13+):
+
+```php
+use Illuminate\Queue\Attributes\Connection;
+use Illuminate\Queue\Attributes\Queue;
+use Maatwebsite\Excel\Concerns\Importable;
+use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\WithChunkReading;
+use Illuminate\Contracts\Queue\ShouldQueue;
+
+#[Queue('imports')]
+#[Connection('redis')]
+class UsersImport implements ToModel, WithChunkReading, ShouldQueue
+{
+    use Importable;
+
+    public function model(array $row): User|null
+    {
+        return new User(['name' => $row[0]]);
+    }
+
+    public function chunkSize(): int
+    {
+        return 1000;
+    }
+}
+```
+
 ## Appending jobs
 
 When queuing an import an instance of Laravel's `PendingDispatch` is returned. This means you can chain extra jobs that will be added to the end of the queue and only executed if all import jobs are correctly executed.

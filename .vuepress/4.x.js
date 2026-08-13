@@ -28,6 +28,7 @@ module.exports = [
             'exporting',
             'data',
             'columns',
+            'template',
             'presentation',
             'performance',
             'settings',
