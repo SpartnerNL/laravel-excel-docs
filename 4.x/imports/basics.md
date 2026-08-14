@@ -26,6 +26,36 @@ class UsersImport implements ToModel
 }
 ```
 
+## Processing each row with `OnEachRow`
+
+`OnEachRow` gives you direct access to the underlying PhpSpreadsheet `Row` object. This is useful when you need cell metadata (coordinates, styles) that `ToModel` and `ToArray` don't expose.
+
+```php
+namespace App\Imports;
+
+use Maatwebsite\Excel\Concerns\OnEachRow;
+use Maatwebsite\Excel\Row;
+
+class UsersImport implements OnEachRow
+{
+    public function onRow(Row $row): void
+    {
+        $cells = $row->toArray();
+
+        User::create([
+            'name'  => $cells[0],
+            'email' => $cells[1],
+        ]);
+    }
+}
+```
+
+`$row->getIndex()` returns the 1-based row number. To get a specific cell you can call `$row->getCellIterator()` for direct PhpSpreadsheet access.
+
+:::warning
+`OnEachRow` cannot be combined with `ToModel`, `ToArray`, or `ToCollection`. Use one or the other.
+:::
+
 ## Importing from default disk
 
 Passing the UsersImport object to the `Excel::import()` method, will tell the package how to import the file that is passed as second parameter. 

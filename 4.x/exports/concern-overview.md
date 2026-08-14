@@ -11,6 +11,7 @@
 |`Maatwebsite\Excel\Concerns\FromView`| Use a (Blade) view to populate the export. | [Data sources](/4.x/exports/data.html) |
 |`Maatwebsite\Excel\Concerns\HasReferencesToOtherSheets`| Allows precalculated values where one sheet has references to another sheet. | |
 |`Maatwebsite\Excel\Concerns\ShouldAutoSize`| Auto-size the columns in the worksheet. | [Presentation](/4.x/exports/presentation.html) |
+|`Maatwebsite\Excel\Concerns\WithBackgroundColor`| Set the default background fill colour for the worksheet. | [Presentation](/4.x/exports/presentation.html#background-color) |
 |`Maatwebsite\Excel\Concerns\WithCharts`| Allows running one or multiple PhpSpreadsheet Chart instances. | |
 |`Maatwebsite\Excel\Concerns\WithColumnFormatting`| Format certain columns. | |
 |`Maatwebsite\Excel\Concerns\WithColumns`| Define typed columns for exports and imports. | [Columns](/4.x/exports/columns.html) |
@@ -32,6 +33,7 @@
 |`Maatwebsite\Excel\Concerns\WithExportTemplate`| Base an export on an existing spreadsheet file, preserving its styles, formulas and extra sheets. | [Export Templates](/4.x/exports/template.html) |
 |`Maatwebsite\Excel\Concerns\WithTitle`| Set the Workbook or Worksheet title. | |
 |`Maatwebsite\Excel\Concerns\ShouldBatch`| Dispatch queued exports or chunked imports as a job batch instead of a chain. | [Performance](/4.x/exports/performance.html) |
+|`Maatwebsite\Excel\Concerns\ShouldQueueWithoutChain`| Dispatch each import chunk independently rather than as a chain. | [Queued imports](/4.x/imports/queued.html#dispatching-without-a-chain) |
 
 ### Traits
 

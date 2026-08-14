@@ -265,6 +265,15 @@ class UsersExport implements ShouldAutoSize
 }
 ```
 
+### Hiding and collapsing columns
+
+Columns can be hidden (invisible in the spreadsheet) or collapsed (grouped and folded):
+
+```php
+Text::make('InternalCode')->hide();    // column is hidden from view
+Text::make('Notes')->collapse();       // column is collapsed in a group
+```
+
 ### Columns widths
 
 In some cases you might want more control over the actual column width instead of relying on autosizing. This can be done per column, directly on the column definition.
@@ -348,6 +357,24 @@ In `config/excel.php`:
 :::warning
 `WithCustomValueBinder` is only supported for **exports**. It has no effect when used on an import class.
 :::
+
+## Background color
+
+`WithBackgroundColor` sets the default background fill for the entire worksheet:
+
+```php
+use Maatwebsite\Excel\Concerns\WithBackgroundColor;
+
+class UsersExport implements WithBackgroundColor
+{
+    public function backgroundColor(): string
+    {
+        return 'EEEEEE'; // hex colour without leading #
+    }
+}
+```
+
+The method can also return an array of PhpSpreadsheet fill properties or a `PhpOffice\PhpSpreadsheet\Style\Color` object for full control.
 
 ## Filters
 
