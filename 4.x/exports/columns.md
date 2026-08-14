@@ -261,6 +261,12 @@ You can provide a custom percentage number format with the `format()` method.
 Percentage::make('Available')->format('0.00%');
 ```
 
+By default the column reads and writes fractional values (0.1 for 10%). If your data uses whole numbers (10 for 10%), call `fromWholeNumbers()`:
+
+```php
+Percentage::make('VAT Rate')->fromWholeNumbers(); // 10 is stored/read as 10%, not 0.1
+```
+
 ### Date
 
 ```php
@@ -395,10 +401,58 @@ Image::make('Avatar')->width(100)->height(100);
 Formula::make('Total', fn() => '=1+1');
 ```
 
+When importing, `Formula` columns return the formula string by default. Call `calculated()` to get the evaluated result instead:
+
+```php
+Formula::make('Total')->calculated(); // returns numeric result, e.g. 2.0
+```
+
 ### EmptyCell
 
 ```php
 EmptyCell::make();
+```
+
+## Cell comments
+
+The `comment()` method adds a comment to every cell in the column:
+
+```php
+Text::make('Name')->comment('Enter the full legal name');
+```
+
+The comment can also be derived from the row data using a closure:
+
+```php
+Text::make('Score')->comment(function (User $user): string {
+    return "Max score for {$user->role} is 100";
+}, author: 'System');
+```
+
+Signature: `comment(string|Closure $comment, ?string $author = null, ?Closure $callback = null): static`
+
+The third `$callback` argument receives the PhpSpreadsheet `Comment` object and lets you customise its appearance (e.g. size, fill colour).
+
+## Grouping columns
+
+`Column::multiple()` groups a set of sub-columns under one logical definition. On import each sub-column's value is returned as a nested array:
+
+```php
+Column::multiple(
+    Text::make('Street', 'street'),
+    Text::make('City', 'city'),
+    Text::make('Country', 'country'),
+)->key('address');
+// row['address'] => ['street' => '...', 'city' => '...', 'country' => '...']
+```
+
+## Overriding the import key
+
+By default the key a column is read back under matches its attribute name. Use `key()` to give it a different key without changing the column title or the heading it is matched against:
+
+```php
+Text::make('Full Name', 'name')->key('user_name');
+// row['user_name'] instead of row['name']
 ```
 
 ## Customizing cells

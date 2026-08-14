@@ -6,6 +6,7 @@ module.exports = [
             '',
             'license',
             'installation',
+            'configuration',
             'upgrade',
             'contributing',
             'support',
@@ -32,6 +33,7 @@ module.exports = [
             'presentation',
             'performance',
             'settings',
+            'events',
             'concern-overview',
             'testing'
         ]),

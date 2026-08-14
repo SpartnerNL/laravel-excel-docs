@@ -129,11 +129,13 @@ Sheet::listen(AfterSheet::class, function () {
 
 | Event name | Payload | Explanation |
 |---- |----| ----|
-|`Maatwebsite\Excel\Events\BeforeImport` | `$event->reader : Reader` | Event gets raised at the start of the process. | 
-| `Maatwebsite\Excel\Events\AfterImport` | `$event->reader : Reader` | Event gets raised at the end of the  process. |
-| `Maatwebsite\Excel\Events\ImportFailed` | `$event->getException() : Throwable` | Event gets raised on failure of the import process. |
-| `Maatwebsite\Excel\Events\BeforeSheet` | `$event->sheet : Sheet` | Event gets raised just after the sheet is created. |
-| `Maatwebsite\Excel\Events\AfterSheet` | `$event->sheet : Sheet` | Event gets raised at the end of the sheet process. |
+| `Maatwebsite\Excel\Events\BeforeImport` | `$event->reader : Reader` | Raised at the start of the import process. |
+| `Maatwebsite\Excel\Events\AfterImport` | `$event->reader : Reader` | Raised at the end of the import process. |
+| `Maatwebsite\Excel\Events\ImportFailed` | `$event->getException() : Throwable` | Raised when the import process fails. |
+| `Maatwebsite\Excel\Events\BeforeSheet` | `$event->sheet : Sheet` | Raised just after the sheet is created. |
+| `Maatwebsite\Excel\Events\AfterSheet` | `$event->sheet : Sheet` | Raised at the end of the sheet process. |
+| `Maatwebsite\Excel\Events\AfterChunk` | `$event->getSheet() : Sheet`<br>`$event->getStartRow() : int` | Raised after each chunk is read (queued imports). Gives access to the sheet and the first row number of the chunk. |
+| `Maatwebsite\Excel\Events\AfterBatch` | `$event->getManager() : ModelManager`<br>`$event->getBatchSize() : int`<br>`$event->getStartRow() : int` | Raised after each model batch insert (`WithBatchInserts`). Useful for progress tracking. |
 
 
 ## Macroable

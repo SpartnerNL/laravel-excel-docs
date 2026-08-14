@@ -199,6 +199,37 @@ class NotifyUserOfCompletedImport implements ShouldQueue
 }
 ```
 
+## Dispatching without a chain
+
+By default, chunked queued imports dispatch each chunk as part of a chain so that `AfterImportJob` only runs once all chunks have completed. If you want each chunk to be dispatched independently (no chain), implement `ShouldQueueWithoutChain`:
+
+```php
+use Maatwebsite\Excel\Concerns\Importable;
+use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\WithChunkReading;
+use Maatwebsite\Excel\Concerns\ShouldQueueWithoutChain;
+use Illuminate\Contracts\Queue\ShouldQueue;
+
+class UsersImport implements ToModel, WithChunkReading, ShouldQueue, ShouldQueueWithoutChain
+{
+    use Importable;
+
+    public function model(array $row): User|null
+    {
+        return new User(['name' => $row[0]]);
+    }
+
+    public function chunkSize(): int
+    {
+        return 1000;
+    }
+}
+```
+
+:::warning
+When using `ShouldQueueWithoutChain`, the `AfterImportJob` is not dispatched automatically. You are responsible for any post-import cleanup or notifications.
+:::
+
 ## Custom queues
 
 Because `PendingDispatch` is returned, we can also change the queue that should be used.

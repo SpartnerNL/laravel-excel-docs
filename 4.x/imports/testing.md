@@ -78,3 +78,9 @@ public function user_can_import_users()
 }
 ```
 Please note that your expression must match only one file/path. If more than one match is found, the test will fail.
+
+Call `doNotMatchByRegex()` to switch back to exact string matching:
+
+```php
+Excel::doNotMatchByRegex();
+```
