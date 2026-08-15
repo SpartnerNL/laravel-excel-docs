@@ -9,9 +9,10 @@ The `sheets()` method expects an array of sheet import objects to be returned. T
 ```php
 namespace App\Imports;
 
+use Maatwebsite\Excel\Concerns\Import;
 use Maatwebsite\Excel\Concerns\WithMultipleSheets;
 
-class UsersImport implements WithMultipleSheets 
+class UsersImport implements WithMultipleSheets, Import 
 {
    
     public function sheets(): array
@@ -47,9 +48,10 @@ If you want more control over which sheets are selected and how they are mapped 
 ```php
 namespace App\Imports;
 
+use Maatwebsite\Excel\Concerns\Import;
 use Maatwebsite\Excel\Concerns\WithMultipleSheets;
 
-class UsersImport implements WithMultipleSheets 
+class UsersImport implements Import, WithMultipleSheets 
 {
    
     public function sheets(): array
@@ -69,9 +71,10 @@ If you only know the name of the worksheet and don't know the sheet index, you c
 ```php
 namespace App\Imports;
 
+use Maatwebsite\Excel\Concerns\Import;
 use Maatwebsite\Excel\Concerns\WithMultipleSheets;
 
-class UsersImport implements WithMultipleSheets 
+class UsersImport implements Import, WithMultipleSheets 
 {
     public function sheets(): array
     {
@@ -96,10 +99,11 @@ If you want to ignore when a sheet does not exists, you can use the `Maatwebsite
 ```php
 namespace App\Imports;
 
+use Maatwebsite\Excel\Concerns\Import;
 use Maatwebsite\Excel\Concerns\WithMultipleSheets;
 use Maatwebsite\Excel\Concerns\SkipsUnknownSheets;
 
-class UsersImport implements WithMultipleSheets, SkipsUnknownSheets
+class UsersImport implements Import, WithMultipleSheets, SkipsUnknownSheets
 {
     public function sheets(): array
     {
@@ -124,9 +128,10 @@ If you want to have 1 optional sheet and still have the others fail, you can als
 ```php
 namespace App\Imports;
 
+use Maatwebsite\Excel\Concerns\Import;
 use Maatwebsite\Excel\Concerns\SkipsUnknownSheets;
 
-class FirstSheetImport implements SkipsUnknownSheets
+class FirstSheetImport implements Import, SkipsUnknownSheets
 {
     public function onUnknownSheet($sheetName)
     {
@@ -145,10 +150,11 @@ If you want to indicate per import which sheets should be imported, you can use 
 ```php
 namespace App\Imports;
 
+use Maatwebsite\Excel\Concerns\Import;
 use Maatwebsite\Excel\Concerns\WithMultipleSheets;
 use Maatwebsite\Excel\Concerns\WithConditionalSheets;
 
-class UsersImport implements WithMultipleSheets 
+class UsersImport implements Import, WithMultipleSheets 
 {
     use WithConditionalSheets;
 
@@ -179,9 +185,10 @@ When importing you have to implement the `Maatwebsite\Excel\Concerns\WithCalcula
 ```php
 namespace App\Imports;
 
+use Maatwebsite\Excel\Concerns\Import;
 use Maatwebsite\Excel\Concerns\WithMultipleSheets;
 
-class UsersImport implements WithMultipleSheets 
+class UsersImport implements Import, WithMultipleSheets 
 {
     public function sheets(): array
     {
