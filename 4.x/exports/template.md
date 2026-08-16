@@ -58,7 +58,7 @@ Everything in the template file is kept unless your export explicitly overwrites
 When your export uses `WithMultipleSheets`, each sheet in the export is written into the corresponding worksheet in the template (by position). Any template worksheets beyond the number of export sheets are preserved as-is.
 
 ```php
-class MultiSheetReportExport implements WithMultipleSheets, WithExportTemplate
+class MultiSheetReportExport implements Export, WithMultipleSheets, WithExportTemplate
 {
     use Exportable;
 

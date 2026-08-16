@@ -111,6 +111,7 @@ public function handle(Export $export): void { ... }
 ```
 
 **`WithMultipleSheets`** — the `sheets()` method docblock return type has been narrowed from `array<int|string, object>` to `array<int|string, Export|Import>`. Sheets returned should implement at least one export or import concern, which is almost certainly already the case.
+It is also necessary for your import or export class to implement `Export` or `Import` accordingly if you use this concern.
 
 **`Event::getConcernable()`** now returns `Export|Import|null` instead of `object`. Update any code that relies on the `object` return type in a type-strict context.
 

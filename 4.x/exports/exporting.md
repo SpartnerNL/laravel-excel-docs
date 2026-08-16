@@ -50,9 +50,10 @@ By default, an Export writes to a single sheet. To allow the export to have mult
 ```php
 namespace App\Exports;
 
+use Maatwebsite\Excel\Concerns\Export;
 use Maatwebsite\Excel\Concerns\WithMultipleSheets;
 
-class UsersExport implements WithMultipleSheets
+class UsersExport implements Export, WithMultipleSheets
 {
     public function sheets(): array
     {
