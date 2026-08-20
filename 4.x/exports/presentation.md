@@ -234,9 +234,11 @@ use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
 class UsersExport implements WithStyles
 {
-    public function styles(Worksheet $sheet): void
+    public function styles(Worksheet $sheet): null
     {
         $sheet->getStyle('B2')->getFont()->setBold(true);
+
+        return null;
     }
 }
 ```
