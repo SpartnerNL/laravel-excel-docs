@@ -155,7 +155,7 @@ class UsersExport implements FromCollection
 {
     use Exportable;
 
-    public function collection()
+    public function collection(): Collection
     {
         return User::all();
     }
@@ -203,7 +203,7 @@ class UsersExport implements FromCollection, Responsable
         'Content-Type' => 'text/csv',
     ];
 
-    public function collection()
+    public function collection(): Collection
     {
         return User::all();
     }
