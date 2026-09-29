@@ -41,8 +41,7 @@ public function query(): Builder
 ```php
 public function query(): Builder
 {
-    return DB
-        ::table('users')
+    return DB::table('users')
         ->innerJoin('roles')
         ->select('users.id', 'users.name', 'users.email', 'roles.name');
 }
