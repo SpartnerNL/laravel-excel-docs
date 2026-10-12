@@ -118,3 +118,5 @@ By default PhpSpreadsheet keeps all cell values in memory, however when dealing 
 When using the illuminate driver, it will store each value in the cache store. This can slow down the process, because it needs to store each value. However it will use less memory. It will automatically use your default cache store. However if you prefer to have the cell cache on a separate store, you can configure the store name here. You can use any store defined in your cache config. When leaving at "null" it will use the default store.
 
 You can use the "batch" store if you want to only persist to the store when the memory limit is reached. You can tweak the memory limit in the config.
+
+Cells written to the cache store expire after `cache.default_ttl`. If you wrap or extend the cell cache driver, read the note on [`cache.default_ttl`](/4.x/getting-started/configuration.html#cache-default-ttl) first.
