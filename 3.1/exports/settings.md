@@ -90,3 +90,9 @@ When using the illuminate driver, it will store each value in the cache store. T
 It will automatically use your default cache store. However if you prefer to have the cell cache on a separate store, you can configure the store name here. You can use any store defined in your cache config. When leaving at "null" it will use the default store.
 
 You can use the "batch" store if you want to only persist to the store when the memory limit is reached. You can tweak the memory limit in the config.
+
+Cells written to the cache store expire after `cache.default_ttl` seconds (set it to `null` to keep them indefinitely).
+
+::: warning
+`default_ttl` is only applied when the cache is called without a TTL argument. An explicit `null` TTL stores the cell forever. If you wrap or extend the `batch` driver (for example with `CacheManager::extend()`), don't forward a `null` TTL to it: leave the argument out, or pass `$ttl ?? config('excel.cache.default_ttl')`. Otherwise, the cells of any export that fails before PhpSpreadsheet releases them stay in the cache store permanently.
+:::

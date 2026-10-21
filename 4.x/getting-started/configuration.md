@@ -197,6 +197,12 @@ Default: `10800` (seconds — 3 hours)
 
 TTL for cached cell values. Set to `null` to cache indefinitely.
 
+:::warning
+`default_ttl` is only applied when the cache is called without a TTL argument. An explicit `null` TTL stores the cell forever, whatever `default_ttl` is set to.
+
+If you wrap or extend the `batch` driver (for example with `CacheManager::extend()`), don't forward a `null` TTL to it. Leave the argument out, or resolve it yourself with `$ttl ?? config('excel.cache.default_ttl')`. Otherwise, the cells of any import or export that fails before PhpSpreadsheet releases them (out of memory, a timeout, a killed worker) stay in the cache store permanently.
+:::
+
 ---
 
 ## Transactions
