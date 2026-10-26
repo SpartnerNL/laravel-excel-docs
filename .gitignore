@@ -3,3 +3,4 @@
 /.vitepress/dist
 .DS_Store
 .idea
+/.claude/launch.json
