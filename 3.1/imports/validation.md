@@ -34,10 +34,10 @@ class UsersImport implements ToModel, WithValidation
     public function rules(): array
     {
         return [
-            '1' => Rule::in(['patrick@maatwebsite.nl']),
+            '1' => Rule::in(['patrick@spartner.nl']),
 
              // Above is alias for as it always validates in batches
-             '*.1' => Rule::in(['patrick@maatwebsite.nl']),
+             '*.1' => Rule::in(['patrick@spartner.nl']),
              
              // Can also use callback validation rules
              '0' => function($attribute, $value, $onFailure) {
@@ -82,10 +82,10 @@ class UsersImport implements ToModel, WithValidation, WithHeadingRow
     public function rules(): array
     {
         return [
-            'email' => Rule::in(['patrick@maatwebsite.nl']),
+            'email' => Rule::in(['patrick@spartner.nl']),
 
              // Above is alias for as it always validates in batches
-             '*.email' => Rule::in(['patrick@maatwebsite.nl']),
+             '*.email' => Rule::in(['patrick@spartner.nl']),
         ];
     }
 }
@@ -114,7 +114,7 @@ By adding `customValidationMessages()` method to your import, you can specify cu
 public function rules(): array
 {
     return [
-        '1' => Rule::in(['patrick@maatwebsite.nl']),
+        '1' => Rule::in(['patrick@spartner.nl']),
     ];
 }
 
@@ -140,7 +140,7 @@ By adding `customValidationAttributes()` method to your import, you can specify 
 public function rules(): array
 {
     return [
-        '1' => Rule::in(['patrick@maatwebsite.nl']),
+        '1' => Rule::in(['patrick@spartner.nl']),
     ];
 }
 

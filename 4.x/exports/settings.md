@@ -26,7 +26,7 @@ class UsersExport implements WithProperties
             'keywords'       => 'users,export,spreadsheet',
             'category'       => 'Users',
             'manager'        => 'Patrick Brouwers',
-            'company'        => 'Maatwebsite',
+            'company'        => 'Spartner',
         ];
     }
 }

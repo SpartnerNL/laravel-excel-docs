@@ -8,7 +8,7 @@ Given we have an Excel file looking like this:
 
 | Name | Email | @ Field |
 |---- |----|---|
-| Patrick Brouwers | patrick@maatwebsite.nl | Some value |
+| Patrick Brouwers | patrick@spartner.nl | Some value |
 
 We can now reference the heading instead of a numeric array key.
 
@@ -139,13 +139,13 @@ Given we have an Excel file looking like this:
 
 | Name | Email | Options | Options |
 |---- |----|---|---|
-| Patrick Brouwers | patrick@maatwebsite.nl | Some value | Some other value |
+| Patrick Brouwers | patrick@spartner.nl | Some value | Some other value |
 
 We can group the values of the Options columns in an array using import concern `WithGroupedHeadingRow`. Data returned from row will be in format:
 ```php
 [
     'name'    => 'Patrick Brouwers',
-    'email'   => 'patrick@maatwebsite.nl',
+    'email'   => 'patrick@spartner.nl',
     'options' => [
         'Some value',
         'Some other value'

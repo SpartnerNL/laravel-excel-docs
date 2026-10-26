@@ -5,7 +5,7 @@
 * PHP: `^7.1`
 * Laravel: `^5.5`
 * Laravel Nova:`Orion` 
-* Maatwebsite Laravel Excel: `^3.0` 
+* Laravel Excel: `^3.0` 
 
 ## Installation
 

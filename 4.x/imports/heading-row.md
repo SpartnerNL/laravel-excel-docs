@@ -8,7 +8,7 @@ Given we have an Excel file looking like this:
 
 | Name | Email | @ Field |
 |---- |----|---|
-| Patrick Brouwers | patrick@maatwebsite.nl | Some value |
+| Patrick Brouwers | patrick@spartner.nl | Some value |
 
 We can now reference the heading instead of a numeric array key.
 

@@ -26,7 +26,7 @@ class InvoicesExport implements WithProperties
             'keywords'       => 'invoices,export,spreadsheet',
             'category'       => 'Invoices',
             'manager'        => 'Patrick Brouwers',
-            'company'        => 'Maatwebsite',
+            'company'        => 'Spartner',
         ];
     }
 }

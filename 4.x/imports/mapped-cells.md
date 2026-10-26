@@ -10,7 +10,7 @@ You might have a speadsheet looking like this:
 
 |name | Patrick Brouwers|
 |---- |----|
-| email | patrick@maatwebsite.nl |
+| email | patrick@spartner.nl |
 
 We can now map `name` to `B1` and `email` to `B2`. The value of those coordinates will then be available under the given array key.
 

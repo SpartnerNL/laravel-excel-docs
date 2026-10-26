@@ -24,8 +24,8 @@ There are a couple of properties we can change inside the closure. Most of them 
         $excel->setTitle('Our new awesome title');
 
         // Chain the setters
-        $excel->setCreator('Maatwebsite')
-              ->setCompany('Maatwebsite');
+        $excel->setCreator('Spartner')
+              ->setCompany('Spartner');
 
         // Call them separately
         $excel->setDescription('A demonstration to change the file properties');
