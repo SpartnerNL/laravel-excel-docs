@@ -1,0 +1,420 @@
+/**
+ * Laravel Excel look, ported from the old VuePress theme.
+ */
+
+:root {
+    --vp-font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    --vp-font-family-mono: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+
+    --le-orange: #f5a823;
+    --le-orange-dark: #e09410;
+    --le-code-bg: #282828;
+
+    --vp-c-brand-1: var(--le-orange);
+    --vp-c-brand-2: var(--le-orange-dark);
+    --vp-c-brand-3: var(--le-orange);
+    --vp-c-brand-soft: rgba(245, 168, 35, 0.14);
+
+    --vp-c-text-1: #2c3e50;
+    --vp-c-divider: #eaecef;
+    --vp-c-gutter: #eaecef;
+
+    --vp-nav-logo-height: 15px;
+    --vp-sidebar-bg-color: var(--vp-c-bg);
+
+    --vp-code-block-bg: var(--le-code-bg);
+    --vp-code-block-color: #eeffff;
+    --vp-code-block-divider-color: rgba(0, 0, 0, 0.66);
+    --vp-code-line-height: 1.4;
+    --vp-code-font-size: 0.85em;
+    --vp-code-lang-color: rgba(255, 255, 255, 0.4);
+    --vp-code-line-number-color: rgba(255, 255, 255, 0.3);
+    --vp-code-copy-code-bg: #333;
+    --vp-code-copy-code-hover-bg: #3a3a3a;
+    --vp-code-copy-code-border-color: #444;
+    --vp-code-copy-code-hover-border-color: #555;
+    --vp-code-copy-code-active-text: #ccc;
+
+    --vp-button-brand-text: #1b1b1f;
+    --vp-button-brand-hover-text: #1b1b1f;
+    --vp-button-brand-active-text: #1b1b1f;
+
+    --le-pill-color: var(--le-orange-dark);
+    --le-pill-bg: #faf3e7;
+    --le-pill-border: #f8d79e;
+}
+
+.dark {
+    --vp-c-text-1: rgba(255, 255, 245, 0.86);
+    --vp-c-divider: #2e2e32;
+    --vp-c-gutter: #000;
+    --vp-c-brand-2: #f7b84a;
+
+    --le-pill-color: var(--le-orange);
+    --le-pill-bg: rgba(245, 168, 35, 0.1);
+    --le-pill-border: rgba(245, 168, 35, 0.35);
+}
+
+/* Navbar: one white bar with a single bottom border, like before */
+
+.VPNavBar,
+.VPNavBar:not(.home).top,
+.VPNavBar.has-sidebar .content,
+.VPNavBar.has-sidebar .title {
+    background-color: var(--vp-c-bg) !important;
+}
+
+.VPNavBar {
+    border-bottom: 1px solid var(--vp-c-divider);
+}
+
+.VPNavBar .divider,
+.VPNavBar.has-sidebar .title {
+    border-bottom: 0 !important;
+}
+
+.VPNavBar .divider-line {
+    display: none;
+}
+
+.VPNavBarTitle .logo {
+    width: auto;
+}
+
+.VPNavBarMenuLink,
+.VPNavBarMenuGroup .button {
+    font-weight: 500;
+    color: var(--vp-c-text-1);
+}
+
+.VPNavBarMenuLink:hover,
+.VPNavBarMenuGroup .button:hover {
+    color: var(--vp-c-brand-1);
+}
+
+/* Search: the old rounded pill */
+
+@media (min-width: 768px) {
+    .DocSearch-Button {
+        border: 1px solid #cfd4db;
+        border-radius: 32px;
+        background: var(--vp-c-bg);
+    }
+
+    .dark .DocSearch-Button {
+        border-color: var(--vp-c-divider);
+    }
+}
+
+/* Sidebar */
+
+.VPSidebar .group + .group {
+    border-top: 0;
+    padding-top: 4px;
+}
+
+.VPSidebar {
+    border-right: 0;
+}
+
+.VPSidebarItem.level-0 > .item > .text,
+.VPSidebarItem.level-0 > .item > .VPLink > .text {
+    font-size: 16.5px;
+    font-weight: 700;
+    color: var(--vp-c-text-1);
+}
+
+.VPSidebarItem.level-0.collapsible > .item:hover > .text,
+.VPSidebarItem.level-0.has-active > .item > .text {
+    color: var(--vp-c-brand-1);
+}
+
+.VPSidebarItem.level-1 .text {
+    font-size: 15px;
+    color: var(--vp-c-text-1);
+}
+
+.VPSidebarItem.level-1 .item {
+    padding-left: 12px;
+}
+
+.VPSidebarItem.level-1.is-link > .item > .link:hover .text {
+    color: var(--vp-c-brand-1);
+}
+
+.VPSidebarItem.level-1.is-active > .item .text {
+    font-weight: 600;
+    color: var(--vp-c-brand-1);
+}
+
+.VPSidebarItem.level-1.is-active > .item > .indicator {
+    left: -16px;
+    width: 4px;
+    background-color: var(--vp-c-brand-1);
+}
+
+/* Content width: the old layout gave the text more room */
+
+@media (min-width: 960px) {
+    .VPDoc .content-container {
+        max-width: 960px !important;
+        margin-left: 0 !important;
+    }
+
+    .VPDoc:not(.has-aside) .container {
+        margin-left: 0 !important;
+    }
+}
+
+/* Headings */
+
+.vp-doc h1 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+.vp-doc h2 {
+    margin: 48px 0 16px;
+    padding: 0 0 0.3rem;
+    border-top: 0;
+    border-bottom: 1px solid var(--vp-c-divider);
+    font-size: 1.65rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+}
+
+.vp-doc h3 {
+    font-size: 1.35rem;
+    font-weight: 600;
+}
+
+.vp-doc h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+/* Links */
+
+.vp-doc a {
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--vp-c-brand-1);
+}
+
+.vp-doc a:hover {
+    text-decoration: underline;
+    color: var(--vp-c-brand-1);
+}
+
+/* Inline code: orange pills in running text, plain grey elsewhere */
+
+.vp-doc :not(pre) > code {
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.85em;
+    color: var(--vp-c-text-1);
+    background-color: rgba(27, 31, 35, 0.05);
+}
+
+.dark .vp-doc :not(pre) > code {
+    background-color: var(--vp-c-default-soft);
+}
+
+.vp-doc p > code,
+.vp-doc li > code,
+.vp-doc td > code {
+    padding: 0.18rem 0.5rem;
+    border: 1px solid var(--le-pill-border);
+    border-radius: 16px;
+    font-size: 0.8em;
+    font-weight: 700;
+    white-space: nowrap;
+    color: var(--le-pill-color);
+    background-color: var(--le-pill-bg);
+}
+
+.vp-doc a > code,
+.vp-doc p > a > code {
+    color: var(--vp-c-brand-1);
+}
+
+/* Code blocks */
+
+.vp-doc div[class*='language-'] {
+    border-radius: 6px;
+}
+
+@media (min-width: 640px) {
+    .vp-doc div[class*='language-'] {
+        border-radius: 6px;
+    }
+}
+
+.vp-doc div[class*='language-'].line-numbers-mode {
+    --vp-code-line-number-width: 56px;
+}
+
+.vp-doc .line-numbers-wrapper {
+    width: 56px;
+    border-right: 1px solid rgba(0, 0, 0, 0.66);
+    font-size: 0.85em;
+}
+
+/* Custom blocks: a thick coloured bar on the left, like before */
+
+.custom-block {
+    border: 0;
+    border-left: 0.5rem solid;
+    border-radius: 0;
+    padding: 12px 24px 4px;
+}
+
+.custom-block .custom-block-title {
+    font-weight: 700;
+}
+
+.custom-block.tip {
+    border-color: #1c78e6;
+    background-color: #f3f5f7;
+    color: var(--vp-c-text-1);
+}
+
+.custom-block.info {
+    border-color: #b1b8c1;
+    background-color: #f3f5f7;
+    color: var(--vp-c-text-1);
+}
+
+.custom-block.warning {
+    border-color: #e7c000;
+    background-color: rgba(255, 229, 100, 0.3);
+    color: #6b5900;
+}
+
+.custom-block.warning .custom-block-title {
+    color: #b29400;
+}
+
+.custom-block.danger {
+    border-color: #cc0000;
+    background-color: #ffe6e6;
+    color: #4d0000;
+}
+
+.custom-block.danger .custom-block-title {
+    color: #900;
+}
+
+.custom-block.warning a,
+.custom-block.danger a {
+    color: var(--vp-c-text-1);
+}
+
+.dark .custom-block.tip,
+.dark .custom-block.info {
+    background-color: var(--vp-c-default-soft);
+}
+
+.dark .custom-block.warning {
+    background-color: rgba(231, 192, 0, 0.12);
+    color: #f0dd91;
+}
+
+.dark .custom-block.warning .custom-block-title {
+    color: #e7c000;
+}
+
+.dark .custom-block.danger {
+    background-color: rgba(204, 0, 0, 0.15);
+    color: #f3b6b6;
+}
+
+.dark .custom-block.danger .custom-block-title {
+    color: #ff6b6b;
+}
+
+.dark .custom-block.warning a,
+.dark .custom-block.danger a {
+    color: inherit;
+}
+
+/* Right-hand outline (the inline [[toc]] it replaces is hidden) */
+
+.vp-doc .table-of-contents {
+    display: none;
+}
+
+.VPDocAsideOutline .outline-title {
+    font-size: 13.6px;
+}
+
+.VPDocAsideOutline .outline-link {
+    font-size: 13.6px;
+    color: var(--vp-c-text-1);
+}
+
+.VPDocAsideOutline .outline-link:hover,
+.VPDocAsideOutline .outline-link.active {
+    color: var(--vp-c-brand-1);
+}
+
+/* File trees from `::: vue` blocks */
+
+.vp-doc pre.vue-container {
+    margin: 16px 0;
+    padding: 20px 24px;
+    overflow-x: auto;
+    border-left: 0.5rem solid var(--le-orange);
+    border-radius: 0;
+    background-color: var(--le-code-bg);
+    color: #fff;
+    font-family: var(--vp-font-family-mono);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.vp-doc pre.vue-container > code {
+    padding: 0;
+    border: 0;
+    background: none;
+    font-size: inherit;
+    font-weight: 400;
+    color: inherit;
+}
+
+.vp-doc pre.vue-container p {
+    margin: 0;
+    line-height: inherit;
+}
+
+.vp-doc pre.vue-container p > code {
+    padding: 2px 5px;
+    border: 0;
+    border-radius: 3px;
+    background-color: var(--le-orange);
+    font-size: 0.85em;
+    font-weight: 700;
+    white-space: pre;
+    color: #000;
+}
+
+.vp-doc pre.vue-container em {
+    color: #adadad;
+}
+
+/* Numbered step markers */
+
+.vp-doc .inline-step {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.6rem;
+    height: 1.6rem;
+    margin-right: 5px;
+    border-radius: 100%;
+    background: var(--le-orange);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+}

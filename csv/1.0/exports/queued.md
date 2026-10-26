@@ -48,7 +48,7 @@ class UsersController extends Controller
 ```
 
 ## Appending jobs
-The same configuration for chunking as with [FromQuery](/csv/1.0/exports/export-from-query.html) applies here as well. The difference is that the `queue` method will always return a `PendingDispatch` instance. 
+The same configuration for chunking as with [FromQuery](/csv/1.0/exports/from-query.html) applies here as well. The difference is that the `queue` method will always return a `PendingDispatch` instance. 
 This allows you to add additional jobs to the existing chain. 
 
 ```php

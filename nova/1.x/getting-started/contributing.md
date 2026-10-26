@@ -8,7 +8,7 @@ Please read and understand the contribution guide before creating an issue or pu
 
 - [Docs](https://docs.laravel-excel.com/)
 - [Issue tracker](https://github.com/SpartnerNL/Laravel-Nova-Excel/issues)
-- [Support](/nova/1.1/getting-started/support.html)
+- [Support](/nova/1.x/getting-started/support.html)
 
 ## Etiquette
 

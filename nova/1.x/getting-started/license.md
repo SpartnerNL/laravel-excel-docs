@@ -16,7 +16,7 @@ The Netherlands
 ## Support
 
 ::: warning Support
-We hold no liability and will provide support on a best effort basis. For more information about support please see [support](/nova/1.1/getting-started/support.html).
+We hold no liability and will provide support on a best effort basis. For more information about support please see [support](/nova/1.x/getting-started/support.html).
 :::
 
 :::tip Commercial Support
