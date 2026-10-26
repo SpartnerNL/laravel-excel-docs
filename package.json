@@ -10,6 +10,8 @@
         "docs:preview": "vitepress preview"
     },
     "devDependencies": {
+        "@fontsource-variable/ibm-plex-sans": "^5.3.0",
+        "@fontsource/ibm-plex-mono": "^5.3.0",
         "markdown-it-container": "^4.0.0",
         "vitepress": "^1.6.4",
         "vitepress-plugin-llms": "^1.14.0"

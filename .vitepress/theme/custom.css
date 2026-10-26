@@ -1,71 +1,188 @@
 /**
- * Laravel Excel look, ported from the old VuePress theme.
+ * Laravel Excel documentation theme.
+ *
+ * Built on the VitePress default theme. Keeps the identity of the old VuePress site
+ * (orange, wordmark, dark code) with calmer type and more careful details.
+ * It borrows from Excel itself: square corners everywhere, the page you're on marked as a
+ * selected cell (with its fill handle), gridded tables, row-header line numbers, cell-chip
+ * inline code and the comment triangle on notes.
  */
 
 :root {
-    --vp-font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-    --vp-font-family-mono: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
-
+    /* Palette */
+    --le-ink: #1d2733;
+    --le-ink-2: #4a5565;
+    --le-ink-3: #808a98;
+    --le-grid: #e6e8ec;
+    --le-paper: #ffffff;
+    --le-paper-soft: #f7f8fa;
     --le-orange: #f5a823;
-    --le-orange-dark: #e09410;
-    --le-code-bg: #282828;
+    --le-orange-ink: #a65f00;
+    --le-orange-wash: rgba(245, 168, 35, 0.1);
+    --le-graphite: #1f2329;
 
-    --vp-c-brand-1: var(--le-orange);
-    --vp-c-brand-2: var(--le-orange-dark);
+    /* Type */
+    --vp-font-family-base: 'IBM Plex Sans Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --vp-font-family-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+    /* VitePress colours */
+    --vp-c-brand-1: var(--le-orange-ink);
+    --vp-c-brand-2: #8f5200;
     --vp-c-brand-3: var(--le-orange);
-    --vp-c-brand-soft: rgba(245, 168, 35, 0.14);
+    --vp-c-brand-soft: var(--le-orange-wash);
 
-    --vp-c-text-1: #2c3e50;
-    --vp-c-divider: #eaecef;
-    --vp-c-gutter: #eaecef;
+    --vp-c-text-1: var(--le-ink);
+    --vp-c-text-2: var(--le-ink-2);
+    --vp-c-text-3: var(--le-ink-3);
+    --vp-c-divider: var(--le-grid);
+    --vp-c-gutter: var(--le-grid);
+    --vp-c-bg: var(--le-paper);
+    --vp-c-bg-soft: var(--le-paper-soft);
+    --vp-c-bg-alt: var(--le-paper-soft);
 
     --vp-nav-logo-height: 15px;
     --vp-sidebar-bg-color: var(--vp-c-bg);
 
-    --vp-code-block-bg: var(--le-code-bg);
-    --vp-code-block-color: #eeffff;
-    --vp-code-block-divider-color: rgba(0, 0, 0, 0.66);
-    --vp-code-line-height: 1.4;
-    --vp-code-font-size: 0.85em;
-    --vp-code-lang-color: rgba(255, 255, 255, 0.4);
-    --vp-code-line-number-color: rgba(255, 255, 255, 0.3);
-    --vp-code-copy-code-bg: #333;
-    --vp-code-copy-code-hover-bg: #3a3a3a;
-    --vp-code-copy-code-border-color: #444;
-    --vp-code-copy-code-hover-border-color: #555;
-    --vp-code-copy-code-active-text: #ccc;
+    /* Code */
+    --vp-code-font-size: 0.875em;
+    --vp-code-line-height: 1.6;
+    --vp-code-block-bg: var(--le-graphite);
+    --vp-code-block-color: #e8eaed;
+    --vp-code-block-divider-color: rgba(255, 255, 255, 0.06);
+    --vp-code-lang-color: rgba(255, 255, 255, 0.38);
+    --vp-code-line-number-color: #8a929d;
+    --vp-code-copy-code-bg: rgba(255, 255, 255, 0.06);
+    --vp-code-copy-code-hover-bg: rgba(255, 255, 255, 0.1);
+    --vp-code-copy-code-border-color: rgba(255, 255, 255, 0.1);
+    --vp-code-copy-code-hover-border-color: rgba(255, 255, 255, 0.16);
+    --vp-code-copy-code-active-text: rgba(255, 255, 255, 0.7);
+    --le-code-border: transparent;
+    --le-code-shadow: 0 1px 2px rgba(16, 24, 40, 0.06), 0 12px 28px -16px rgba(16, 24, 40, 0.35);
 
-    --vp-button-brand-text: #1b1b1f;
-    --vp-button-brand-hover-text: #1b1b1f;
-    --vp-button-brand-active-text: #1b1b1f;
+    --vp-button-brand-text: var(--le-ink);
+    --vp-button-brand-bg: var(--le-orange);
+    --vp-button-brand-hover-text: var(--le-ink);
+    --vp-button-brand-hover-bg: #f7b84a;
 
-    --le-pill-color: var(--le-orange-dark);
-    --le-pill-bg: #faf3e7;
-    --le-pill-border: #f8d79e;
+    /* Inline code cell chips */
+    --le-chip-color: #8f5200;
+    --le-chip-bg: #fdf4e3;
+    --le-chip-border: #f2d39a;
+
+    /* Spreadsheet grid */
+    --le-gridline: #d9dce1;
+    --le-header-bg: #f2f3f5;
+    --le-header-ink: #4a5565;
+    --le-row-header-bg: #272b32;
+    --le-row-header-line: #3a3f47;
+
+    /* Blocks */
+    --le-tip: #2f7be6;
+    --le-tip-bg: #f2f7fe;
+    --le-tip-border: #d5e4fa;
+    --le-tip-ink: var(--le-ink);
+    --le-warning: #e3a008;
+    --le-warning-bg: #fff8e6;
+    --le-warning-border: #f6e2ad;
+    --le-warning-ink: #5c4400;
+    --le-danger: #d64545;
+    --le-danger-bg: #fdf1f1;
+    --le-danger-border: #f4cccc;
+    --le-danger-ink: #5f1d1d;
 }
 
 .dark {
-    --vp-c-text-1: rgba(255, 255, 245, 0.86);
-    --vp-c-divider: #2e2e32;
-    --vp-c-gutter: #000;
-    --vp-c-brand-2: #f7b84a;
+    --le-ink: rgba(255, 255, 245, 0.88);
+    --le-ink-2: rgba(235, 235, 245, 0.64);
+    --le-ink-3: rgba(235, 235, 245, 0.42);
+    --le-grid: #2a2d34;
+    --le-paper: #15171b;
+    --le-paper-soft: #1c1f24;
+    --le-orange-ink: #f5b13d;
+    --le-orange-wash: rgba(245, 168, 35, 0.12);
+    --le-graphite: #0f1114;
 
-    --le-pill-color: var(--le-orange);
-    --le-pill-bg: rgba(245, 168, 35, 0.1);
-    --le-pill-border: rgba(245, 168, 35, 0.35);
+    --vp-c-brand-2: #f7c060;
+    --vp-c-gutter: #000;
+
+    --le-code-border: rgba(255, 255, 255, 0.07);
+    --le-code-shadow: none;
+
+    --le-chip-color: #f5b13d;
+    --le-chip-bg: rgba(245, 168, 35, 0.1);
+    --le-chip-border: rgba(245, 168, 35, 0.3);
+
+    --le-gridline: #31353c;
+    --le-header-bg: #1f2227;
+    --le-header-ink: rgba(235, 235, 245, 0.64);
+    --le-row-header-bg: #171a1e;
+    --le-row-header-line: #2b2f36;
+
+    --le-tip-bg: rgba(47, 123, 230, 0.1);
+    --le-tip-border: rgba(47, 123, 230, 0.28);
+    --le-warning-bg: rgba(227, 160, 8, 0.1);
+    --le-warning-border: rgba(227, 160, 8, 0.28);
+    --le-warning-ink: #f3dc9b;
+    --le-danger-bg: rgba(214, 69, 69, 0.12);
+    --le-danger-border: rgba(214, 69, 69, 0.3);
+    --le-danger-ink: #f4b8b8;
 }
 
-/* Navbar: one white bar with a single bottom border, like before */
+/* Base: square corners, like a worksheet */
+
+*,
+*::before,
+*::after {
+    border-radius: 0 !important;
+}
+
+body {
+    font-feature-settings: 'kern', 'liga';
+    text-rendering: optimizeLegibility;
+}
+
+::selection {
+    background-color: rgba(245, 168, 35, 0.3);
+}
+
+:focus-visible {
+    outline: 2px solid var(--le-orange);
+    outline-offset: 0;
+}
+
+/* A very soft yellow glow at the top of the page, the same shape and gradient as on
+   laravel-excel.com (see GradientGlow.vue). It sits behind the content and scrolls with it. */
+
+:root {
+    --le-glow-opacity: 0.14;
+}
+
+.dark {
+    --le-glow-opacity: 0.06;
+}
+
+.VPContent {
+    position: relative;
+    z-index: 1;
+}
+
+/* Navbar: frosted, one hairline */
+
+.VPNav {
+    background-color: color-mix(in srgb, var(--vp-c-bg) 82%, transparent);
+    -webkit-backdrop-filter: saturate(180%) blur(12px);
+    backdrop-filter: saturate(180%) blur(12px);
+    border-bottom: 1px solid var(--vp-c-divider);
+}
 
 .VPNavBar,
+.VPNavBar:not(.home),
 .VPNavBar:not(.home).top,
-.VPNavBar.has-sidebar .content,
-.VPNavBar.has-sidebar .title {
-    background-color: var(--vp-c-bg) !important;
-}
-
-.VPNavBar {
-    border-bottom: 1px solid var(--vp-c-divider);
+.VPNavBar .content-body,
+.VPNavBar.has-sidebar .content-body,
+.VPNavBar.has-sidebar .title,
+.VPNavBar:not(.home).top .content-body {
+    background-color: transparent !important;
 }
 
 .VPNavBar .divider,
@@ -83,81 +200,130 @@
 
 .VPNavBarMenuLink,
 .VPNavBarMenuGroup .button {
+    font-size: 14px;
     font-weight: 500;
-    color: var(--vp-c-text-1);
+    color: var(--vp-c-text-2);
 }
 
 .VPNavBarMenuLink:hover,
-.VPNavBarMenuGroup .button:hover {
-    color: var(--vp-c-brand-1);
+.VPNavBarMenuGroup .button:hover,
+.VPNavBarMenuGroup.active .button {
+    color: var(--vp-c-text-1);
 }
 
-/* Search: the old rounded pill */
+.VPNavBarMenuGroup.active .text {
+    height: auto;
+    line-height: 20px;
+    padding: 2px 8px;
+    border: 1px solid var(--le-chip-border);
+    font-family: var(--vp-font-family-mono);
+    font-size: 12.5px;
+    color: var(--le-chip-color);
+    background-color: var(--le-chip-bg);
+}
+
+.VPLocalNav {
+    background-color: color-mix(in srgb, var(--vp-c-bg) 82%, transparent);
+    -webkit-backdrop-filter: saturate(180%) blur(12px);
+    backdrop-filter: saturate(180%) blur(12px);
+}
+
+/* Search */
 
 @media (min-width: 768px) {
     .DocSearch-Button {
-        border: 1px solid #cfd4db;
-        border-radius: 32px;
-        background: var(--vp-c-bg);
+        border: 1px solid var(--vp-c-divider);
+        background: var(--vp-c-bg-soft);
+        transition: border-color 0.15s ease;
     }
 
-    .dark .DocSearch-Button {
-        border-color: var(--vp-c-divider);
+    .DocSearch-Button:hover {
+        border-color: var(--le-orange);
+        background: var(--vp-c-bg);
     }
 }
 
 /* Sidebar */
 
-.VPSidebar .group + .group {
-    border-top: 0;
-    padding-top: 4px;
+.VPSidebar {
+    border-right: 1px solid var(--vp-c-divider);
 }
 
-.VPSidebar {
-    border-right: 0;
+.VPSidebar .group + .group {
+    border-top: 0;
+    padding-top: 0;
+}
+
+.VPSidebarItem.level-0 {
+    padding-bottom: 8px;
 }
 
 .VPSidebarItem.level-0 > .item > .text,
 .VPSidebarItem.level-0 > .item > .VPLink > .text {
-    font-size: 16.5px;
-    font-weight: 700;
+    font-size: 14px;
+    font-weight: 600;
     color: var(--vp-c-text-1);
 }
 
 .VPSidebarItem.level-0.collapsible > .item:hover > .text,
 .VPSidebarItem.level-0.has-active > .item > .text {
-    color: var(--vp-c-brand-1);
+    color: var(--le-orange-ink);
+}
+
+.VPSidebarItem.level-1 > .item {
+    position: relative;
+    margin-left: -10px;
+    padding: 0 10px;
+    transition: background-color 0.12s ease;
 }
 
 .VPSidebarItem.level-1 .text {
-    font-size: 15px;
+    padding: 5px 0;
+    font-size: 14px;
+    line-height: 22px;
+    color: var(--vp-c-text-2);
+}
+
+.VPSidebarItem.level-1.is-link > .item:hover {
+    background-color: var(--vp-c-bg-soft);
+}
+
+.VPSidebarItem.level-1.is-link > .item:hover .text {
     color: var(--vp-c-text-1);
 }
 
-.VPSidebarItem.level-1 .item {
-    padding-left: 12px;
+.VPSidebarItem.level-1 > .item > .indicator {
+    display: none;
 }
 
-.VPSidebarItem.level-1.is-link > .item > .link:hover .text {
-    color: var(--vp-c-brand-1);
+/* The page you're on: a selected cell, with its fill handle */
+
+.VPSidebarItem.level-1.is-active > .item {
+    background-color: var(--le-orange-wash);
+    box-shadow: inset 0 0 0 2px var(--le-orange);
+}
+
+.VPSidebarItem.level-1.is-active > .item::after {
+    content: '';
+    position: absolute;
+    right: -3px;
+    bottom: -3px;
+    width: 6px;
+    height: 6px;
+    background-color: var(--le-orange);
+    box-shadow: 0 0 0 1.5px var(--vp-c-bg);
 }
 
 .VPSidebarItem.level-1.is-active > .item .text {
     font-weight: 600;
-    color: var(--vp-c-brand-1);
+    color: var(--vp-c-text-1);
 }
 
-.VPSidebarItem.level-1.is-active > .item > .indicator {
-    left: -16px;
-    width: 4px;
-    background-color: var(--vp-c-brand-1);
-}
-
-/* Content width: the old layout gave the text more room */
+/* Reading width */
 
 @media (min-width: 960px) {
     .VPDoc .content-container {
-        max-width: 960px !important;
+        max-width: 780px !important;
         margin-left: 0 !important;
     }
 
@@ -166,72 +332,132 @@
     }
 }
 
-/* Headings */
+@media (min-width: 1280px) {
+    .VPDoc .content {
+        padding-left: 56px !important;
+    }
+}
+
+/* Typography */
+
+.vp-doc {
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--vp-c-text-1);
+}
+
+.vp-doc p,
+.vp-doc li {
+    line-height: 1.75;
+}
+
+.vp-doc h1,
+.vp-doc h2,
+.vp-doc h3,
+.vp-doc h4 {
+    font-weight: 600;
+    color: var(--vp-c-text-1);
+}
 
 .vp-doc h1 {
-    font-size: 2.2rem;
-    font-weight: 600;
-    letter-spacing: -0.01em;
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+}
+
+.vp-doc h1 + p {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--vp-c-text-2);
 }
 
 .vp-doc h2 {
-    margin: 48px 0 16px;
-    padding: 0 0 0.3rem;
+    margin: 56px 0 20px;
+    padding: 0 0 10px;
     border-top: 0;
     border-bottom: 1px solid var(--vp-c-divider);
-    font-size: 1.65rem;
-    font-weight: 600;
-    letter-spacing: -0.01em;
+    font-size: 1.625rem;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
 }
 
 .vp-doc h3 {
-    font-size: 1.35rem;
-    font-weight: 600;
+    margin: 36px 0 12px;
+    font-size: 1.25rem;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
 }
 
 .vp-doc h4 {
-    font-size: 1.2rem;
-    font-weight: 700;
+    margin: 28px 0 8px;
+    font-size: 1.05rem;
+}
+
+.vp-doc h1 > .header-anchor,
+.vp-doc h2 > .header-anchor,
+.vp-doc h3 > .header-anchor,
+.vp-doc h4 > .header-anchor {
+    color: var(--le-orange);
+    font-weight: 500;
+}
+
+.vp-doc strong {
+    font-weight: 600;
+    color: var(--vp-c-text-1);
+}
+
+.vp-doc hr {
+    margin: 40px 0;
+    border-top: 1px solid var(--vp-c-divider);
+}
+
+.vp-doc blockquote {
+    border-left: 3px solid var(--vp-c-divider);
+    color: var(--vp-c-text-2);
 }
 
 /* Links */
 
 .vp-doc a {
     font-weight: 500;
-    text-decoration: none;
     color: var(--vp-c-brand-1);
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, var(--le-orange) 45%, transparent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.15s ease, color 0.15s ease;
 }
 
 .vp-doc a:hover {
-    text-decoration: underline;
-    color: var(--vp-c-brand-1);
+    color: var(--vp-c-brand-2);
+    text-decoration-color: var(--le-orange);
 }
 
-/* Inline code: orange pills in running text, plain grey elsewhere */
+.vp-doc .header-anchor,
+.vp-doc .header-anchor:hover {
+    text-decoration: none;
+}
+
+/* Inline code: cell chips in running text, quiet everywhere else */
 
 .vp-doc :not(pre) > code {
-    padding: 0.2rem 0.4rem;
-    border-radius: 4px;
+    padding: 0.15em 0.4em;
     font-size: 0.85em;
     color: var(--vp-c-text-1);
-    background-color: rgba(27, 31, 35, 0.05);
-}
-
-.dark .vp-doc :not(pre) > code {
-    background-color: var(--vp-c-default-soft);
+    background-color: var(--vp-c-bg-soft);
 }
 
 .vp-doc p > code,
 .vp-doc li > code,
 .vp-doc td > code {
-    padding: 0.18rem 0.5rem;
-    border: 1px solid var(--le-pill-border);
-    border-radius: 16px;
-    font-size: 0.8em;
-    font-weight: 700;
+    padding: 0.1em 0.42em;
+    border: 1px solid var(--le-chip-border);
+    font-size: 0.82em;
+    font-weight: 500;
     white-space: nowrap;
-    color: var(--le-pill-color);
-    background-color: var(--le-pill-bg);
+    color: var(--le-chip-color);
+    background-color: var(--le-chip-bg);
 }
 
 .vp-doc a > code,
@@ -242,101 +468,167 @@
 /* Code blocks */
 
 .vp-doc div[class*='language-'] {
-    border-radius: 6px;
+    margin: 20px 0;
+    border: 1px solid var(--le-code-border);
+    box-shadow: var(--le-code-shadow);
 }
 
-@media (min-width: 640px) {
+@media (max-width: 639px) {
     .vp-doc div[class*='language-'] {
-        border-radius: 6px;
+        box-shadow: none;
     }
 }
 
-.vp-doc div[class*='language-'].line-numbers-mode {
-    --vp-code-line-number-width: 56px;
+.vp-doc div[class*='language-'] code {
+    font-size: 14px;
 }
+
+.vp-doc div[class*='language-'] > span.lang {
+    top: 0;
+    right: 0;
+    padding: 2px 10px;
+    border-bottom: 1px solid var(--le-row-header-line);
+    border-left: 1px solid var(--le-row-header-line);
+    background-color: var(--le-row-header-bg);
+    font-family: var(--vp-font-family-mono);
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+/* Line numbers as row headers */
 
 .vp-doc .line-numbers-wrapper {
-    width: 56px;
-    border-right: 1px solid rgba(0, 0, 0, 0.66);
-    font-size: 0.85em;
+    border-right: 1px solid var(--le-row-header-line);
+    background-color: var(--le-row-header-bg);
+    font-family: var(--vp-font-family-mono);
+    font-size: 12.5px;
 }
 
-/* Custom blocks: a thick coloured bar on the left, like before */
+/* Custom blocks */
 
 .custom-block {
-    border: 0;
-    border-left: 0.5rem solid;
-    border-radius: 0;
-    padding: 12px 24px 4px;
+    --le-block-accent: var(--le-tip);
+    position: relative;
+    margin: 20px 0;
+    padding: 14px 20px 6px;
+    border: 1px solid;
+    border-left-width: 4px;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* The comment indicator Excel puts in the corner of a cell with a note */
+.custom-block::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-style: solid;
+    border-width: 0 12px 12px 0;
+    border-color: transparent var(--le-block-accent) transparent transparent;
 }
 
 .custom-block .custom-block-title {
-    font-weight: 700;
+    margin-bottom: 4px;
+    font-size: 14px;
+    font-weight: 650;
 }
 
-.custom-block.tip {
-    border-color: #1c78e6;
-    background-color: #f3f5f7;
-    color: var(--vp-c-text-1);
-}
-
+.custom-block.tip,
 .custom-block.info {
-    border-color: #b1b8c1;
-    background-color: #f3f5f7;
-    color: var(--vp-c-text-1);
+    border-color: var(--le-tip-border);
+    border-left-color: var(--le-tip);
+    background-color: var(--le-tip-bg);
+    color: var(--le-tip-ink);
+}
+
+.custom-block.tip .custom-block-title,
+.custom-block.info .custom-block-title {
+    color: var(--le-tip);
 }
 
 .custom-block.warning {
-    border-color: #e7c000;
-    background-color: rgba(255, 229, 100, 0.3);
-    color: #6b5900;
+    --le-block-accent: var(--le-warning);
+    border-color: var(--le-warning-border);
+    border-left-color: var(--le-warning);
+    background-color: var(--le-warning-bg);
+    color: var(--le-warning-ink);
 }
 
 .custom-block.warning .custom-block-title {
-    color: #b29400;
+    color: var(--le-warning-ink);
 }
 
 .custom-block.danger {
-    border-color: #cc0000;
-    background-color: #ffe6e6;
-    color: #4d0000;
+    --le-block-accent: var(--le-danger);
+    border-color: var(--le-danger-border);
+    border-left-color: var(--le-danger);
+    background-color: var(--le-danger-bg);
+    color: var(--le-danger-ink);
 }
 
 .custom-block.danger .custom-block-title {
-    color: #900;
+    color: var(--le-danger);
 }
 
 .custom-block.warning a,
 .custom-block.danger a {
-    color: var(--vp-c-text-1);
-}
-
-.dark .custom-block.tip,
-.dark .custom-block.info {
-    background-color: var(--vp-c-default-soft);
-}
-
-.dark .custom-block.warning {
-    background-color: rgba(231, 192, 0, 0.12);
-    color: #f0dd91;
-}
-
-.dark .custom-block.warning .custom-block-title {
-    color: #e7c000;
-}
-
-.dark .custom-block.danger {
-    background-color: rgba(204, 0, 0, 0.15);
-    color: #f3b6b6;
-}
-
-.dark .custom-block.danger .custom-block-title {
-    color: #ff6b6b;
-}
-
-.dark .custom-block.warning a,
-.dark .custom-block.danger a {
     color: inherit;
+}
+
+.custom-block div[class*='language-'] {
+    box-shadow: none;
+}
+
+/* Tables: a worksheet, with gridlines, header cells and a selectable cell */
+
+.vp-doc table {
+    width: fit-content;
+    max-width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--le-gridline);
+    font-size: 14.5px;
+    font-variant-numeric: tabular-nums;
+}
+
+.vp-doc tr,
+.vp-doc tr:nth-child(2n) {
+    border-top: 0;
+    background-color: transparent;
+}
+
+.vp-doc th,
+.vp-doc td {
+    position: relative;
+    border: 1px solid var(--le-gridline);
+    padding: 6px 12px;
+}
+
+.vp-doc thead th {
+    border-bottom-color: color-mix(in srgb, var(--le-gridline) 60%, var(--le-ink-3));
+    background-color: var(--le-header-bg);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--le-header-ink);
+}
+
+.vp-doc td:hover {
+    box-shadow: inset 0 0 0 2px var(--le-orange);
+}
+
+.vp-doc td:hover::after {
+    content: '';
+    position: absolute;
+    right: -3px;
+    bottom: -3px;
+    z-index: 1;
+    width: 6px;
+    height: 6px;
+    background-color: var(--le-orange);
+    box-shadow: 0 0 0 1.5px var(--vp-c-bg);
 }
 
 /* Right-hand outline (the inline [[toc]] it replaces is hidden) */
@@ -346,32 +638,67 @@
 }
 
 .VPDocAsideOutline .outline-title {
-    font-size: 13.6px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--vp-c-text-3);
 }
 
 .VPDocAsideOutline .outline-link {
-    font-size: 13.6px;
-    color: var(--vp-c-text-1);
+    font-size: 13px;
+    line-height: 26px;
+    color: var(--vp-c-text-2);
 }
 
 .VPDocAsideOutline .outline-link:hover,
 .VPDocAsideOutline .outline-link.active {
+    color: var(--vp-c-text-1);
+}
+
+.VPDocAsideOutline .outline-marker {
+    width: 2px;
+    background-color: var(--le-orange);
+}
+
+/* Page footer */
+
+.VPDocFooter .edit-link-button {
+    font-weight: 500;
+    color: var(--vp-c-text-2);
+}
+
+.VPDocFooter .edit-link-button:hover {
     color: var(--vp-c-brand-1);
+}
+
+.VPDocFooter .pager-link {
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.VPDocFooter .pager-link:hover {
+    border-color: var(--le-orange);
+    background-color: var(--le-orange-wash);
+}
+
+.VPDocFooter .pager-link .title {
+    color: var(--vp-c-text-1);
 }
 
 /* File trees from `::: vue` blocks */
 
 .vp-doc pre.vue-container {
-    margin: 16px 0;
-    padding: 20px 24px;
+    margin: 20px 0;
+    padding: 18px 22px;
     overflow-x: auto;
-    border-left: 0.5rem solid var(--le-orange);
-    border-radius: 0;
-    background-color: var(--le-code-bg);
-    color: #fff;
+    border: 1px solid var(--le-code-border);
+    border-left: 4px solid var(--le-orange);
+    background-color: var(--le-graphite);
+    box-shadow: var(--le-code-shadow);
+    color: #e8eaed;
     font-family: var(--vp-font-family-mono);
     font-size: 14px;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 .vp-doc pre.vue-container > code {
@@ -389,18 +716,17 @@
 }
 
 .vp-doc pre.vue-container p > code {
-    padding: 2px 5px;
+    padding: 1px 6px;
     border: 0;
-    border-radius: 3px;
     background-color: var(--le-orange);
-    font-size: 0.85em;
-    font-weight: 700;
+    font-size: 0.9em;
+    font-weight: 500;
     white-space: pre;
-    color: #000;
+    color: #1d2733;
 }
 
 .vp-doc pre.vue-container em {
-    color: #adadad;
+    color: rgba(255, 255, 255, 0.45);
 }
 
 /* Numbered step markers */
@@ -409,12 +735,22 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 1.6rem;
-    height: 1.6rem;
-    margin-right: 5px;
-    border-radius: 100%;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 6px;
+    border: 1px solid #d9900f;
     background: var(--le-orange);
-    color: #fff;
-    font-size: 14px;
-    font-weight: 700;
+    color: #1d2733;
+    font-family: var(--vp-font-family-mono);
+    font-size: 12.5px;
+    font-weight: 500;
+    vertical-align: 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+    }
 }

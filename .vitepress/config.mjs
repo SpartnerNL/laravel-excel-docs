@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { defineConfig } from 'vitepress';
 import container from 'markdown-it-container';
+import codeTheme from './code-theme.mjs';
 import llmstxt, { copyOrDownloadAsMarkdownButtons } from 'vitepress-plugin-llms';
 import sidebar4x from './sidebar/4.x.mjs';
 import sidebar31 from './sidebar/3.1.mjs';
@@ -70,10 +71,10 @@ export default defineConfig({
 
     markdown: {
         lineNumbers: true,
-        // Dark code blocks in both modes, close to the old Prism Tomorrow + Material colours.
+        // Dark code blocks in both modes, in the Laravel Excel palette.
         theme: {
-            light: 'material-theme-darker',
-            dark: 'material-theme-darker',
+            light: codeTheme,
+            dark: codeTheme,
         },
         config(md) {
             // File trees: `::: vue` blocks render as a preformatted block, with inline code highlighted.
@@ -109,22 +110,24 @@ export default defineConfig({
 
         nav: [
             {
-                text: 'Version',
-                items: [
-                    {
-                        items: [
-                            { text: 'LE 4.x', link: '/4.x/getting-started/' },
-                            { text: 'LE 3.1', link: '/3.1/getting-started/' },
-                            { text: 'LE 3.0', link: '/3.0/getting-started/' },
-                            { text: 'LE 2.1', link: '/2.1/getting-started/' },
-                        ],
-                    },
-                    {
-                        items: [
-                            { text: 'Nova 1.x', link: '/nova/1.x/getting-started/' },
-                        ],
-                    },
-                ],
+                component: 'VersionSwitcher',
+                props: {
+                    versions: [
+                        {
+                            items: [
+                                { text: 'Laravel Excel 4.x', label: 'v4.x', prefix: '/4.x/', link: '/4.x/getting-started/' },
+                                { text: 'Laravel Excel 3.1', label: 'v3.1', prefix: '/3.1/', link: '/3.1/getting-started/' },
+                                { text: 'Laravel Excel 3.0', label: 'v3.0', prefix: '/3.0/', link: '/3.0/getting-started/' },
+                                { text: 'Laravel Excel 2.1', label: 'v2.1', prefix: '/2.1/', link: '/2.1/getting-started/' },
+                            ],
+                        },
+                        {
+                            items: [
+                                { text: 'Laravel Nova Excel 1.x', label: 'Nova 1.x', prefix: '/nova/1.x/', link: '/nova/1.x/getting-started/' },
+                            ],
+                        },
+                    ],
+                },
             },
             { text: 'Commercial Support', link: 'https://laravel-excel.com/commercial-support' },
             { text: 'Blog', link: 'https://medium.com/spartner/laravel-excel/home' },
