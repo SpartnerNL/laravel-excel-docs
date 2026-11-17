@@ -13,7 +13,7 @@ import sidebarNova1x from './sidebar/nova-1.x.mjs';
 const hostname = 'https://docs.laravel-excel.com';
 const description = 'Supercharged Excel exports and imports in Laravel';
 
-// Older versions keep their per-page Markdown, but stay out of llms.txt / llms-full.txt and search.
+// Older versions keep their per-page Markdown, but stay out of llms.txt / llms-full.txt.
 const legacyVersions = ['2.1/**', '3.0/**', '3.1/**', 'csv/**'];
 
 export default defineConfig({
@@ -22,6 +22,18 @@ export default defineConfig({
     lang: 'en-US',
 
     srcExclude: ['README.md'],
+
+    // Local search keeps one index per locale, so every version root gets its own index and
+    // the search box only returns results for the version being read. Everything else
+    // (the home page and 4.x) falls in the root index.
+    locales: {
+        root: { label: 'Laravel Excel 4.x' },
+        '3.1': { label: 'Laravel Excel 3.1' },
+        '3.0': { label: 'Laravel Excel 3.0' },
+        '2.1': { label: 'Laravel Excel 2.1' },
+        csv: { label: 'Laravel Excel CSV' },
+        nova: { label: 'Laravel Excel Nova' },
+    },
     lastUpdated: true,
 
     sitemap: {
@@ -152,18 +164,11 @@ export default defineConfig({
             text: 'Help us improve this page!',
         },
 
+        // Locales are only used to give every version its own search index; no language switcher.
+        i18nRouting: false,
+
         search: {
             provider: 'local',
-            options: {
-                // Only the current versions are searchable, like the old Algolia index.
-                _render(src, env, md) {
-                    if (!/^(4\.x|nova\/1\.x)\//.test(env.relativePath)) {
-                        return '';
-                    }
-
-                    return md.render(src, env);
-                },
-            },
         },
     },
 });
