@@ -96,6 +96,10 @@ HeadingRowFormatter::extend('custom', function($value) {
 });
 ```
 
+::: warning
+Custom formatters receive raw, user-controlled header cell values, and the returned values become the keys of each imported row. Do not pass them unvalidated into Eloquent mass assignment (`fill`, `create`, `update`), query builder column names or other database sinks. Whitelist or map headings to known columns instead.
+:::
+
 You can set the custom formatter in `config/excel.php`.
 
 ```php
